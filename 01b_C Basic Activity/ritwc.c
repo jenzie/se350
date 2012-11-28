@@ -18,14 +18,22 @@ int main() {
 	int tot_lines = 0 ;	/* total lines */
 	int tot_words = 0 ;	/* total words */
 	int nchar ; /* next character read */
+	int wasSpace = 0; /* was last character a whitespace? */
 
 	while((nchar = getchar()) != EOF) {
-		if(isspace(nchar) && nchar != '\n')
-			++tot_words;
-		else if(nchar == '\n')
-			++tot_lines;
+		if(isspace(nchar)) {
+			if(nchar == '\n')
+				++tot_lines;
+			if(!wasSpace)
+				++tot_words;
+			wasSpace = 1;
+		} else
+			wasSpace = 0;
+		if(ispunct(nchar) && wasSpace)
+			--tot_words;
 		++tot_chars;
 	}
+
 	printf("%d %d %d\n",tot_lines, tot_words, tot_chars);
 
 	return 0 ;
