@@ -1,6 +1,5 @@
 /**
 author: Jenny Zhen
-		
 date: 11.28.12
 language: C
 assignment: Word Count
@@ -21,12 +20,11 @@ int main() {
 	int nchar ; /* next character read */
 
 	while((nchar = getchar()) != EOF) {
-		if(isspace(nchar))
+		if(isspace(nchar) && nchar != '\n')
 			++tot_words;
 		else if(nchar == '\n')
 			++tot_lines;
-		else if(!isspace(nchar) && (nchar != '\n'))
-			++tot_chars;
+		++tot_chars;
 	}
 	printf("%d %d %d\n",tot_lines, tot_words, tot_chars);
 
