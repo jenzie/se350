@@ -32,12 +32,13 @@ int main() {
 	int nchar ; /* next character read */
 	int curr_count = 0; /* count for current letter */
 	int max_count = 0; /* highest frequency of letter */
-	int i, j, k;
+	int i, j, k; /* counters */
 
 
 	/* assign getchar() to nchar, loop until end of file */
 	while((nchar = getchar()) != EOF) {
 		if(isalpha(nchar)) {
+			/* convert to uppercase, increment count in array */
 			nchar = toupper(nchar);
 			count[nchar - A_VALUE] += 1;
 		}
@@ -60,6 +61,7 @@ int main() {
 	for(k = 0; k < NLETTERS; k++) {
 		/* print out the letter value */
 		printf("%c ", (A_VALUE + k));
+		/* print out the asterisks */
 		print_stars( count[k] );
 		printf("\n");
 	}
@@ -71,7 +73,7 @@ int main() {
  */
 
 void print_stars( int ns ) {
-	int m;
+	int m; /* counter */
 
 	/* print out the asterisks */
 	for(m = 0; m < ns; m++)
