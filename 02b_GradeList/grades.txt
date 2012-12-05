@@ -1,0 +1,5 @@
+Jones 70
+Ziegler 85
+Adams 75
+Morris 90
+Samuels 80
