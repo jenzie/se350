@@ -1,17 +1,17 @@
 #!/usr/bin/make
 #
-# Makefile for grade_list
+# Makefile for test_pointers
 #
 # Author: Jenny Zhen
 
-grade_list: grade_list.o
-	gcc grade_list.o -o grade_list
+test_pointers: test_pointers.o
+	gcc test_pointers.o -o test_pointers
 
-grade_list.o: grade_list.c
-	gcc -c grade_list.c
+test_pointers.o: main.c
+	gcc -c main.c
 
 clean:
-	rm -f *~ *.o grade_list
+	rm -f *~ *.o test_pointers
 
 run:
-	./grade_list grades.txt
+	./test_pointers

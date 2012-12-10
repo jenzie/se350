@@ -1,3 +1,24 @@
+/**
+author: Jenny Zhen
+date: 12.10.12
+language: C
+assignment: CPointers
+	C pointer activity to pass variables by pointers.
+	http://www.se.rit.edu/~se350/Class_Activities/05_Pointers/C%20Pointer%20Activity.html
+
+	Input format:
+	C$I$D$
+
+	where
+		C is a single character.
+		I is a string of characters representing a legal decimal integer.
+		D is a string of characters reprsenting a double precision number.
+		$ is the literal dollar sign character; delimiter.
+
+	Example
+	W$1349$1.414$
+*/
+
 /*
  * Interface to the read_data module.
  *
@@ -41,6 +62,6 @@
 #ifndef READ_DATA_H
 #define READ_DATA_H
 
-extern void read_data( /* you fill in the parameter declarations */ ) ;
+extern void read_data(char input[]) ;
 
 #endif
