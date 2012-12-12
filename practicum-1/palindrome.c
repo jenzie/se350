@@ -65,7 +65,6 @@ int is_palindrome(char line[]) {
 		if( left != right && left + 1 != right ) {
 			left = advance( left, right, line );
 			right = retreat( right, line );
-			printf("left: %c right: %c\n", line[left], line[right]);
 		}
 		// midpoint cases
 		else if( left == right ) {
