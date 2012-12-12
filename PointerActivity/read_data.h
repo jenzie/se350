@@ -17,6 +17,12 @@ assignment: CPointers
 
 	Example
 	W$1349$1.414$
+	
+	To Run:
+	make
+	make run
+	W$1349$1.414$
+	Ctrl + D
 */
 
 /*
@@ -62,6 +68,6 @@ assignment: CPointers
 #ifndef READ_DATA_H
 #define READ_DATA_H
 
-extern void read_data(char input[]) ;
+extern void read_data(char *C, int *I, double *D) ;
 
 #endif

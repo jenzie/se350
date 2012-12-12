@@ -17,6 +17,12 @@ assignment: CPointers
 
 	Example
 	W$1349$1.414$
+	
+	To Run:
+	make
+	make run
+	W$1349$1.414$
+	Ctrl + D
 */
 
 /*
@@ -40,25 +46,16 @@ assignment: CPointers
 
 #include "read_data.h"
 
-#define MAXINPUT (100) /* maximum number of input characters */
-
 int main() {
-	char *C ; /* pointer for the character */
-	int *I ; /* pointer for the integer */
-	double *D ; /* pointer for the double */
-	int nchar ; /* next character read */
-	char input[MAXINPUT + 1] ; /* array of characters representing the input */
-	int i = 0; /* counter */
-
-	/* store input in char array */
-	while((nchar = getchar()) != EOF) {
-		input[i] = nchar ;
-		i++;
-	}
-
+	char C ; /* pointer for the character */
+	int I ; /* pointer for the integer */
+	double D ; /* pointer for the double */
+	
 	/* read the input and get address to associated values */
-	read_data(input);
+	read_data(&C, &I, &D);
 
+	/* print out associated values retrieved from read_data() */
+	printf("\nc: %c\ni: %d\nd: %g\n", C, I, D);
 
 	return 0 ;
 }

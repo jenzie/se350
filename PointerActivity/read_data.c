@@ -17,6 +17,12 @@ assignment: CPointers
 
 	Example
 	W$1349$1.414$
+	
+	To Run:
+	make
+	make run
+	W$1349$1.414$
+	Ctrl + D
 */
 
 /*
@@ -35,25 +41,42 @@ assignment: CPointers
 
 #include "read_data.h"
 
-void read_data(char input[]) {
-	int i = 0, j = 0 ; /* index */
-	char C ; /* local variable for the character */
-	int I ; /* local variable for the integer */
-	double D ; /* local variable for the double */
-	char delimiter = '$'; /* delimiter to separate input values */
+#define MAXINPUT (100) /* maximum number of input characters */
 
+/* char *input is a C string*/
+void read_data(char *C, int *I, double *D) {
+	int i = 0, c = 0 ; /* indices for input array and temp array */
+	char delimiter = '$'; /* delimiter to separate input values */
+	int nchar ; /* next character read */
+	char input[MAXINPUT + 1] ; /* array of characters representing the input */
+	char temp1[MAXINPUT + 1], temp2[MAXINPUT + 1]; /* temporary array of characters to convert */
+
+	/* store input in char array */
+	while((nchar = getchar()) != EOF) {
+		input[i] = nchar ;
+		i++;
+	}
+	
 	/* check if the first char in input is followed by delimiter */
-	if(strcmp(input[1], delimiter) == 0) {
+	i = 1;
+	if(input[i] == delimiter) {
 		/* store first char */
-		char C = input[i];
-		i++;	j = i;
+		*C = input[i - 1];
+		i++;
 	}
 
 	/* loop through input array until end delimiter is found */
-	while(strcmp(input[j], delimiter) != 0)
-		j++;
-
-	I = atoi();
-
-	return ;
+	while(input[i] != delimiter) {
+		temp1[c] = input[i];
+		i++;	c++;
+	}
+	*I = atoi(temp1); /* found integer */
+	i++;	c = 0;
+	
+	/* loop through input array until end delimiter is found */
+	while(input[i] != delimiter) {
+		temp2[c] = input[i];
+		i++;	c++;
+	}
+	*D = atof(temp2); /* found double */
 }
