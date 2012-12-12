@@ -53,18 +53,28 @@ int main() {
  */
 
 int is_palindrome(char line[]) {
-	int left = 0, right = strlen(line); /* left and right indices */
-	int mid1 = -1, mid2 = -1;
+	int left = 0, right = sizeof(line) / sizeof(char);
 
-	if( right % 2 == 0 ) {
-		mid1 = right / 2 - 1;
-		mid2 = right / 2;
-	} else
-		mid1 = right / 2;
+	// find intitial left and right indices of valid letters
+	printf("\nleft: %c right: %c\n", line[left], line[right]);
+	right = retreat( right, line );
+	left = advance( left, right, line );
+	printf("left: %c right: %c\n", line[left], line[right]);
 
-
-	printf("%d %d", mid1, mid2);
-
+	while( line[ left ] == line[ right ] ) {
+		if( left != right && left + 1 != right ) {
+			left = advance( left, right, line );
+			right = retreat( right, line );
+			printf("left: %c right: %c\n", line[left], line[right]);
+		}
+		// midpoint cases
+		else if( left == right ) {
+			return line[ left ] == line [ right ];
+		}
+		else if( left +1 == right ) {
+			return line[ left ] == line [ right ];
+	}
+	
 	return 0 ;    /* not a palindrome */
 }
 
