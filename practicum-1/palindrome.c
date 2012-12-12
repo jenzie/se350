@@ -73,6 +73,7 @@ int is_palindrome(char line[]) {
 		}
 		else if( left +1 == right ) {
 			return line[ left ] == line [ right ];
+		}
 	}
 	
 	return 0 ;    /* not a palindrome */
