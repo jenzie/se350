@@ -46,15 +46,24 @@ int main() {
 
 
 /*
- * Check the provided line for a palindrome using adavnce() to 
+ * Check the provided line for a palindrome using advance() to 
  * move the left index from start of line and retreat() to move
  * the right index from the end of the line.
  * Returns 0 if not a palindrome, 1 if a valid palindrome
  */
 
 int is_palindrome(char line[]) {
+	int left = 0, right = strlen(line); /* left and right indices */
+	int mid1 = -1, mid2 = -1;
 
-	/* YOUR CODE GOES HERE */
+	if( right % 2 == 0 ) {
+		mid1 = right / 2 - 1;
+		mid2 = right / 2;
+	} else
+		mid1 = right / 2;
+
+
+	printf("%d %d", mid1, mid2);
 
 	return 0 ;    /* not a palindrome */
 }
@@ -66,7 +75,8 @@ int is_palindrome(char line[]) {
 
 int advance(int pos, int end, char line[]) {
 	
-	/* YOUR CODE GOES HERE */
+	while( !isalpha( line[pos] ) && pos != end )
+		pos++;
 
 	return pos ;
 }
@@ -78,7 +88,8 @@ int advance(int pos, int end, char line[]) {
 
 int retreat(int pos, char line[]) {
 
-	/* YOUR CODE GOES HERE */
+	while( !isalpha( line[pos] ) && pos != 0 )
+		pos--;
 
 	return pos ;
 }
