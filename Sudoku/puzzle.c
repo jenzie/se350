@@ -110,7 +110,7 @@ void print_puzzle() {
 		
 		// check if it's a 3rd row
 		if( r_index % 3 == 0 )
-			print_dashes()
+			print_dashes() ;
 	}
 }
 
@@ -197,7 +197,7 @@ static void print_dashes() {
  *   After the 3rd, 6th and 9th columns, print " |"
  */
 static void print_row(int row) {
-	int index = 0 ; // index/counter to loop through values in row
+	int index = 1 ; // index/counter to loop through values in row
 	int length = 10 ; // number of values in one row
 	printf("|") ;
 	for( index; index < length; index++ ) {
@@ -205,7 +205,7 @@ static void print_row(int row) {
 			printf("  ") ;
 		else
 			printf(" %c", puzzle[row][index]) ;
-		if( index % 3 == 0 )
+		if( index != 0 && index % 3 == 0 )
 			printf(" |") ;
 	}
 	printf("\n");
