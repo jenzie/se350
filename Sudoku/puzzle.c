@@ -89,17 +89,31 @@ extern void init_puzzle() {
  */
 
 void configure(FILE *puzzle_file) {
-	char r_index, c_index, value; // indices for row/column and the value
+	int line_num = 1 ; // used in case if there is a need to print errors
+	char r_index, c_index, value ; // indices for row/column and the value
 	
-	while( fscanf( puzzle_file, "%c%c%c\n", &r_index, &c_index, &value ) != EOF ) {
-		/*if( r_index < 0 || r_index > 9 || 
-			c_index < 0 || c_index > 9 || 
-			value < 0 || value > 9 ) {
-			*/
-			
+	while( fscanf( puzzle_file, "%c%c%c", &r_index, &c_index, &value ) != EOF ) {
+		// check ranges 
+		if( !in_range(r_index) || !in_range(c_index) || !in_range(value) ) {
+			fprintf( stderr, 
+				"Illegal format in configuration file at line %d", line_num ) ;
+			exit( 1 ) ;
+		}
+		
+		// check if a value is already stored at the location
+		if( puzzle[r_index][c_index] != 0 ) (
+			fprintf( stderr,
+				"Illegal placement in configuration file at line %d", line_num );
+			exit( 1 ) ;
+		}
+		
 		// convert and store as integers
 		puzzle[r_index - '0'][c_index - '0'] = value - '0' ;
 		fixed[r_index - '0'][c_index - '0'] = TRUE ;
+		line_num++;
+		
+		// get rid of any trailing characters for each line
+		do value = fgetc(puzzle_file); while (value != '\n')
 	}
 }
 
@@ -138,14 +152,11 @@ void print_puzzle() {
  */
 
 op_result add_digit(int row, int col, int digit) {
-	/*
-	if( row < 0 || row > 9 || col < 0 || col > 9 )
+	if( !in_range( row ) || !in_range( col ) )
 		return OP_BADARGS ;
-	if( fixed[row][col] == TRUE )
-		return OP_ILLEGAL ;
 	if( puzzle[row][col] != 0 )
 		return OP_OCCUPIED ;
-	*/
+	
 	puzzle[row][col] = digit ;
 	return OP_OK ;
 }
@@ -160,6 +171,12 @@ op_result add_digit(int row, int col, int digit) {
  */
 
 op_result erase_digit(int row, int col) {
+	if( !in_range( row ) || !in_range( col ) )
+		return OP_BADARGS ;
+	if( puzzle[row][col] == 0 )
+		return OP_EMPTY ;
+	if( fixed[row][col] == TRUE )
+		return OP_FIXED ;
 	puzzle[row][col] = 0 ;
 	return OP_OK ;
 }
