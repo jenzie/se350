@@ -15,6 +15,7 @@ assignment: Sudoku (Project01)
 
 #include <stdlib.h>
 #include <stdio.h>
+#include <string.h>
 
 #include "puzzle.h"
 #include "bool.h"
@@ -88,6 +89,18 @@ extern void init_puzzle() {
  */
 
 void configure(FILE *puzzle_file) {
+	char r_index, c_index, value; // indices for row/column and the value
+	
+	while( fscanf( puzzle_file, "%c%c%c\n", &r_index, &c_index, &value ) != EOF ) {
+		/*if( r_index < 0 || r_index > 9 || 
+			c_index < 0 || c_index > 9 || 
+			value < 0 || value > 9 ) {
+			*/
+			
+		// convert and store as integers
+		puzzle[r_index - '0'][c_index - '0'] = value - '0' ;
+		fixed[r_index - '0'][c_index - '0'] = TRUE ;
+	}
 }
 
 /*
@@ -204,7 +217,7 @@ static void print_row(int row) {
 		if( puzzle[row][index] == 0 )
 			printf("  ") ;
 		else
-			printf(" %c", puzzle[row][index]) ;
+			printf(" %d", puzzle[row][index]) ;
 		if( index != 0 && index % 3 == 0 )
 			printf(" |") ;
 	}
