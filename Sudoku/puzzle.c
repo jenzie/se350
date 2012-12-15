@@ -138,6 +138,15 @@ void print_puzzle() {
  */
 
 op_result add_digit(int row, int col, int digit) {
+	/*
+	if( row < 0 || row > 9 || col < 0 || col > 9 )
+		return OP_BADARGS ;
+	if( fixed[row][col] == TRUE )
+		return OP_ILLEGAL ;
+	if( puzzle[row][col] != 0 )
+		return OP_OCCUPIED ;
+	*/
+	puzzle[row][col] = digit ;
 	return OP_OK ;
 }
 
@@ -151,6 +160,7 @@ op_result add_digit(int row, int col, int digit) {
  */
 
 op_result erase_digit(int row, int col) {
+	puzzle[row][col] = 0 ;
 	return OP_OK ;
 }
 
