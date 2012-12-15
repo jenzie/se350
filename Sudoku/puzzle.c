@@ -1,3 +1,10 @@
+/**
+author: Jenny Zhen
+date: 12.16.12
+language: C
+assignment: Sudoku (Project01)
+	http://www.se.rit.edu/~se350/Projects/Project1/Description.html
+*/
 /*
  * Implementation of the The Sudoku puzzle module.
  *
@@ -54,10 +61,19 @@ static void print_row(int row) ;
 
 /*
  * Initialize the puzzle so that (a) all values are zero (free)
- * and (b) non of the values are 'fixed' (uneraseable).
+ * and (b) none of the values are 'fixed' (uneraseable).
  */
 
-extern void init_puzzle()  {
+extern void init_puzzle() {
+	int num_rows = 10, num_cols = 10 ;
+	int r_index = 0, c_index = 0 ;
+	
+	for( r_index; r_index < num_rows; r_index++ ) {
+		for( c_index; c_index < num_cols; c_index++ ) {
+			puzzle[r_index][c_index] = 0 ;
+			fixed[r_index][c_index] = FALSE ;
+		}
+	}
 }
 
 /*
@@ -83,6 +99,19 @@ void configure(FILE *puzzle_file) {
  */
 
 void print_puzzle() {
+	int num_rows = 10, r_index = 1 ;
+
+	// initial row of dashes
+	print_dashes() ;
+	
+	// print each row
+	for( r_index; r_index < num_rows; r_index++ ) {
+		print_row( r_index ) ;
+		
+		// check if it's a 3rd row
+		if( r_index % 3 == 0 )
+			print_dashes()
+	}
 }
 
 /*
@@ -143,6 +172,8 @@ static bool region_contains(int row, int col, int digit) {
  * Return TRUE iff the value is in the Sudoku range (1 .. 9)
  */
 static bool in_range(int value) {
+	if( value < 1 || value > 9 )
+		return FALSE ;
 	return TRUE ;
 }
 
@@ -151,6 +182,10 @@ static bool in_range(int value) {
  * This will line up correctly with the rows with data.
  */
 static void print_dashes() {
+	int num = 25 ; // number of dashes to print
+	for( num; num > 0; num-- )
+		printf("-") ;
+	printf("\n") ;
 }
 
 /*
@@ -162,4 +197,16 @@ static void print_dashes() {
  *   After the 3rd, 6th and 9th columns, print " |"
  */
 static void print_row(int row) {
+	int index = 0 ; // index/counter to loop through values in row
+	int length = 10 ; // number of values in one row
+	printf("|") ;
+	for( index; index < length; index++ ) {
+		if( puzzle[row][index] == 0 )
+			printf("  ") ;
+		else
+			printf(" %c", puzzle[row][index]) ;
+		if( index % 3 == 0 )
+			printf(" |") ;
+	}
+	printf("\n");
 }
