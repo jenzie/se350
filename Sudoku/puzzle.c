@@ -174,6 +174,10 @@ op_result add_digit(int row, int col, int digit) {
 	if( !in_range( row ) || !in_range( col ) || !in_range( digit ) )
 		return OP_BADARGS ;
 		
+	// checking for an existing value
+	if( puzzle[row][col] != 0 )
+		return OP_OCCUPIED ;
+		
 	// checking for duplicate value in row/col
 	if( row_contains( row, digit ) || col_contains( col, digit ) )
 		return OP_ILLEGAL ;
@@ -181,10 +185,6 @@ op_result add_digit(int row, int col, int digit) {
 	// checking for duplicate value in region
 	if( region_contains( row, col, digit ) )
 		return OP_ILLEGAL ;
-		
-	// checking for an existing value
-	if( puzzle[row][col] != 0 )
-		return OP_OCCUPIED ;
 	
 	puzzle[row][col] = digit ;
 	return OP_OK ;
@@ -264,6 +264,9 @@ static bool region_contains(int row, int col, int digit) {
 			if( puzzle[r_index][c_index] == digit )
 				return TRUE ;
 		}
+		
+		// reset the column index before going to the next row
+		c_index = col - ( ( col - 1 ) % 3 ) ;
 	}
 	return FALSE ;
 }
