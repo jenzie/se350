@@ -121,7 +121,13 @@ void configure(FILE *puzzle_file) {
 			exit( 1 ) ;
 		}
 		
-		// passed checks, able to store input into matrices
+		// check if the value is stored within the region
+		if( region_contains( ir_index, ic_index, ivalue ) ) {
+			fprintf( stderr, "Illegal placement in configuration file at line %d\n", line_num );
+			exit( 1 ) ;
+		}
+		
+		// passed all checks; able to store input into matrices
 		puzzle[ir_index][ic_index] = ivalue ;
 		fixed[ir_index][ic_index] = TRUE ;
 		line_num++;
@@ -170,8 +176,12 @@ op_result add_digit(int row, int col, int digit) {
 	if( !in_range( row ) || !in_range( col ) || !in_range( digit ) )
 		return OP_BADARGS ;
 		
-	// checking for duplicate value
+	// checking for duplicate value in row/col
 	if( row_contains( row, digit ) || col_contains( col, digit ) )
+		return OP_ILLEGAL ;
+		
+	// checking for duplicate value in region
+	if( region_contains( row, col, digit ) )
 		return OP_ILLEGAL ;
 		
 	// checking for an existing value
@@ -192,12 +202,18 @@ op_result add_digit(int row, int col, int digit) {
  */
 
 op_result erase_digit(int row, int col) {
+	// checking for out of range arguments
 	if( !in_range( row ) || !in_range( col ) )
 		return OP_BADARGS ;
+		
+	// checking if (row, col) is already empty
 	if( puzzle[row][col] == 0 )
 		return OP_EMPTY ;
+		
+	// checking if value can't be deleted because it's config'd
 	if( fixed[row][col] == TRUE )
 		return OP_FIXED ;
+		
 	puzzle[row][col] = 0 ;
 	return OP_OK ;
 }
@@ -238,6 +254,19 @@ static bool col_contains(int col, int digit) {
  * NOTE: A region is a 3 x 3 square.
  */
 static bool region_contains(int row, int col, int digit) {
+	int r_index = row - ( ( row - 1 ) % 3 ) ; // row to start from
+	int c_index = col - ( ( col - 1 ) % 3 ) ; // col to start from
+	int r_end = row - ( ( row - 1 ) % 3 ) + 2 ; // row to end at
+	int c_end = col - ( ( col - 1 ) % 3 ) + 2 ; // col to end at
+	
+	for( r_index; r_index <= r_end; r_index++ ) {
+		if( puzzle[r_index][col] == digit )
+			return TRUE ;
+	}
+	for( c_index; c_index <= c_end; c_index++ ) {
+		if( puzzle[row][c_index] == digit )
+			return TRUE ;
+	}
 	return FALSE ;
 }
 
