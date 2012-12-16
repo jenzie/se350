@@ -259,13 +259,12 @@ static bool region_contains(int row, int col, int digit) {
 	int r_end = row - ( ( row - 1 ) % 3 ) + 2 ; // row to end at
 	int c_end = col - ( ( col - 1 ) % 3 ) + 2 ; // col to end at
 	
-	for( r_index; r_index <= r_end; r_index++ ) {
-		if( puzzle[r_index][col] == digit )
-			return TRUE ;
-	}
-	for( c_index; c_index <= c_end; c_index++ ) {
-		if( puzzle[row][c_index] == digit )
-			return TRUE ;
+	for( r_index; r_index < r_end + 1; r_index++ ) {
+		for( c_index; c_index < c_end + 1; c_index++ ) {
+			//printf("(%d,%d) indices: %d and %d\n", row, col, r_index, col);
+			if( puzzle[r_index][c_index] == digit )
+				return TRUE ;
+		}
 	}
 	return FALSE ;
 }
