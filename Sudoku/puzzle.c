@@ -116,9 +116,8 @@ void configure(FILE *puzzle_file) {
 		}
 		
 		// check if the value is stored elsewhere in the row or column
-		if( row_contains( ir_index, value ) || col_contains( ic_index, value ) ) {
-			fprintf( stderr, "Illegal placement in configuration \
-				file at line %d\n", line_num );
+		if( row_contains( ir_index, ivalue ) || col_contains( ic_index, ivalue ) ) {
+			fprintf( stderr, "Illegal placement in configuration file at line %d\n", line_num );
 			exit( 1 ) ;
 		}
 		
@@ -168,7 +167,7 @@ void print_puzzle() {
 
 op_result add_digit(int row, int col, int digit) {
 	// checking for out of range arguments
-	if( !in_range( row ) || e!in_range( col ) || !in_range( digit ) )
+	if( !in_range( row ) || !in_range( col ) || !in_range( digit ) )
 		return OP_BADARGS ;
 		
 	// checking for duplicate value
@@ -210,7 +209,7 @@ static bool row_contains(int row, int digit) {
 	int c_cnt = 1, size = 10 ; // column counter, length of row
 	
 	for( c_cnt; c_cnt < size; c_cnt++ ) {
-		if( puzzle[row][c_cnt] == value )
+		if( puzzle[row][c_cnt] == digit )
 			return TRUE ;
 	}
 	return FALSE ;
@@ -223,7 +222,7 @@ static bool col_contains(int col, int digit) {
 	int r_cnt = 1, size = 10 ; // column counter, length of row
 	
 	for( r_cnt; r_cnt < size; r_cnt++ ) {
-		if( puzzle[r_cnt][col] == value )
+		if( puzzle[r_cnt][col] == digit )
 			return TRUE ;
 	}
 	return FALSE ;
