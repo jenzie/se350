@@ -91,7 +91,9 @@ extern void init_puzzle() {
 void configure(FILE *puzzle_file) {
 	int line_num = 1 ; // used in case if there is a need to print errors
 	char r_index, c_index, value ; // indices for row/column and the value
-	int ir_index, ic_index, ivalue;
+	int ir_index, ic_index, ivalue ; // converted input to integers
+	int size = 10 ; // maximum size of a row or column
+	int r_cnt = 1, c_cnt = 1 ; // row/column counters for looping
 	
 	while( fscanf( puzzle_file, "%c%c%c", &r_index, &c_index, &value ) != EOF ) {
 		// convert input values to integers to do range checks
@@ -110,6 +112,13 @@ void configure(FILE *puzzle_file) {
 		if( puzzle[ir_index][ic_index] != 0 ) {
 			fprintf( stderr, 
 				"Illegal placement in configuration file at line %d\n", line_num );
+			exit( 1 ) ;
+		}
+		
+		// check if the value is stored elsewhere in the row or column
+		if( row_contains( ir_index, value ) || col_contains( ic_index, value ) ) {
+			fprintf( stderr, "Illegal placement in configuration \
+				file at line %d\n", line_num );
 			exit( 1 ) ;
 		}
 		
@@ -158,8 +167,15 @@ void print_puzzle() {
  */
 
 op_result add_digit(int row, int col, int digit) {
-	if( !in_range( row ) || !in_range( col ) || !in_range( digit ) )
+	// checking for out of range arguments
+	if( !in_range( row ) || e!in_range( col ) || !in_range( digit ) )
 		return OP_BADARGS ;
+		
+	// checking for duplicate value
+	if( row_contains( row, digit ) || col_contains( col, digit ) )
+		return OP_ILLEGAL ;
+		
+	// checking for an existing value
 	if( puzzle[row][col] != 0 )
 		return OP_OCCUPIED ;
 	
@@ -191,6 +207,12 @@ op_result erase_digit(int row, int col) {
  * Returns TRUE iff the given 'row' has the given 'digit' in it.
  */
 static bool row_contains(int row, int digit) {
+	int c_cnt = 1, size = 10 ; // column counter, length of row
+	
+	for( c_cnt; c_cnt < size; c_cnt++ ) {
+		if( puzzle[row][c_cnt] == value )
+			return TRUE ;
+	}
 	return FALSE ;
 }
 
@@ -198,6 +220,12 @@ static bool row_contains(int row, int digit) {
  * Returns TRUE iff the given 'col' has the given 'digit' in it.
  */
 static bool col_contains(int col, int digit) {
+	int r_cnt = 1, size = 10 ; // column counter, length of row
+	
+	for( r_cnt; r_cnt < size; r_cnt++ ) {
+		if( puzzle[r_cnt][col] == value )
+			return TRUE ;
+	}
 	return FALSE ;
 }
 
