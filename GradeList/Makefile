@@ -5,13 +5,13 @@
 # Author: Jenny Zhen
 
 grade_list: grade_list.o
-	gcc grade_list.o -o grade_list
+	gcc grade_list.o -o grades
 
 grade_list.o: grade_list.c
 	gcc -c grade_list.c
 
 clean:
-	rm -f *~ *.o grade_list
+	rm -f *~ *.o grades
 
 run:
-	./grade_list grades.txt
+	./grades grades.txt
