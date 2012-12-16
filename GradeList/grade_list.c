@@ -88,22 +88,18 @@ static void sort_by_name() {
 	char temp_name[MAXNAME + 1] ; /* name of temporary entry in file */
 	int temp_grade ;	/* grade of temporary entry in file */
 	
-	/* step backwards to sort the list */
-	for(i = numgrades - 1; i > -1; i--) {
-		for(j = 1; j <= i; j++) {
-			/* if they are in the wrong order */
-			if(strcmp(grade_list[j-1].name, grade_list[j].name) > 1) {
-				/* store information to swap, temporarily */
-				strncpy(temp_name, grade_list[j-1].name, MAXNAME + 1);
-				temp_grade = grade_list[j-1].grade;
-				
-				/* do the swap */
-				strncpy(grade_list[j-1].name, grade_list[j].name, MAXNAME + 1);
-				grade_list[j-1].grade = grade_list[j].grade;
-				strncpy(grade_list[j].name, temp_name, MAXNAME + 1);
-				grade_list[j].grade = temp_grade;
-			}
+	// insertion sort
+	for( i = 1; i < numgrades; i++ ) {
+		strncpy( temp_name, grade_list[i].name, MAXNAME + 1 ) ;
+		temp_grade = grade_list[i].grade ;
+		j = i - 1 ;
+		while( strcmp( temp_name, grade_list[j].name ) < 0 && j >= 0 ) {
+			strncpy( grade_list[j+1].name, grade_list[j].name, MAXNAME + 1 ) ;
+			grade_list[j+1].grade = grade_list[j].grade ;
+			j--;
 		}
+		strncpy( grade_list[j+1].name, temp_name, MAXNAME + 1 ) ;
+		grade_list[j+1].grade = temp_grade ;
 	}
 }
 
@@ -113,22 +109,18 @@ static void sort_by_grade() {
 	char temp_name[MAXNAME + 1] ; /* name of temporary entry in file */
 	int temp_grade ;	/* grade of temporary entry in file */
 	
-	/* step backwards to sort the list */
-	for(i = numgrades - 1; i > -1; i--) {
-		for(j = 1; j <= i; j++) {
-			/* if they are in the wrong order */
-			if(grade_list[j-1].grade > grade_list[j].grade) {
-				/* store information to swap, temporarily */
-				strncpy(temp_name, grade_list[j-1].name, MAXNAME + 1);
-				temp_grade = grade_list[j-1].grade;
-				
-				/* do the swap */
-				strncpy(grade_list[j-1].name, grade_list[j].name, MAXNAME + 1);
-				grade_list[j-1].grade = grade_list[j].grade;
-				strncpy(grade_list[j].name, temp_name, MAXNAME + 1);
-				grade_list[j].grade = temp_grade;
-			}
+	// insertion sort
+	for( i = 1; i < numgrades; i++ ) {
+		strncpy( temp_name, grade_list[i].name, MAXNAME + 1 ) ;
+		temp_grade = grade_list[i].grade ;
+		j = i - 1 ;
+		while( temp_grade < grade_list[j].grade && j >= 0 ) {
+			strncpy( grade_list[j+1].name, grade_list[j].name, MAXNAME + 1 ) ;
+			grade_list[j+1].grade = grade_list[j].grade ;
+			j--;
 		}
+		strncpy( grade_list[j+1].name, temp_name, MAXNAME + 1 ) ;
+		grade_list[j+1].grade = temp_grade ;
 	}
 }
 
