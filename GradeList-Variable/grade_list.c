@@ -88,6 +88,7 @@ static void sort_by_name() {
 	char temp_name[MAXNAME + 1] ; /* name of temporary entry in file */
 	int temp_grade ;	/* grade of temporary entry in file */
 	
+	// insertion sort
 	for( i = 1; i < numgrades; i++ ) {
 		strncpy( temp_name, grade_list[i].name, MAXNAME + 1 ) ;
 		temp_grade = grade_list[i].grade ;
@@ -108,6 +109,7 @@ static void sort_by_grade() {
 	char temp_name[MAXNAME + 1] ; /* name of temporary entry in file */
 	int temp_grade ;	/* grade of temporary entry in file */
 	
+	// insertion sort
 	for( i = 1; i < numgrades; i++ ) {
 		strncpy( temp_name, grade_list[i].name, MAXNAME + 1 ) ;
 		temp_grade = grade_list[i].grade ;
