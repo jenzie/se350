@@ -66,8 +66,8 @@ static void print_row(int row) ;
  */
 
 extern void init_puzzle() {
-	int num_rows = 10, num_cols = 10 ;
-	int r_index = 0, c_index = 0 ;
+	int num_rows = 10, num_cols = 10 ; // maximum number of rows/columns
+	int r_index = 0, c_index = 0 ; // counters
 	
 	for( r_index; r_index < num_rows; r_index++ ) {
 		for( c_index; c_index < num_cols; c_index++ ) {
@@ -92,8 +92,6 @@ void configure(FILE *puzzle_file) {
 	int line_num = 1 ; // used in case if there is a need to print errors
 	char r_index, c_index, value ; // indices for row/column and the value
 	int ir_index, ic_index, ivalue ; // converted input to integers
-	int size = 10 ; // maximum size of a row or column
-	int r_cnt = 1, c_cnt = 1 ; // row/column counters for looping
 	
 	while( fscanf( puzzle_file, "%c%c%c", &r_index, &c_index, &value ) != EOF ) {
 		// convert input values to integers to do range checks
@@ -224,6 +222,7 @@ op_result erase_digit(int row, int col) {
 static bool row_contains(int row, int digit) {
 	int c_cnt = 1, size = 10 ; // column counter, length of row
 	
+	// check each column in the row
 	for( c_cnt; c_cnt < size; c_cnt++ ) {
 		if( puzzle[row][c_cnt] == digit )
 			return TRUE ;
@@ -237,6 +236,7 @@ static bool row_contains(int row, int digit) {
 static bool col_contains(int col, int digit) {
 	int r_cnt = 1, size = 10 ; // column counter, length of row
 	
+	// check each row in the column
 	for( r_cnt; r_cnt < size; r_cnt++ ) {
 		if( puzzle[r_cnt][col] == digit )
 			return TRUE ;
@@ -261,7 +261,6 @@ static bool region_contains(int row, int col, int digit) {
 	
 	for( r_index; r_index < r_end + 1; r_index++ ) {
 		for( c_index; c_index < c_end + 1; c_index++ ) {
-			//printf("(%d,%d) indices: %d and %d\n", row, col, r_index, col);
 			if( puzzle[r_index][c_index] == digit )
 				return TRUE ;
 		}
@@ -300,6 +299,7 @@ static void print_dashes() {
 static void print_row(int row) {
 	int index = 1 ; // index/counter to loop through values in row
 	int length = 10 ; // number of values in one row
+	
 	printf("|") ;
 	for( index; index < length; index++ ) {
 		if( puzzle[row][index] == 0 )
