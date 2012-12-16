@@ -91,29 +91,35 @@ extern void init_puzzle() {
 void configure(FILE *puzzle_file) {
 	int line_num = 1 ; // used in case if there is a need to print errors
 	char r_index, c_index, value ; // indices for row/column and the value
+	int ir_index, ic_index, ivalue;
 	
 	while( fscanf( puzzle_file, "%c%c%c", &r_index, &c_index, &value ) != EOF ) {
+		// convert input values to integers to do range checks
+		ir_index = r_index - '0' ;
+		ic_index = c_index - '0' ;
+		ivalue = value - '0' ;
+		
 		// check ranges 
-		if( !in_range(r_index) || !in_range(c_index) || !in_range(value) ) {
+		if( !in_range(ir_index) || !in_range(ic_index) || !in_range(ivalue) ) {
 			fprintf( stderr, 
-				"Illegal format in configuration file at line %d", line_num ) ;
+				"Illegal format in configuration file at line %d\n", line_num ) ;
 			exit( 1 ) ;
 		}
 		
 		// check if a value is already stored at the location
-		if( puzzle[r_index][c_index] != 0 ) (
-			fprintf( stderr,
-				"Illegal placement in configuration file at line %d", line_num );
+		if( puzzle[ir_index][ic_index] != 0 ) {
+			fprintf( stderr, 
+				"Illegal placement in configuration file at line %d\n", line_num );
 			exit( 1 ) ;
 		}
 		
-		// convert and store as integers
-		puzzle[r_index - '0'][c_index - '0'] = value - '0' ;
-		fixed[r_index - '0'][c_index - '0'] = TRUE ;
+		// passed checks, able to store input into matrices
+		puzzle[ir_index][ic_index] = ivalue ;
+		fixed[ir_index][ic_index] = TRUE ;
 		line_num++;
 		
 		// get rid of any trailing characters for each line
-		do value = fgetc(puzzle_file); while (value != '\n')
+		do value = fgetc(puzzle_file); while (value != '\n');
 	}
 }
 
@@ -152,7 +158,7 @@ void print_puzzle() {
  */
 
 op_result add_digit(int row, int col, int digit) {
-	if( !in_range( row ) || !in_range( col ) )
+	if( !in_range( row ) || !in_range( col ) || !in_range( digit ) )
 		return OP_BADARGS ;
 	if( puzzle[row][col] != 0 )
 		return OP_OCCUPIED ;
