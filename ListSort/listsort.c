@@ -18,15 +18,15 @@ assignment: Linked List
 #include <stdlib.h>
 #include <stdio.h>
 
-typedef struct node {
+struct node {
 	int value ;
 	struct node *next ;
 } ;
 
 extern struct node *mk_node(int v) ;
-extern void print_list(node *head) ;
-extern struct node *sort_list(node *head) ;
-extern void free_list(node *head) ;
+extern void print_list(struct node *head) ;
+extern struct node *sort_list(struct node *head) ;
+extern void free_list(struct node *head) ;
 
 /*
  * Arrays of integers terminated with a zero.
@@ -61,8 +61,8 @@ char *test_name[] = { "empty", "one value", "two value", "general", NULL } ;
  */
 
 int main() {
-	node *head ;	/* head of the current list */
-	node *curp ;	/* current node inserted in list */
+	struct node *head ;	/* head of the current list */
+	struct node *curp ;	/* current node inserted in list */
 
 	int *cur_test ;		/* current array of test values */
 
@@ -112,18 +112,18 @@ int main() {
  */
 
 struct node *mk_node(int v) {
-	node *np = (node *) malloc( sizeof( node ) ) ;
-	np->value = (int *) malloc( sizeof( int ) ) ;
-	np->next = NULL ;
-	return np ;
+	struct node *temp = malloc( sizeof( struct node ) ) ;
+	temp->value = v ;
+	temp->next = NULL ;
+	return temp ;
 }
 
 /*
  * Print the list headed by 'head', one value per line.
  */
 
-void print_list(node *head) {
-	node *temp_ptr = head ;
+void print_list(struct node *head) {
+	struct node *temp_ptr = head ;
 
 	// loop until end of list
 	while( temp_ptr != NULL ) {
@@ -137,8 +137,13 @@ void print_list(node *head) {
  * that ends up at the head of the list.
  */
 
-struct node *sort_list(node *head) {
-
+struct node *sort_list(struct node *head) {
+	/*
+	"swap(x,y)"
+	temp = x ;
+	x = y ;
+	y = temp ;
+	*/
 	return head ;
 }
 
@@ -146,13 +151,21 @@ struct node *sort_list(node *head) {
  * Free all the nodes in the list headed by 'head'.
  */
 
-void free_list(node *head) {
-	node *temp_ptr = head ;
+void free_list(struct node *head) {
+	if( head == NULL )
+		return ;
 
-	// reverse deallocate memory
-	if( temp_ptr != NULL ) {
-		head = temp_ptr->next ;
-		head->value = NULL ;
+	struct node *temp_ptr = head->next ; // the next node after head
+
+	// should've reverse deallocate memory
+	while( temp_ptr != NULL ) {
+		printf("free: %d\n", head->value);
+		head->value = 0 ;
 		free( head ) ;
+		head = temp_ptr ;
+		temp_ptr = temp_ptr->next ;
 	}
+	printf("free: %d\n", head->value);
+	head->value = 0 ;
+	free( head ) ;
 }
