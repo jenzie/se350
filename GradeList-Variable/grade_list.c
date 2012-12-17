@@ -1,10 +1,10 @@
 /**
 author: Jenny Zhen
-date: 12.05.12
+date: 12.13.12
 language: C
-assignment: GradeList
-	Computes the average and median for a list of grades.
-	http://www.se.rit.edu/~se350/Class_Activities/03_C_Structs_etc/Grades/GradeList.html
+assignment: GradeList-Variable
+	Computes the average and median for a list of grades, using a dynamic array.
+	http://www.se.rit.edu/~se350/Class_Activities/05_Pointers/DynamicGrades/GradeList.html
 */
 
 #include <stdlib.h>
@@ -22,7 +22,7 @@ static void sort_by_grade() ;
 
 /* list of grade entries */
 struct grade_entry {
-    char name[MAXNAME + 1] ;
+    char *name ;
     int grade ;
 } ;
 
@@ -50,11 +50,12 @@ int main(int argc, char ** argv) {
 
 	/* pass in the address of "grade" */
 	while(fscanf(inputF, "%s %d", i_name, &i_grade) != EOF) {
-		i_name[0] = toupper(i_name[0]);
-		struct grade_entry entry;
-		strncpy(entry.name, i_name, MAXNAME + 1);
+		i_name[0] = toupper(i_name[0]) ;
+		struct grade_entry entry ;
+		entry.name = calloc( strlen( i_name ) + 1, sizeof( char ) ) ;
+		strncpy(entry.name, i_name, strlen( i_name ) ) ;
 		entry.grade = i_grade ;
-		grade_list[numgrades] = entry;
+		grade_list[numgrades] = entry ;
 		numgrades++ ;
 	}
 
@@ -85,20 +86,20 @@ static void print_grades() {
 /* sorts the list by name lexicographically using bubble sort */
 static void sort_by_name() {
 	int i, j; /* counter */
-	char temp_name[MAXNAME + 1] ; /* name of temporary entry in file */
+	char *temp_name ; /* name of temporary entry in file */
 	int temp_grade ;	/* grade of temporary entry in file */
 	
 	// insertion sort
-	for( i = 1; i < numgrades; i++ ) {
-		strncpy( temp_name, grade_list[i].name, MAXNAME + 1 ) ;
+	for( i = 0; i < numgrades; i++ ) {
+		temp_name = grade_list[i].name ;
 		temp_grade = grade_list[i].grade ;
-		j = i - 1 ;
-		while( strcmp( temp_name, grade_list[j].name ) < 0 && j >= 0 ) {
-			strncpy( grade_list[j+1].name, grade_list[j].name, MAXNAME + 1 ) ;
+		
+		for( j = i - 1; j >= 0; j-- ) {
+			if( strcmp( grade_list[j].name, temp_name ) < 0 ) break ;
+			grade_list[j+1].name = grade_list[j].name ;
 			grade_list[j+1].grade = grade_list[j].grade ;
-			j--;
 		}
-		strncpy( grade_list[j+1].name, temp_name, MAXNAME + 1 ) ;
+		grade_list[j+1].name = temp_name ;
 		grade_list[j+1].grade = temp_grade ;
 	}
 }
@@ -106,20 +107,20 @@ static void sort_by_name() {
 /* sorts the list by grade, in increasing order, using bubble sort */
 static void sort_by_grade() {
 	int i, j; /* counter */
-	char temp_name[MAXNAME + 1] ; /* name of temporary entry in file */
+	char *temp_name ; /* name of temporary entry in file */
 	int temp_grade ;	/* grade of temporary entry in file */
 	
 	// insertion sort
-	for( i = 1; i < numgrades; i++ ) {
-		strncpy( temp_name, grade_list[i].name, MAXNAME + 1 ) ;
+	for( i = 0; i < numgrades; i++ ) {
+		temp_name = grade_list[i].name ;
 		temp_grade = grade_list[i].grade ;
-		j = i - 1 ;
-		while( temp_grade < grade_list[j].grade && j >= 0 ) {
-			strncpy( grade_list[j+1].name, grade_list[j].name, MAXNAME + 1 ) ;
+		
+		for( j= i - 1; j >= 0; j-- ) {
+			if( grade_list[j].grade < temp_grade ) break ;
+			grade_list[j+1].name = grade_list[j].name ;
 			grade_list[j+1].grade = grade_list[j].grade ;
-			j--;
 		}
-		strncpy( grade_list[j+1].name, temp_name, MAXNAME + 1 ) ;
+		grade_list[j+1].name = temp_name ;
 		grade_list[j+1].grade = temp_grade ;
 	}
 }
@@ -141,4 +142,11 @@ int calcMedian(struct grade_entry grade_list[], int numgrades) {
 		return (double) grade_list[numgrades / 2].grade ;
 	if(numgrades % 2 == 0)
 		return (double) (grade_list[(numgrades / 2) - 1].grade + grade_list[numgrades / 2].grade) / 2.0 ;
+}
+
+/* returns the minimum of the two */
+int min(int a, int b) {
+	if( a < b )
+		return a ;
+	return b ;
 }
