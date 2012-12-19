@@ -138,13 +138,27 @@ void print_list(struct node *head) {
  */
 
 struct node *sort_list(struct node *head) {
-	/*
-	"swap(x,y)"
-	temp = x ;
-	x = y ;
-	y = temp ;
-	*/
-	return head ;
+	if(head == NULL)
+		return ;
+	
+	struct node *temp_ptr = head;
+	struct node *tempnxt_ptr = head->next;
+	int temp_value;
+	
+	// insertion sort
+	while( tempnxt_ptr != NULL ) {
+		while( tempnxt_ptr != temp_ptr ) {
+			if( tempnxt_ptr->value < temp_ptr->value ) {
+				temp_value = temp_ptr->value;
+				temp_ptr->value = tempnxt_ptr->value;
+				tempnxt_ptr->value = temp_value;
+			}
+			temp_ptr = temp_ptr->next;
+		}
+		temp_ptr = head;
+		tempnxt_ptr = tempnxt_ptr->next;
+	}
+	return temp_ptr ;
 }
 
 /*
@@ -159,13 +173,13 @@ void free_list(struct node *head) {
 
 	// should've reverse deallocate memory
 	while( temp_ptr != NULL ) {
-		printf("free: %d\n", head->value);
+		// printf("free: %d\n", head->value);
 		head->value = 0 ;
 		free( head ) ;
 		head = temp_ptr ;
 		temp_ptr = temp_ptr->next ;
 	}
-	printf("free: %d\n", head->value);
+	// printf("free: %d\n", head->value);
 	head->value = 0 ;
 	free( head ) ;
 }
