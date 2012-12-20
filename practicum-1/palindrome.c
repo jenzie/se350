@@ -53,24 +53,30 @@ int main() {
  */
 
 int is_palindrome(char line[]) {
-	int left = 0, right = sizeof(line) / sizeof(char);
+	int left = 0, right = strlen(line) - 1;
 
 	// find intitial left and right indices of valid letters
-	printf("\nleft: %c right: %c\n", line[left], line[right]);
+	fprintf(stderr,"\nleft: %c right: %c\n", line[left], line[right]);
 	right = retreat( right, line );
 	left = advance( left, right, line );
-	printf("left: %c right: %c\n", line[left], line[right]);
+	fprintf(stderr,"left: %c right: %c\n", line[left], line[right]);
 
-	while( line[ left ] == line[ right ] ) {
+	while( tolower(line[ left ]) == tolower(line[ right ]) ) {
+		fprintf(stderr,"left: %d %c right: %d %c\n", left, line[left], right, line[right]);
 		if( left != right && left + 1 != right ) {
+			fprintf(stderr, "adv/ret\n");
+			left++; // advance before checking if it's an alpha
+			right--;  // retreat before checking if it's an alpha
 			left = advance( left, right, line );
 			right = retreat( right, line );
 		}
 		// midpoint cases
 		else if( left == right ) {
+			fprintf(stderr, "left=right\n");
 			return line[ left ] == line [ right ];
 		}
 		else if( left +1 == right ) {
+			fprintf(stderr, "left+1 = right\n");
 			return line[ left ] == line [ right ];
 		}
 	}
@@ -85,7 +91,8 @@ int is_palindrome(char line[]) {
 
 int advance(int pos, int end, char line[]) {
 	
-	while( !isalpha( line[pos] ) && pos != end )
+	
+	while( !isalpha( line[pos] ) && pos < end )
 		pos++;
 
 	return pos ;
@@ -98,7 +105,7 @@ int advance(int pos, int end, char line[]) {
 
 int retreat(int pos, char line[]) {
 
-	while( !isalpha( line[pos] ) && pos != 0 )
+	while( !isalpha( line[pos] ) && pos > 0 )
 		pos--;
 
 	return pos ;
