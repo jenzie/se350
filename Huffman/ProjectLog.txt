@@ -1,0 +1,26 @@
+Level #1 -convert the histogram code to Produce the histogram.
+    
+    < For each level list the tasks that need to be completed >
+    < Estimate the time to complete this level >
+    < Record the actual hours when complete >
+
+Initial estimate =
+Actual time = 
+
+Level #2 (after task #1 completed) - traverse the sorted list:
+    
+Initial estimate  = 
+Re-estimate after level #1 completed = 
+Actual time = 
+
+Level #3 (after task #2 completed) - process the final tree:
+   
+Initial estimate = 
+Re-estimate after level #2 completed = 
+Actual time = 
+
+Project Total
+
+Total original estimate =    
+Total revised estimates = 
+Actual =                       134 (49% over original, 4% over revised)

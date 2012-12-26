@@ -1,0 +1,19 @@
+Level #1 - convert the histogram code to:
+
+    Produce the histogram.
+    Design & implement a Huffman binary tree package to:
+        Create tree nodes from a letter, count, and left & right siblings.
+    Design & implement a sorted list package supporting:
+        The insertion of tree nodes sorted by their count.
+        Determining the size of the current list.
+        Removing and returning the tree node at the list head (the
+            tree node with the smallest count).
+    Create the initial sorted list from the huffman counts:
+        Generate 26 initial tree nodes for each letter & count with NULL children links.
+        Insert each of these nodes in the sorted list.
+
+Initial estimate = 8
+Actual time = 14
+
+
+
