@@ -1,8 +1,18 @@
+/**
+author: Jenny Zhen
+date: 01.18.13
+language: C
+file: HuffmanTree.h
+assignment: Huffman (Project02)
+	http://www.se.rit.edu/~se350/Projects/Project2/Huffman/Huffman%20Code%20Problem.html
+*/
+
 /*
- * Interface to the Huffman tree module. Actually, this is just a datatype and a function to
- * construct trees from the bottom up - given the left and right trees and the character label,
- * creates a new root tree with the subtrees positioned as desired, the given label intact, and
- * the count of the root = sumof counts of the two children.
+ * Interface to the Huffman tree module. Actually, this is just a datatype and 
+ * a function to construct trees from the bottom up - given the left and right 
+ * trees and the character label, creates a new root tree with the subtrees 
+ * positioned as desired, the given label intact, and the count of the root = 
+ * sumof counts of the two children.
  *
 */
  

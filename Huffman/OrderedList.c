@@ -1,3 +1,12 @@
+/**
+author: Jenny Zhen
+date: 01.18.13
+language: C
+file: OrderedList.c
+assignment: Huffman (Project02)
+	http://www.se.rit.edu/~se350/Projects/Project2/Huffman/Huffman%20Code%20Problem.html
+*/
+
 /*
  * Implementation of a module supporting an ordered list of HTreeNodes - ordering is by increasing
  * count field.
@@ -12,10 +21,11 @@
 
 /*
  * Node structure for nodes in the ordered list. Not defined as a typedef as
- * this is purely a local implementation detail and is invisible outside this module.
+ * this is purely a local implementation detail and is invisible outside this 
+ * module.
  *
- * Each node points to the HTreeNode is contains and to its successor node in the
- * ordered list (or NULL if it is the end of the list).
+ * Each node points to the HTreeNode is contains and to its successor node in 
+ * the ordered list (or NULL if it is the end of the list).
  */
 struct ol_node {
     HTreeNode *ol_tn ;
@@ -38,8 +48,8 @@ static int size = 0 ;
  *
  * Record the increase in size.
  * Traverse the list until either (a) find a node with a value larger than that
- *    in the tree node or (b) hit the list end. This tells us where the new node.
- *    belongs.
+ *    in the tree node or (b) hit the list end.
+ * 	  This tells us where the new node belongs.
  * Aborts if we run out of memory.
  */
 

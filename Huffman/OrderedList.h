@@ -1,7 +1,15 @@
+/**
+author: Jenny Zhen
+date: 01.18.13
+language: C
+file: OrderedList.h
+assignment: Huffman (Project02)
+	http://www.se.rit.edu/~se350/Projects/Project2/Huffman/Huffman%20Code%20Problem.html
+*/
+
 /*
- * Interface to a module supporting an ordered list of HTreeNodes - ordering is by increasing
- * count field.
- *
+ * Interface to a module supporting an ordered list of HTreeNodes - ordering 
+ * is by increasing count field.
 */
  
 #ifndef ORDERED_NODE_LIST
