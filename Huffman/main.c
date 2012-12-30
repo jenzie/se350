@@ -116,7 +116,7 @@ static void initialize_ordered_list() {
 	
 	while( index < NLETTERS ) {
 		HTreeNode *node ;
-		node = mk_tree( index, data[index].ld_count, NULL, NULL );
+		node = mk_tree( index + 'A', data[index].ld_count, NULL, NULL );
 		ol_insert( node ) ;
 		index++ ;
 	}
@@ -168,6 +168,7 @@ static void build_huffman_tree() {
  * 		 "0" appended to traverse the left subtree and the prefix with "1" 
  * 		 appended to traverse the right subtree. By appending we end up with 
  * 		 a code that is parsed left to right.
+ * 	  traverse_tree( ol_remove(), "" ) ;
  */
 static void traverse_tree( HTreeNode *root, char *prefix ) {
     /*
@@ -178,8 +179,14 @@ static void traverse_tree( HTreeNode *root, char *prefix ) {
 	   * (we don't need it any longer).
     */
 
-    
-    
+    if( root->ht_left == NULL && root->ht_right == NULL ) {
+		char *final_prefix = calloc( strlen( prefix ), sizeof( char ) ) ;
+		strncpy( final_prefix, prefix, strlen( prefix ) ) ;
+		data[ root->ht_label - 'A' ].ld_code = final_prefix ;
+		free( root ) ;
+		return ;
+    }
+	
     /*
        * Allocate space a string to hold the prefix plus one additional
        * character (be careful in computing the amount of space you need!).
@@ -189,13 +196,31 @@ static void traverse_tree( HTreeNode *root, char *prefix ) {
        *    extension *as well as* the space used by the Huffman Tree Node
        *    just processed - we don't need it any longer.
     */
-
-     /* FILL IN */
+	char *new_prefix = calloc( strlen( prefix ) + 2, sizeof( char ) ) ;
+	strncpy( new_prefix, prefix, strlen( prefix ) ) ;
+	
+    if( root->ht_left != NULL ) {
+		new_prefix[ strlen( prefix ) ] = '0' ;
+		traverse_tree( root->ht_left, new_prefix ) ;
+	}
+	if( root->ht_right != NULL ) {
+		new_prefix[ strlen( prefix ) ] = '1' ;
+		traverse_tree( root->ht_right, new_prefix ) ;
+	}
+	free( root ) ;
+	free( new_prefix ) ;
+	return ;
 }
  
  /*
   * Print the final code for each letter in the table.
   */
 static void print_codes() {
-     // loop through the alphabet
+	int index ;
+	
+    // loop through the alphabet in the data[] array
+	for( index = 0; index < NLETTERS; index++ ) {
+		printf( "%c %s\n", index + 'A', data[ index ].ld_code ) ;
+		free( data[ index ].ld_code ) ;
+	}
 }
