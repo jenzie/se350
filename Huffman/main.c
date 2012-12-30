@@ -32,7 +32,7 @@ assignment: Huffman (Project02)
  
  static struct letter_data {
     int ld_count ;
-    char *ld_code ;
+    char ld_code ;
  } data[NLETTERS] ;
 
 /*****
@@ -101,6 +101,7 @@ static void read_file()  {
         if ( isalpha( next_char ) ) {
             int index = next_char - ( isupper( next_char ) ? 'A' : 'a' ) ;
             ++data[index].ld_count ;
+			data[index].ld_code = toupper(next_char);
         }
     }
     return ;
@@ -108,7 +109,7 @@ static void read_file()  {
 
 /*
  * Initialize ordered list with HTreeNodes, one for each letter (with its count).
- * At the end the list will have the HTreeNode for the letter with the lowest 
+ * The end the list will have the HTreeNode for the letter with the lowest 
  * count at the front, and HTreeNode for the most frequent letter at the end.
  */
 static void initialize_ordered_list() {
@@ -116,7 +117,7 @@ static void initialize_ordered_list() {
 	
 	while( index < NLETTERS ) {
 		HTreeNode *node ;
-		node = mk_tree( *(data[index].ld_code), data[index].ld_count, NULL, NULL );
+		node = mk_tree( data[index].ld_code, data[index].ld_count, NULL, NULL );
 		ol_insert( node ) ;
 		index++ ;
 	}
@@ -142,15 +143,15 @@ static void initialize_ordered_list() {
  * whole Huffman coding tree.
 */
 static void build_huffman_tree() {
-	HTreeNode left, right ; // temporary pointers
+	HTreeNode *left, *right ; // temporary pointers
     while( ol_size() > 1 ) {
 		// remove the children from the linked list
 		left = ol_remove() ;
 		right = ol_remove() ;
 		
 		// create new root node with the children
-		HTreeNode parent = 
-			mk_tree( NULL, (left->ht_count + right->ht_count), left, right ) ;
+		HTreeNode *parent = 
+			mk_tree( '\0', (left->ht_count + right->ht_count), left, right ) ;
 		
 		// insert the parent of the children back into linked list
 		ol_insert( parent ) ;
@@ -197,5 +198,5 @@ static void traverse_tree( HTreeNode *root, char *prefix ) {
   * Print the final code for each letter in the table.
   */
 static void print_codes() {
-     /* FILL IN */
+     
 }
