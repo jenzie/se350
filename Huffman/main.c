@@ -112,7 +112,14 @@ static void read_file()  {
  * count at the front, and HTreeNode for the most frequent letter at the end.
  */
 static void initialize_ordered_list() {
-     /* FILL IN */
+    int index = 0 ; // index for data[] array of letter counts
+	
+	while( index < NLETTERS ) {
+		HTreeNode *node ;
+		node = mk_tree( *(data[index].ld_code), data[index].ld_count, NULL, NULL );
+		ol_insert( node ) ;
+		index++ ;
+	}
 
     assert( ol_size() == NLETTERS ) ;  /* invariant at this point */
     return ;
@@ -135,7 +142,19 @@ static void initialize_ordered_list() {
  * whole Huffman coding tree.
 */
 static void build_huffman_tree() {
-     /* FILL IN */
+	HTreeNode left, right ; // temporary pointers
+    while( ol_size() > 1 ) {
+		// remove the children from the linked list
+		left = ol_remove() ;
+		right = ol_remove() ;
+		
+		// create new root node with the children
+		HTreeNode parent = 
+			mk_tree( NULL, (left->ht_count + right->ht_count), left, right ) ;
+		
+		// insert the parent of the children back into linked list
+		ol_insert( parent ) ;
+	}
 }
 
 /*

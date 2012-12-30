@@ -64,8 +64,11 @@ void ol_insert( HTreeNode *t ) {
 	tnode->ol_next = NULL ;
 	
 	// case 01: linked list is empty
-	if( temp == NULL )
+	if( temp == NULL ) {
 		head = tnode ;
+		size++ ;
+		return ;
+	}
 	
 	// case 02: linked list has other nodes/elements
 	while( temp->ol_next != NULL && temp->ol_next->ol_tn->ht_count < t->ht_count )
@@ -75,6 +78,8 @@ void ol_insert( HTreeNode *t ) {
 	tnode->ol_next = temp->ol_next ;
 	// link new node to where rest of temp's nodes originally were
 	temp->ol_next = tnode ;
+	// increment size of linked list
+	size++ ;
 	
 	/*int flag = 0 ; // flag is "0" if temp is on the left; "1" if on the right
 	HTreeNode *prev ;
