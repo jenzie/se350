@@ -146,7 +146,7 @@ static void build_huffman_tree() {
     while( ol_size() > 1 ) {
 		// remove the children from the linked list
 		left = ol_remove() ;
-		right = ol_remove() ; 
+		right = ol_remove() ;
 		
 		// create new root node with the children
 		HTreeNode *parent = 

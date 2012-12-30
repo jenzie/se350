@@ -80,33 +80,6 @@ void ol_insert( HTreeNode *t ) {
 	temp->ol_next = tnode ;
 	// increment size of linked list
 	size++ ;
-	
-	/*int flag = 0 ; // flag is "0" if temp is on the left; "1" if on the right
-	HTreeNode *prev ;
-	HTreeNode *temp = head->ol_tn ;
-	
-	if( temp == NULL )
-		head->ol_tn = t ; 	return ;
-
-    while( temp != NULL && t->ht_count < temp->ht_count ) {
-		//fprintf(stderr,"%c %d\n", temp->ht_label, temp->ht_count);
-		prev = temp ;
-		temp->ht_count += t->ht_count ;
-		
-		if( temp->ht_left == NULL ) {
-			temp = temp->ht_right ;
-			flag = 0 ;
-		} else {
-			temp = temp->ht_left ;
-			flag = 1 ;
-		}
-	}
-	if( flag == 0 )
-		prev->ht_left = t ;
-	else
-		prev->ht_right = t ;
-	t->ht_right = temp ;
-	*/
 }
         
 /*
