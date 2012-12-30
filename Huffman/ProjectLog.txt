@@ -14,7 +14,7 @@ Level #1 -convert the histogram code to produce the histogram.
         The insertion of tree nodes sorted by their count.
         Determining the size of the current list.
         Removing and returning the tree node at the list head (the
-            tree node with the smallest count).
+            tree node with the largest count/lowest bits).
     Create the initial sorted list from the huffman counts:
         Generate 26 initial tree nodes for each letter & count with NULL 
 			children links.

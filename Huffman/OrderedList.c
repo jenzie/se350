@@ -15,6 +15,7 @@ assignment: Huffman (Project02)
  
 #include <stdlib.h>
 #include <assert.h>
+#include <stdio.h>
  
 #include "OrderedList.h"
 #include "HuffmanTree.h"
@@ -54,15 +55,36 @@ static int size = 0 ;
  * Aborts if we run out of memory.
  */
 
-void ol_insert(HTreeNode *t) {
-	int flag = 0 ; // flag is "0" if temp is on the left; "1" if on the right
+void ol_insert( HTreeNode *t ) {
+	struct ol_node *temp = head ; // temporary pointer
+	
+	// create an linked list node for "t"
+	struct ol_node *tnode = calloc( 1, sizeof( struct ol_node ) ) ;
+	tnode->ol_tn = t ;
+	tnode->ol_next = NULL ;
+	
+	// case 01: linked list is empty
+	if( temp == NULL )
+		head = tnode ;
+	
+	// case 02: linked list has other nodes/elements
+	while( temp->ol_next != NULL && temp->ol_next->ol_tn->ht_count < t->ht_count )
+		temp = temp->ol_next ;
+		
+	// link rest of temp's nodes behind new node
+	tnode->ol_next = temp->ol_next ;
+	// link new node to where rest of temp's nodes originally were
+	temp->ol_next = tnode ;
+	
+	/*int flag = 0 ; // flag is "0" if temp is on the left; "1" if on the right
 	HTreeNode *prev ;
 	HTreeNode *temp = head->ol_tn ;
 	
 	if( temp == NULL )
 		head->ol_tn = t ; 	return ;
 
-    while( t->ht_count < temp->ht_count && temp != NULL ) {
+    while( temp != NULL && t->ht_count < temp->ht_count ) {
+		//fprintf(stderr,"%c %d\n", temp->ht_label, temp->ht_count);
 		prev = temp ;
 		temp->ht_count += t->ht_count ;
 		
@@ -79,6 +101,7 @@ void ol_insert(HTreeNode *t) {
 	else
 		prev->ht_right = t ;
 	t->ht_right = temp ;
+	*/
 }
         
 /*
@@ -93,11 +116,20 @@ int ol_size() {
  * Remove the first HTreeNode in the list and return a pointer
  * to it, adjusting the list size appropriately.
  * If the list is empty, NULL is returned and the size is unchanged.
+ * There are 3 cases:
+ * 01. The linked list is empty.
+ * 02. The linked list has one or more nodes.
  */
 
 HTreeNode *ol_remove() {
-    HTreeNode *root = head->ol_tn ;
-	HTreeNode *temp ;
-
+	// case 01: linked list is empty
+	if( head == NULL )
+		return NULL ;
 	
+	// store a pointer to root
+	HTreeNode *temp = head->ol_tn ;
+
+	head = head->ol_next ;
+	size-- ;
+	return temp ;
 }
