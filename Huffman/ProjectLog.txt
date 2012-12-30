@@ -1,18 +1,34 @@
-Level #1 -convert the histogram code to Produce the histogram.
+author: Jenny Zhen
+date: 01.18.13
+language: C
+file: ProjectLog.txt
+assignment: Huffman (Project02)
+	http://www.se.rit.edu/~se350/Projects/Project2/Huffman/Huffman%20Code%20Problem.html
+
+Level #1 -convert the histogram code to produce the histogram.
     
-    < For each level list the tasks that need to be completed >
-    < Estimate the time to complete this level >
-    < Record the actual hours when complete >
+	Produce the histogram.
+    Design & implement a Huffman binary tree package to:
+        Create tree nodes from a letter, count, and left & right siblings.
+    Design & implement a sorted list package supporting:
+        The insertion of tree nodes sorted by their count.
+        Determining the size of the current list.
+        Removing and returning the tree node at the list head (the
+            tree node with the smallest count).
+    Create the initial sorted list from the huffman counts:
+        Generate 26 initial tree nodes for each letter & count with NULL 
+			children links.
+        Insert each of these nodes in the sorted list.
 
 Initial estimate =
 Actual time = 
-
+-------------------------------------------------------------------------------
 Level #2 (after task #1 completed) - traverse the sorted list:
     
 Initial estimate  = 
 Re-estimate after level #1 completed = 
 Actual time = 
-
+-------------------------------------------------------------------------------
 Level #3 (after task #2 completed) - process the final tree:
    
 Initial estimate = 

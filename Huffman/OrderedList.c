@@ -24,7 +24,7 @@ assignment: Huffman (Project02)
  * this is purely a local implementation detail and is invisible outside this 
  * module.
  *
- * Each node points to the HTreeNode is contains and to its successor node in 
+ * Each node points to the HTreeNode it contains and to its successor node in 
  * the ordered list (or NULL if it is the end of the list).
  */
 struct ol_node {
@@ -47,14 +47,38 @@ static int size = 0 ;
  * according to increasing count.
  *
  * Record the increase in size.
- * Traverse the list until either (a) find a node with a value larger than that
- *    in the tree node or (b) hit the list end.
+ * Traverse the list until either:
+ * 	  (a) find a node with a value larger than that in the tree node, or
+ * 	  (b) hit the list end.
  * 	  This tells us where the new node belongs.
  * Aborts if we run out of memory.
  */
 
-void ol_insert(HTreeNode *t)  {
-     /* FILL IN */
+void ol_insert(HTreeNode *t) {
+	int flag = 0 ; // flag is "0" if temp is on the left; "1" if on the right
+	HTreeNode *prev ;
+	HTreeNode *temp = head->ol_tn ;
+	
+	if( temp == NULL )
+		head->ol_tn = t ; 	return ;
+
+    while( t->ht_count < temp->ht_count && temp != NULL ) {
+		prev = temp ;
+		temp->ht_count += t->ht_count ;
+		
+		if( temp->ht_left == NULL ) {
+			temp = temp->ht_right ;
+			flag = 0 ;
+		} else {
+			temp = temp->ht_left ;
+			flag = 1 ;
+		}
+	}
+	if( flag == 0 )
+		prev->ht_left = t ;
+	else
+		prev->ht_right = t ;
+	t->ht_right = temp ;
 }
         
 /*
@@ -72,5 +96,8 @@ int ol_size() {
  */
 
 HTreeNode *ol_remove() {
-     /* FILL IN */
+    HTreeNode *root = head->ol_tn ;
+	HTreeNode *temp ;
+
+	
 }

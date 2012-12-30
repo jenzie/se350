@@ -21,10 +21,10 @@ assignment: Huffman (Project02)
   * of the counts of the subtrees.
  */
  HTreeNode *mk_tree( char lab, int count, HTreeNode *left, HTreeNode *right) {
-    HTreeNode node = calloc( 1, sizeof( HTreeNode ) ) ;
-	node.ht_label = lab ;
-	node.ht_count = count ;
-	node.ht_left = left ;
-	node.ht_right = right ;
+    HTreeNode *node = calloc( 1, sizeof( HTreeNode ) ) ;
+	node->ht_label = lab ;
+	node->ht_count = count ;
+	node->ht_left = left ;
+	node->ht_right = right ;
 	return node ;
 }
