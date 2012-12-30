@@ -21,7 +21,6 @@ assignment: Huffman (Project02)
  * Insert the specified HTreeNode into the ordered list in the proper position
  * according to increasing count.
  */
-
 void ol_insert(HTreeNode *t) ;
 
 /*

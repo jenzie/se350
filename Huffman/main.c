@@ -116,7 +116,7 @@ static void initialize_ordered_list() {
 	
 	while( index < NLETTERS ) {
 		HTreeNode *node ;
-		node = mk_tree( index + 'A', data[index].ld_count, NULL, NULL );
+		node = mk_tree( index + 'A', data[ index ].ld_count, NULL, NULL );
 		ol_insert( node ) ;
 		index++ ;
 	}
@@ -148,6 +148,17 @@ static void build_huffman_tree() {
 		left = ol_remove() ;
 		right = ol_remove() ;
 		
+		/*
+		fprintf(stderr, "%c with %d @ left; %c with %d @ right\n", left->ht_label, left->ht_count, right->ht_label, right->ht_count);
+		if(left->ht_left != NULL)
+			fprintf(stderr, "\tLchildL %c with %d; ", left->ht_left->ht_label, left->ht_left->ht_count);
+		if(left->ht_right != NULL)
+			fprintf(stderr, "\tLchildR %c with %d\n", left->ht_right->ht_label, left->ht_right->ht_count);
+		if(right->ht_left != NULL)
+			fprintf(stderr, "\tRchildL %c with %d; ", right->ht_left->ht_label, right->ht_left->ht_count);
+		if(right->ht_right != NULL)
+			fprintf(stderr, "\tRchildR %c with %d\n", right->ht_right->ht_label, right->ht_right->ht_count);
+		*/
 		// create new root node with the children
 		HTreeNode *parent = 
 			mk_tree( '\0', (left->ht_count + right->ht_count), left, right ) ;

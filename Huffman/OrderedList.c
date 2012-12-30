@@ -70,7 +70,23 @@ void ol_insert( HTreeNode *t ) {
 		return ;
 	}
 	
-	// case 02: linked list has other nodes/elements
+	// case 03: linked list has other nodes, but new count is equal to head's
+	if( temp->ol_tn->ht_count == t->ht_count ) {
+		// store head and its nodes behind new node
+		tnode->ol_next = head ;
+		// assign new node as the head
+		head = tnode ;
+		size++ ;
+		
+		temp = head ;
+		while(temp != NULL && temp->ol_tn != NULL) {
+			fprintf(stderr, "%c ",temp->ol_tn->ht_label);
+			temp = temp->ol_next;
+		} fprintf(stderr,"\n");
+		return;
+	}
+	
+	// case 03: linked list has other nodes, but new count is greater than head's
 	while( temp->ol_next != NULL && temp->ol_next->ol_tn->ht_count < t->ht_count )
 		temp = temp->ol_next ;
 		
@@ -80,6 +96,12 @@ void ol_insert( HTreeNode *t ) {
 	temp->ol_next = tnode ;
 	// increment size of linked list
 	size++ ;
+	
+	temp = head ;
+	while(temp != NULL && temp->ol_tn != NULL) {
+		fprintf(stderr, "%c ",temp->ol_tn->ht_label);
+		temp = temp->ol_next;
+	} fprintf(stderr,"\n");
 }
         
 /*
