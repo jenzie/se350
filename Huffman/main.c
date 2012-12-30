@@ -32,7 +32,7 @@ assignment: Huffman (Project02)
  
  static struct letter_data {
     int ld_count ;
-    char ld_code ;
+    char* ld_code ;
  } data[NLETTERS] ;
 
 /*****
@@ -101,7 +101,6 @@ static void read_file()  {
         if ( isalpha( next_char ) ) {
             int index = next_char - ( isupper( next_char ) ? 'A' : 'a' ) ;
             ++data[index].ld_count ;
-			data[index].ld_code = toupper(next_char);
         }
     }
     return ;
@@ -117,7 +116,7 @@ static void initialize_ordered_list() {
 	
 	while( index < NLETTERS ) {
 		HTreeNode *node ;
-		node = mk_tree( data[index].ld_code, data[index].ld_count, NULL, NULL );
+		node = mk_tree( index, data[index].ld_count, NULL, NULL );
 		ol_insert( node ) ;
 		index++ ;
 	}
@@ -179,7 +178,7 @@ static void traverse_tree( HTreeNode *root, char *prefix ) {
 	   * (we don't need it any longer).
     */
 
-     /* FILL IN */
+    
     
     /*
        * Allocate space a string to hold the prefix plus one additional
@@ -198,5 +197,5 @@ static void traverse_tree( HTreeNode *root, char *prefix ) {
   * Print the final code for each letter in the table.
   */
 static void print_codes() {
-     
+     // loop through the alphabet
 }
