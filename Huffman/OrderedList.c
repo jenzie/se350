@@ -20,6 +20,9 @@ assignment: Huffman (Project02)
 #include "OrderedList.h"
 #include "HuffmanTree.h"
 
+#define INSERT_TEST_0
+#define PRINT_INSERT_0
+
 /*
  * Node structure for nodes in the ordered list. Not defined as a typedef as
  * this is purely a local implementation detail and is invisible outside this 
@@ -70,38 +73,52 @@ void ol_insert( HTreeNode *t ) {
 		return ;
 	}
 	
-	// case 03: linked list has other nodes, but new count is equal to head's
-	if( temp->ol_tn->ht_count == t->ht_count ) {
+	// case 02: linked list has other nodes, but new count is >= to head's
+	if( temp->ol_tn->ht_count >= t->ht_count ) {
 		// store head and its nodes behind new node
 		tnode->ol_next = head ;
 		// assign new node as the head
 		head = tnode ;
 		size++ ;
 		
+		#ifdef PRINT_INSERT
 		temp = head ;
 		while(temp != NULL && temp->ol_tn != NULL) {
 			fprintf(stderr, "%c ",temp->ol_tn->ht_label);
 			temp = temp->ol_next;
 		} fprintf(stderr,"\n");
+		#endif
 		return;
 	}
+	
+	#ifdef INSERT_TEST
+	fprintf(stderr, "TEMP: %p, HEAD: %p\n", temp, head);
+	if( temp != NULL )
+		fprintf(stderr, "\tNEXT: %p\n", temp->ol_next);
+	if( temp != NULL && temp->ol_tn != NULL )
+		fprintf(stderr, "\tCUR TREE NODE: %p, COUNT: %d\n", temp->ol_tn, temp->ol_tn->ht_count );
+	fprintf(stderr, "NEW NODE COUNT: %d\n", t->ht_count);
+	#endif
 	
 	// case 03: linked list has other nodes, but new count is greater than head's
 	while( temp->ol_next != NULL && temp->ol_next->ol_tn->ht_count < t->ht_count )
 		temp = temp->ol_next ;
-		
+	
 	// link rest of temp's nodes behind new node
 	tnode->ol_next = temp->ol_next ;
 	// link new node to where rest of temp's nodes originally were
 	temp->ol_next = tnode ;
 	// increment size of linked list
+	
 	size++ ;
 	
+	#ifdef PRINT_INSERT
 	temp = head ;
 	while(temp != NULL && temp->ol_tn != NULL) {
 		fprintf(stderr, "%c ",temp->ol_tn->ht_label);
 		temp = temp->ol_next;
 	} fprintf(stderr,"\n");
+	#endif
 }
         
 /*

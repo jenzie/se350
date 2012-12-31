@@ -22,6 +22,7 @@ assignment: Huffman (Project02)
 #include "OrderedList.h"
 
 #define NLETTERS (26)
+#define PRINT_TREE_0
 
 /*
  * Array of structions, one per letter, holding the count of occurrences of the 
@@ -148,7 +149,7 @@ static void build_huffman_tree() {
 		left = ol_remove() ;
 		right = ol_remove() ;
 		
-		/*
+		#ifdef PRINT_TREE
 		fprintf(stderr, "%c with %d @ left; %c with %d @ right\n", left->ht_label, left->ht_count, right->ht_label, right->ht_count);
 		if(left->ht_left != NULL)
 			fprintf(stderr, "\tLchildL %c with %d; ", left->ht_left->ht_label, left->ht_left->ht_count);
@@ -158,7 +159,8 @@ static void build_huffman_tree() {
 			fprintf(stderr, "\tRchildL %c with %d; ", right->ht_left->ht_label, right->ht_left->ht_count);
 		if(right->ht_right != NULL)
 			fprintf(stderr, "\tRchildR %c with %d\n", right->ht_right->ht_label, right->ht_right->ht_count);
-		*/
+		#endif
+		
 		// create new root node with the children
 		HTreeNode *parent = 
 			mk_tree( '\0', (left->ht_count + right->ht_count), left, right ) ;
