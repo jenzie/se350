@@ -7,11 +7,11 @@ struct node {
   	struct node* next;
 };
 extern int Length(struct node* head);
+extern struct node* Create(int value);
 extern void Push(struct node** headRef, int data);
 extern int Pop(struct node** headRef);
 extern void AppendNode(struct node** headRef, int data); 
 extern struct node* CopyList(struct node* head); 
 extern void SortedInsert(struct node** headRef, struct node* newNode);
 extern void SortList(struct node** headRef);
-
-
+extern void PrintList(struct node* head);
