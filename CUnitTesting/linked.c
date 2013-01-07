@@ -1,3 +1,10 @@
+/**
+author: Jenny Zhen
+date: 01.07.13
+language: C
+assignment: C Unit Testing
+	http://www.se.rit.edu/~se350/Class_Activities/07_CUnitTesting/CTestIntro.htm
+*/
 
 /* linked - linked list functions
    Mark Ardis, RIT, 10/30/2006
@@ -87,20 +94,48 @@ void AppendNode(struct node** headRef, int data) {
  CopyList - return new copy of list
  ************************************************************/
 struct node* CopyList(struct node* head) {
- 
- /* More practice !!!! */  
+  struct node* current = head ; // current node in original list
+  struct node* newHead = NULL ; // head for the new list
+  struct node* newCurrent = NULL ; // current node in new list
 
-  return NULL;;
+  while( current != NULL ) {
+	  struct node* newNode ;
+	  newNode = malloc(sizeof(struct node)) ;
+	  newNode->data = current->data ;
+	  newNode->next = NULL ;
+	  
+	  // check if the new list is empty; append otherwise
+	  if( newHead == NULL ) {
+		  newHead = newNode ;
+		  newCurrent = newHead ;
+	  } else {
+		  newCurrent->next = newNode ;
+		  newCurrent = newCurrent->next ;
+	  }
+	  current = current->next ;
+  }
+  return newHead;
 }
 
 /************************************************************
  SortedInsert - insert node at proper place in sorted list
+				in descending order
 			Called by SortList()
  ************************************************************/
 void SortedInsert(struct node** headRef, struct node* newNode) {
-  struct node* current;
+  struct node* current = headRef;
 
-  /* Your Code Here */
+  if( current == NULL || current->data >= newNode->data ) {
+	  newNode->next = current ;
+	  headRef = newNode ;
+	  return ;
+  }
+  
+  while( current->next != NULL && current->next->data < newNode->data )
+	  current = current->next ;
+
+  newNode->next = current->next ;
+  current->next = newNode ;
 }
 
 /************************************************************
