@@ -55,7 +55,7 @@ struct treeNode *bst_insert(struct treeNode *tree, char *value) {
 		tree = (struct treeNode *) malloc( sizeof(struct treeNode) ) ;
 		tree->left = NULL ;
 		tree->right = NULL ;
-		(void) strcpy(tree->value, value) ;
+		strcpy(&tree->value, &value) ;
 		return tree ;
 	}
 
@@ -71,7 +71,7 @@ struct treeNode *bst_insert(struct treeNode *tree, char *value) {
 	if ( compare < 0 ) {
 		tree->left = bst_insert( tree->left, value ) ;
 	} 
-	else if ( compare == 0 ) {
+	else if ( compare > 0 ) {
 		tree->right = bst_insert( tree->right, value ) ;
 	}
 
@@ -92,7 +92,7 @@ int bst_contains(struct treeNode *tree, char *value) {
 		if ( compare < 0 ) {
 			return bst_contains( tree->left, value ) ;
 		} else if ( compare > 0 ) {
-			return bst_contains( tree->left, value ) ;
+			return bst_contains( tree->right, value ) ;
 		} else {
 			return TRUE ;
 		}
