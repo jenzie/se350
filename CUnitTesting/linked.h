@@ -1,3 +1,12 @@
+/**
+author: Jenny Zhen
+date: 01.07.13
+language: C
+file: linked.h
+assignment: C Unit Testing
+	http://www.se.rit.edu/~se350/Class_Activities/07_CUnitTesting/CTestIntro.htm
+*/
+
 /* linked.h - linked defines 
    Tom Reichlmayr, RIT, 12/18/2006
 */

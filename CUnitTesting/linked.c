@@ -2,6 +2,7 @@
 author: Jenny Zhen
 date: 01.07.13
 language: C
+file: linked.c
 assignment: C Unit Testing
 	http://www.se.rit.edu/~se350/Class_Activities/07_CUnitTesting/CTestIntro.htm
 */
@@ -134,7 +135,7 @@ struct node* CopyList(struct node* head) {
 void SortedInsert(struct node** headRef, struct node* newNode) {
 	struct node* current = *headRef ;
 
-	if( current == NULL || current->data <= newNode->data ) {
+	if( current == NULL || (current != NULL && current->data <= newNode->data) ) {
 		newNode->next = current ;
 		*headRef = newNode ;
 		return ;
@@ -152,12 +153,17 @@ void SortedInsert(struct node** headRef, struct node* newNode) {
 		 SortedInsert to build a new sorted list
  ************************************************************/
 void SortList(struct node** headRef) {
-	struct node** newHead = NULL ;
+	struct node** newHead = malloc( sizeof( struct node ) ) ;
+	struct node* newNode ;
 	
-	while( *headRef != NULL )
-		SortedInsert( newHead, Create( Pop( headRef ) ) ) ;
-	
-	headRef = newHead ;
+	while( *headRef != NULL ) {
+		// pop off head and create new node using returned value from Pop()
+		newNode = Create( Pop( headRef ) ) ;
+		
+		// insert node into sorted list
+		SortedInsert( newHead, newNode ) ;
+	}
+	*headRef = *newHead ;
 }
 
 /************************************************************

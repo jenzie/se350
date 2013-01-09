@@ -1,3 +1,12 @@
+/**
+author: Jenny Zhen
+date: 01.07.13
+language: C
+file: linkedtest.c
+assignment: C Unit Testing
+	http://www.se.rit.edu/~se350/Class_Activities/07_CUnitTesting/CTestIntro.htm
+*/
+
 /*
  * linkedtest - unit test cases for linked.c using simplectest
  * Tom Reichlmayr, RIT, 12/18/2006
@@ -57,7 +66,7 @@ START_TEST("Copy the list; check size and values")
 	}
 END_TEST()
 
-START_TEST("Insert node in middle of list")
+START_TEST("Insert nodes in middle of list")
 	Push( &testlist, 8 ) ;
 	Push( &testlist, 10 ) ;
 	ASSERT_EQUALS( 8, Length( testlist ) ) ;
@@ -87,13 +96,11 @@ START_TEST("Sort an unsorted list")
 		Push( &testlist, counter ) ;
 		counter++ ;
 	}
-	fprintf(stderr, "finished adding\n");
 	SortList( &testlist ) ;
-	fprintf(stderr, "finished sorting\n");
 	ASSERT_EQUALS( 11, Length( testlist ) ) ;
 	
 	struct node* current = testlist ;
-	counter = 11 ;
+	counter = 10 ;
 	while( current != NULL ) {
 		ASSERT_EQUALS( counter, current->data ) ;
 		current = current->next ;
