@@ -1,0 +1,498 @@
+commit ba076406cd3bf8501cc7b0359c01da44fd7b1db4
+Author: Jenny Zhen <jxz6853@rit.edu>
+Date:   Mon Jan 14 11:52:22 2013 -0500
+
+    Need to fix bugs...
+
+commit bea5cd90319c6c70c1ed4e41b79331fcc61b7f49
+Author: Jenny Zhen <jxz6853@rit.edu>
+Date:   Mon Jan 14 10:53:04 2013 -0500
+
+    Skeleton files for ruby histogram assignment.
+
+commit 5943dd2334979cf10bb37b8575de7e788af5fcbe
+Author: Jenny Zhen <jxz6853@rit.edu>
+Date:   Wed Jan 9 10:44:38 2013 -0500
+
+    All tests pass (fixed strcpy in bst_insert() and compar logic and left/right parameters).
+
+commit 755d62e4b4d4c142c21b2b0a1579a2cb2e0adad3
+Author: Jenny Zhen <jxz6853@rit.edu>
+Date:   Wed Jan 9 10:20:01 2013 -0500
+
+    Skeleton files for bst debugging activity.
+
+commit 64e37ddf3df74b6ee671287a33941307a39a9b93
+Author: Jenny Zhen <jxz6853@rit.edu>
+Date:   Tue Jan 8 23:41:22 2013 -0500
+
+    Removed some files.
+
+commit ec8502273f98a21feafd75e6b9f4fbb1ed47547f
+Author: Jenny Zhen <jxz6853@rit.edu>
+Date:   Tue Jan 8 23:40:34 2013 -0500
+
+    Fixed the prime file using gdb (the c debugger).
+
+commit 3bc102f6b4e52f0395affd562652594c17246bb5
+Author: Jenny Zhen <jxz6853@rit.edu>
+Date:   Tue Jan 8 23:21:35 2013 -0500
+
+    Removed some files.
+
+commit a2656fb049fb57ff246fe5fbac8f6440b12cabf8
+Author: Jenny Zhen <jxz6853@rit.edu>
+Date:   Tue Jan 8 23:20:03 2013 -0500
+
+    Completed all unit tests and all of them passed.
+
+commit 8c658b802852c8640c995b3b5733590636721bb5
+Author: Jenny Zhen <jxz6853@rit.edu>
+Date:   Mon Jan 7 15:42:19 2013 -0500
+
+    Sorted inserting works with the tests. Need to fix the actual sort function.
+
+commit 614aaaf45dbdb55c8e8b0e4f42904eb9dd41c5b6
+Author: Jenny Zhen <jxz6853@rit.edu>
+Date:   Mon Jan 7 11:47:42 2013 -0500
+
+    Simple C is similar to JUnit.
+
+commit de0851a40218d4f00f58f7a08e8278312e30eb8c
+Author: Jenny Zhen <jxz6853@rit.edu>
+Date:   Mon Jan 7 11:47:12 2013 -0500
+
+    Removed some files.
+
+commit 572a5137aff4b8fe41aecb301d713e13f5f925e6
+Author: Jenny Zhen <jxz6853@rit.edu>
+Date:   Mon Jan 7 11:46:03 2013 -0500
+
+    Copying the list works; currently testing SortedInsert().
+
+commit 55ef3df9ba9e6722de63ec3a91ee0028d4489836
+Author: Jenny Zhen <jxz6853@rit.edu>
+Date:   Mon Jan 7 10:42:21 2013 -0500
+
+    Skeleton files for C unit testing activity.
+
+commit 16a1c2894b323f9ab313e289dfcc2ba565b8e12b
+Author: Jenny Zhen <jxz6853@rit.edu>
+Date:   Sun Dec 30 19:03:05 2012 -0500
+
+    Removed some files.
+
+commit 561ba9e283567ff1906e33d6a5ec48c465d5fa62
+Author: Jenny Zhen <jxz6853@rit.edu>
+Date:   Sun Dec 30 19:00:31 2012 -0500
+
+    I believe in magic...
+    Wasn't checking the head node properly; had to modify previous fix to check if the new node's count was less than head's count too (in addition to being equal to head's count).
+
+commit a75a8091cf02b6c15dfd48102f2f469439c5d9c4
+Author: Jenny Zhen <jxz6853@rit.edu>
+Date:   Sun Dec 30 18:17:07 2012 -0500
+
+    Passes the first test. Had to check to see if the head's count was equal to the new node's count. Previously, nodes were always inserted behind the head.
+
+commit 5a17a678baa05b3a6292ab39dfd4554e4bc29698
+Author: Jenny Zhen <jxz6853@rit.edu>
+Date:   Sun Dec 30 15:49:49 2012 -0500
+
+    Removed extra tree code from insert() function in OrderList.c that was replaced by linked list code a few version before.
+
+commit d88a02af017af8048ff442d24e4985573ae7464d
+Author: Jenny Zhen <jxz6853@rit.edu>
+Date:   Sun Dec 30 15:44:41 2012 -0500
+
+    Apparently, all the letters with the wrong code are in the same level of the huffman tree. Their associations have been swapped...like, 'A' received the code for 'Z' and they are both letters with only one occurrence. They should all be at the bottom level of the tree with no children.
+
+commit 8d35d537a7e3f6a7163802091878a60f81f8fdc5
+Author: Jenny Zhen <jxz6853@rit.edu>
+Date:   Sun Dec 30 15:44:31 2012 -0500
+
+    Removed some files.
+
+commit ad89bfeddec8f4355f333f05f2587af7cf5a9e1a
+Author: Jenny Zhen <jxz6853@rit.edu>
+Date:   Sun Dec 30 15:40:19 2012 -0500
+
+    Traversing and printing the final code "works," but the codes for the single occurrence letters are off.
+
+commit d01bbacadd3accc48c01a04c8a62191fd3939be9
+Author: Jenny Zhen <jxz6853@rit.edu>
+Date:   Sun Dec 30 00:43:10 2012 -0500
+
+    Don't understand how traversing the tree works. Will have to look at documentation later.
+
+commit 204e2a210e3d28e0229b247a85f5f6d31f53c9be
+Author: Jenny Zhen <jxz6853@rit.edu>
+Date:   Sun Dec 30 00:11:51 2012 -0500
+
+    Fixed the bugs in main.c for build_huffman_tree(). Need to do the traverse and print.
+
+commit 89ca8576b21fcc1b88ec3069da2f90f50bd8d85d
+Author: Jenny Zhen <jxz6853@rit.edu>
+Date:   Sun Dec 30 00:11:20 2012 -0500
+
+    Removed some files.
+
+commit 07d8d25fbab442dbf631f4911c8c98301a09fcd3
+Author: Jenny Zhen <jxz6853@rit.edu>
+Date:   Sun Dec 30 00:10:16 2012 -0500
+
+    Removed some files.
+
+commit a3505b0540e76ef3ab141138c15ebdabb605ec4c
+Author: Jenny Zhen <jxz6853@rit.edu>
+Date:   Sat Dec 29 23:35:08 2012 -0500
+
+    My mind is blown away by the algorithm used in building the Huffman tree.
+
+commit ee064d883e248629fa6e4e31fb85e8576060a6cb
+Author: Jenny Zhen <jxz6853@rit.edu>
+Date:   Sat Dec 29 22:23:17 2012 -0500
+
+    Uhh...I thought the insert/remove functions were for a tree for some awful reason. I fixed it for a linked list and it's much simpler now.
+
+commit bffa4c5f7c6bf1594493a5e0278d0d3ca09157de
+Author: Jenny Zhen <jxz6853@rit.edu>
+Date:   Sat Dec 29 20:11:38 2012 -0500
+
+    Worked on insert and remove functions for OrderedList.c. Need testing for insert; need to finish remove.
+
+commit d9c1d5bd637157d1d436425565161bada92d023a
+Author: Jenny Zhen <jxz6853@rit.edu>
+Date:   Sat Dec 29 16:27:06 2012 -0500
+
+    Modified skeletons and added code for helper function in HuffmanTree.c.
+
+commit 135aaf25a7f12509e6c4e4eabbf15ca293cc9683
+Author: Jenny Zhen <jxz6853@rit.edu>
+Date:   Sat Dec 29 15:22:47 2012 -0500
+
+    Added read-me skeleton.
+
+commit 9d5d0ad9b46f822ae238e07b8fc930c450f47103
+Author: Jenny Zhen <jxz6853@rit.edu>
+Date:   Wed Dec 26 17:53:09 2012 -0500
+
+    Skeleton files for project 02.
+
+commit d8b46aa394be2f789b697e9e2253a6efa873795b
+Author: Jenny Zhen <jxz6853@rit.edu>
+Date:   Thu Dec 20 17:53:30 2012 -0500
+
+    Removed some files.
+
+commit 3d16ddbc0aef0329f8d08ba1db662b8ffde023bc
+Author: Jenny Zhen <jxz6853@rit.edu>
+Date:   Thu Dec 20 17:52:26 2012 -0500
+
+    Fixed bugs in palindrome algorithm.
+
+commit ddd2930348069500f9c6e00ced2b74ca38d77d25
+Author: Jenny Zhen <jxz6853@rit.edu>
+Date:   Thu Dec 20 17:47:17 2012 -0500
+
+    Removed some files.
+
+commit d17321b2ea678de18dc30f6852b09a9b82baf20e
+Author: Jenny Zhen <jxz6853@rit.edu>
+Date:   Thu Dec 20 17:46:32 2012 -0500
+
+    Removed some files.
+
+commit 554f8c9fe2641fd759ac8db1a84d326cd400e02b
+Author: Jenny Zhen <jxz6853@rit.edu>
+Date:   Tue Dec 18 19:45:05 2012 -0500
+
+    Sorting algorithm works (insertion sort for linked lists).
+
+commit 28eababaeba7e63c092860490122bec35f172bb8
+Author: Jenny Zhen <jxz6853@rit.edu>
+Date:   Mon Dec 17 11:48:14 2012 -0500
+
+    Making, printing, and freeing nodes should work. However, freeing is not done in the right order. Still need to implement sorting algorithm.
+
+commit 53aef6fabeafa813ea2382d4e3674b5b24e41c31
+Author: Jenny Zhen <jxz6853@rit.edu>
+Date:   Mon Dec 17 11:14:59 2012 -0500
+
+    List sort hasn't been tested yet. Need to implement actual sorting algorithm.
+
+commit a87cda886ab1c944dfbc7fbadeaf3850de557a5b
+Author: Jenny Zhen <jxz6853@rit.edu>
+Date:   Sun Dec 16 21:28:49 2012 -0500
+
+    Dynamic array size should work for the name array now.
+
+commit 0ac4b219f5d55659dc885a8718a382944e3995ab
+Author: Jenny Zhen <jxz6853@rit.edu>
+Date:   Sun Dec 16 17:36:41 2012 -0500
+
+    Updated bubble sort to use insertion sort instead.
+
+commit 8034a663bb380eeccf631785a706143f728e4c37
+Author: Jenny Zhen <jxz6853@rit.edu>
+Date:   Sun Dec 16 17:35:59 2012 -0500
+
+    Updated bubble sort to use insertion sort instead.
+
+commit ff7ebdf25a61165cbf80d55a1ee839593fc83cfe
+Author: Jenny Zhen <jxz6853@rit.edu>
+Date:   Sun Dec 16 17:34:45 2012 -0500
+
+    Changed the sorting algorithm used to insertion sort instead of bubble sort.
+
+commit a92c8996e80c9d3fcc1600650cfae4bb071383b8
+Author: Jenny Zhen <jxz6853@rit.edu>
+Date:   Sun Dec 16 16:03:04 2012 -0500
+
+    Fixed the makefile to use the right executable name.
+
+commit 9cf6f564c7f669b6a6aa91cd9a6f2f60246e6c8d
+Author: Jenny Zhen <jxz6853@rit.edu>
+Date:   Sat Dec 15 23:38:39 2012 -0500
+
+    Fixed two bugs after triple checking all level output. Had to reorder one of the checks for invalid input. Had to fix a nested for-loop to reset the column index when moving onto the next row. Modified track/reflect document to reflect the modification.
+
+commit 3cf8e699517967cbd6f93da49a57e4409ba7194d
+Author: Jenny Zhen <jxz6853@rit.edu>
+Date:   Sat Dec 15 22:44:53 2012 -0500
+
+    Added more documentation for puzzle.c and modified the track/reflect document to include project reflection.
+
+commit 899e31634185968b530f0b749c077cb339b9d72b
+Author: Jenny Zhen <jxz6853@rit.edu>
+Date:   Sat Dec 15 22:32:04 2012 -0500
+
+    Cleaned up the object files.
+
+commit 9dd00090acb1246602907796bb694cba883f3793
+Author: Jenny Zhen <jxz6853@rit.edu>
+Date:   Sat Dec 15 22:29:51 2012 -0500
+
+    Updated track/reflect document. Project should be completed; need triple checking.
+
+commit 7aaf4538ab75417299fc49253cfbbbc2bdab68c4
+Author: Jenny Zhen <jxz6853@rit.edu>
+Date:   Sat Dec 15 21:48:30 2012 -0500
+
+    Tested level 06, but output is incorrect. Need to fix the region_contains() function.
+
+commit 6a3505630239d7faedaa8d4a84d1bf0264b2eb2c
+Author: Jenny Zhen <jxz6853@rit.edu>
+Date:   Sat Dec 15 20:35:20 2012 -0500
+
+    Updated track and reflect document.
+
+commit c9c6fdf2107496a4eaacc11f5b61d6fdfa8359a7
+Author: Jenny Zhen <jxz6853@rit.edu>
+Date:   Sat Dec 15 20:30:44 2012 -0500
+
+    Fixed bugs with passing in wrong parameters in checks. Completed level 05.
+
+commit edf563608d446427bd4a66858d8a8fe03b79a591
+Author: Jenny Zhen <jxz6853@rit.edu>
+Date:   Sat Dec 15 20:22:07 2012 -0500
+
+    Added code for level 05, need time to test output later.
+
+commit 877d4e786002028710a14b2c9a62c07e80cd8f36
+Author: Jenny Zhen <jxz6853@rit.edu>
+Date:   Sat Dec 15 19:35:06 2012 -0500
+
+    Tested level 04 and updated track/reflect document.
+
+commit b560607a4d8a945032d394b7a4ca80a694eafd30
+Author: Jenny Zhen <jxz6853@rit.edu>
+Date:   Sat Dec 15 18:37:52 2012 -0500
+
+    Started level 04, modified configure(), add_digit(), erase_digit(). Did not do testing yet.
+
+commit a5f6a41ea21b85dae5e76490e9c70e289e2678a4
+Author: Jenny Zhen <jxz6853@rit.edu>
+Date:   Sat Dec 15 18:10:26 2012 -0500
+
+    Saved the updated track/reflect document for level 03.
+
+commit 3f1e60593811be571f760e89d9b886b81543405c
+Author: Jenny Zhen <jxz6853@rit.edu>
+Date:   Sat Dec 15 17:53:48 2012 -0500
+
+    Completed level 02. Testing produced correct output.
+
+commit 33bca9a823e9cfd2732f02953e914fdc063b889d
+Author: Jenny Zhen <jxz6853@rit.edu>
+Date:   Sat Dec 15 02:28:41 2012 -0500
+
+    Fixed spacing issues in print_row() function after testing. Changed estimated and actual time to reflect time when testing was included. Level 1 functionality is complete now.
+
+commit ac27041585da6025e7403332f894cae4e9087585
+Author: Jenny Zhen <jxz6853@rit.edu>
+Date:   Sat Dec 15 02:10:46 2012 -0500
+
+    Wrote code for level 1, but did not test yet.
+
+commit df3d0eea9efcc6bd4e80c9ffe35a5e72ec9463e1
+Author: Jenny Zhen <jxz6853@rit.edu>
+Date:   Wed Dec 12 15:15:28 2012 -0500
+
+    removed some files
+
+commit 93048f599b2586620173c454311e9c032251f3af
+Author: Jenny Zhen <jxz6853@rit.edu>
+Date:   Wed Dec 12 15:09:50 2012 -0500
+
+    skeletons
+
+commit b79cecbeba95d3fa7475dfda5e6a612002ce61f6
+Author: Jenny Zhen <jxz6853@rit.edu>
+Date:   Wed Dec 12 11:50:28 2012 -0500
+
+    .
+
+commit dd463f7d6df21c725c66153121d8b45573f0dad2
+Author: Jenny Zhen <jxz6853@rit.edu>
+Date:   Wed Dec 12 11:49:21 2012 -0500
+
+    fixed braces.
+
+commit f0c662237fbb03a1cfdea74eefbc18260829aadd
+Author: Jenny Zhen <jxz6853@rit.edu>
+Date:   Wed Dec 12 11:46:01 2012 -0500
+
+    Needs debugging.
+
+commit 92ec268c5366c4d00af16dece24c60038b38924f
+Author: Jenny Zhen <jxz6853@rit.edu>
+Date:   Wed Dec 12 11:08:24 2012 -0500
+
+    Testing indices.
+
+commit 1485dcf085b8195f550fda0cdbe9b741f1eea0d6
+Author: Jenny Zhen <jxz6853@rit.edu>
+Date:   Wed Dec 12 10:57:31 2012 -0500
+
+    Skeleton for practicum 01.
+
+commit 7c5a8a86c1f7de02806919cb5de7d5877b7b2c37
+Author: Jenny Zhen <jxz6853@rit.edu>
+Date:   Wed Dec 12 00:24:36 2012 -0500
+
+    Skeleton files for Sudoku.
+
+commit 7e15f3f51b5dbdefb6b4de2a25d9cbb46cd40cc2
+Author: Jenny Zhen <jxz6853@rit.edu>
+Date:   Wed Dec 12 00:06:32 2012 -0500
+
+    Completed C Pointers Activity.
+
+commit 6c2360546f83bd7652e5bee6d7b767cff9321823
+Author: Jenny Zhen <jxz6853@rit.edu>
+Date:   Mon Dec 10 11:54:17 2012 -0500
+
+    Need to complete and  test the input parsing.
+
+commit 11af8b527a579c8dbf26af3b31563152bcc45ddf
+Author: Jenny Zhen <jxz6853@rit.edu>
+Date:   Mon Dec 10 11:14:48 2012 -0500
+
+    Skeleton files and makefile for c pointer activity.
+
+commit c12a5007bed4b8984a581f6187342a8c83685b14
+Author: Jenny Zhen <jxz6853@rit.edu>
+Date:   Mon Dec 10 02:05:54 2012 -0500
+
+    Changed directory.
+
+commit 8d183068291588d1f77d3fd98dc2780c07d79a9c
+Author: Jenny Zhen <jxz6853@rit.edu>
+Date:   Mon Dec 10 02:02:10 2012 -0500
+
+    Completed grade_list.
+
+commit d23c2484c8a6fafc318e19994a02d17c0df95f57
+Author: Jenny Zhen <jxz6853@rit.edu>
+Date:   Wed Dec 5 11:57:03 2012 -0500
+
+    Hasn't been tested yet...
+
+commit d545d2d4fb29ba571fd289f5db7030e84668f3f9
+Author: Jenny Zhen <jxz6853@rit.edu>
+Date:   Wed Dec 5 10:40:45 2012 -0500
+
+    Added comments.
+
+commit f9cc68c13904382fa106b90e8458a11b3193f610
+Author: Jenny Zhen <jxz6853@rit.edu>
+Date:   Tue Dec 4 01:13:36 2012 -0500
+
+    Histogram should print correct number of asterisks.
+
+commit 4142366150cb4bc74679927dc923be4a1ef7a985
+Author: Jenny Zhen <jxz6853@rit.edu>
+Date:   Mon Dec 3 11:51:07 2012 -0500
+
+    Need to debug...
+
+commit b036d40d1d9bd18e8165b87a5a408660e6ce00d8
+Author: Jenny Zhen <jxz6853@rit.edu>
+Date:   Mon Dec 3 10:48:29 2012 -0500
+
+    Base file.
+
+commit 92e3da4d50589e46acb1b58a768116890fca276e
+Author: Jenny Zhen <jxz6853@rit.edu>
+Date:   Wed Nov 28 13:29:51 2012 -0500
+
+    FizzBuzz works now.
+
+commit 43fd73df5f4e9db33d177af5453660110125d288
+Author: Jenny Zhen <jxz6853@rit.edu>
+Date:   Wed Nov 28 13:24:17 2012 -0500
+
+    Moved some files around.
+
+commit 8020e9951fe549bacabe747c6cac866b157021d8
+Author: Jenny Zhen <jxz6853@rit.edu>
+Date:   Wed Nov 28 13:22:46 2012 -0500
+
+    Moved some files.
+
+commit d8b75eff5fd0984805450effc7a7f92907ea72be
+Author: Jenny Zhen <jxz6853@rit.edu>
+Date:   Wed Nov 28 13:17:25 2012 -0500
+
+    Added comments.
+
+commit f71fc08f2fd0dbbdac55b2bff35d661a6de2b038
+Author: Jenny Zhen <jxz6853@rit.edu>
+Date:   Wed Nov 28 13:04:51 2012 -0500
+
+    Word count for number of lines, words, and characters works now.
+
+commit e02857f9d91019161db4d01c75e867c8d6d35ee9
+Author: Jenny Zhen <jxz6853@rit.edu>
+Date:   Wed Nov 28 12:36:39 2012 -0500
+
+    Word count for number of lines and characters work now.
+
+commit 1d6ed46bf20808a581df896252e5dba47d1ec8ce
+Author: Jenny Zhen <jxz6853@rit.edu>
+Date:   Wed Nov 28 11:49:55 2012 -0500
+
+    Word count assignment for Week #1.
+
+commit 20f6c0f49f21d09ddd545f9d5f40c3b7f6aa770a
+Author: Jenny Zhen <jxz6853@rit.edu>
+Date:   Mon Nov 26 11:36:52 2012 -0500
+
+    FizzBuzz - In-class Activity for Monday of Week #1
+
+commit 9d8b24c30eed6d9cc73b26da18b72e2498853ca7
+Author: Jenny Zhen <jxz6853@rit.edu>
+Date:   Mon Nov 26 11:27:43 2012 -0500
+
+    Recording my name for grading.

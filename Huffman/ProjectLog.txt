@@ -5,7 +5,7 @@ file: ProjectLog.txt
 assignment: Huffman (Project02)
 	http://www.se.rit.edu/~se350/Projects/Project2/Huffman/Huffman%20Code%20Problem.html
 
-Level #1 -convert the histogram code to produce the histogram.
+Level #1 -convert the histogram code to produce the histogram:
     
 	Produce the histogram.
     Design & implement a Huffman binary tree package to:
@@ -20,23 +20,30 @@ Level #1 -convert the histogram code to produce the histogram.
 			children links.
         Insert each of these nodes in the sorted list.
 
-Initial estimate =
-Actual time = 
+Initial estimate = 150 minutes
+Actual time = 175 minutes
 -------------------------------------------------------------------------------
 Level #2 (after task #1 completed) - traverse the sorted list:
+
+	Design algorithm to travel through the tree:
+		Go down the tree to recursively go through all leaf nodes.
+		Final counts are stored into the data array.
+		Nodes are removed after their counts are stored.
     
-Initial estimate  = 
-Re-estimate after level #1 completed = 
-Actual time = 
+Initial estimate = 60 minutes
+Re-estimate after level #1 completed = 60 minutes
+Actual time = 62 minutes
 -------------------------------------------------------------------------------
 Level #3 (after task #2 completed) - process the final tree:
+
+	Print out the final counts in the data array.
    
-Initial estimate = 
-Re-estimate after level #2 completed = 
-Actual time = 
+Initial estimate = 5 minutes
+Re-estimate after level #2 completed = 5 minutes
+Actual time = 20 minutes
 
-Project Total
+Project Total = 257 minutes
 
-Total original estimate =    
-Total revised estimates = 
-Actual =                       134 (49% over original, 4% over revised)
+Total original estimate = 215
+Total revised estimates = 215
+Actual =                  257 (19% over original, 19% over revised)
