@@ -95,11 +95,12 @@ void deq_get_tail(node **deqhead, char *value){
 	// check is queue is empty
 	if( deq_is_empty( temp ) )
 		return ;
-	/*
+	
 	if( temp->link == NULL ) {
 		free(temp->contents);
 		free(temp);
-	}*/
+		return;
+	}
 	
 	while( temp->link != NULL ) {
 		temp_prev = temp ;
