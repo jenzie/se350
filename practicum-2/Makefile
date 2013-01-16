@@ -3,6 +3,7 @@
 
 pract: dequeuetest.o dequeue.o 
 	gcc -o pract dequeuetest.o dequeue.o
+	./pract
 
 dequeuetest.o: dequeue.c bool.h dequeue.h tests.h
 	gcc -c dequeuetest.c

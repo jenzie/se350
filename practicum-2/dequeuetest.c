@@ -75,16 +75,21 @@ END_TEST()
 START_TEST("put & get one entry from tail of dequeue")
      dequeue = NULL; 			/* dequeue initally empty */
      deq_put_tail( &dequeue, put_value1);
-     ASSERT_EQUALS( 1, deq_size( dequeue ));   
+     ASSERT_EQUALS( 1, deq_size( dequeue )); 
      deq_get_tail( &dequeue, get_value);
+	 ASSERT_EQUALS( 0, deq_size( dequeue ));
+	 fprintf(stderr, "size: %d\n", deq_size(dequeue));
      ASSERT_EQUALS( 0, strncmp( put_value1, get_value, strlen(put_value1)));
 END_TEST()
 
 START_TEST("put two entries & get one entry from tail of dequeue")
      dequeue = NULL; 			/* dequeue initally empty */
      deq_put_head( &dequeue, put_value1);
+	 //fprintf(stderr, "size: %d\n", deq_size(dequeue));
      deq_put_head( &dequeue, put_value2);
+	 //fprintf(stderr, "size: %d\n", deq_size(dequeue));
      deq_get_tail( &dequeue, get_value);
+	 //fprintf(stderr, "size: %d\n", deq_size(dequeue));
      ASSERT_EQUALS( 0, strncmp( put_value1, get_value, strlen(put_value1)));
      ASSERT_EQUALS( 1, deq_size( dequeue ));   
 END_TEST()
