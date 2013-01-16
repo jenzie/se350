@@ -26,11 +26,18 @@ assignment: Practicum 02 - Queues
  */
 
 bool deq_is_empty(node *deqhead){
-    return true;     /* PLACEHOLDER !!! */
+    return deq_size( deqhead ) == 0 ;
 }
 
 int deq_size(node *deqhead){
-    return 0;        /* PLACEHOLDER !!! */
+    int counter = 0 ;  // keep track of count
+	node *temp = deqhead; // temp pointer to loop through queue
+	
+	while( temp->link != NULL ) {
+		temp = temp->link ;
+		counter++ ;
+	}
+	return counter ;
 }
 
 void deq_put_head(node **deqhead, char *value){
