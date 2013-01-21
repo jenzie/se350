@@ -1,0 +1,345 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:w="urn:schemas-microsoft-com:office:word" xmlns="http://www.w3.org/TR/REC-html40"><head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<meta name="ProgId" content="Word.Document">
+<meta name="Generator" content="Microsoft Word 11">
+<meta name="Originator" content="Microsoft Word 11">
+<link rel="File-List" href="Huffman%20Code%20Problem_files/filelist.xml">
+<link rel="Edit-Time-Data" href="Huffman%20Code%20Problem_files/editdata.mso"><!--[if !mso]>
+<style>
+v\:* {behavior:url(#default#VML);}
+o\:* {behavior:url(#default#VML);}
+w\:* {behavior:url(#default#VML);}
+.shape {behavior:url(#default#VML);}
+</style>
+<![endif]-->
+
+
+
+<title>Huffman Code</title><!--[if gte mso 9]><xml>
+ <w:WordDocument>
+  <w:SpellingState>Clean</w:SpellingState>
+  <w:GrammarState>Clean</w:GrammarState>
+  <w:ValidateAgainstSchemas/>
+  <w:SaveIfXMLInvalid>false</w:SaveIfXMLInvalid>
+  <w:IgnoreMixedContent>false</w:IgnoreMixedContent>
+  <w:AlwaysShowPlaceholderText>false</w:AlwaysShowPlaceholderText>
+  <w:BrowserLevel>MicrosoftInternetExplorer4</w:BrowserLevel>
+ </w:WordDocument>
+</xml><![endif]--><!--[if gte mso 9]><xml>
+ <w:LatentStyles DefLockedState="false" LatentStyleCount="156">
+ </w:LatentStyles>
+</xml><![endif]--><style>
+<!--
+ /* Font Definitions */
+ @font-face
+	{font-family:"Arial Black";
+	panose-1:2 11 10 4 2 1 2 2 2 4;
+	mso-font-charset:0;
+	mso-generic-font-family:swiss;
+	mso-font-pitch:variable;
+	mso-font-signature:647 0 0 0 159 0;}
+ /* Style Definitions */
+ p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{mso-style-parent:"";
+	margin:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Times New Roman";}
+h1
+	{mso-margin-top-alt:auto;
+	margin-right:0in;
+	mso-margin-bottom-alt:auto;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	mso-outline-level:1;
+	font-size:24.0pt;
+	font-family:"Times New Roman";
+	font-weight:bold;}
+h3
+	{margin-top:12.0pt;
+	margin-right:0in;
+	margin-bottom:3.0pt;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	page-break-after:avoid;
+	mso-outline-level:3;
+	font-size:13.0pt;
+	font-family:Arial;
+	font-weight:bold;}
+a:link, span.MsoHyperlink
+	{color:blue;
+	text-decoration:underline;
+	text-underline:single;}
+a:visited, span.MsoHyperlinkFollowed
+	{color:purple;
+	text-decoration:underline;
+	text-underline:single;}
+p
+	{mso-margin-top-alt:auto;
+	margin-right:0in;
+	mso-margin-bottom-alt:auto;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Times New Roman";}
+span.SpellE
+	{mso-style-name:"";
+	mso-spl-e:yes;}
+span.GramE
+	{mso-style-name:"";
+	mso-gram-e:yes;}
+@page Section1
+	{size:8.5in 11.0in;
+	margin:1.0in 1.25in 1.0in 1.25in;
+	mso-header-margin:.5in;
+	mso-footer-margin:.5in;
+	mso-paper-source:0;}
+div.Section1
+	{page:Section1;}
+-->
+</style><!--[if gte mso 10]>
+<style>
+ /* Style Definitions */
+ table.MsoNormalTable
+	{mso-style-name:"Table Normal";
+	mso-tstyle-rowband-size:0;
+	mso-tstyle-colband-size:0;
+	mso-style-noshow:yes;
+	mso-style-parent:"";
+	mso-padding-alt:0in 5.4pt 0in 5.4pt;
+	mso-para-margin:0in;
+	mso-para-margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:10.0pt;
+	font-family:"Times New Roman";
+	mso-ansi-language:#0400;
+	mso-fareast-language:#0400;
+	mso-bidi-language:#0400;}
+</style>
+<![endif]-->
+
+<meta name="AUTHOR" content="Michael Lutz">
+<meta name="CREATED" content="20071211;19445449">
+<meta name="CHANGEDBY" content="Michael Lutz">
+<meta name="CHANGED" content="20071212;15530629"><!--[if gte mso 9]><xml>
+ <o:shapedefaults v:ext="edit" spidmax="5122"/>
+</xml><![endif]--><!--[if gte mso 9]><xml>
+ <o:shapelayout v:ext="edit">
+  <o:idmap v:ext="edit" data="1"/>
+ </o:shapelayout></xml><![endif]--></head>
+
+<body style="" lang="EN-US" link="blue" vlink="purple">
+
+<div class="Section1">
+
+<h1 style="text-align: center;" align="center"><span style="font-family: Arial;">Huffman
+Code</span></h1>
+
+<p><span style="font-family: Arial;">Normally all the characters stored in a
+computer use a fixed size – for instance an 8-bit byte is common. However, some
+characters are much more common than others. If common characters (like E) are
+encoded with fewer bits, and uncommon characters (like Z) with more bits, then
+the average number of bits per character may be significantly fewer than 8.
+This is the insight behind <i>Huffman codes</i>, where the length of the code
+for a character is inversely proportional to the character's frequency.</span></p>
+
+<p><span style="font-family: Arial;">A Huffman code is created by making and then
+traversing a binary tree. The leaves of the tree hold individual characters and
+their count (or frequency); the interior nodes all have to <span class="SpellE">subtrees</span>,
+and an internal node simply records the sum of the counts of its two children.
+The code for each character is generated by performing a pre-order traversal of
+the tree; each left traversal appends a </span><span style="font-size: 11pt; font-family: &quot;Arial Black&quot;;">0</span> <span style="font-family: Arial;">to the code
+being constructed; each right traversal appends a </span><span style="font-size: 11pt; font-family: &quot;Arial Black&quot;;">1</span><span style="font-family: Arial;">. When a leaf node is encountered, the code
+constructed to that point is assigned to the letter. See the Huffman binary
+tree below:</span></p>
+
+<p style="margin-bottom: 12pt;"><!--[if gte vml 1]><v:shapetype id="_x0000_t75"
+ coordsize="21600,21600" o:spt="75" o:preferrelative="t" path="m@4@5l@4@11@9@11@9@5xe"
+ filled="f" stroked="f">
+ <v:stroke joinstyle="miter"/>
+ <v:formulas>
+  <v:f eqn="if lineDrawn pixelLineWidth 0"/>
+  <v:f eqn="sum @0 1 0"/>
+  <v:f eqn="sum 0 0 @1"/>
+  <v:f eqn="prod @2 1 2"/>
+  <v:f eqn="prod @3 21600 pixelWidth"/>
+  <v:f eqn="prod @3 21600 pixelHeight"/>
+  <v:f eqn="sum @0 0 1"/>
+  <v:f eqn="prod @6 1 2"/>
+  <v:f eqn="prod @7 21600 pixelWidth"/>
+  <v:f eqn="sum @8 21600 0"/>
+  <v:f eqn="prod @7 21600 pixelHeight"/>
+  <v:f eqn="sum @10 21600 0"/>
+ </v:formulas>
+ <v:path o:extrusionok="f" gradientshapeok="t" o:connecttype="rect"/>
+ <o:lock v:ext="edit" aspectratio="t"/>
+</v:shapetype><v:shape id="_x0000_s1026" type="#_x0000_t75" alt="" style='position:absolute;
+ margin-left:0;margin-top:0;width:333.75pt;height:355.5pt;z-index:1;
+ mso-wrap-distance-left:0;mso-wrap-distance-right:0;mso-position-horizontal:left;
+ mso-position-vertical-relative:line' o:allowoverlap="f">
+ <v:imagedata src="Huffman%20Code%20Problem_html_m3cc7072a.gif"/>
+ <w:wrap type="square"/>
+</v:shape><![endif]--><!--[if !vml]--><img src="Huffman%20Code%20Problem_html_m3cc7072a.gif" name="graphics1" v:shapes="_x0000_s1026" align="left" border="0" height="474" width="445"><!--[endif]--><br style="" clear="left">
+</p>
+
+<p><span style="font-family: Arial;">As you can see by looking at the leaf nodes,
+the letter counts in the document from which the tree was constructed are A=25,
+B=11, C=10, D=8, E=40, and F=6. Note also that each of the internal nodes
+counts are simply the sums of the two <span class="SpellE">subtree</span> counts.
+Finally, the Huffman codes for the letters are: A=10, B=1111, C=1110, D=1101,
+E=<span class="GramE">0,</span> and F=1100. Assuming the data stored or
+transmitted with this code has the same frequency distribution as that used to
+create the tree, the average number of bits per character is:</span></p>
+
+<p style="margin-left: 56.9pt;"><b><span style="font-family: Arial;">(40*1 + 25*2 +
+35*4) / 100 = 2.3</span></b></p>
+
+<p><span class="GramE"><span style="font-family: Arial;">which</span></span><span style="font-family: Arial;"> is a 24% savings over a fixed code that associates 3
+bits with each character. The only thing left to do is show how to create the
+tree.</span></p>
+
+<h1 style="margin: 7.9pt 0in 0.1in;"><span style="font-size: 15pt; font-family: Arial;">Creating a Huffman Code
+Tree</span></h1>
+
+<p><span style="font-family: Arial;">First we need to represent a tree node;
+using the diagram above, it's apparent that we need space for a character, a
+count, and two tree node pointers for the left and right <span class="SpellE">subtrees</span>.
+Once we have this structure we can write a utility function to make a tree node
+give a character, count, and the links to be used for the left and right <span class="SpellE">subtrees</span> (leaf nodes have NULL pointers for the <span class="SpellE">subtrees</span>).</span></p>
+
+<p style="margin-bottom: 0.1in;"><span style="font-family: Arial;">The tree is
+created by first creating a leaf node for each character to be encoded and
+inserting this into a list sorted by count. Below is such a list for the 6
+characters used above:</span></p>
+
+<p style="margin-bottom: 12pt;"><!--[if gte vml 1]><v:shape id="_x0000_s1027"
+ type="#_x0000_t75" alt="" style='position:absolute;margin-left:0;margin-top:0;
+ width:520.5pt;height:115.5pt;z-index:2;mso-wrap-distance-left:0;
+ mso-wrap-distance-right:0;mso-position-horizontal:left;
+ mso-position-vertical-relative:line' o:allowoverlap="f">
+ <v:imagedata src="Huffman%20Code%20Problem_html_m68b66985.gif"/>
+ <w:wrap type="square"/>
+</v:shape><![endif]--><!--[if !vml]--><img src="Huffman%20Code%20Problem_html_m68b66985.gif" name="graphics2" v:shapes="_x0000_s1027" align="left" border="0" height="154" width="694"><!--[endif]--><br style="" clear="left">
+</p>
+
+<p style="margin-bottom: 0.1in;"><span style="font-family: Arial;">Next we remove
+the first two trees from the list, create a new tree node with the smaller
+count to the left and the larger count to the right, and then reinsert this new
+tree into the sorted list. The following diagrams show the state of the list
+after the first three such extractions, tree node creations, and reinsertions:</span></p>
+
+<p style="margin-bottom: 0.0001pt;"><!--[if gte vml 1]><v:shape
+ id="_x0000_s1028" type="#_x0000_t75" alt="" style='position:absolute;
+ margin-left:0;margin-top:0;width:480pt;height:633.75pt;z-index:3;
+ mso-wrap-distance-left:0;mso-wrap-distance-right:0;mso-position-horizontal:left;
+ mso-position-vertical-relative:line' o:allowoverlap="f">
+ <v:imagedata src="Huffman%20Code%20Problem_html_c73d3f3.gif"/>
+ <w:wrap type="square"/>
+</v:shape><![endif]--><!--[if !vml]--><img src="Huffman%20Code%20Problem_html_c73d3f3.gif" name="graphics3" v:shapes="_x0000_s1028" align="left" border="0" height="845" width="640"><!--[endif]--><br style="" clear="left">
+</p>
+
+<p style="margin: 5.05pt 0in;"><span style="font-family: Arial;">When the list has been pared down to the
+point where there is only one element left, then that element is the root of
+the Huffman tree:</span></p>
+
+<h1 style="margin: 7.9pt 0in 0.1in; page-break-after: avoid;"><!--[if gte vml 1]><v:shape id="_x0000_s1029"
+ type="#_x0000_t75" alt="" style='position:absolute;margin-left:0;margin-top:0;
+ width:351.75pt;height:350.25pt;z-index:4;mso-wrap-distance-left:0;
+ mso-wrap-distance-right:0;mso-position-horizontal:left;
+ mso-position-vertical-relative:line' o:allowoverlap="f">
+ <v:imagedata src="Huffman%20Code%20Problem_html_4500de79.gif"/>
+ <w:wrap type="square"/>
+</v:shape><![endif]--><!--[if !vml]--><img src="Huffman%20Code%20Problem_html_4500de79.gif" name="graphics4" v:shapes="_x0000_s1029" align="left" border="0" height="467" width="469"><!--[endif]--><br clear="left">
+<span style="font-size: 15pt; font-family: Arial;">The Project</span></h1>
+
+<p style="margin: 5.05pt 0in;"><span style="font-family: Arial;">Your task is to build up a table of letter
+frequency counts and then create the Huffman coding tree and determine the
+Huffman code for each of the letters. The code will be printed as a sequence of
+<b>0</b> and <b>1</b> characters at the end. The following files are for your
+use and can be downloaded from the following zip file:&nbsp; <a href="Project2_Files.zip">Project2_Files.zip</a></span></p>
+
+<p style="margin: 5.05pt 0in;"><span class="SpellE"><b><span style="font-family: Arial;">main.c</span></b></span></p>
+
+<p style="margin: 0.7pt 0in 5.05pt 0.5in;"><span style="font-family: Arial;">The skeleton main program that builds the
+table of letter frequency counts, creates the tree, traverses the tree to generate
+the Huffman code, and prints codes for the 26 letters.</span></p>
+
+<p style="margin: 5.05pt 0in 0.7pt;"><span class="SpellE"><b><span style="font-family: Arial;">HuffmanTree.h</span></b></span></p>
+
+<p style="margin: 0.7pt 0in 5.05pt 0.5in;"><span class="GramE"><span style="font-family: Arial;">The interface to the <span class="SpellE">HuffmanTree</span> module.</span></span><span style="font-family: Arial;"> This defines what a tree node structure contains, as well as the
+interface to a function to create a new tree node from two existing links
+(perhaps NULL), a character, and a count of occurrences.</span></p>
+
+<p style="margin: 5.05pt 0in 0.7pt;"><span class="SpellE"><b><span style="font-family: Arial;">HuffmanTree.c</span></b></span></p>
+
+<p style="margin: 0.7pt 0in 5.05pt 0.5in;"><span style="font-family: Arial;">Skeleton implementation of the tree
+construction function declared in <span class="SpellE">HuffmanTree.h</span></span></p>
+
+<p style="margin: 5.05pt 0in 0.7pt;"><span class="SpellE"><b><span style="font-family: Arial;">OrderedList.h</span></b></span></p>
+
+<p style="margin: 0.7pt 0in 5.05pt 0.5in;"><span class="GramE"><span style="font-family: Arial;">The interface to the module
+that keeps an ordered list of Huffman tree nodes (ordered by the frequency
+count).</span></span><span style="font-family: Arial;"> Insertions always keep
+the list in sorted order; removals always remove and return the first tree node
+in the list (with the smallest count); size simply says how many nodes remain
+in the list. Note: However you maintain the size, it must initially be 0, must
+increase by 1 on each insertion, and must decrease by 1 on each removal.</span></p>
+
+<p style="margin: 5.05pt 0in 0.7pt;"><span class="SpellE"><b><span style="font-family: Arial;">OrderedList.c</span></b></span></p>
+
+<p style="margin: 0.7pt 0in 5.05pt 0.5in;"><span class="GramE"><span style="font-family: Arial;">Skeleton implementation
+of the ordered list module.</span></span><span style="font-family: Arial;"> Note that
+the structure used for the nodes in the list is declared here because the list
+nodes (as opposed to the Huffman tree nodes) are invisible outside this module.</span></p>
+
+<p style="margin: 5.05pt 0in 0.7pt;"><span class="SpellE"><b><span style="font-family: Arial;">Makefile</span></b></span></p>
+
+<p style="margin: 0.7pt 0in 5.05pt 0.5in;"><span style="font-family: Arial;">A <span class="SpellE">Makefile</span> to
+build compile and link your program as huffman.exe</span></p>
+
+<p style="margin: 5.05pt 0in 0.7pt;"><b><span style="font-family: Arial;">README.txt</span></b></p>
+
+<p style="margin: 0.7pt 0in 5.05pt 0.5in;"><span class="GramE"><span style="font-family: Arial;">A brief description of
+the provided files.</span></span></p>
+
+<p style="margin: 5.05pt 0in 0.7pt;"><b><span style="font-family: Arial;">SelectedInput.txt / SelectedOutput.txt
+/ DickensInput.txt / DickensOutput.txt</span></b></p>
+
+<p style="margin: 0.7pt 0in 5.05pt 0.5in;"><span class="GramE"><span style="font-family: Arial;">Two sets of sample
+input and output files for testing.</span></span></p>
+
+<p style="margin: 5.05pt 0in;"><span style="font-family: Arial;">The source files contain comments that
+both describe the data structures and functions and provide guidance as to how
+to proceed with implementation. From this you should be able to construct a
+program to determine the Huffman code for the 26 letters based upon an input
+document.</span></p>
+
+<p style="margin: 5.05pt 0in;"><span style="font-family: Arial;">&nbsp;</span></p>
+
+<h3>Deliverables &amp; Due Date</h3>
+
+<p style="margin: 5pt 0in 0.0001pt 0.25in; text-indent: -0.25in;"><span style="font-family: Symbol;">·</span><span style="font-size: 7pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><b><span style="font-family: Arial;">See course schedule for due dates <br>
+&nbsp;(-15% if less than 24 hrs late,&nbsp;no submissions
+accepted 24 hours after the due date)</span></b></p>
+
+<p style="margin: 5pt 0in 0.0001pt 0.25in; text-indent: -0.25in;"><span style="font-family: Symbol;">·</span><span style="font-size: 7pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span style="font-family: Arial;">Submit <b><i><span style="color: red;">all</span></i></b>
+three (3) C source files (below) and ProjectLog.txt&nbsp;to your repository in folder named <span style="font-style: italic; font-weight: bold;">Huffman</span></span></p>
+
+<p style="margin: 5pt 0in 0.0001pt 0.5in;"><span class="SpellE"><i><span style="font-family: Arial;">main.c</span></i></span></p>
+
+<p style="margin: 5pt 0in 0.0001pt 0.5in;"><span class="SpellE"><i><span style="font-family: Arial;">HuffmanTree.c</span></i></span></p>
+
+<p style="margin: 5pt 0in 0.0001pt 0.5in;"><span class="SpellE"><i><span style="font-family: Arial;">OrderedList.c</span></i></span></p>
+
+<p style="margin: 5pt 0in 0.0001pt 0.25in;"><b><span style="font-family: Arial;">Note</span></b><span style="font-family: Arial;">: Header (.h) files will be ignored, as the
+interfaces are fixed and not subject to change by you.</span></p>
+
+<p style="margin: 5pt 0in 0.0001pt 0.25in; text-indent: -0.25in;"><span style="font-family: Symbol;">·</span><span style="font-size: 7pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></p><br><p style="margin: 5.05pt 0in;">&nbsp;</p>
+
+</div>
+
+</body></html>
