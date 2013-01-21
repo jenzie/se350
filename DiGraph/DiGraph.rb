@@ -1,8 +1,16 @@
+##
+# author: Jenny Zhen
+# date: 01.21.13
+# language: Ruby
+# file: DiGraph.rb
+# assignment: DiGraph.rb
+#   http://www.se.rit.edu/~se350/Class_Activities/14_RubyUnit/RubyDiGraph.html
 #
 # DiGraph - Implements a directed graph using an adjacency list
 #
 # T. Reichlmayr - 01/26/07
 # M. Lutz - 4/20/2011
+##
 
 class DiGraph 
   # Create the mapping hash from known vertices to an array
