@@ -96,7 +96,8 @@ void deq_get_tail(node **deqhead, char *value){
 	if( deq_is_empty( temp ) )
 		return ;
 	
-	if( temp->link == NULL ) {
+	if( deq_size(deqhead) == 2 ) {
+		temp = temp->link;
 		free(temp->contents);
 		free(temp);
 		return;
