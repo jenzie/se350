@@ -7,3 +7,17 @@
 #   http://www.se.rit.edu/~se350/Projects/Project3/index.html
 ##
 
+class Recipe
+  def initialize( item )
+    @name = item.slice!(0)
+	@ingredients = item.slice!(2..(item.length - 1))
+  end
+  
+  attr_accessor :name, :ingredients
+  
+  def print
+    puts @name
+	@ingredients.each{ |item| puts "\t", item }
+	end
+	puts "\n"
+end # end class

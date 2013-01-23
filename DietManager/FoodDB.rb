@@ -18,19 +18,25 @@ class FoodDB
 	  File.open( file , "r" ).each do |line|
 		item = line.split(",")
 		database[ item[0] ] = createItem( item )
+	  end
 	  File.close
-	end
 	else
-	  puts "Usage: " ARGV[1] " database.txt log.txt"
+	  # ARGV = ["ruby", "main.rb", "FoodDB.txt", "DietLog.txt"]
+	  puts "Usage: ", ARGV[1], " database.txt log.txt"
 	end
   end
   
   def createItem( item )
 	if item[1].eql?("b")
 	  return BasicFood.new( item[0], item[2] )
-	end
 	else if item[1].eql?("r")
 	  return Recipe.new( item )
 	end
   end
+  
+  def printAll
+    @database.each{ |key, value| value.print }
+	end
+  end
+  
 end # end class
