@@ -32,16 +32,16 @@ class DiGraph
   # be added to the graph if necessary.
   # We should never connect two vertices with more than one edge.
  
-  def addEdge( from, to)
-    addVertex( fromVertex )
-    addVertex( toVertex )
+  def addEdge( from_vertex, to_vertex)
+    addVertex( from_vertex )
+    addVertex( to_vertex )
     @vertices[from_vertex] << to_vertex
   end
 
   # Is name the label of a vertex?
  
   def vertex? ( name )
-    @vertices.key?(name)
+    @vertices.has_key?(name)
   end
     
   # Is the graph empty?
@@ -60,20 +60,28 @@ class DiGraph
   # vertex to another?
 
   def edge?( from, to )
-    # to be written 
+    @vertices[ from ].include?( to )
   end
   
   # How many outgoing edges are there for vertex name?
   # If name is unknown, then this is 0.
  
   def outDegree( name )
-    # to be written
+	if vertex?( name )
+		return @vertices[ name ].size
+	end
+	return 0
   end
   
   # How many incoming edges are there for vertex name?
   # If name is unknown, then this is 0.
  
   def inDegree( name )
-    # to be written
+	count = 0
+    if vertex?( name )
+		@vertices.each_key{ |key| if edge?( key, name ) then count += 1 end}
+	end
+	return count
   end
-end
+  
+end # end class
