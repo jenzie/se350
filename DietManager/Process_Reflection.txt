@@ -5,8 +5,13 @@ Name: Jenny Zhen
 
 ================================================================
 Level 1 – Food DB Load – Start
-Estimated Time	HH MM
+Estimated Time	1.5 hour
 Plan for this level:
+- Write the food database file, FoodDB.txt.
+- Parse the file in CSV format.
+- Build internal food database.
+- "Print all" food entries.
+- "Quit" program.
 
 Level 1 – Food DB Load – Complete
 Actual Time	HH MM
@@ -14,8 +19,10 @@ Lessons learned, problems encountered, obstacles overcome, etc.
 
 ================================================================
 Level 2 – Print & Find – Start
-Estimated Time	HH MM
+Estimated Time	1 hour
 Plan for this level:
+- "Print" a single food entry (basic and recipe).
+- "Find" food entries by prefix.
 
 Level 2  – Print & Find – Complete
 Actual Time	HH MM
@@ -23,8 +30,13 @@ Lessons learned, problems encountered, obstacles overcome, etc.
 
 ================================================================
 Level 3 – Database Update – Start
-Estimated Time	HH MM
+Estimated Time	2 hours
 Plan for this level:
+- Add "new food" for basic food.
+- Add "new recipe" for recipe of basic foods.
+- Add "save" to save food database without exiting.
+	(boolean to flag a change in file)
+- Change "quit" to save food database and exit.
 
 Level 3 – Database Update  – Complete
 Actual Time	HH MM
@@ -32,8 +44,11 @@ Lessons learned, problems encountered, obstacles overcome, etc.
 
 ================================================================
 Level 4 – Logging Foods – Start
-Estimated Time	HH MM
+Estimated Time	1 hour
 Plan for this level:
+- "Log" a food into log for today.
+- "Log" a food into log for a specific date.
+- "Show all" entries in the food log by ascending date.
 
 Level 4 – Logging Foods – Complete
 Actual Time	HH MM
@@ -41,8 +56,11 @@ Lessons learned, problems encountered, obstacles overcome, etc.
 
 ================================================================
 Level 5 – Show & Delete – Start
-Estimated Time	HH MM
+Estimated Time	1.5 hour
 Plan for this level:
+- "Show" the log of foods for today, with number of units.
+- "Show" the log of foods for a given date, with number of units.
+- "Delete" one unit of the food entry from the log for the date.
 
 Level 5 – Show & Delete – Complete
 Actual Time	HH MM
@@ -50,6 +68,6 @@ Lessons learned, problems encountered, obstacles overcome, etc.
 
 ================================================================
 Overall Summary
-Estimated Total Time	HH MM
+Estimated Total Time	7 hours
 Actual Total Time	HH MM
 Project reflection:
