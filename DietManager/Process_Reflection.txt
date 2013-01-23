@@ -1,0 +1,55 @@
+4010-350 Process & Reflection
+Ruby – Diet Manager
+
+Name: Jenny Zhen
+
+================================================================
+Level 1 – Food DB Load – Start
+Estimated Time	HH MM
+Plan for this level:
+
+Level 1 – Food DB Load – Complete
+Actual Time	HH MM
+Lessons learned, problems encountered, obstacles overcome, etc.
+
+================================================================
+Level 2 – Print & Find – Start
+Estimated Time	HH MM
+Plan for this level:
+
+Level 2  – Print & Find – Complete
+Actual Time	HH MM
+Lessons learned, problems encountered, obstacles overcome, etc.
+
+================================================================
+Level 3 – Database Update – Start
+Estimated Time	HH MM
+Plan for this level:
+
+Level 3 – Database Update  – Complete
+Actual Time	HH MM
+Lessons learned, problems encountered, obstacles overcome, etc.
+
+================================================================
+Level 4 – Logging Foods – Start
+Estimated Time	HH MM
+Plan for this level:
+
+Level 4 – Logging Foods – Complete
+Actual Time	HH MM
+Lessons learned, problems encountered, obstacles overcome, etc.
+
+================================================================
+Level 5 – Show & Delete – Start
+Estimated Time	HH MM
+Plan for this level:
+
+Level 5 – Show & Delete – Complete
+Actual Time	HH MM
+Lessons learned, problems encountered, obstacles overcome, etc.
+
+================================================================
+Overall Summary
+Estimated Total Time	HH MM
+Actual Total Time	HH MM
+Project reflection:

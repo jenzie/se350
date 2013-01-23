@@ -1,0 +1,24 @@
+Orange,b,67
+Bread Slice,b,80
+Peanut Butter,b,175
+Jelly,b,155
+Candy,b,5
+Gum,b,5
+Ham,b,20
+Cheese Slice,b,20
+Mayonnaise,b,15
+Plain Bagel,b,90
+Cream Cheese,b,30
+Blueberry Muffin,b,100
+Corn Muffin,b,80
+English Muffin,b,80
+Fried Egg,b,80
+Sausage,b,80
+Ice Cream,b,200
+Steak,b,800
+
+Muffin with Egg & Sausage,r,English Muffin,Fried Egg,Sausage
+Bagel with Cream Cheese,r,Plain Bagel,Cream Cheese
+Grilled Cheese,r,Bread Slice,Bread Slice,Cheese Slice,Cheese Slice
+Ham & Cheese,r,Bread Slice,Bread Slice,Ham,Cheese Slice,Mayonnaise
+PB&J Sandwich,r,Bread Slice,Bread Slice,Peanut Butter,Jelly
