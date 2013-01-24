@@ -16,8 +16,8 @@ class Recipe
   attr_accessor :name, :ingredients
   
   def print
-    puts @name
-	@ingredients.each{ |item| puts "\t", item }
+    printf @name + "\n"
+	@ingredients.each{ |item| puts "\t" + item }
 	end
 	puts "\n"
 end # end class

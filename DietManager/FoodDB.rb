@@ -11,19 +11,22 @@ require './Recipe.rb'
 require './BasicFood.rb'
 
 class FoodDB
-  def initialize?( file )
+  def initialize( file )
 	@database = Hash.new
 	
-	if File.file?( file )
+	if File.readable?( file )
 	  File.open( file , "r" ).each do |line|
 		item = line.split(",")
-		database[ item[0] ] = createItem( item )
+		@database[ item[0] ] = createItem( item )
 	  end
-	  File.close
 	else
-	  # ARGV = ["ruby", "main.rb", "FoodDB.txt", "DietLog.txt"]
-	  puts "Usage: ", ARGV[1], " database.txt log.txt"
+	  # ARGV = ["FoodDB.txt", "DietLog.txt"]
+	  puts "Usage: ruby main.rb database.txt log.txt"
 	end
+  end
+  
+  def size
+    @database.size
   end
   
   def createItem( item )
@@ -35,7 +38,7 @@ class FoodDB
   end
   
   def printAll
-    @database.each{ |key, value| value.print }
+    @database.each{ |key, value| value.print if value != nil }
 	end
   end
   

@@ -16,6 +16,6 @@ class BasicFood
   attr_accessor :name, :calories
   
   def print
-    puts @name, @calories, "\n"
+    puts @name + " " + @calories
   end
 end #end class
