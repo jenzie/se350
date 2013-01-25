@@ -8,16 +8,38 @@
 ##
 
 class Recipe
-  def initialize( item )
+  def initialize( item, database )
     @name = item.slice!(0)
-	@ingredients = item.slice!(2..(item.length - 1))
+	@calories = 0
+	@ingredients = Array.new # keeps track of unique basic items
+	@count = Array.new # keeps track of the count of items in @ingredients
+	
+	item.slice!(1..(item.length - 1)).each do |ingredient|
+	  ingredient.chomp!
+	  print "'", ingredient, "'\n"
+	  if !database.include?( ingredient )
+	    puts "Error: Invalid ingredient '" + ingredient + 
+		  "' for the recipe '" + @name + "'.\n"
+		exit
+	  elsif ingredients.include?( database[ ingredient ] )
+	    @count[ ingredients.index( database[ ingredient ] ) ] += 1
+	  else
+	    @ingredients << database[ ingredient ]
+		@count << 1
+	  end
+	  @calories += database[ ingredient ].calories
+	end
   end
   
   attr_accessor :name, :ingredients
   
-  def print
-    printf @name + "\n"
-	@ingredients.each{ |item| puts "\t" + item }
+  def printItem
+    index = 0
+    print @name, " ", @calories, "\n"
+	@ingredients.each do |item|
+	  print "  "
+	  item.printItem( @count[ index ] )
+	  index += 1
 	end
-	puts "\n"
+  end
 end # end class

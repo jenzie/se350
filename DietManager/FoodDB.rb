@@ -33,13 +33,21 @@ class FoodDB
 	if item[1].eql?("b")
 	  return BasicFood.new( item[0], item[2] )
 	else if item[1].eql?("r")
-	  return Recipe.new( item )
+	  return Recipe.new( item, @database )
 	end
   end
   
   def printAll
-    @database.each{ |key, value| value.print if value != nil }
+    @database.each do |key, value|
+	  if value != nil
+	    if value.kind_of? BasicFood
+	      value.printItem(1)
+	    else
+	      value.printItem
+		end
+	  end
 	end
+  end
   end
   
 end # end class
