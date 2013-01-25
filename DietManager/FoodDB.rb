@@ -25,6 +25,12 @@ class FoodDB
 	end
   end
   
+  ##
+  # For testing purposes only.
+  # Getter for @database
+  ##
+  attr_accessor :database
+  
   def size
     @database.size
   end
@@ -49,11 +55,5 @@ class FoodDB
 	end
   end
   end
-  
-  ##
-  # For testing purposes only.
-  # Getter for @database
-  ##
-  attr_accessor :database
   
 end # end class

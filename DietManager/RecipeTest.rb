@@ -9,7 +9,6 @@
 
 require './FoodDB'
 require './Recipe'
-require './BasicFood'
 require 'test/unit'
 
 class RecipeTest < Test::Unit::TestCase
@@ -19,36 +18,27 @@ class RecipeTest < Test::Unit::TestCase
 	@list1 = ["Egg & Sausage","r","Fried Egg","Fried Egg","Sausage","Sausage"]
 	@list2 = ["Muffin with Ham & Egg","r","Ham","Fried Egg","English Muffin"]
 	@list3 = ["Muffin with Sausage","r","English Muffin","Sausage","Sausage"]
-	@recipe1 = Recipe.new( @list1, @db )
-	@recipe2 = Recipe.new( @list2, @db )
-	@recipe3 = Recipe.new( @list3, @db )
-  end
-  
-  def test_for_add_to_db
-    assert( @db.database.has_key?( list1[0] ), 
-	  "Recipe1 is not in db." )
-	assert( @db.database.has_key?( list2[0] ), 
-	  "Recipe2 is not in db." )
-	assert( @db.database.has_key?( list3[0] ), 
-	  "Recipe3 is not in db." )
+	@recipe1 = Recipe.new( @list1, @db.database )
+	@recipe2 = Recipe.new( @list2, @db.database )
+	@recipe3 = Recipe.new( @list3, @db.database )
   end
   
   def test_for_ingredients
-    @list1.slice( 0, 2 )
+    @list1 = @list1.values_at(1..(@list1.length - 1))
     @list1.each do |ingredient|
-	  assert( @recipe1.ingredients.include?( @db[ ingredient ] ), 
+	  assert( @recipe1.ingredients.include?( @db.database[ ingredient ] ), 
 	    "Recipe1 does not contain #{ingredient}." )
 	end
 	
-	@list2.slice( 0, 2 )
+    @list2 = @list2.values_at(1..(@list2.length - 1))
     @list2.each do |ingredient|
-	  assert( @recipe2.ingredients.include?( @db[ ingredient ] ), 
+	  assert( @recipe2.ingredients.include?( @db.database[ ingredient ] ), 
 	    "Recipe2 does not contain #{ingredient}." )
 	end
 	
-	@list3.slice( 0, 2 )
+    @list3 = @list3.values_at(1..(@list3.length - 1))
     @list3.each do |ingredient|
-	  assert( @recipe3.ingredients.include?( @db[ ingredient ] ), 
+	  assert( @recipe3.ingredients.include?( @db.database[ ingredient ] ), 
 	    "Recipe3 does not contain #{ingredient}." )
 	end
   end

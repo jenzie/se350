@@ -23,7 +23,7 @@ class Recipe
 	@ingredients = Array.new # keeps track of unique basic items
 	@count = Array.new # keeps track of the count of items in @ingredients
 	
-	item.slice!(1..(item.length - 1)).each do |ingredient|
+	item.slice(1..(item.length - 1)).each do |ingredient|
 	  ingredient.chomp!
 	  if !database.include?( ingredient )
 	    puts "Error: Invalid ingredient '" + ingredient + 
@@ -42,7 +42,7 @@ class Recipe
   ##
   # Getters for @name, @ingredients
   ##
-  attr_accessor :name, :ingredients
+  attr_accessor :name, :ingredients, :calories
   
   ##
   # Method to print the name, calories, and ingredients for the recipe.
