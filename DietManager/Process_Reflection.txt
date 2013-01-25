@@ -5,7 +5,7 @@ Name: Jenny Zhen
 
 ================================================================
 Level 1 – Food DB Load – Start
-Estimated Time	1.5 hour
+Estimated Time	2 hours
 Plan for this level:
 - Write the food database file, FoodDB.txt.
 - Parse the file in CSV format.
@@ -14,12 +14,16 @@ Plan for this level:
 - "Quit" program.
 
 Level 1 – Food DB Load – Complete
-Actual Time	HH MM
+Actual Time	4 hours
 Lessons learned, problems encountered, obstacles overcome, etc.
-
+- Had to think out the design, in particular, how to store multiples 
+of ingredients in recipes.
+- Had to do a lot of googling for built-in method names and examples.
+- Didn't remember to account for time spent writing unit tests and 
+debugging the unit tests.
 ================================================================
 Level 2 – Print & Find – Start
-Estimated Time	1 hour
+Estimated Time	2.5 hours
 Plan for this level:
 - "Print" a single food entry (basic and recipe).
 - "Find" food entries by prefix.
@@ -44,7 +48,7 @@ Lessons learned, problems encountered, obstacles overcome, etc.
 
 ================================================================
 Level 4 – Logging Foods – Start
-Estimated Time	1 hour
+Estimated Time	2 hours
 Plan for this level:
 - "Log" a food into log for today.
 - "Log" a food into log for a specific date.
@@ -68,6 +72,6 @@ Lessons learned, problems encountered, obstacles overcome, etc.
 
 ================================================================
 Overall Summary
-Estimated Total Time	7 hours
+Estimated Total Time	10 hours
 Actual Total Time	HH MM
 Project reflection:

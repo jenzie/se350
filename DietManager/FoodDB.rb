@@ -38,7 +38,7 @@ class FoodDB
   def createItem( item )
 	if item[1].eql?("b")
 	  return BasicFood.new( item[0], item[2] )
-	else if item[1].eql?("r")
+	elsif item[1].eql?("r")
 	  return Recipe.new( item, @database )
 	end
   end
@@ -53,7 +53,6 @@ class FoodDB
 		end
 	  end
 	end
-  end
   end
   
 end # end class
