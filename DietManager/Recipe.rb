@@ -8,6 +8,15 @@
 ##
 
 class Recipe
+
+  ##
+  # Constructor to create an instance of Recipe.
+  # initialize: ArrayOfStrings * FoodDB -> void
+  # item:     array of strings containing the name and ingredients for the recipe
+  #           Format: ["name","r","ingredient_1","ingredient_2",...]
+  # database: instance of FoodDB; used to convert individual ingredients into 
+  #           their instances of BasicFood in the database.
+  ##
   def initialize( item, database )
     @name = item.slice!(0)
 	@calories = 0
@@ -16,7 +25,6 @@ class Recipe
 	
 	item.slice!(1..(item.length - 1)).each do |ingredient|
 	  ingredient.chomp!
-	  print "'", ingredient, "'\n"
 	  if !database.include?( ingredient )
 	    puts "Error: Invalid ingredient '" + ingredient + 
 		  "' for the recipe '" + @name + "'.\n"
@@ -31,8 +39,15 @@ class Recipe
 	end
   end
   
+  ##
+  # Getters for @name, @ingredients
+  ##
   attr_accessor :name, :ingredients
   
+  ##
+  # Method to print the name, calories, and ingredients for the recipe.
+  # Multiples of ingredients are printed once with their count.
+  ##
   def printItem
     index = 0
     print @name, " ", @calories, "\n"
@@ -42,4 +57,5 @@ class Recipe
 	  index += 1
 	end
   end
+  
 end # end class
