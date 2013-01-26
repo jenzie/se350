@@ -91,10 +91,7 @@ class FoodDB
   def contains( name )
     name = name.downcase
     @database.each do |key, value|
-	  puts "'"+key.downcase+"'"
-	  puts "'"+name+"'"
-	  temp = key.downcase
-	  if ( name <=> temp ) == 0
+	  if ( name <=> key.downcase ) == 0
 	    return true
 	  end
 	end
@@ -128,6 +125,25 @@ class FoodDB
 	@database[ name ] = Recipe.new( info, @database )
 	@newItems[ name ] = Recipe.new( info, @database )
 	puts "Success! Recipe entry '#{name}' was added."
+  end
+  
+  def hasChange
+    return @newItems.length > 0
+  end
+  
+  def getChanges
+    changes = Array.new
+	@newItems.each do |item, value|
+	  if value.kind_of?( BasicFood )
+	    changes << [value.name, "b", value.calories.to_s]
+	  elsif value.kind_of?( Recipe )
+	    entry = [value.name, "r"]
+		entry.concat( value.ingredients )
+		changes << entry
+	  end
+	end
+	#@newItems = Array.new
+	return changes
   end
   
 end # end class

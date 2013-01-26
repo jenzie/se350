@@ -31,9 +31,9 @@ def run
 	when "4"
 	  newRecipe( db )
 	when "5"
-	  save( db )
+	  save( db, ARGV[0], ARGV[1] )
 	when "6"
-      quit
+      quit( db, ARGV[0], ARGV[1] )
     else
       puts "Invalid Command."
 	end
@@ -88,7 +88,20 @@ def newRecipe( foodDB )
   foodDB.addRecipe( name, ingredients )
 end
 
-def quit
+def save( foodDB, db_file, log_file )
+  if !foodDB.hasChange
+    puts "No changes have been made to the database and log."
+	return
+  end
+  puts "Saving food database and log..."
+  changes = foodDB.getChanges
+  changes.each do |line|
+  end
+  puts "Success! Database and log have been saved!\n\n"
+end
+
+def quit( foodDB, db_file, log_file )
+  save( foodDB, db_file, log_file ) if foodDB.hasChange
   puts "Good bye!"
   exit
 end
