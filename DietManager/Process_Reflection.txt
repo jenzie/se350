@@ -35,7 +35,6 @@ Lessons learned, problems encountered, obstacles overcome, etc.
 and converted strings to downcase before doing any comparisons.
 - Could not figure out ways to do unit tests (functions did not 
 return anything; they printed as information was found.)
-
 ================================================================
 Level 3 – Database Update – Start
 Estimated Time	2 hours
@@ -47,9 +46,16 @@ Plan for this level:
 - Change "quit" to save food database and exit.
 
 Level 3 – Database Update  – Complete
-Actual Time	2 hours + unit tests
+Actual Time	3 hours
 Lessons learned, problems encountered, obstacles overcome, etc.
-
+- Learned how useful a second array can be when checking for 
+multiples of something without repeating it.
+- Was stuck on figuring out how to add a new recipe for a while. 
+Drawing out the process made it easier to understand what was 
+going on when I needed to handle the different cases.
+- Drawing also helped when I couldn't figure out why writing to 
+file did not write out multiples of ingredients (forgot the 
+array to count multiples existed.)
 ================================================================
 Level 4 – Logging Foods – Start
 Estimated Time	2 hours
