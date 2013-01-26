@@ -66,6 +66,14 @@ def findPrefix( foodDB )
   foodDB.findAll( prefix )
 end
 
+def newFood( foodDB )
+  puts "Enter the name of the basic food entry."
+  name = STDIN.gets.chomp!.strip
+  puts "Enter the number of calories."
+  calories = STDIN.gets.chomp!.strip
+  foodDB.addFood( name, calories )
+end
+
 def quit
   puts "Good bye!"
   exit

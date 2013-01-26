@@ -12,7 +12,8 @@ require './BasicFood.rb'
 
 class FoodDB
   def initialize( file )
-	@database = Hash.new
+	@database = Hash.new # stores entire db
+	@newItems = Hash.new # stores newly added items
 	
 	if File.readable?( file )
 	  File.open( file , "r" ).each do |line|
@@ -85,6 +86,33 @@ class FoodDB
 	if count == 0
 	  puts "No entries found with the prefix '#{prefix}'."
 	end
+  end
+  
+  def contains( name )
+    name = name.downcase
+    @database.each do |key, value|
+	  if name == key.downcase
+	    return true
+	  end
+	end
+	return false
+  end
+  
+  def addFood( name, calories )
+    if contains( name )
+      puts "Error: Food entry '#{name}' already exists in database."
+	  return
+    end
+    @database[ name ] = BasicFood.new( name, calories )
+	@newItems[ name ] = BasicFood.new( name, calories )
+	puts "Success! Food entry '#{name}' was added."
+  end
+  
+  def addRecipe( name, ingredients )
+    if contains( name )
+      puts "Error: Food entry '#{name}' already exists in database."
+	  return
+    end
   end
   
 end # end class
