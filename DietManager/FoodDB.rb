@@ -128,7 +128,7 @@ class FoodDB
 	puts "Success! Recipe entry '#{name}' was added."
   end
   
-  def hasChange
+  def hasChanges
     return @newItems.length > 0
   end
   

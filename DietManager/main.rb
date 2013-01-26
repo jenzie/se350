@@ -89,7 +89,7 @@ def newRecipe( foodDB )
 end
 
 def save( foodDB, db_file, log_file )
-  if !foodDB.hasChange
+  if !foodDB.hasChanges
     puts "No changes have been made to the database and log."
 	return
   end
@@ -104,7 +104,7 @@ def save( foodDB, db_file, log_file )
 end
 
 def quit( foodDB, db_file, log_file )
-  save( foodDB, db_file, log_file ) if foodDB.hasChange
+  save( foodDB, db_file, log_file ) if foodDB.hasChanges
   puts "Good bye!"
   exit
 end

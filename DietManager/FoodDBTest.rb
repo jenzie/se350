@@ -28,4 +28,21 @@ class FoodDBTest < Test::Unit::TestCase
 	assert( @db.createItem( @list2 ).kind_of?( BasicFood ), 
 	  "List2 does not produce a basic food." )
   end
+  
+  def test_for_contains
+  end
+  
+  def test_for_addFood
+  end
+  
+  def test_for_addRecipe
+  end
+  
+  def test_for_hasChanges
+  end
+  
+  def test_for_getChanges
+    assert_equal( @db.getChanges.length, 0 )
+  end
+  
 end # end class
