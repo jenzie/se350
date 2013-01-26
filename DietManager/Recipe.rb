@@ -25,6 +25,7 @@ class Recipe
 	
 	item.slice(1..(item.length - 1)).each do |ingredient|
 	  ingredient.chomp!
+	  ingredient = ingredient.slice(0,1).capitalize + ingredient.slice(1..-1)
 	  if !database.include?( ingredient )
 	    puts "Error: Invalid ingredient '" + ingredient + 
 		  "' for the recipe '" + @name + "'.\n"

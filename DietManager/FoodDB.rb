@@ -91,7 +91,10 @@ class FoodDB
   def contains( name )
     name = name.downcase
     @database.each do |key, value|
-	  if name == key.downcase
+	  puts "'"+key.downcase+"'"
+	  puts "'"+name+"'"
+	  temp = key.downcase
+	  if ( name <=> temp ) == 0
 	    return true
 	  end
 	end
@@ -113,6 +116,18 @@ class FoodDB
       puts "Error: Food entry '#{name}' already exists in database."
 	  return
     end
+	ingredients.each do |item|
+	  if !contains( item )
+	    puts "Error: Ingredient '#{item}' does not exist in database."
+		return
+	  end
+	end
+	name = name.slice(0,1).capitalize + name.slice(1..-1)
+	info = [name, "r"]
+	info.concat( ingredients )
+	@database[ name ] = Recipe.new( info, @database )
+	@newItems[ name ] = Recipe.new( info, @database )
+	puts "Success! Recipe entry '#{name}' was added."
   end
   
 end # end class

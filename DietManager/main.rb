@@ -74,6 +74,20 @@ def newFood( foodDB )
   foodDB.addFood( name, calories )
 end
 
+def newRecipe( foodDB )
+  puts "Enter the name of the recipe entry."
+  name = STDIN.gets.chomp!.strip
+  
+  puts "Enter the name of the ingredients (\"Okay\" to finish)"
+  ingredients = Array.new
+  item = STDIN.gets.chomp!.strip
+  while item.casecmp( "Okay" ) != 0
+    ingredients << item
+	item = STDIN.gets.chomp!.strip
+  end
+  foodDB.addRecipe( name, ingredients )
+end
+
 def quit
   puts "Good bye!"
   exit
