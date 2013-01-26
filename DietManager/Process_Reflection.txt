@@ -23,14 +23,18 @@ of ingredients in recipes.
 debugging the unit tests.
 ================================================================
 Level 2 – Print & Find – Start
-Estimated Time	2.5 hours
+Estimated Time	1 hour
 Plan for this level:
 - "Print" a single food entry (basic and recipe).
 - "Find" food entries by prefix.
 
 Level 2  – Print & Find – Complete
-Actual Time	HH MM
+Actual Time	30 minutes
 Lessons learned, problems encountered, obstacles overcome, etc.
+- Relatively simple. I found built-in functions to match the prefix 
+and converted strings to downcase before doing any comparisons.
+- Could not figure out ways to do unit tests (functions did not 
+return anything; they printed as information was found.)
 
 ================================================================
 Level 3 – Database Update – Start
