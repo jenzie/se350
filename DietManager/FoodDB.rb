@@ -122,8 +122,9 @@ class FoodDB
 	name = name.slice(0,1).capitalize + name.slice(1..-1)
 	info = [name, "r"]
 	info.concat( ingredients )
+	cpy = info.inject([]) { | a, element | a << element.dup }
 	@database[ name ] = Recipe.new( info, @database )
-	@newItems[ name ] = Recipe.new( info, @database )
+	@newItems[ name ] = Recipe.new( cpy, @database )
 	puts "Success! Recipe entry '#{name}' was added."
   end
   
@@ -133,12 +134,18 @@ class FoodDB
   
   def getChanges
     changes = Array.new
-	@newItems.each do |item, value|
-	  if value.kind_of?( BasicFood )
-	    changes << [value.name, "b", value.calories.to_s]
-	  elsif value.kind_of?( Recipe )
-	    entry = [value.name, "r"]
-		entry.concat( value.ingredients )
+	@newItems.each do |name, object|
+	  puts object.calories.to_s
+	  if object.kind_of?( BasicFood )
+	    changes << "#{object.name},b,#{object.calories.to_s}"
+	  elsif object.kind_of?( Recipe )
+	    entry = "#{name},r"
+		object.ingredients.each do |ingred_obj|
+		  puts object.ingredients.length
+		  entry.concat( ",")
+		  entry.concat( ingred_obj.name )
+		  puts entry
+		end
 		changes << entry
 	  end
 	end

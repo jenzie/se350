@@ -95,8 +95,11 @@ def save( foodDB, db_file, log_file )
   end
   puts "Saving food database and log..."
   changes = foodDB.getChanges
+  db_handle = File.open( db_file, 'a' )
   changes.each do |line|
+    db_handle.write( line + "\n" )
   end
+  db_handle.close
   puts "Success! Database and log have been saved!\n\n"
 end
 

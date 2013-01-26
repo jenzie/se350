@@ -16,9 +16,9 @@ Fried Egg,b,80
 Sausage,b,80
 Ice Cream,b,200
 Steak,b,800
-
 Muffin with Egg & Sausage,r,English Muffin,Fried Egg,Sausage,Fried Egg
 Bagel with Cream Cheese,r,Plain Bagel,Cream Cheese
 Grilled Cheese,r,Bread Slice,Bread Slice,Cheese Slice,Cheese Slice
 Ham & Cheese,r,Bread Slice,Bread Slice,Ham,Cheese Slice,Mayonnaise
 PB&J Sandwich,r,Bread Slice,Bread Slice,Peanut Butter,Jelly
+Hkda,r,Ham,Candy
