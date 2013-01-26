@@ -135,7 +135,6 @@ class FoodDB
   def getChanges
     changes = Array.new
 	@newItems.each do |name, object|
-	  puts object.calories.to_s
 	  if object.kind_of?( BasicFood )
 	    changes << "#{object.name},b,#{object.calories.to_s}"
 	  elsif object.kind_of?( Recipe )
@@ -147,12 +146,12 @@ class FoodDB
 		    entry.concat( ",")
 		    entry.concat( ingred_obj.name )
 		  end
-		  puts entry
+		  index += 1
 		end
 		changes << entry
 	  end
 	end
-	#@newItems = Array.new
+	@newItems = Array.new
 	return changes
   end
   

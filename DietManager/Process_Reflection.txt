@@ -47,7 +47,7 @@ Plan for this level:
 - Change "quit" to save food database and exit.
 
 Level 3 – Database Update  – Complete
-Actual Time	HH MM
+Actual Time	2 hours + unit tests
 Lessons learned, problems encountered, obstacles overcome, etc.
 
 ================================================================
