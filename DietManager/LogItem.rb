@@ -18,7 +18,10 @@ class LogItem
 	@count = [ 1 ]
   end
   
-  #attr_accessor :entry
+  ##
+  # Getters are for testing purposes only
+  ##
+  attr_accessor :entry, :count
   
   def modifyEntry( item )
     if @entry.include?( item )
