@@ -43,7 +43,7 @@ class Recipe
   ##
   # Getters for @name, @ingredients
   ##
-  attr_accessor :name, :ingredients, :calories
+  attr_accessor :name, :ingredients, :calories, :count
   
   ##
   # Method to print the name, calories, and ingredients for the recipe.

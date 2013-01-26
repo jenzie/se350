@@ -139,11 +139,14 @@ class FoodDB
 	  if object.kind_of?( BasicFood )
 	    changes << "#{object.name},b,#{object.calories.to_s}"
 	  elsif object.kind_of?( Recipe )
+	    index = 0
 	    entry = "#{name},r"
 		object.ingredients.each do |ingred_obj|
-		  puts object.ingredients.length
-		  entry.concat( ",")
-		  entry.concat( ingred_obj.name )
+		  multiple = object.count[ index ]
+		  multiple.times do 
+		    entry.concat( ",")
+		    entry.concat( ingred_obj.name )
+		  end
 		  puts entry
 		end
 		changes << entry

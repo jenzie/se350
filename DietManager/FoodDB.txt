@@ -22,3 +22,5 @@ Grilled Cheese,r,Bread Slice,Bread Slice,Cheese Slice,Cheese Slice
 Ham & Cheese,r,Bread Slice,Bread Slice,Ham,Cheese Slice,Mayonnaise
 PB&J Sandwich,r,Bread Slice,Bread Slice,Peanut Butter,Jelly
 Hkda,r,Ham,Candy
+Sjak,r,Jelly,Jelly,Jelly
+Sjak,r,Jelly,Jelly,Jelly
