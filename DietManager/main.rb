@@ -15,24 +15,36 @@ def run
   db = FoodDB.new( ARGV[0] )
   
   puts "Welcome to the Diet Manager!"
-  puts "\nSelect one of the following options.\n"
-  puts "  [P]rint All\n  Print [N]ame\n  [F]ind Prefix\n  [Q]uit\n"
+  printOptions
   
   # use STDIN.gets because .gets defaults input from file (ARGV)
-  while command = STDIN.gets.chomp!.upcase!
+  while command = STDIN.gets.chomp!
     case command
-    when "P"
+	when "0"
       printAll( db )
-	when "N"
+	when "1"
 	  printName( db )
-	when "F"
+	when "2"
 	  findPrefix( db )
-    when "Q"
+    when "3"
+	  newFood( db )
+	when "4"
+	  newRecipe( db )
+	when "5"
+	  save( db )
+	when "6"
       quit
     else
       puts "Invalid Command."
 	end
+	printOptions
   end
+end
+
+def printOptions
+  puts "\nSelect one of the following options.\n"
+  puts "  [0] Print All\n  [1] Print Name\n  [2] Find Prefix  
+  [3] New Food\n  [4] New Recipe\n  [5] Save\n  [6] Quit\n"
 end
 
 def printAll( foodDB )
