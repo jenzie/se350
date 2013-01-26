@@ -8,11 +8,13 @@
 ##
 
 require 'io/console'
-require './FoodDB.rb'
+require './FoodDB'
+require './Log'
 
 def run
   # ARGV = ["FoodDB.txt", "DietLog.txt"]
   db = FoodDB.new( ARGV[0] )
+  log = Log.new( ARGV[1], db )
   
   puts "Welcome to the Diet Manager!"
   printOptions
@@ -31,8 +33,12 @@ def run
 	when "4"
 	  newRecipe( db )
 	when "5"
-	  save( db, ARGV[0], ARGV[1] )
+	  logToday( db, log )
 	when "6"
+	  logDate( db, log )
+	when "7"
+	  save( db, ARGV[0], ARGV[1] )
+	when "8"
       quit( db, ARGV[0], ARGV[1] )
     else
       puts "Invalid Command."
@@ -44,7 +50,8 @@ end
 def printOptions
   puts "\nSelect one of the following options.\n"
   puts "  [0] Print All\n  [1] Print Name\n  [2] Find Prefix  
-  [3] New Food\n  [4] New Recipe\n  [5] Save\n  [6] Quit\n"
+  [3] New Food\n  [4] New Recipe\n  [5] Log Today\n  [6] Log Date  
+  [7] Save\n  [8] Quit\n"
 end
 
 def printAll( foodDB )
@@ -86,6 +93,20 @@ def newRecipe( foodDB )
 	item = STDIN.gets.chomp!.strip
   end
   foodDB.addRecipe( name, ingredients )
+end
+
+def logToday( foodDB, foodLog )
+  puts "Enter a single food entry into the log for today."
+  item = STDIN.gets.chomp!.strip
+  foodLog.logForToday( item )
+end
+
+def logDate( foodDB, foodLog )
+  puts "Enter the date for the food entry to add to log."
+  date = STDIN.gets.chomp!.strip
+  puts "Enter a single food entry into the log for #{date}."
+  item = STDIN.gets.chomp!.strip
+  foodLog.logForDate( item, date )
 end
 
 def save( foodDB, db_file, log_file )
