@@ -46,12 +46,44 @@ class FoodDB
   def printAll
     @database.each do |key, value|
 	  if value != nil
-	    if value.kind_of? BasicFood
+	    if value.kind_of?( BasicFood )
 	      value.printItem(1)
 	    else
 	      value.printItem
 		end
 	  end
+	end
+  end
+  
+  def printName( name )
+    if !@database.include?( name )
+	  puts "Error: '#{name}' does not exist in database."
+	else
+	  item = @database[ name ]
+	  if item.kind_of?( BasicFood )
+	    item.printItem(1)
+      else
+	    item.printItem
+	  end
+	end
+  end
+  
+  def findAll( prefix )
+    count = 0
+    prefix = prefix.downcase
+    @database.each do |key, value|
+	  temp = key.downcase
+	  if temp.start_with?( prefix )
+	    count += 1
+	    if value.kind_of?( BasicFood )
+	      value.printItem(1)
+	    else
+	      value.printItem
+		end
+	  end
+	end
+	if count == 0
+	  puts "No entries found with the prefix '#{prefix}'."
 	end
   end
   
