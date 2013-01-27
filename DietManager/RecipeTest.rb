@@ -48,5 +48,14 @@ class RecipeTest < Test::Unit::TestCase
 	assert_equal( @recipe2.calories, 180 )
 	assert_equal( @recipe3.calories, 240 )
   end
+  
+  def test_for_printItem
+    assert_equal( @recipe1.printItem,
+	  "Egg & Sausage 320\n  Fried Egg (2) 160\n  Sausage (2) 160\n" )
+	assert_equal( @recipe2.printItem,
+	  "Muffin with Ham & Egg 180\n  Ham 20\n  Fried Egg 80\n  English Muffin 80\n" )
+	assert_equal( @recipe3.printItem,
+	  "Muffin with Sausage 240\n  English Muffin 80\n  Sausage (2) 160\n" )
+  end
 
 end # end class
