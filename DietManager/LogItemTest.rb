@@ -45,5 +45,11 @@ class LogItemTest < Test::Unit::TestCase
     assert_equal( @item1.printEntry, "2013-2-1\n  Ham\n\n" )
 	assert_equal( @item2.printEntry, "2013-2-2\n  Candy\n\n" )
   end
+  
+  def test_for_getEntries
+    assert_equal( @item1.getEntries[0], "Ham" )
+    assert_equal( @item2.getEntries[0], "Candy" )
+	
+  end
 
 end # end class

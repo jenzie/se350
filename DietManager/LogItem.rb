@@ -73,5 +73,17 @@ class LogItem
 	string.concat( "\n" )
 	return string
   end
+  
+  def getEntries
+    index = 0
+    entries = Array.new
+    @entry.each do |item|
+	  @count[ index ].times do
+	    entries << item
+	  end
+	  index += 1
+	end
+	return entries
+  end
 
 end # end class

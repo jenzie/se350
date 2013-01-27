@@ -46,9 +46,9 @@ def run
 	when "10"
 	  logRemove( log )
 	when "11"
-	  save( db, ARGV[0], ARGV[1] )
+	  save( db, log, ARGV[0], ARGV[1] )
 	when "12"
-      quit( db, ARGV[0], ARGV[1] )
+      quit( db, log, ARGV[0], ARGV[1] )
     else
       puts "Invalid Command."
 	end
@@ -152,24 +152,43 @@ def logRemove( foodLog )
   puts foodLog.remove( item, date )
 end
 
-def save( foodDB, db_file, log_file )
+def save( foodDB, foodLog, db_file, log_file )
+  puts "Saving food database and log...\n\n"
+  
   if !foodDB.hasChanges
-    puts "No changes have been made to the database and log."
-	return
+    puts "No changes have been made to the database."
+  else
+    # get changes for database and save to file
+    changesDB = foodDB.getChanges
+    db_handle = File.open( db_file, 'a' )
+    changesDB.each do |line|
+      db_handle.write( line + "\n" )
+    end
+    db_handle.close
+	puts "Success! Database has been saved!\n"
   end
-  puts "Saving food database and log..."
-  changes = foodDB.getChanges
-  db_handle = File.open( db_file, 'a' )
-  changes.each do |line|
-    db_handle.write( line + "\n" )
+  
+  if !foodLog.hasChanges
+    puts "No changes have been made to the log."
+  else
+    # get all information for log and save to file
+    getLog = foodLog.getLog
+    log_handle = File.open( log_file, 'w' )
+	log_handle.write( getLog )
+    #getLog.each do |line|
+    #  log_handle.write( line + "\n" )
+    #end
+    log_handle.close
+	foodLog.hasChanges = false
+	puts "Success! Log has been saved!\n"
   end
-  db_handle.close
-  puts "Success! Database and log have been saved!\n\n"
 end
 
-def quit( foodDB, db_file, log_file )
-  save( foodDB, db_file, log_file ) if foodDB.hasChanges
-  puts "Good bye!"
+def quit( foodDB, foodLog, db_file, log_file )
+  if ( foodDB.hasChanges || foodLog.hasChanges )
+    save( foodDB, foodLog, db_file, log_file )
+  end
+  puts "\nGood bye!"
   exit
 end
 

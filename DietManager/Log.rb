@@ -16,7 +16,7 @@ class Log
   def initialize( file, foodDB )
     @db = foodDB
     @log = Hash.new
-	@newEntries = Hash.new
+	@hasChanges = false
 	
 	if File.readable?( file )
 	  File.open( file , "r" ).each do |line|
@@ -29,8 +29,11 @@ class Log
 	end
   end
   
+  attr_accessor :hasChanges
+  
   def createEntry( entry )
     entry[1] = entry[1].chomp.strip
+	entry[1] = entry[1].slice(0,1).capitalize + entry[1].slice(1..-1)
     if !@db.contains( entry[1] )
 	  puts "Error: Could not log entry; '#{entry[1]}' does not exist in database."
 	  return false
@@ -44,10 +47,12 @@ class Log
   end
   
   def logForToday( item )
+    @hasChanges = true
     createEntry( [ Date.today.to_s, item ] )
   end
   
   def logForDate( item, day )
+    @hasChanges = true
     date = day.split( "-" )
     if !Date.valid_date? date[0].to_i, date[1].to_i, date[2].to_i
 	  puts "Error: Invalid date; format YYYY-MM-DD."
@@ -72,13 +77,14 @@ class Log
 	end
 	
 	# finally try to remove
+	@hasChanges = true
 	return @log[ day ].deleteEntry( item )
   end
   
   def showAll
     string = ""
-	@logArr = @log.sort_by{ |x, y| [ x.to_s, y.to_s ] }
-	@logArr.each do |key, entry|
+	logArr = @log.sort_by{ |x, y| [ x.to_s, y.to_s ] }
+	logArr.each do |key, entry|
 	  string += entry.printEntry
 	end
 	return string
@@ -91,14 +97,26 @@ class Log
 	end
 	
     string = "\n"
-	@logArr = @log.sort_by{ |x, y| [ x.to_s, y.to_s ] }
-	@logArr.each do |key, entry|
+	logArr = @log.sort_by{ |x, y| [ x.to_s, y.to_s ] }
+	logArr.each do |key, entry|
 	  if ( key <=> date ) == 0
 	    string += entry.printEntry
 	  end
 	end
 	if ( string <=> "\n" ) == 0
 	  string.concat( "There are no log entries for '#{date}'." )
+	end
+	return string
+  end
+  
+  def getLog
+    string = ""
+	logArr = @log.sort_by{ |x, y| [ x.to_s, y.to_s ] }
+	logArr.each do |key, entry|
+	  entries = entry.getEntries
+	  entries.each do |item|
+	    string += key + "," + item + "\n"
+	  end
 	end
 	return string
   end

@@ -58,7 +58,7 @@ class LogTest < Test::Unit::TestCase
   
   def test_for_showAll
     assert_equal( @log.showAll,
-	"2013-1-15\n  PB&J Sandwich\n  Gum\n  Grilled Cheese\n  Steak\n\n2013-1-16\n  Ice Cream\n  Orange\n  Candy\n  Blueberry Muffin\n  Bagel with Cream Cheese\n  Steak\n\n2013-1-17\n  Muffin with Egg & Sausage\n  Gum (2)\n  Plain Bagel\n  Fried Egg\n  Steak\n  Corn Muffin\n\n" )
+      "2013-1-15\n  PB&J Sandwich\n  Gum\n  Grilled Cheese\n  Steak\n\n2013-1-16\n  Ice Cream\n  Orange\n  Candy\n  Blueberry Muffin\n  Bagel with Cream Cheese\n  Steak\n\n2013-1-17\n  Muffin with Egg & Sausage\n  Gum (2)\n  Plain Bagel\n  Fried Egg\n  Steak\n  Corn Muffin\n\n2013-1-26\n  Wine (2)\n  Beer (6)\n\n" )
   end
   
   def test_for_showDate
@@ -68,6 +68,11 @@ class LogTest < Test::Unit::TestCase
 	  "\nThere are no log entries for '2012-01-01'." )
 	assert_equal( @log.showDate( "2013-01-17" ),
       "\n2013-1-17\n  Muffin with Egg & Sausage\n  Gum (2)\n  Plain Bagel\n  Fried Egg\n  Steak\n  Corn Muffin\n\n" )
+  end
+  
+  def test_for_getLog
+    assert_equal( @log.getLog,
+      "2013-01-15,PB&J Sandwich\n2013-01-15,Gum\n2013-01-15,Grilled Cheese\n2013-01-15,Steak\n2013-01-16,Ice Cream\n2013-01-16,Orange\n2013-01-16,Candy\n2013-01-16,Blueberry Muffin\n2013-01-16,Bagel with Cream Cheese\n2013-01-16,Steak\n2013-01-17,Muffin with Egg & Sausage\n2013-01-17,Gum\n2013-01-17,Gum\n2013-01-17,Plain Bagel\n2013-01-17,Fried Egg\n2013-01-17,Steak\n2013-01-17,Corn Muffin\n2013-01-26,Wine\n2013-01-26,Wine\n2013-01-26,Beer\n2013-01-26,Beer\n2013-01-26,Beer\n2013-01-26,Beer\n2013-01-26,Beer\n2013-01-26,Beer\n" )
   end
 
 end #end class
