@@ -48,9 +48,9 @@ class FoodDB
     @database.each do |key, value|
 	  if value != nil
 	    if value.kind_of?( BasicFood )
-	      value.printItem(1)
+	      puts value.printItem(1)
 	    else
-	      value.printItem
+	      puts value.printItem
 		end
 	  end
 	end
@@ -62,9 +62,9 @@ class FoodDB
 	else
 	  item = @database[ name ]
 	  if item.kind_of?( BasicFood )
-	    item.printItem(1)
+	    puts item.printItem(1)
       else
-	    item.printItem
+	    puts item.printItem
 	  end
 	end
   end
@@ -77,9 +77,9 @@ class FoodDB
 	  if temp.start_with?( prefix )
 	    count += 1
 	    if value.kind_of?( BasicFood )
-	      value.printItem(1)
+	      puts value.printItem(1)
 	    else
-	      value.printItem
+	      puts value.printItem
 		end
 	  end
 	end

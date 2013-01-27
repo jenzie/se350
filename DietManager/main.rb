@@ -175,9 +175,6 @@ def save( foodDB, foodLog, db_file, log_file )
     getLog = foodLog.getLog
     log_handle = File.open( log_file, 'w' )
 	log_handle.write( getLog )
-    #getLog.each do |line|
-    #  log_handle.write( line + "\n" )
-    #end
     log_handle.close
 	foodLog.hasChanges = false
 	puts "Success! Log has been saved!\n"

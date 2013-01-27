@@ -17,9 +17,9 @@ class BasicFood
   
   def printItem( count )
     if count == 1
-      puts @name + " " + @calories.to_s
+      return "#{@name} #{@calories.to_s}"
     else
-	  puts @name + " (" + count.to_s + ") " + ( @calories * count ).to_s
+	  return "#{@name} (#{count.to_s}) #{( @calories * count ).to_s}"
 	end
   end
 end #end class

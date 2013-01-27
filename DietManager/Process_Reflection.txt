@@ -72,18 +72,25 @@ functionality of parsing and printing the log file.
 - Had to modify functionality to write unit tests for print functions.
 ================================================================
 Level 5 – Show & Delete – Start
-Estimated Time	2 hours
+Estimated Time	3 hours
 Plan for this level:
 - "Show" the log of foods for today, with number of units.
 - "Show" the log of foods for a given date, with number of units.
 - "Delete" one unit of the food entry from the log for the date.
 
 Level 5 – Show & Delete – Complete
-Actual Time	HH MM
+Actual Time	4 hours
 Lessons learned, problems encountered, obstacles overcome, etc.
-******** remember to modify save/quit
+- Forgot that I also had to update save/quit to save the log.
+- Couldn't come up with a better way to save the log than to 
+rewrite the entire file since entries are both added and deleted.
 ================================================================
 Overall Summary
-Estimated Total Time	10 hours
-Actual Total Time	HH MM
+Estimated Total Time	11 hours
+Actual Total Time	15.5 hours
 Project reflection:
+Took a lot of time to write unit tests that weren't necessarily 
+useful for the amount of time spent (only uncovered one or two small 
+bugs that would've been caught eventually). The design was mildly 
+difficult, but did require time to think out. Coding required a lot 
+of googling for ruby's built-in functions. I learned a good amount.

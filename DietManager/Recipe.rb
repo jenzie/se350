@@ -51,12 +51,13 @@ class Recipe
   ##
   def printItem
     index = 0
-    print @name, " ", @calories, "\n"
+    string = "#{@name} #{@calories}\n"
 	@ingredients.each do |item|
-	  print "  "
-	  item.printItem( @count[ index ] )
+	  string += "  "
+	  string += item.printItem( @count[ index ] ) + "\n"
 	  index += 1
 	end
+	return string
   end
   
 end # end class
