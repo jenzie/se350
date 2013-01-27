@@ -57,9 +57,20 @@ end
 
 def printOptions
   puts "\nSelect one of the following options.\n"
-  puts "  [0] Print All\n  [1] Print Name\n  [2] Find Prefix  
-  [3] New Food\n  [4] New Recipe\n  [5] Show Log\n  [6] Log Today  
-  [7] Log Date\n  [8] Save\n  [9] Quit\n"
+  puts "
+  [0] Print All
+  [1] Print Name
+  [2] Find Prefix
+  [3] New Food
+  [4] New Recipe
+  [5] Show Log
+  [6] Show Today
+  [7] Show Date
+  [8] Log Today
+  [9] Log Date
+  [10] Log Delete
+  [11] Save
+  [12] Quit\n"
 end
 
 def printAll( foodDB )
