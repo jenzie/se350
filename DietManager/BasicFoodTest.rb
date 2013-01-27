@@ -30,4 +30,10 @@ class BasicFoodTest < Test::Unit::TestCase
 	assert_equal( @entry3.calories, 15 )
   end
   
+  def test_for_printItem
+    assert_equal( @entry1.printItem( 1 ), "Apple 50" )
+	assert_equal( @entry2.printItem( 2 ), "Banana (2) 140" )
+	assert_equal( @entry3.printItem( 3 ), "Cherry (3) 45" )
+  end
+  
 end # end class
