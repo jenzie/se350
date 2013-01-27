@@ -46,6 +46,8 @@ class LogTest < Test::Unit::TestCase
   end
   
   def test_for_showAll
+    assert_equal( @log.showAll,
+	"2013-1-15\n  PB&J Sandwich\n  Gum\n  Grilled Cheese\n  Steak\n\n2013-1-16\n  Ice Cream\n  Orange\n  Candy\n  Blueberry Muffin\n  Bagel with Cream Cheese\n  Steak\n\n2013-1-17\n  Muffin with Egg & Sausage\n  Gum (2)\n  Plain Bagel\n  Fried Egg\n  Steak\n  Corn Muffin\n\n" )
   end
 
 end #end class

@@ -33,5 +33,10 @@ class LogItemTest < Test::Unit::TestCase
 	  "Entry does not include 'Fried Egg'." )
 	assert_equal( @item1.count[ @item1.entry.index( "Sausage" ) ], 2 )
   end
+  
+  def test_for_printEntry
+    assert_equal( @item1.printEntry, "2013-2-1\n  Ham\n\n" )
+	assert_equal( @item2.printEntry, "2013-2-2\n  Candy\n\n" )
+  end
 
 end # end class
