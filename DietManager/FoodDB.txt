@@ -25,3 +25,16 @@ Lots of Ham Sandwich,r,Ham,Ham,Ham,Ham,Ham,Ham,Bread Slice,Bread Slice,Cheese Sl
 Beer,b,120
 Wine,b,200
 Wine & Cheese,r,Wine,Cheese Slice
+Gin,b,150
+Tonic,b,150
+Gin & Tonic,r,Gin,Tonic
+Tequila,b,60
+Lime Wedge,b,20
+Salt,b,1
+Tequila & Lime,r,Tequila,Salt,Lime Wedge
+Baileys,b,200
+Kahlua,b,100
+Vodka,b,100
+White Russian,r,Vodka,Baileys,Kahlua
+Way Too Much Alcohol,r,Beer,Wine & Cheese,Gin & Tonic,Tequila & Lime,White Russian
+Omg,r,Way Too Much Alcohol

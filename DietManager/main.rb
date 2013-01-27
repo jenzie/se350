@@ -76,7 +76,7 @@ end
 
 def printAll( foodDB )
   puts "\nThere are currently #{foodDB.size} entries in the database.\n\n"
-  foodDB.printAll
+  puts foodDB.printAll
 end
 
 def printName( foodDB )
@@ -84,13 +84,13 @@ def printName( foodDB )
   name = STDIN.gets.chomp!.strip
   # makes sure that only the first letter is changed to uppercase
   name = name.slice(0,1).capitalize + name.slice(1..-1)
-  foodDB.printName( name )
+  puts foodDB.printName( name )
 end
 
 def findPrefix( foodDB )
   puts "Enter the prefix of the food entry."
   prefix = STDIN.gets.chomp!.strip
-  foodDB.findAll( prefix )
+  puts foodDB.findAll( prefix )
 end
 
 def newFood( foodDB )
@@ -98,7 +98,7 @@ def newFood( foodDB )
   name = STDIN.gets.chomp!.strip
   puts "Enter the number of calories."
   calories = STDIN.gets.chomp!.strip
-  foodDB.addFood( name, calories )
+  puts foodDB.addFood( name, calories )
 end
 
 def newRecipe( foodDB )
@@ -112,7 +112,7 @@ def newRecipe( foodDB )
     ingredients << item
 	item = STDIN.gets.chomp!.strip
   end
-  foodDB.addRecipe( name, ingredients )
+  puts foodDB.addRecipe( name, ingredients )
 end
 
 def showLog( foodLog )
@@ -133,7 +133,7 @@ end
 def logToday( foodDB, foodLog )
   puts "Enter a single food entry into the log for today."
   item = STDIN.gets.chomp!.strip
-  foodLog.logForToday( item )
+  puts foodLog.logForToday( item )
 end
 
 def logDate( foodDB, foodLog )
@@ -141,7 +141,7 @@ def logDate( foodDB, foodLog )
   date = STDIN.gets.chomp!.strip
   puts "Enter a single food entry into the log for #{date}."
   item = STDIN.gets.chomp!.strip
-  foodLog.logForDate( item, date )
+  puts foodLog.logForDate( item, date )
 end
 
 def logRemove( foodLog )

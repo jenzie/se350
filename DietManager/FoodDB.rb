@@ -33,7 +33,7 @@ class FoodDB
   attr_accessor :database
   
   def size
-    @database.size
+    @database.length
   end
   
   def createItem( item )
@@ -45,31 +45,35 @@ class FoodDB
   end
   
   def printAll
+    string = ""
     @database.each do |key, value|
 	  if value != nil
 	    if value.kind_of?( BasicFood )
-	      puts value.printItem(1)
+	      string += value.printItem(1)
 	    else
-	      puts value.printItem
+	      string += value.printItem("", false)
 		end
 	  end
 	end
+	return string
   end
   
   def printName( name )
+    name = capitalize( name )
     if !@database.include?( name )
-	  puts "Error: '#{name}' does not exist in database."
-	else
-	  item = @database[ name ]
-	  if item.kind_of?( BasicFood )
-	    puts item.printItem(1)
-      else
-	    puts item.printItem
-	  end
+	  return "Error: '#{name}' does not exist in database."
+	end
+	
+	item = @database[ name ]
+	if item.kind_of?( BasicFood )
+	  return item.printItem(1)
+    else
+	  return item.printItem("", false)
 	end
   end
   
   def findAll( prefix )
+    string = ""
     count = 0
     prefix = prefix.downcase
     @database.each do |key, value|
@@ -77,15 +81,16 @@ class FoodDB
 	  if temp.start_with?( prefix )
 	    count += 1
 	    if value.kind_of?( BasicFood )
-	      puts value.printItem(1)
+	      string += value.printItem(1)
 	    else
-	      puts value.printItem
+	      string += value.printItem("", false)
 		end
 	  end
 	end
 	if count == 0
-	  puts "No entries found with the prefix '#{prefix}'."
+	  string = "No entries found with the prefix '#{prefix}'."
 	end
+	return string
   end
   
   def contains( name )
@@ -100,32 +105,29 @@ class FoodDB
   
   def addFood( name, calories )
     if contains( name )
-      puts "Error: Food entry '#{name}' already exists in database."
-	  return
+      return "Error: Food entry '#{name}' already exists in database."
     end
     @database[ name ] = BasicFood.new( name, calories )
 	@newItems[ name ] = BasicFood.new( name, calories )
-	puts "Success! Food entry '#{name}' was added."
+	return "Success! Food entry '#{name}' was added."
   end
   
   def addRecipe( name, ingredients )
     if contains( name )
-      puts "Error: Food entry '#{name}' already exists in database."
-	  return
+      return "Error: Food entry '#{name}' already exists in database."
     end
 	ingredients.each do |item|
 	  if !contains( item )
-	    puts "Error: Ingredient '#{item}' does not exist in database."
-		return
+	    return "Error: Ingredient '#{item}' does not exist in database."
 	  end
 	end
-	name = name.slice(0,1).capitalize + name.slice(1..-1)
+	name = capitalize( name )
 	info = [name, "r"]
 	info.concat( ingredients )
 	cpy = info.inject([]) { | a, element | a << element.dup }
 	@database[ name ] = Recipe.new( info, @database )
 	@newItems[ name ] = Recipe.new( cpy, @database )
-	puts "Success! Recipe entry '#{name}' was added."
+	return "Success! Recipe entry '#{name}' was added."
   end
   
   def hasChanges
@@ -153,6 +155,10 @@ class FoodDB
 	end
 	@newItems = Array.new
 	return changes
+  end
+  
+  def capitalize( string )
+    return string.slice(0,1).capitalize + string.slice(1..-1)
   end
   
 end # end class

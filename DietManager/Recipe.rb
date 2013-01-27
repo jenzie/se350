@@ -49,12 +49,43 @@ class Recipe
   # Method to print the name, calories, and ingredients for the recipe.
   # Multiples of ingredients are printed once with their count.
   ##
-  def printItem
+  def printItemNew( depth )
     index = 0
-    string = "#{@name} #{@calories}\n"
+    string = ""
+	spaceString = ""
+	depth.times do
+	  spaceString += "  "
+	end
+	
 	@ingredients.each do |item|
-	  string += "  "
-	  string += item.printItem( @count[ index ] ) + "\n"
+	  if item.kind_of?( BasicFood )
+	    return item.printItem( @count[ index ] ) + "\n"
+	  end
+	  string += "#{@name}" + "\n" + spaceString + item.printItem( @count[ index ] )
+	  index += 1
+	end
+	printItem( depth += 1 )
+	return string
+  end
+  
+  def printItem( string, nested )
+    index = 0
+    string += "#{@name} #{@calories}\n"
+	@ingredients.each do |item|
+	  string += ".."
+	  if item.kind_of?( BasicFood )
+	    if nested == true
+	      string += "--" + item.printItem( @count[ index ] )
+		else
+		  string += item.printItem( @count[ index ] )
+		end
+	  elsif item.kind_of?( Recipe )
+	    if nested == true
+	      string += "__" + item.printItem( "", true )
+		else
+	      string += item.printItem( "", true )
+		end
+	  end
 	  index += 1
 	end
 	return string

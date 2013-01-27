@@ -85,5 +85,9 @@ class LogItem
 	end
 	return entries
   end
+  
+  def isEmpty
+    return @entry.length == 0
+  end
 
 end # end class

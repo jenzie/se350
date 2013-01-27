@@ -21,28 +21,28 @@ class LogTest < Test::Unit::TestCase
   end
   
   def test_for_createEntry
-    assert( !@log.createEntry( @entry1 ),
-	  "Entry was created, but '#{@entry1[1]}' does not exist in database." )
-	assert( @log.createEntry( @entry2 ),
-	  "Entry2 was not created and added into the log." )
-	assert( @log.createEntry( @entry3 ),
-	  "Entry3 was not modified into the log." )
+    assert_equal( @log.createEntry( @entry1 ),
+	  "Error: Could not log entry; '#{@entry1[1]}' does not exist in database." )
+	assert_equal( @log.createEntry( @entry2 ),
+	  "Success! Item '#{@entry2[1]}' was added to log for '#{@entry2[0]}'." )
+	assert_equal( @log.createEntry( @entry3 ),
+	  "Success! Item '#{@entry3[1]}' was added to log for '#{@entry3[0]}'." )
   end
   
   def test_for_logForToday
-    assert( @log.logForToday( "Candy" ),
-	  "Entry 'Candy' was not added for today." )
-	assert( !@log.logForToday( "something" ),
-	  "Entry 'something' was added to log, but it does not exist." )
+    assert_equal( @log.logForToday( "Candy" ),
+	  "Success! Item 'Candy' was added to log for '2013-01-27'." )
+	assert_equal( @log.logForToday( "something" ),
+	  "Error: Could not log entry; 'Something' does not exist in database." )
   end
   
   def test_for_logForDate
-    assert( !@log.logForDate( "Gum", "12345678" ),
-	  "Entry1 was added to log, but date is invalid." )
-	assert( !@log.logForDate( "idk", "2013-02-01" ),
-	  "Entry2 was added to log, but item does not exist in database." )
-	assert( @log.logForDate( "Fried Egg", "2013-02-01" ),
-	  "Entry3 was not added to database." )
+    assert_equal( @log.logForDate( "Gum", "12345678" ),
+	  "Error: Invalid date; format YYYY-MM-DD." )
+	assert_equal( @log.logForDate( "idk", "2013-02-01" ),
+	  "Error: Could not log entry; 'Idk' does not exist in database." )
+	assert_equal( @log.logForDate( "Fried Egg", "2013-02-01" ),
+	  "Success! Item 'Fried Egg' was added to log for '2013-02-01'." )
   end
   
   def test_for_remove
@@ -58,7 +58,7 @@ class LogTest < Test::Unit::TestCase
   
   def test_for_showAll
     assert_equal( @log.showAll,
-      "2013-1-15\n  PB&J Sandwich\n  Gum\n  Grilled Cheese\n  Steak\n\n2013-1-16\n  Ice Cream\n  Orange\n  Candy\n  Blueberry Muffin\n  Bagel with Cream Cheese\n  Steak\n\n2013-1-17\n  Muffin with Egg & Sausage\n  Gum (2)\n  Plain Bagel\n  Fried Egg\n  Steak\n  Corn Muffin\n\n2013-1-26\n  Wine (2)\n  Beer (6)\n\n" )
+      "2013-1-15\n  PB&J Sandwich\n  Gum\n  Grilled Cheese\n  Steak\n\n2013-1-16\n  Ice Cream\n  Orange\n  Candy\n  Blueberry Muffin\n  Bagel with Cream Cheese\n  Steak\n\n2013-1-17\n  Muffin with Egg & Sausage\n  Gum (2)\n  Plain Bagel\n  Fried Egg\n  Steak\n  Corn Muffin\n\n2013-1-26\n  Wine (2)\n  Beer (6)\n\n2013-1-27\n  Gin & Tonic (2)\n  Tequila & Lime (3)\n  White Russian (2)\n\n" )
   end
   
   def test_for_showDate
@@ -72,7 +72,7 @@ class LogTest < Test::Unit::TestCase
   
   def test_for_getLog
     assert_equal( @log.getLog,
-      "2013-01-15,PB&J Sandwich\n2013-01-15,Gum\n2013-01-15,Grilled Cheese\n2013-01-15,Steak\n2013-01-16,Ice Cream\n2013-01-16,Orange\n2013-01-16,Candy\n2013-01-16,Blueberry Muffin\n2013-01-16,Bagel with Cream Cheese\n2013-01-16,Steak\n2013-01-17,Muffin with Egg & Sausage\n2013-01-17,Gum\n2013-01-17,Gum\n2013-01-17,Plain Bagel\n2013-01-17,Fried Egg\n2013-01-17,Steak\n2013-01-17,Corn Muffin\n2013-01-26,Wine\n2013-01-26,Wine\n2013-01-26,Beer\n2013-01-26,Beer\n2013-01-26,Beer\n2013-01-26,Beer\n2013-01-26,Beer\n2013-01-26,Beer\n" )
+      "2013-01-15,PB&J Sandwich\n2013-01-15,Gum\n2013-01-15,Grilled Cheese\n2013-01-15,Steak\n2013-01-16,Ice Cream\n2013-01-16,Orange\n2013-01-16,Candy\n2013-01-16,Blueberry Muffin\n2013-01-16,Bagel with Cream Cheese\n2013-01-16,Steak\n2013-01-17,Muffin with Egg & Sausage\n2013-01-17,Gum\n2013-01-17,Gum\n2013-01-17,Plain Bagel\n2013-01-17,Fried Egg\n2013-01-17,Steak\n2013-01-17,Corn Muffin\n2013-01-26,Wine\n2013-01-26,Wine\n2013-01-26,Beer\n2013-01-26,Beer\n2013-01-26,Beer\n2013-01-26,Beer\n2013-01-26,Beer\n2013-01-26,Beer\n2013-01-27,Gin & Tonic\n2013-01-27,Gin & Tonic\n2013-01-27,Tequila & Lime\n2013-01-27,Tequila & Lime\n2013-01-27,Tequila & Lime\n2013-01-27,White Russian\n2013-01-27,White Russian\n" )
   end
 
 end #end class

@@ -35,28 +35,26 @@ class Log
     entry[1] = entry[1].chomp.strip
 	entry[1] = entry[1].slice(0,1).capitalize + entry[1].slice(1..-1)
     if !@db.contains( entry[1] )
-	  puts "Error: Could not log entry; '#{entry[1]}' does not exist in database."
-	  return false
+	  return "Error: Could not log entry; '#{entry[1]}' does not exist in database."
 	end
     if @log.has_key?( entry[0] )
 	  @log[ entry[0] ].modifyEntry( entry[1] )
 	else
 	  @log[ entry[0] ] = LogItem.new( entry[0], entry[1] )
 	end
-	return true
+	return "Success! Item '#{entry[1]}' was added to log for '#{entry[0]}'."
   end
   
   def logForToday( item )
     @hasChanges = true
-    createEntry( [ Date.today.to_s, item ] )
+    return createEntry( [ Date.today.to_s, item ] )
   end
   
   def logForDate( item, day )
     @hasChanges = true
     date = day.split( "-" )
     if !Date.valid_date? date[0].to_i, date[1].to_i, date[2].to_i
-	  puts "Error: Invalid date; format YYYY-MM-DD."
-	  return false
+	  return "Error: Invalid date; format YYYY-MM-DD."
 	end
     return createEntry( [ day, item ] )
   end
@@ -78,7 +76,11 @@ class Log
 	
 	# finally try to remove
 	@hasChanges = true
-	return @log[ day ].deleteEntry( item )
+	string = @log[ day ].deleteEntry( item )
+	if @log[ day ].isEmpty
+	  @log.delete( day )
+	end
+	return string
   end
   
   def showAll
