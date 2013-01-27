@@ -34,6 +34,13 @@ class LogItemTest < Test::Unit::TestCase
 	assert_equal( @item1.count[ @item1.entry.index( "Sausage" ) ], 2 )
   end
   
+  def test_for_deleteEntry
+    assert_equal( @item1.deleteEntry( "doesn't exist" ),
+	  "Error: 'Doesn't exist' is not logged for '2013-2-1'." )
+	assert_equal( @item1.deleteEntry( "ham" ),
+	  "Success! 'Ham' was deleted for '2013-2-1'." )
+  end
+  
   def test_for_printEntry
     assert_equal( @item1.printEntry, "2013-2-1\n  Ham\n\n" )
 	assert_equal( @item2.printEntry, "2013-2-2\n  Candy\n\n" )
