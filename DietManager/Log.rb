@@ -66,12 +66,20 @@ class Log
   end
   
   def showDate( date )
+    dateArr = date.split( "-" )
+    if !Date.valid_date? dateArr[0].to_i, dateArr[1].to_i, dateArr[2].to_i
+	  return "Error: Invalid date; format YYYY-MM-DD."
+	end
+	
     string = "\n"
 	@logArr = @log.sort_by{ |x, y| [ x.to_s, y.to_s ] }
 	@logArr.each do |key, entry|
 	  if ( key <=> date ) == 0
 	    string += entry.printEntry
 	  end
+	end
+	if ( string <=> "\n" ) == 0
+	  string.concat( "There are no log entries for '#{date}'." )
 	end
 	return string
   end

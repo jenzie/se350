@@ -7,6 +7,7 @@
 #   http://www.se.rit.edu/~se350/Projects/Project3/index.html
 ##
 
+require 'date'
 require 'io/console'
 require './FoodDB'
 require './Log'
