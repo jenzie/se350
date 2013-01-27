@@ -57,17 +57,22 @@ class Log
   end
   
   def remove( item, day )
+    item = item.chomp.strip
+    day = day.chomp.strip
+	
+	# check if given date is valid
     date = day.split( "-" )
 	if !Date.valid_date? date[0].to_i, date[1].to_i, date[2].to_i
 	  return "Error: Invalid date; format YYYY-MM-DD."
-	elsif !@log[ day ].entry.include?( item )
-	  return "Error: '#{item}' is not logged for '#{day}'."
-	else
-	  if @log[ day ].deleteEntry( item )
-	    return "Success! '#{item}' was deleted for '#{day}'."
-	  end
-	  return "Error: Unable to delete '#{item}' for '#{day}'."
 	end
+	
+	# check if given date exists on log
+	if !@log.include?( day )
+	  return "Error: No entries were logged for '#{day}'."
+	end
+	
+	# finally try to remove
+	return @log[ day ].deleteEntry( item )
   end
   
   def showAll

@@ -34,6 +34,13 @@ class LogItem
   end
   
   def deleteEntry( item )
+    item = item.slice(0,1).capitalize + item.slice(1..-1)
+    dayArr = Array.new
+    @date.each do |day, value|
+	  dayArr << value.to_s
+	end
+	day = dayArr.join( "-" )
+	
     if @entry.include?( item )
 	  index = entry.index( item )
 	  if @count[ index ] > 1
@@ -42,9 +49,9 @@ class LogItem
 	    @count.delete_at( index )
 		@entry.delete_at( index )
 	  end
-	  return true
+	  return "Success! '#{item}' was deleted for '#{day}'."
 	end
-	return false
+	return "Error: '#{item}' is not logged for '#{day}'."
   end
   
   def printEntry
