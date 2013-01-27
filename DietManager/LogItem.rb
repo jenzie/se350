@@ -13,6 +13,7 @@ require './Log'
 class LogItem
 
   def initialize( day, item )
+    item = item.slice(0,1).capitalize + item.slice(1..-1)
     @date = Date._strptime( day, "%Y-%m-%d" )
 	@entry = [ item ]
 	@count = [ 1 ]
@@ -30,6 +31,26 @@ class LogItem
 	  @entry << item
 	  @count << 1
 	end
+  end
+  
+  def printEntry
+    index = 0
+	dayArr = Array.new
+    @date.each do |day, value|
+	  dayArr << value.to_s
+	end
+	string = dayArr.join( "-" ).concat( "\n" )
+	
+	@entry.each do |item|
+	  if @count[ index ] == 1
+	    string.concat( "  " + item + "\n" )
+	  else
+	    string.concat( "  " + item + " (" + @count[ index ].to_s + ")\n" )
+	  end
+	  index += 1
+	end
+	string.concat( "\n" )
+	return string
   end
 
 end # end class

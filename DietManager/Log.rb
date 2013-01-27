@@ -58,7 +58,8 @@ class Log
   
   def showAll
     string = ""
-	@log.each do |entry|
+	@logArr = @log.sort_by{ |x, y| [ x.to_s, y.to_s ] }
+	@logArr.each do |key, entry|
 	  string += entry.printEntry
 	end
 	return string

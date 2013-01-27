@@ -33,12 +33,14 @@ def run
 	when "4"
 	  newRecipe( db )
 	when "5"
-	  logToday( db, log )
+	  showLog( log )
 	when "6"
-	  logDate( db, log )
+	  logToday( db, log )
 	when "7"
-	  save( db, ARGV[0], ARGV[1] )
+	  logDate( db, log )
 	when "8"
+	  save( db, ARGV[0], ARGV[1] )
+	when "9"
       quit( db, ARGV[0], ARGV[1] )
     else
       puts "Invalid Command."
@@ -50,8 +52,8 @@ end
 def printOptions
   puts "\nSelect one of the following options.\n"
   puts "  [0] Print All\n  [1] Print Name\n  [2] Find Prefix  
-  [3] New Food\n  [4] New Recipe\n  [5] Log Today\n  [6] Log Date  
-  [7] Save\n  [8] Quit\n"
+  [3] New Food\n  [4] New Recipe\n  [5] Show Log\n  [6] Log Today  
+  [7] Log Date\n  [8] Save\n  [9] Quit\n"
 end
 
 def printAll( foodDB )
@@ -93,6 +95,10 @@ def newRecipe( foodDB )
 	item = STDIN.gets.chomp!.strip
   end
   foodDB.addRecipe( name, ingredients )
+end
+
+def showLog( foodLog )
+  puts foodLog.showAll
 end
 
 def logToday( foodDB, foodLog )
