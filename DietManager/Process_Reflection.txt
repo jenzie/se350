@@ -58,19 +58,21 @@ file did not write out multiples of ingredients (forgot the
 array to count multiples existed.)
 ================================================================
 Level 4 – Logging Foods – Start
-Estimated Time	2 hours
+Estimated Time	3 hours
 Plan for this level:
 - "Log" a food into log for today.
 - "Log" a food into log for a specific date.
 - "Show all" entries in the food log by ascending date.
 
 Level 4 – Logging Foods – Complete
-Actual Time	HH MM
+Actual Time	4 hours
 Lessons learned, problems encountered, obstacles overcome, etc.
-
+- Underestimated how much time would've been needed to write the basic 
+functionality of parsing and printing the log file.
+- Had to modify functionality to write unit tests for print functions.
 ================================================================
 Level 5 – Show & Delete – Start
-Estimated Time	1.5 hour
+Estimated Time	2 hours
 Plan for this level:
 - "Show" the log of foods for today, with number of units.
 - "Show" the log of foods for a given date, with number of units.
