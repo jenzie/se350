@@ -45,6 +45,17 @@ class LogTest < Test::Unit::TestCase
 	  "Entry3 was not added to database." )
   end
   
+  def test_for_remove
+    assert_equal( @log.remove( "doesn't_matter", "invalid_date" ),
+	  "Error: Invalid date; format YYYY-MM-DD." )
+	assert_equal( @log.remove( "doesn't_matter", "1990-01-01" ),
+	  "Error: No entries were logged for '1990-01-01'." )
+	assert_equal( @log.remove( "doesn't_exist", "2013-01-15" ),
+	  "Error: 'Doesn't_exist' is not logged for '2013-1-15'." )
+	assert_equal( @log.remove( "Gum", "2013-01-15" ),
+	  "Success! 'Gum' was deleted for '2013-1-15'." )
+  end
+  
   def test_for_showAll
     assert_equal( @log.showAll,
 	"2013-1-15\n  PB&J Sandwich\n  Gum\n  Grilled Cheese\n  Steak\n\n2013-1-16\n  Ice Cream\n  Orange\n  Candy\n  Blueberry Muffin\n  Bagel with Cream Cheese\n  Steak\n\n2013-1-17\n  Muffin with Egg & Sausage\n  Gum (2)\n  Plain Bagel\n  Fried Egg\n  Steak\n  Corn Muffin\n\n" )
