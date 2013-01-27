@@ -33,6 +33,20 @@ class LogItem
 	end
   end
   
+  def deleteEntry( item )
+    if @entry.include?( item )
+	  index = entry.index( item )
+	  if @count[ index ] > 1
+	    @count[ index ] -= 1
+	  else
+	    @count.delete_at( index )
+		@entry.delete_at( index )
+	  end
+	  return true
+	end
+	return false
+  end
+  
   def printEntry
     index = 0
 	dayArr = Array.new

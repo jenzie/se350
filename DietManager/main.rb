@@ -145,6 +145,11 @@ def logDate( foodDB, foodLog )
 end
 
 def logRemove( foodLog )
+  puts "Enter the date for the food entry to be removed from the log."
+  date = STDIN.gets.chomp!.strip
+  puts "Enter a single food entry to be removed for #{date}."
+  item = STDIN.gets.chomp!.strip
+  puts foodLog.remove( item, date )
 end
 
 def save( foodDB, db_file, log_file )

@@ -56,6 +56,20 @@ class Log
     return createEntry( [ day, item ] )
   end
   
+  def remove( item, day )
+    date = day.split( "-" )
+	if !Date.valid_date? date[0].to_i, date[1].to_i, date[2].to_i
+	  return "Error: Invalid date; format YYYY-MM-DD."
+	elsif !@log[ day ].entry.include?( item )
+	  return "Error: '#{item}' is not logged for '#{day}'."
+	else
+	  if @log[ day ].deleteEntry( item )
+	    return "Success! '#{item}' was deleted for '#{day}'."
+	  end
+	  return "Error: Unable to delete '#{item}' for '#{day}'."
+	end
+  end
+  
   def showAll
     string = ""
 	@logArr = @log.sort_by{ |x, y| [ x.to_s, y.to_s ] }
