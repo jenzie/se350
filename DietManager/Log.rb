@@ -64,5 +64,16 @@ class Log
 	end
 	return string
   end
+  
+  def showDate( date )
+    string = ""
+	@logArr = @log.sort_by{ |x, y| [ x.to_s, y.to_s ] }
+	@logArr.each do |key, entry|
+	  if ( key <=> date ) == 0
+	    string += entry.printEntry
+	  end
+	end
+	return string
+  end
 
 end # end class

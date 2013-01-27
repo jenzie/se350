@@ -35,12 +35,18 @@ def run
 	when "5"
 	  showLog( log )
 	when "6"
-	  logToday( db, log )
+	  showToday( log )
 	when "7"
-	  logDate( db, log )
+	  showDate( log )
 	when "8"
-	  save( db, ARGV[0], ARGV[1] )
+	  logToday( db, log )
 	when "9"
+	  logDate( db, log )
+	when "10"
+	  logRemove( log )
+	when "11"
+	  save( db, ARGV[0], ARGV[1] )
+	when "12"
       quit( db, ARGV[0], ARGV[1] )
     else
       puts "Invalid Command."
@@ -101,6 +107,17 @@ def showLog( foodLog )
   puts foodLog.showAll
 end
 
+def showToday( foodLog )
+  today = Date.today.to_s
+  puts foodLog.showDate( today ) 
+end
+
+def showDate( foodLog )
+  puts "Enter the date to show entries for."
+  date = STDIN.gets.chomp!.strip
+  puts foodLog.showDate( date )
+end
+
 def logToday( foodDB, foodLog )
   puts "Enter a single food entry into the log for today."
   item = STDIN.gets.chomp!.strip
@@ -113,6 +130,9 @@ def logDate( foodDB, foodLog )
   puts "Enter a single food entry into the log for #{date}."
   item = STDIN.gets.chomp!.strip
   foodLog.logForDate( item, date )
+end
+
+def logRemove( foodLog )
 end
 
 def save( foodDB, db_file, log_file )
