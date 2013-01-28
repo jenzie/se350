@@ -1,0 +1,68 @@
+---------------------
+--Database Exercise--
+---------------------
+
+[Your name here]
+
+Open the database musicals.sqlite with sqlite3.
+
+Run the .schema command. What are the three "create table" commands used to create the database tables?
+
+[Your answer here.]
+
+[Write an SQL select command to produce the titles of all the musicals in the database that were first staged in the 1940s. What was the command? What were the results?]
+
+[Your command here.]
+[Your results here.]
+
+Write an SQL select command to produce the titles of all the musicals authored by Oscar Hammerstein. What was the command? What were the results?
+
+[Your command here.]
+[Your results here.]
+
+From this point forward, you may use either sqlite3 from the command line or the SQL Manager add-on to Firefox
+
+Insert two new musicals, with their authors and the proper linkage. The musicals are:
+
+Music Man	1957	Meredith Wilson
+Hello, Dolly!	1964	Jerry Herman
+Hello, Dolly!	1964	Michael Steward
+
+What SQL commands were executed to completely insert the information for Music Man?
+
+[Your commands here.]
+
+Create a new table called Actresses with an auto-increment primary key id (integer) and the actress’s name (a string). Populate the table with the following actresses:
+Carol Channing
+Pearl Bailey
+Shirley Jones
+Mitzi Gaynor
+Mary Martin
+Julie Andrews
+Cyd Charisse
+Audrey Hepburn
+Agnes Moorhead
+Gwen Verdon
+Janis Paige
+
+Create a new linking table called "actresses_musicals" with two integer keys, actress_id and musical_id, and show the SQL command that was executed.
+
+[Command here.]
+
+Set up the following links between actresses and musicals in the actresses_musicals table:
+
+Carol Channing	Hello, Dolly
+Pearl Bailey	Hello, Dolly
+Mary Martin		South Pacific
+Mitzi Gaynor	South Pacific
+Shirley Jones	Oklahoma!
+Cyd Charisse	Brigadoon
+Shirley Jones	Carousel
+Audrey Hepburn	My Fair Lady
+Julie Andrews	My Fair Lady
+Julie Andrews	The Sound of Music
+
+Finally, execute an SQL command to list the names of all the actresses who were ever in a play authored by Oscar Hammerstein. Note that this requires a join across all five tables in the database!
+
+[Command here]
+
