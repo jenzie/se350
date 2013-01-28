@@ -2,23 +2,34 @@
 --Database Exercise--
 ---------------------
 
-[Your name here]
+Jenny Zhen
 
 Open the database musicals.sqlite with sqlite3.
 
 Run the .schema command. What are the three "create table" commands used to create the database tables?
 
-[Your answer here.]
+CREATE TABLE "authors" ("id" INTEGER PRIMARY KEY  AUTOINCREMENT  NOT NULL , "name" VARCHAR) ;
+CREATE TABLE "authors_musicals" ("author_id" INTEGER,"musical_id" INTEGER) ;
+CREATE TABLE "musicals" ("id" INTEGER PRIMARY KEY  AUTOINCREMENT  NOT NULL , "title" VARCHAR, "year" INTEGER) ;
+
 
 [Write an SQL select command to produce the titles of all the musicals in the database that were first staged in the 1940s. What was the command? What were the results?]
 
-[Your command here.]
-[Your results here.]
+SELECT musicals.title FROM musicals WHERE year >= 1940 and year < 1950 ;
+
+Brigadoon
+Oklahoma!
+South Pacific
+Carousel
 
 Write an SQL select command to produce the titles of all the musicals authored by Oscar Hammerstein. What was the command? What were the results?
 
-[Your command here.]
-[Your results here.]
+SELECT musicals.title FROM authors, authors_musicals, musicals WHERE authors.name = "Oscar Hammerstein" and authors.id = authors_musicals.author_id and musicals.id = authors_musicals.musical_id
+
+Oklahoma!
+South Pacific
+Carousel
+The Sound of Music
 
 From this point forward, you may use either sqlite3 from the command line or the SQL Manager add-on to Firefox
 
@@ -30,7 +41,10 @@ Hello, Dolly!	1964	Michael Steward
 
 What SQL commands were executed to completely insert the information for Music Man?
 
-[Your commands here.]
+INSERT into authors (name) values ("Meredith Wilson") ;
+INSERT into musicals (title, year) values ("Music Man", 1957) ;
+INSERT into authors_musicals (author_id, musical_id) values ((SELECT authors.id FROM authors WHERE authors.name = "Meredith Wilson"), (SELECT musicals.id FROM musicals WHERE musicals.title = "Music Man")) ;
+
 
 Create a new table called Actresses with an auto-increment primary key id (integer) and the actress’s name (a string). Populate the table with the following actresses:
 Carol Channing
@@ -45,15 +59,17 @@ Agnes Moorhead
 Gwen Verdon
 Janis Paige
 
+CREATE TABLE "actresses" ("id" INTEGER PRIMARY KEY  AUTOINCREMENT  NOT NULL , "name" VARCHAR) ;
+
 Create a new linking table called "actresses_musicals" with two integer keys, actress_id and musical_id, and show the SQL command that was executed.
 
-[Command here.]
+CREATE TABLE "actresses_musicals" ("actress_id" INTEGER, "musical_id" INTEGER) ;
 
 Set up the following links between actresses and musicals in the actresses_musicals table:
 
-Carol Channing	Hello, Dolly
-Pearl Bailey	Hello, Dolly
-Mary Martin		South Pacific
+Carol Channing	Hello, Dolly!
+Pearl Bailey	Hello, Dolly!
+Mary Martin	South Pacific
 Mitzi Gaynor	South Pacific
 Shirley Jones	Oklahoma!
 Cyd Charisse	Brigadoon
@@ -62,7 +78,13 @@ Audrey Hepburn	My Fair Lady
 Julie Andrews	My Fair Lady
 Julie Andrews	The Sound of Music
 
+INSERT into actresses_musicals (actress_id, musical_id) values ((SELECT actresses.id FROM actresses WHERE actresses.name = "Carol Channing"), (SELECT musicals.id FROM musicals WHERE musicals.title = "Hello, Dolly!")) ;
+
 Finally, execute an SQL command to list the names of all the actresses who were ever in a play authored by Oscar Hammerstein. Note that this requires a join across all five tables in the database!
 
-[Command here]
+SELECT DISTINCT actresses.name FROM actresses, actresses_musicals, authors, authors_musicals, musicals where actresses.id = actresses_musicals.actress_id and authors.id = authors_musicals.author_id and authors_musicals.musical_id = musicals.id and authors_musicals.musical_id = actresses_musicals.musical_id and authors.name = "Oscar Hammerstein" ;
 
+Mary Martin
+Mitzi Gaynor
+Shirley Jones
+Julie Andrews
