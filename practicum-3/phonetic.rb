@@ -84,7 +84,16 @@ class Phonetic
   # Delegates to from_phonetic or to_phonetic
   def auto_detect(line)
 
-      
+      result = ""
+	  
+	  lineArr = line.split(" ")
+	  word = lineArr[0].upcase
+
+	  if LETTERS.value?( word )
+	    from_phonetic( line )
+	  else
+	    to_phonetic( line )
+	  end
 
   end
 end
