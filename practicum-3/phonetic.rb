@@ -62,7 +62,21 @@ class Phonetic
   # to their alphabetic equivalent
   def from_phonetic(line)
 
-    
+    result = ""
+	
+	line = line.split(" ")
+	line.each do |word|
+	  word.upcase.gsub(/[^0-9A-Za-z]/, '')
+	  if LETTERS.value?( word )
+	    LETTERS.each do |key, value|
+		  if ( ( value <=> word ) == 0 )
+		    result += key
+		  end
+		end
+	  end
+	end
+
+	return result
   end
 
   # Auto-detect if the line is phonetic or not. 
@@ -70,7 +84,7 @@ class Phonetic
   # Delegates to from_phonetic or to_phonetic
   def auto_detect(line)
 
-      ### YOUR CODE HERE ###
+      
 
   end
 end
