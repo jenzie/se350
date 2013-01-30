@@ -61,12 +61,11 @@ class Phonetic
   # Translate a sequence of phonetic alphabet code words 
   # to their alphabetic equivalent
   def from_phonetic(line)
-
     result = ""
 	
 	line = line.split(" ")
 	line.each do |word|
-	  word.upcase.gsub(/[^0-9A-Za-z]/, '')
+	  word = word.upcase.gsub(/[^0-9A-Za-z]/, '').strip.chomp
 	  if LETTERS.value?( word )
 	    LETTERS.each do |key, value|
 		  if ( ( value <=> word ) == 0 )
@@ -83,18 +82,14 @@ class Phonetic
   # Does this by checking if the first word is in the phonetic alphabet
   # Delegates to from_phonetic or to_phonetic
   def auto_detect(line)
-
-      result = ""
-	  
 	  lineArr = line.split(" ")
 	  word = lineArr[0].upcase
 
 	  if LETTERS.value?( word )
-	    from_phonetic( line )
+	    return from_phonetic( line )
 	  else
-	    to_phonetic( line )
+	    return to_phonetic( line )
 	  end
-
   end
 end
 
