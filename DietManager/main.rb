@@ -12,8 +12,18 @@ require 'io/console'
 require './FoodDB'
 require './Log'
 
+##
+# The main file for the Diet Manager to get user input.
+##
+
+##
+# Gets user commands and calls functions for those commands.
+##
 def run
   # ARGV = ["FoodDB.txt", "DietLog.txt"]
+  if( ARGV.length != 2 )
+    puts "Usage: ruby main.rb FoodDB.txt DietLog.txt"
+	
   db = FoodDB.new( ARGV[0] )
   log = Log.new( ARGV[1], db )
   
@@ -56,6 +66,9 @@ def run
   end
 end
 
+##
+# Prints the available commands for the user.
+##
 def printOptions
   puts "\nSelect one of the following options.\n"
   puts "
@@ -74,11 +87,17 @@ def printOptions
   [12] Quit\n"
 end
 
+##
+# Prints all the BasicFood and Recipe entries in the database.
+##
 def printAll( foodDB )
   puts "\nThere are currently #{foodDB.size} entries in the database.\n\n"
   puts foodDB.printAll
 end
 
+##
+# Prints the BasicFood or Recipe entry with the given name.
+##
 def printName( foodDB )
   puts "Enter the name of the food entry."
   name = STDIN.gets.chomp!.strip
@@ -87,20 +106,30 @@ def printName( foodDB )
   puts foodDB.printName( name )
 end
 
+##
+# Prints the BasicFood or Recipe entries with the given prefix.
+##
 def findPrefix( foodDB )
   puts "Enter the prefix of the food entry."
   prefix = STDIN.gets.chomp!.strip
   puts foodDB.findAll( prefix )
 end
 
+##
+# Adds a new BasicFood entry based on user input.
+##
 def newFood( foodDB )
   puts "Enter the name of the basic food entry."
   name = STDIN.gets.chomp!.strip
+  
   puts "Enter the number of calories."
   calories = STDIN.gets.chomp!.strip
   puts foodDB.addFood( name, calories )
 end
 
+##
+# Adds a new Recipe entry based on user input.
+##
 def newRecipe( foodDB )
   puts "Enter the name of the recipe entry."
   name = STDIN.gets.chomp!.strip
@@ -115,27 +144,42 @@ def newRecipe( foodDB )
   puts foodDB.addRecipe( name, ingredients )
 end
 
+##
+# Prints all of the entries in the Log.
+##
 def showLog( foodLog )
   puts foodLog.showAll
 end
 
+##
+# Prints all of the entries in the log for today.
+##
 def showToday( foodLog )
   today = Date.today.to_s
   puts foodLog.showDate( today ) 
 end
 
+##
+# Prints all of the entries in the log for a given date.
+##
 def showDate( foodLog )
   puts "Enter the date to show entries for."
   date = STDIN.gets.chomp!.strip
   puts foodLog.showDate( date )
 end
 
+##
+# Adds a log entry for today based on user input.
+##
 def logToday( foodDB, foodLog )
   puts "Enter a single food entry into the log for today."
   item = STDIN.gets.chomp!.strip
   puts foodLog.logForToday( item )
 end
 
+##
+# Adds a log entry for a given date based on user input.
+##
 def logDate( foodDB, foodLog )
   puts "Enter the date for the food entry to add to log."
   date = STDIN.gets.chomp!.strip
@@ -144,6 +188,9 @@ def logDate( foodDB, foodLog )
   puts foodLog.logForDate( item, date )
 end
 
+##
+# Removes a log entry for a given date and item based on user input.
+##
 def logRemove( foodLog )
   puts "Enter the date for the food entry to be removed from the log."
   date = STDIN.gets.chomp!.strip
@@ -152,6 +199,9 @@ def logRemove( foodLog )
   puts foodLog.remove( item, date )
 end
 
+##
+# Saves the food and log files if either one of them have changed.
+##
 def save( foodDB, foodLog, db_file, log_file )
   puts "Saving food database and log...\n\n"
   
@@ -181,6 +231,10 @@ def save( foodDB, foodLog, db_file, log_file )
   end
 end
 
+##
+# Saves the food and log files if either one of them have changed.
+# Then terminates the program.
+##
 def quit( foodDB, foodLog, db_file, log_file )
   if ( foodDB.hasChanges || foodLog.hasChanges )
     save( foodDB, foodLog, db_file, log_file )

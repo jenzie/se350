@@ -10,13 +10,22 @@
 require './LogItem'
 require 'test/unit'
 
+##
+# Unit tests for LogItem.rb.
+##
 class LogItemTest < Test::Unit::TestCase
 
+  ##
+  # Creates instances of LogItem to use for succeeding unit tests.
+  ##
   def setup
     @item1 = LogItem.new( "2013-02-01", "Ham" )
     @item2 = LogItem.new( "2013-02-02", "Candy" )
   end
   
+  ##
+  # Validates that modifying (adding) to the list of items works correctly.
+  ##
   def test_for_modifyEntry
     assert( @item1.entry.include?( "Ham" ), 
 	  "Entry does not include 'Ham'." )
@@ -34,6 +43,9 @@ class LogItemTest < Test::Unit::TestCase
 	assert_equal( @item1.count[ @item1.entry.index( "Sausage" ) ], 2 )
   end
   
+  ##
+  # Validates that a single item unit can be removed from the list of items.
+  ##
   def test_for_deleteEntry
     assert_equal( @item1.deleteEntry( "doesn't exist" ),
 	  "Error: 'Doesn't exist' is not logged for '2013-2-1'." )
@@ -41,15 +53,30 @@ class LogItemTest < Test::Unit::TestCase
 	  "Success! 'Ham' was deleted for '2013-2-1'." )
   end
   
+  ##
+  # Validates that the log entry items are printed correctly.
+  ##
   def test_for_printEntry
     assert_equal( @item1.printEntry, "2013-2-1\n  Ham\n\n" )
 	assert_equal( @item2.printEntry, "2013-2-2\n  Candy\n\n" )
   end
   
+  ##
+  # Validates that the array of food items are returned correctly. Item 
+  # entries that occur multiple times occur multiple times in the array.
+  ##
   def test_for_getEntries
     assert_equal( @item1.getEntries[0], "Ham" )
     assert_equal( @item2.getEntries[0], "Candy" )
-	
+  end
+  
+  ##
+  # Validates that the LogItem is empty when there are no food items stored.
+  ##
+  def test_for_isEmpty
+    assert( !@item1.isEmpty, "Item1 is empty when it contains one entry." )
+	@item1.deleteEntry( "Ham" )
+	assert( @item1.isEmpty, "Item1 is not empty when it is." )
   end
 
 end # end class

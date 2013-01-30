@@ -7,6 +7,10 @@
 #   http://www.se.rit.edu/~se350/Projects/Project3/index.html
 ##
 
+##
+# Recipe
+# Stores information for a recipe entry.
+##
 class Recipe
 
   ##

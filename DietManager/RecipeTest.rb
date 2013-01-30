@@ -11,8 +11,15 @@ require './FoodDB'
 require './Recipe'
 require 'test/unit'
 
+##
+# Unit tests for Recipe.rb.
+##
 class RecipeTest < Test::Unit::TestCase
 
+  ##
+  # Creates instances of FoodDB, Recipe, and list of recipe information 
+  # for succeeding unit tests.
+  ##
   def setup
     @db = FoodDB.new( "FoodDB.txt" )
 	@list1 = ["Egg & Sausage","r","Fried Egg","Fried Egg","Sausage","Sausage"]
@@ -23,6 +30,9 @@ class RecipeTest < Test::Unit::TestCase
 	@recipe3 = Recipe.new( @list3, @db.database )
   end
   
+  ##
+  # Validates ingredients stored are correct.
+  ##
   def test_for_ingredients
     @list1 = @list1.values_at(1..(@list1.length - 1))
     @list1.each do |ingredient|
@@ -43,12 +53,19 @@ class RecipeTest < Test::Unit::TestCase
 	end
   end
   
+  ##
+  # Validates calories stored are correct.
+  ##
   def test_for_calories
     assert_equal( @recipe1.calories, 320 )
 	assert_equal( @recipe2.calories, 180 )
 	assert_equal( @recipe3.calories, 240 )
   end
   
+  ##
+  # Validates that the string for the recipe information will be printed 
+  # correctly.
+  ##
   def test_for_printItem
     assert_equal( @recipe1.printItem,
 	  "Egg & Sausage 320\n  Fried Egg (2) 160\n  Sausage (2) 160\n" )
