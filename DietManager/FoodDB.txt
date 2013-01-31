@@ -38,3 +38,4 @@ Vodka,b,100
 White Russian,r,Vodka,Baileys,Kahlua
 Way Too Much Alcohol,r,Beer,Wine & Cheese,Gin & Tonic,Tequila & Lime,White Russian
 Omg,r,Way Too Much Alcohol
+5Depth,r,Omg,Way Too Much Alcohol,Tequila

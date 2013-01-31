@@ -23,6 +23,7 @@ def run
   # ARGV = ["FoodDB.txt", "DietLog.txt"]
   if( ARGV.length != 2 )
     puts "Usage: ruby main.rb FoodDB.txt DietLog.txt"
+  end
 	
   db = FoodDB.new( ARGV[0] )
   log = Log.new( ARGV[1], db )

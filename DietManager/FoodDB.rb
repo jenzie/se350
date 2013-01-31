@@ -70,7 +70,7 @@ class FoodDB
 	    if value.kind_of?( BasicFood )
 	      string += value.printItem(1)
 	    else
-	      string += value.printItem("", false)
+	      string += value.printItem(0)
 		end
 	  end
 	end
@@ -94,7 +94,7 @@ class FoodDB
 	if item.kind_of?( BasicFood )
 	  return item.printItem(1)
     else
-	  return item.printItem("", false)
+	  return item.printItem(0)
 	end
   end
   
@@ -115,7 +115,7 @@ class FoodDB
 	    if value.kind_of?( BasicFood )
 	      string += value.printItem(1)
 	    else
-	      string += value.printItem("", false)
+	      string += value.printItem(0)
 		end
 	  end
 	end
