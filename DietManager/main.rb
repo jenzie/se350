@@ -104,7 +104,7 @@ def printName( foodDB )
   name = STDIN.gets.chomp!.strip
   # makes sure that only the first letter is changed to uppercase
   name = name.slice(0,1).capitalize + name.slice(1..-1)
-  puts foodDB.printName( name )
+  puts "\n" + foodDB.printName( name )
 end
 
 ##
@@ -113,7 +113,7 @@ end
 def findPrefix( foodDB )
   puts "Enter the prefix of the food entry."
   prefix = STDIN.gets.chomp!.strip
-  puts foodDB.findAll( prefix )
+  puts "\n" + foodDB.findAll( prefix )
 end
 
 ##
@@ -125,7 +125,7 @@ def newFood( foodDB )
   
   puts "Enter the number of calories."
   calories = STDIN.gets.chomp!.strip
-  puts foodDB.addFood( name, calories )
+  puts "\n" + foodDB.addFood( name, calories )
 end
 
 ##
@@ -142,14 +142,14 @@ def newRecipe( foodDB )
     ingredients << item
 	item = STDIN.gets.chomp!.strip
   end
-  puts foodDB.addRecipe( name, ingredients )
+  puts "\n" + foodDB.addRecipe( name, ingredients )
 end
 
 ##
 # Prints all of the entries in the Log.
 ##
 def showLog( foodLog )
-  puts foodLog.showAll
+  puts "\n" + foodLog.showAll
 end
 
 ##
@@ -157,7 +157,7 @@ end
 ##
 def showToday( foodLog )
   today = Date.today.to_s
-  puts foodLog.showDate( today ) 
+  puts "\n" + foodLog.showDate( today ) 
 end
 
 ##
@@ -166,7 +166,7 @@ end
 def showDate( foodLog )
   puts "Enter the date to show entries for."
   date = STDIN.gets.chomp!.strip
-  puts foodLog.showDate( date )
+  puts "\n" + foodLog.showDate( date )
 end
 
 ##
@@ -175,7 +175,7 @@ end
 def logToday( foodDB, foodLog )
   puts "Enter a single food entry into the log for today."
   item = STDIN.gets.chomp!.strip
-  puts foodLog.logForToday( item )
+  puts "\n" + foodLog.logForToday( item )
 end
 
 ##
@@ -186,7 +186,7 @@ def logDate( foodDB, foodLog )
   date = STDIN.gets.chomp!.strip
   puts "Enter a single food entry into the log for #{date}."
   item = STDIN.gets.chomp!.strip
-  puts foodLog.logForDate( item, date )
+  puts "\n" + foodLog.logForDate( item, date )
 end
 
 ##
@@ -197,7 +197,7 @@ def logRemove( foodLog )
   date = STDIN.gets.chomp!.strip
   puts "Enter a single food entry to be removed for #{date}."
   item = STDIN.gets.chomp!.strip
-  puts foodLog.remove( item, date )
+  puts "\n" + foodLog.remove( item, date )
 end
 
 ##

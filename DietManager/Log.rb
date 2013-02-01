@@ -153,7 +153,7 @@ class Log
 	  return "Error: Invalid date; format YYYY-MM-DD."
 	end
 	
-    string = "\n"
+    string = ""
 	# store sorted log into array in ascending order of the date
 	logArr = @log.sort_by{ |x, y| [ x.to_s, y.to_s ] }
 	logArr.each do |key, entry|
@@ -163,7 +163,7 @@ class Log
 	end
 	
 	# message if there are no entries for the given date
-	if ( string <=> "\n" ) == 0
+	if ( string <=> "" ) == 0
 	  string.concat( "There are no log entries for '#{date}'." )
 	end
 	

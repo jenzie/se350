@@ -48,17 +48,17 @@ class LogItemTest < Test::Unit::TestCase
   ##
   def test_for_deleteEntry
     assert_equal( @item1.deleteEntry( "doesn't exist" ),
-	  "Error: 'Doesn't exist' is not logged for '2013-2-1'." )
+	  "Error: 'Doesn't exist' is not logged for '2013-02-01'." )
 	assert_equal( @item1.deleteEntry( "ham" ),
-	  "Success! 'Ham' was deleted for '2013-2-1'." )
+	  "Success! 'Ham' was deleted for '2013-02-01'." )
   end
   
   ##
   # Validates that the log entry items are printed correctly.
   ##
   def test_for_printEntry
-    assert_equal( @item1.printEntry, "2013-2-1\n  Ham\n\n" )
-	assert_equal( @item2.printEntry, "2013-2-2\n  Candy\n\n" )
+    assert_equal( @item1.printEntry, "2013-02-01\n  Ham\n\n" )
+	assert_equal( @item2.printEntry, "2013-02-02\n  Candy\n\n" )
   end
   
   ##
@@ -77,6 +77,11 @@ class LogItemTest < Test::Unit::TestCase
     assert( !@item1.isEmpty, "Item1 is empty when it contains one entry." )
 	@item1.deleteEntry( "Ham" )
 	assert( @item1.isEmpty, "Item1 is not empty when it is." )
+  end
+  
+  def test_for_date_toStr
+	assert_equal( @item1.date_toStr, "2013-02-01" )
+	assert_equal( @item2.date_toStr, "2013-02-02" )
   end
 
 end # end class

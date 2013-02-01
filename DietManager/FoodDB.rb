@@ -70,7 +70,7 @@ class FoodDB
 	    if value.kind_of?( BasicFood )
 	      string += value.printItem(1)
 	    else
-	      string += value.printItem(0)
+	      string += value.printItem(0, 1)
 		end
 	  end
 	end
@@ -94,7 +94,7 @@ class FoodDB
 	if item.kind_of?( BasicFood )
 	  return item.printItem(1)
     else
-	  return item.printItem(0)
+	  return item.printItem(0, 1)
 	end
   end
   
@@ -115,7 +115,7 @@ class FoodDB
 	    if value.kind_of?( BasicFood )
 	      string += value.printItem(1)
 	    else
-	      string += value.printItem(0)
+	      string += value.printItem(0, 1)
 		end
 	  end
 	end
@@ -150,9 +150,22 @@ class FoodDB
   ##
   def addFood( name, calories )
     # check if the entry already exists
+	name = capitalize( name )
 	if contains( name )
       return "Error: Food entry '#{name}' already exists in database."
     end
+	
+	# check if calories is an integer
+	calories = calories.to_s
+	if !( calories =~ /^[-+]?[0-9]+$/ )
+	  return "Error: '#{calories}' is not a valid integer for calories."
+	end
+	
+	# check if calories is less than zero
+	calories = calories.to_i
+	if calories <= 0
+	  return "Error: '#{calories}' is not a valid integer for calories."
+	end
 	
 	# create the food entry
     @database[ name ] = BasicFood.new( name, calories )
@@ -167,9 +180,15 @@ class FoodDB
   ##
   def addRecipe( name, ingredients )
     # check if the entry already exists
+	name = capitalize( name )
 	if contains( name )
       return "Error: Food entry '#{name}' already exists in database."
     end
+	
+	# check if there are ingredients
+	if ingredients.size == 0
+	  return "Error: Food entry '#{name}' contains no ingredients."
+	end
 	
 	# check if all the ingredients exist
 	ingredients.each do |item|

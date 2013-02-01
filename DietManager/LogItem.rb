@@ -57,11 +57,7 @@ class LogItem
     item = item.slice(0,1).capitalize + item.slice(1..-1)
 	
 	# convert the date to a string
-    dayArr = Array.new
-    @date.each do |day, value|
-	  dayArr << value.to_s
-	end
-	day = dayArr.join( "-" )
+    day = date_toStr
 	
 	# check if the item exists on log entry
     if @entry.include?( item )
@@ -84,11 +80,7 @@ class LogItem
   ##
   def printEntry
     index = 0
-	dayArr = Array.new
-    @date.each do |day, value|
-	  dayArr << value.to_s
-	end
-	string = dayArr.join( "-" ).concat( "\n" )
+	string = date_toStr + "\n"
 	
 	@entry.each do |item|
 	  if @count[ index ] == 1
@@ -122,6 +114,21 @@ class LogItem
   ##
   def isEmpty
     return @entry.length == 0
+  end
+  
+  ##
+  # Take an integer date and convert to string with padded zeros.
+  ##
+  def date_toStr
+    dayArr = Array.new
+    @date.each do |day, value|
+	  value = value.to_s
+	  if value.length == 1
+	    value = "0" + value # pad extra zero
+	  end
+	  dayArr << value
+	end
+	return dayArr.join( "-" )
   end
 
 end # end class

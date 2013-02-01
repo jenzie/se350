@@ -24,9 +24,9 @@ class RecipeTest < Test::Unit::TestCase
     @db = FoodDB.new( "FoodDB.txt" )
 	@list1 = ["Egg & Sausage","r","Fried Egg","Fried Egg","Sausage","Sausage"]
 	@list2 = ["Muffin with Ham & Egg","r","Ham","Fried Egg","English Muffin"]
-	@list3 = ["Muffin with Sausage","r","English Muffin","Sausage","Sausage"]
 	@recipe1 = Recipe.new( @list1, @db.database )
 	@recipe2 = Recipe.new( @list2, @db.database )
+	@list3 = ["Muffin with Sausage","r","English Muffin","Sausage","Sausage"]
 	@recipe3 = Recipe.new( @list3, @db.database )
   end
   
@@ -67,11 +67,11 @@ class RecipeTest < Test::Unit::TestCase
   # correctly.
   ##
   def test_for_printItem
-    assert_equal( @recipe1.printItem,
+    assert_equal( @recipe1.printItem( 0, 1 ),
 	  "Egg & Sausage 320\n  Fried Egg (2) 160\n  Sausage (2) 160\n" )
-	assert_equal( @recipe2.printItem,
+	assert_equal( @recipe2.printItem( 0, 1 ),
 	  "Muffin with Ham & Egg 180\n  Ham 20\n  Fried Egg 80\n  English Muffin 80\n" )
-	assert_equal( @recipe3.printItem,
+	assert_equal( @recipe3.printItem( 0, 1 ),
 	  "Muffin with Sausage 240\n  English Muffin 80\n  Sausage (2) 160\n" )
   end
 

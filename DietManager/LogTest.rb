@@ -44,7 +44,7 @@ class LogTest < Test::Unit::TestCase
   ##
   def test_for_logForToday
     assert_equal( @log.logForToday( "Candy" ),
-	  "Success! Item 'Candy' was added to log for '2013-01-27'." )
+	  "Success! Item 'Candy' was added to log for '2013-01-31'." )
 	assert_equal( @log.logForToday( "something" ),
 	  "Error: Could not log entry; 'Something' does not exist in database." )
   end
@@ -70,9 +70,9 @@ class LogTest < Test::Unit::TestCase
 	assert_equal( @log.remove( "doesn't_matter", "1990-01-01" ),
 	  "Error: No entries were logged for '1990-01-01'." )
 	assert_equal( @log.remove( "doesn't_exist", "2013-01-15" ),
-	  "Error: 'Doesn't_exist' is not logged for '2013-1-15'." )
+	  "Error: 'Doesn't_exist' is not logged for '2013-01-15'." )
 	assert_equal( @log.remove( "Gum", "2013-01-15" ),
-	  "Success! 'Gum' was deleted for '2013-1-15'." )
+	  "Success! 'Gum' was deleted for '2013-01-15'." )
   end
   
   ##
@@ -80,7 +80,7 @@ class LogTest < Test::Unit::TestCase
   ##
   def test_for_showAll
     assert_equal( @log.showAll,
-      "2013-1-15\n  PB&J Sandwich\n  Gum\n  Grilled Cheese\n  Steak\n\n2013-1-16\n  Ice Cream\n  Orange\n  Candy\n  Blueberry Muffin\n  Bagel with Cream Cheese\n  Steak\n\n2013-1-17\n  Muffin with Egg & Sausage\n  Gum (2)\n  Plain Bagel\n  Fried Egg\n  Steak\n  Corn Muffin\n\n2013-1-26\n  Wine (2)\n  Beer (6)\n\n2013-1-27\n  Gin & Tonic (2)\n  Tequila & Lime (3)\n  White Russian (2)\n\n" )
+      "2013-01-15\n  PB&J Sandwich\n  Gum\n  Grilled Cheese\n  Steak\n\n2013-01-16\n  Ice Cream\n  Orange\n  Candy\n  Blueberry Muffin\n  Bagel with Cream Cheese\n  Steak\n\n2013-01-17\n  Muffin with Egg & Sausage\n  Gum (2)\n  Plain Bagel\n  Fried Egg\n  Steak\n  Corn Muffin\n\n2013-01-26\n  Wine (2)\n  Beer (6)\n\n2013-01-27\n  Gin & Tonic (2)\n  Tequila & Lime (3)\n  White Russian (2)\n\n2013-01-31\n  Gin & Tonic\n  Wine & Cheese\n  Beer (2)\n\n" )
   end
   
   ##
@@ -91,9 +91,9 @@ class LogTest < Test::Unit::TestCase
     assert_equal( @log.showDate( "invalid_date" ), 
 	  "Error: Invalid date; format YYYY-MM-DD." )
 	assert_equal( @log.showDate( "2012-01-01" ),
-	  "\nThere are no log entries for '2012-01-01'." )
+	  "There are no log entries for '2012-01-01'." )
 	assert_equal( @log.showDate( "2013-01-17" ),
-      "\n2013-1-17\n  Muffin with Egg & Sausage\n  Gum (2)\n  Plain Bagel\n  Fried Egg\n  Steak\n  Corn Muffin\n\n" )
+      "2013-01-17\n  Muffin with Egg & Sausage\n  Gum (2)\n  Plain Bagel\n  Fried Egg\n  Steak\n  Corn Muffin\n\n")
   end
   
   ##
@@ -102,7 +102,7 @@ class LogTest < Test::Unit::TestCase
   ##
   def test_for_getLog
     assert_equal( @log.getLog,
-      "2013-01-15,PB&J Sandwich\n2013-01-15,Gum\n2013-01-15,Grilled Cheese\n2013-01-15,Steak\n2013-01-16,Ice Cream\n2013-01-16,Orange\n2013-01-16,Candy\n2013-01-16,Blueberry Muffin\n2013-01-16,Bagel with Cream Cheese\n2013-01-16,Steak\n2013-01-17,Muffin with Egg & Sausage\n2013-01-17,Gum\n2013-01-17,Gum\n2013-01-17,Plain Bagel\n2013-01-17,Fried Egg\n2013-01-17,Steak\n2013-01-17,Corn Muffin\n2013-01-26,Wine\n2013-01-26,Wine\n2013-01-26,Beer\n2013-01-26,Beer\n2013-01-26,Beer\n2013-01-26,Beer\n2013-01-26,Beer\n2013-01-26,Beer\n2013-01-27,Gin & Tonic\n2013-01-27,Gin & Tonic\n2013-01-27,Tequila & Lime\n2013-01-27,Tequila & Lime\n2013-01-27,Tequila & Lime\n2013-01-27,White Russian\n2013-01-27,White Russian\n" )
+      "2013-01-15,PB&J Sandwich\n2013-01-15,Gum\n2013-01-15,Grilled Cheese\n2013-01-15,Steak\n2013-01-16,Ice Cream\n2013-01-16,Orange\n2013-01-16,Candy\n2013-01-16,Blueberry Muffin\n2013-01-16,Bagel with Cream Cheese\n2013-01-16,Steak\n2013-01-17,Muffin with Egg & Sausage\n2013-01-17,Gum\n2013-01-17,Gum\n2013-01-17,Plain Bagel\n2013-01-17,Fried Egg\n2013-01-17,Steak\n2013-01-17,Corn Muffin\n2013-01-26,Wine\n2013-01-26,Wine\n2013-01-26,Beer\n2013-01-26,Beer\n2013-01-26,Beer\n2013-01-26,Beer\n2013-01-26,Beer\n2013-01-26,Beer\n2013-01-27,Gin & Tonic\n2013-01-27,Gin & Tonic\n2013-01-27,Tequila & Lime\n2013-01-27,Tequila & Lime\n2013-01-27,Tequila & Lime\n2013-01-27,White Russian\n2013-01-27,White Russian\n2013-01-31,Gin & Tonic\n2013-01-31,Wine & Cheese\n2013-01-31,Beer\n2013-01-31,Beer\n" )
   end
 
 end #end class
