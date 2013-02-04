@@ -90,7 +90,4 @@ Estimated Total Time	11 hours
 Actual Total Time	15.5 hours
 Project reflection:
 Took a lot of time to write unit tests that weren't necessarily 
-useful for the amount of time spent (only uncovered one or two small 
-bugs that would've been caught eventually). The design was mildly 
-difficult, but did require time to think out. Coding required a lot 
-of googling for ruby's built-in functions. I learned a good amount.
+useful for the amount of time spent (only uncovered one or two small bugs that would've been caught eventually). The design was mildly difficult, but did require time to think out. Coding required a lot of googling for ruby's built-in functions. I learned a good amount.
