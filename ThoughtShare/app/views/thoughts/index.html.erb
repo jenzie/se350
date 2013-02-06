@@ -1,0 +1,38 @@
+<h1>Thoughts</h1>
+
+<div id=thoughttab>
+<ul>
+	<li><a id=active_a_<%=session[:show]%> href="?show=all">All</a></li>
+	<li><a id=active_p_<%=session[:show]%> href="?show=popular">Popular</a></li> 
+     <li><a id=active_f_<%=session[:show]%> href="?show=following">Folowing</a></li>
+     <li><a id=active_m_<%=session[:show]%> href="?show=mine">Mine</a></li>
+</ul>
+</div>
+
+
+<div id=thoughts>
+
+<%=@thoughts.empty? ? "No thoughts here." : ""%>
+<% @thoughts.each do |thought| %>
+<div class=thought> 
+	<div class=thoughtquote> <%= thought.thought %> </div>
+
+	<div class=thumbs> 
+		<%= form_tag("thoughts/thumbup") do %>
+			<%= hidden_field(:thought, :id, :value=>thought.id) %>
+			<div class=thumbups>
+				<%= submit_tag("Thumb!", {:type => :image, :src => "/images/thumbup.png", :width => 15}) %> 
+				<a href="/thoughts/thumbers/<%=thought.id%>"><%=thought.thumbs.size %></a>
+			</div>
+		<% end %>
+	</div>
+	
+	<div class=thinker-name> <%= link_to thought.thinker.name, thought.thinker %> </div>
+	<div class=thinker-url> <%= link_to thought.thinker.url, thought.thinker.url %> </div>
+</div>
+<% end %>
+
+</div>
+
+<br />
+

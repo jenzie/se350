@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>ThoughtShare!!</title>
+  <%= stylesheet_link_tag    "application" %>
+  <%= javascript_include_tag "application" %>
+</head>
+<body>
+<div id=container>
+
+	<div id=thinkerbar> 
+		<%= form_tag("/thoughts/activate_thinker", :method => "post", :id => "activethinkerform" ) do %>
+		Logged in as: 
+		  <%= select("active_thinker", "id", 
+		  			 Thinker.all.collect{ |t| [t.name, t.id] },
+		  			 { :selected => session[:active_thinker] }, 
+		  			 { :onchange => "submit()" }
+		  			 ) %>
+		<% end %>
+	</div>
+	
+	
+	<%= link_to "Share a Thought", new_thought_path, {:id => "thinklink"} %>
+	
+	<%= link_to "Thinkers", thinkers_path(@index), {:id => "thinklink"} %>
+	
+	<%= link_to "Home", thoughts_path(@index), {:id => "thinklink"} %>
+
+	<div class=clear></div>
+
+	<%= yield %>
+
+</div>
+</body>
+</html>

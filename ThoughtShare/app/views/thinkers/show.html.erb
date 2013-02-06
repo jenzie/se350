@@ -1,0 +1,37 @@
+<p id="notice"><%= notice %></p>
+
+<h1><%=@thinker.name%></h1>
+<h2><%=@thinker.url%></h2>
+
+<div class=following>
+<h3>Following</h3>
+
+<% 
+following = Thinker.joins(:followed).where(:follows => {:follower_id => @thinker.id})
+if following.empty? then %>
+		<div><%=@thinker.name%> is not following anybody.</div>
+<% else %> 
+	<% following.each do |thinker| %>
+		<div><%= link_to thinker.name,thinker %></div>
+	<% end %>
+<% end %>
+</div>
+
+<div class=followed>
+<h3>Followed By</h3>
+<% followed = Thinker.joins(:follows).where(:follows => {:followee_id => @thinker.id})
+if followed.empty? %>
+	<div><%=@thinker.name%> is not followed by anybody.</div>
+<% else %>
+	<% followed.each do |thinker| %>
+		<div><%= link_to thinker.name,thinker %></div>
+	<% end %>
+<% end %>
+</div>
+	
+<div class=clear></div>
+	
+<div>
+<%= link_to 'Edit', edit_thinker_path(@thinker) %> |
+<%= link_to 'Home', thoughts_path %>
+</div>

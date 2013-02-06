@@ -1,0 +1,9 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  thumber_id: 1
+  thought_id: 1
+
+two:
+  thumber_id: 1
+  thought_id: 1
