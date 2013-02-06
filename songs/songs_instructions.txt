@@ -1,0 +1,97 @@
+Songs Application - Rails 3
+
+0. Windows 
+    Explorer on the rails directory structure.
+    Word Pad for editing Ruby and other files.
+    One cmd window running the server (SERVER).
+    One cmd window for Rails commands (CONSOLE).
+    Firefox for browsing the Rails site we create.
+    Firefox SQLite Manager for working with the DB.
+    
+1. rails new songs
+
+2. cd songs {in both command windows}
+
+3. SERVER window: rails server
+      Starts WEBrick HTTP server
+      Uses port 3000
+      Firefox navigate to localhost:3000
+   Remaining commands done in the console window.
+
+4. rails generate scaffold
+      Shows what scaffolding does and the way to invoke it.
+
+5. rails generate scaffold song title:string year:integer
+      Show the resulting migration file.
+
+6. rake db:migrate 
+      Then visit songs in SQLite Manager:
+      Navigate to localhost:3000/songs; add a couple of songs; retrieve, edit; show the DB
+        in SQLite manager.
+            Anything Goes - 1934
+            Just One of Those Things - 1935
+            Rhapsody in Blue - 1924
+            American in Paris - 1928
+            Fascinating Rhythm - 1924
+      Show the model, view(s), and controller for song in an editor
+      Discuss how the controller accesses the model and passes the appropriate object(s) to
+        the view based on the specific request (index, show, destroy, edit).
+      Discuss the erb files and how the real HTML is generated from the embedded ruby.
+        (best to do index & show first, with create and edit later).
+      Show how validation works - add to the Song model:
+      		validates :year, :presence => true
+      		validates :year, :numericality => true
+
+      		OR, to combine the two
+      		validates :year, {:numericality => true, :presence => true} 
+            
+      Revisit the songs site and either edit or create entries that violate the validations
+        to show how these are handled.
+
+7.  MAKE A COPY OF THE PROJECT SO FAR FOR LATER PERUSAL.
+
+8.  rails generate scaffold author name:string
+    rake db:migrate
+      Show how the authors table is set up in the DB, the migration, and the controller/view/model
+      Create George Gershwin, Ira Gershwin and Cole Porter
+      Do a very quick pass through the MVC for authors. Probably add a validation in the
+        model (validate_presence_of :name).
+      Visit the database with the manager and show the new tables and table contents.
+    POSSIBLY SAVE THIS STATE AS WELL FOR LATER PERUSAL.
+
+9.  Connecting them up - many to one (authors have many songs, songs have one author)
+    rails generate migration AddAuthorsToSong author_id:integer
+      Look at the migration - adds a column to the songs table.
+      Discuss the role of foreign keys in linking tables.
+    rake db:migrate
+    Look at the resulting change to the DB via SQLite manager.
+
+10. Add has_many :song to author model
+    Add belongs_to :author to song model
+    Manually create the links between the current songs and authors using SQLite manager.
+      Cole Porter to Anything Goes and Just One of Those Things
+      George Gershwin to Rhapsody in Blue, American in Paris, Fascinating Rhythm.
+
+11. Add code to the songs/index.html.erb files to display an author column in addition to
+    title and year. The name of the author of 'song' is song.author.name
+    Be careful on nil pointer for author if not all author_id fields set to
+      the primary key of a legitimate author.
+    Now do the same for songs/show.html.erb to show a single song.
+
+12. Update songs/create.html.erb so that creating a song also adds the author. Simply
+    add the following after the information for year:
+        <p>
+          <%= f.label :author %><br />
+          <%= f.collection_select  :author_id, Author.find(:all), :id, :name%>
+        </p>
+    This puts a selection (drop down) box in the form. The arguments are:
+        :author_id - the foreign key field in song to be set from the selection.
+        Author.find(:all) - the list of all authors (from which the selection will be made)
+        :id - the field from the selected Author that will be used to set :author_id for the song
+        :name - the attribute from each Author object to be placed in the drop-down box
+
+13. Show how this works by adding John Lennon as an author and then add "Imagine" 1971 and select
+      Lennon as the author. Navigate back to the songs index page to show this worked.
+
+14. If time, make a similar change to the songs/edit.html.erb (don't touch partials for
+      code reuse!). Visit several edit pages and note that the current author is pre-selected.
