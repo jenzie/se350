@@ -4,5 +4,10 @@ class Thinker < ActiveRecord::Base
   has_many :thoughts
   has_many :thumbs
 
+  validates :name, :length => { :minimum => 1, :maximum => 35 }, :uniqueness => true
+  validates_format_of :name, :with => /\A[A-Z||a-z][-A-Za-z0-9 ']*\Z/
+
+  validates :url, :length => { :maximum => 120 }, :uniqueness => true
+  validates_format_of :url, :with => URI::regexp(%w(http https))
   
 end

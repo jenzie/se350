@@ -1,0 +1,1580 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:w="urn:schemas-microsoft-com:office:word" xmlns="http://www.w3.org/TR/REC-html40" xmlns:ns0="http://schemas.microsoft.com/office/2004/12/omml"><head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<meta name="ProgId" content="Word.Document">
+<meta name="Generator" content="Microsoft Word 11">
+<meta name="Originator" content="Microsoft Word 11">
+<link rel="File-List" href="index_files/filelist.xml">
+
+
+<title>ThoughtShare Rails Project</title><!--[if gte mso 9]><xml>
+ <o:DocumentProperties>
+  <o:Author>Mike Lutz</o:Author>
+  <o:Template>Normal</o:Template>
+  <o:LastAuthor>Tom Reichlmayr</o:LastAuthor>
+  <o:Revision>87</o:Revision>
+  <o:TotalTime>619</o:TotalTime>
+  <o:Created>2009-02-06T19:50:00Z</o:Created>
+  <o:LastSaved>2012-02-15T18:31:00Z</o:LastSaved>
+  <o:Pages>1</o:Pages>
+  <o:Words>1466</o:Words>
+  <o:Characters>8362</o:Characters>
+  <o:Company>RIT Software Engineering</o:Company>
+  <o:Lines>69</o:Lines>
+  <o:Paragraphs>19</o:Paragraphs>
+  <o:CharactersWithSpaces>9809</o:CharactersWithSpaces>
+  <o:Version>11.9999</o:Version>
+ </o:DocumentProperties>
+</xml><![endif]--><!--[if gte mso 9]><xml>
+ <w:WordDocument>
+  <w:Zoom>BestFit</w:Zoom>
+  <w:PunctuationKerning/>
+  <w:ValidateAgainstSchemas/>
+  <w:SaveIfXMLInvalid>false</w:SaveIfXMLInvalid>
+  <w:IgnoreMixedContent>false</w:IgnoreMixedContent>
+  <w:AlwaysShowPlaceholderText>false</w:AlwaysShowPlaceholderText>
+  <w:Compatibility>
+   <w:BreakWrappedTables/>
+   <w:SnapToGridInCell/>
+   <w:WrapTextWithPunct/>
+   <w:UseAsianBreakRules/>
+   <w:DontGrowAutofit/>
+   <w:SplitPgBreakAndParaMark/>
+   <w:DontVertAlignCellWithSp/>
+   <w:DontBreakConstrainedForcedTables/>
+   <w:DontVertAlignInTxbx/>
+   <w:Word11KerningPairs/>
+   <w:CachedColBalance/>
+  </w:Compatibility>
+  <w:BrowserLevel>MicrosoftInternetExplorer4</w:BrowserLevel>
+  <w:TrackMoves>false</w:TrackMoves>
+  <w:TrackFormatting/>
+  <w:DoNotPromoteQF/>
+  <w:LidThemeOther>EN-US</w:LidThemeOther>
+  <w:LidThemeAsian>X-NONE</w:LidThemeAsian>
+  <w:LidThemeComplexScript>X-NONE</w:LidThemeComplexScript>
+  <m:mathPr>
+   <m:mathFont m:val="Cambria Math"/>
+   <m:brkBin m:val="before"/>
+   <m:brkBinSub m:val="--"/>
+   <m:smallFrac m:val="off"/>
+   <m:dispDef/>
+   <m:lMargin m:val="0"/>
+   <m:rMargin m:val="0"/>
+   <m:defJc m:val="centerGroup"/>
+   <m:wrapIndent m:val="1440"/>
+   <m:intLim m:val="subSup"/>
+   <m:naryLim m:val="undOvr"/>
+  </m:mathPr>
+ </w:WordDocument>
+</xml><![endif]--><!--[if gte mso 9]><xml>
+ <w:LatentStyles DefLockedState="false" LatentStyleCount="156">
+ </w:LatentStyles>
+</xml><![endif]--><style>
+<!--
+@
+list l0 {
+	mso-list-id: 66734016;
+	mso-list-type: hybrid;
+	mso-list-template-ids: 1962159512 -1485383550 67698691 67698693 67698689
+		67698691 67698693 67698689 67698691 67698693;
+}
+@
+list l0:level1 {
+	mso-level-number-format: bullet;
+	mso-level-text: \F0B7;
+	mso-level-tab-stop: none;
+	mso-level-number-position: left;
+	text-indent: -.25in;
+	mso-ansi-font-size: 14.0pt;
+	mso-bidi-font-size: 14.0pt;
+	font-family: Symbol;
+}
+@
+list l0:level2 {
+	mso-level-tab-stop: 1.0in;
+	mso-level-number-position: left;
+	text-indent: -.25in;
+}
+@
+list l0:level3 {
+	mso-level-tab-stop: 1.5in;
+	mso-level-number-position: left;
+	text-indent: -.25in;
+}
+@
+list l0:level4 {
+	mso-level-tab-stop: 2.0in;
+	mso-level-number-position: left;
+	text-indent: -.25in;
+}
+@
+list l0:level5 {
+	mso-level-tab-stop: 2.5in;
+	mso-level-number-position: left;
+	text-indent: -.25in;
+}
+@
+list l0:level6 {
+	mso-level-tab-stop: 3.0in;
+	mso-level-number-position: left;
+	text-indent: -.25in;
+}
+@
+list l0:level7 {
+	mso-level-tab-stop: 3.5in;
+	mso-level-number-position: left;
+	text-indent: -.25in;
+}
+@
+list l0:level8 {
+	mso-level-tab-stop: 4.0in;
+	mso-level-number-position: left;
+	text-indent: -.25in;
+}
+@
+list l0:level9 {
+	mso-level-tab-stop: 4.5in;
+	mso-level-number-position: left;
+	text-indent: -.25in;
+}
+@
+list l1 {
+	mso-list-id: 135151396;
+	mso-list-template-ids: -191991190;
+}
+@
+list l1:level1 {
+	mso-level-tab-stop: .5in;
+	mso-level-number-position: left;
+	text-indent: -.25in;
+}
+@
+list l1:level2 {
+	mso-level-number-format: alpha-lower;
+	mso-level-tab-stop: 1.0in;
+	mso-level-number-position: left;
+	text-indent: -.25in;
+}
+@
+list l1:level3 {
+	mso-level-tab-stop: 1.5in;
+	mso-level-number-position: left;
+	text-indent: -.25in;
+}
+@
+list l1:level4 {
+	mso-level-tab-stop: 2.0in;
+	mso-level-number-position: left;
+	text-indent: -.25in;
+}
+@
+list l1:level5 {
+	mso-level-tab-stop: 2.5in;
+	mso-level-number-position: left;
+	text-indent: -.25in;
+}
+@
+list l1:level6 {
+	mso-level-tab-stop: 3.0in;
+	mso-level-number-position: left;
+	text-indent: -.25in;
+}
+@
+list l1:level7 {
+	mso-level-tab-stop: 3.5in;
+	mso-level-number-position: left;
+	text-indent: -.25in;
+}
+@
+list l1:level8 {
+	mso-level-tab-stop: 4.0in;
+	mso-level-number-position: left;
+	text-indent: -.25in;
+}
+@
+list l1:level9 {
+	mso-level-tab-stop: 4.5in;
+	mso-level-number-position: left;
+	text-indent: -.25in;
+}
+@
+list l2 {
+	mso-list-id: 222327137;
+	mso-list-type: hybrid;
+	mso-list-template-ids: 793032552 67698689 67698691 67698693 67698689
+		67698691 67698693 67698689 67698691 67698693;
+}
+@
+list l2:level1 {
+	mso-level-number-format: bullet;
+	mso-level-text: \F0B7;
+	mso-level-tab-stop: none;
+	mso-level-number-position: left;
+	text-indent: -.25in;
+	font-family: Symbol;
+}
+@
+list l2:level2 {
+	mso-level-number-format: bullet;
+	mso-level-text: o;
+	mso-level-tab-stop: none;
+	mso-level-number-position: left;
+	text-indent: -.25in;
+	font-family: "Courier New";
+}
+@
+list l2:level3 {
+	mso-level-tab-stop: 1.5in;
+	mso-level-number-position: left;
+	text-indent: -.25in;
+}
+@
+list l2:level4 {
+	mso-level-tab-stop: 2.0in;
+	mso-level-number-position: left;
+	text-indent: -.25in;
+}
+@
+list l2:level5 {
+	mso-level-tab-stop: 2.5in;
+	mso-level-number-position: left;
+	text-indent: -.25in;
+}
+@
+list l2:level6 {
+	mso-level-tab-stop: 3.0in;
+	mso-level-number-position: left;
+	text-indent: -.25in;
+}
+@
+list l2:level7 {
+	mso-level-tab-stop: 3.5in;
+	mso-level-number-position: left;
+	text-indent: -.25in;
+}
+@
+list l2:level8 {
+	mso-level-tab-stop: 4.0in;
+	mso-level-number-position: left;
+	text-indent: -.25in;
+}
+@
+list l2:level9 {
+	mso-level-tab-stop: 4.5in;
+	mso-level-number-position: left;
+	text-indent: -.25in;
+}
+@
+list l3 {
+	mso-list-id: 299117826;
+	mso-list-type: hybrid;
+	mso-list-template-ids: -1627067950 -853640388 67698691 67698693 67698689
+		67698691 67698693 67698689 67698691 67698693;
+}
+@
+list l3:level1 {
+	mso-level-number-format: bullet;
+	mso-level-text: \F0B7;
+	mso-level-tab-stop: none;
+	mso-level-number-position: left;
+	text-indent: -.25in;
+	mso-ansi-font-size: 12.0pt;
+	mso-bidi-font-size: 12.0pt;
+	font-family: Symbol;
+}
+@
+list l3:level2 {
+	mso-level-number-format: bullet;
+	mso-level-text: o;
+	mso-level-tab-stop: none;
+	mso-level-number-position: left;
+	text-indent: -.25in;
+	font-family: "Courier New";
+}
+@
+list l3:level3 {
+	mso-level-tab-stop: 1.5in;
+	mso-level-number-position: left;
+	text-indent: -.25in;
+}
+@
+list l3:level4 {
+	mso-level-tab-stop: 2.0in;
+	mso-level-number-position: left;
+	text-indent: -.25in;
+}
+@
+list l3:level5 {
+	mso-level-tab-stop: 2.5in;
+	mso-level-number-position: left;
+	text-indent: -.25in;
+}
+@
+list l3:level6 {
+	mso-level-tab-stop: 3.0in;
+	mso-level-number-position: left;
+	text-indent: -.25in;
+}
+@
+list l3:level7 {
+	mso-level-tab-stop: 3.5in;
+	mso-level-number-position: left;
+	text-indent: -.25in;
+}
+@
+list l3:level8 {
+	mso-level-tab-stop: 4.0in;
+	mso-level-number-position: left;
+	text-indent: -.25in;
+}
+@
+list l3:level9 {
+	mso-level-tab-stop: 4.5in;
+	mso-level-number-position: left;
+	text-indent: -.25in;
+}
+@
+list l4 {
+	mso-list-id: 436874277;
+	mso-list-template-ids: -1679413404;
+}
+@
+list l4:level1 {
+	mso-level-number-format: bullet;
+	mso-level-text: \F0B7;
+	mso-level-tab-stop: .5in;
+	mso-level-number-position: left;
+	text-indent: -.25in;
+	mso-ansi-font-size: 10.0pt;
+	font-family: Symbol;
+}
+@
+list l4:level2 {
+	mso-level-tab-stop: 1.0in;
+	mso-level-number-position: left;
+	text-indent: -.25in;
+}
+@
+list l4:level3 {
+	mso-level-tab-stop: 1.5in;
+	mso-level-number-position: left;
+	text-indent: -.25in;
+}
+@
+list l4:level4 {
+	mso-level-tab-stop: 2.0in;
+	mso-level-number-position: left;
+	text-indent: -.25in;
+}
+@
+list l4:level5 {
+	mso-level-tab-stop: 2.5in;
+	mso-level-number-position: left;
+	text-indent: -.25in;
+}
+@
+list l4:level6 {
+	mso-level-tab-stop: 3.0in;
+	mso-level-number-position: left;
+	text-indent: -.25in;
+}
+@
+list l4:level7 {
+	mso-level-tab-stop: 3.5in;
+	mso-level-number-position: left;
+	text-indent: -.25in;
+}
+@
+list l4:level8 {
+	mso-level-tab-stop: 4.0in;
+	mso-level-number-position: left;
+	text-indent: -.25in;
+}
+@
+list l4:level9 {
+	mso-level-tab-stop: 4.5in;
+	mso-level-number-position: left;
+	text-indent: -.25in;
+}
+@
+list l5 {
+	mso-list-id: 806581819;
+	mso-list-template-ids: -96691868;
+}
+@
+list l5:level1 {
+	mso-level-tab-stop: .5in;
+	mso-level-number-position: left;
+	text-indent: -.25in;
+}
+@
+list l5:level2 {
+	mso-level-tab-stop: 1.0in;
+	mso-level-number-position: left;
+	text-indent: -.25in;
+}
+@
+list l5:level3 {
+	mso-level-tab-stop: 1.5in;
+	mso-level-number-position: left;
+	text-indent: -.25in;
+}
+@
+list l5:level4 {
+	mso-level-tab-stop: 2.0in;
+	mso-level-number-position: left;
+	text-indent: -.25in;
+}
+@
+list l5:level5 {
+	mso-level-tab-stop: 2.5in;
+	mso-level-number-position: left;
+	text-indent: -.25in;
+}
+@
+list l5:level6 {
+	mso-level-tab-stop: 3.0in;
+	mso-level-number-position: left;
+	text-indent: -.25in;
+}
+@
+list l5:level7 {
+	mso-level-tab-stop: 3.5in;
+	mso-level-number-position: left;
+	text-indent: -.25in;
+}
+@
+list l5:level8 {
+	mso-level-tab-stop: 4.0in;
+	mso-level-number-position: left;
+	text-indent: -.25in;
+}
+@
+list l5:level9 {
+	mso-level-tab-stop: 4.5in;
+	mso-level-number-position: left;
+	text-indent: -.25in;
+}
+@
+list l6 {
+	mso-list-id: 1574196415;
+	mso-list-type: hybrid;
+	mso-list-template-ids: -997175648 67698689 67698691 67698693 67698689
+		67698691 67698693 67698689 67698691 67698693;
+}
+@
+list l6:level1 {
+	mso-level-number-format: bullet;
+	mso-level-text: \F0B7;
+	mso-level-tab-stop: none;
+	mso-level-number-position: left;
+	text-indent: -.25in;
+	font-family: Symbol;
+}
+@
+list l6:level2 {
+	mso-level-tab-stop: 1.0in;
+	mso-level-number-position: left;
+	text-indent: -.25in;
+}
+@
+list l6:level3 {
+	mso-level-tab-stop: 1.5in;
+	mso-level-number-position: left;
+	text-indent: -.25in;
+}
+@
+list l6:level4 {
+	mso-level-tab-stop: 2.0in;
+	mso-level-number-position: left;
+	text-indent: -.25in;
+}
+@
+list l6:level5 {
+	mso-level-tab-stop: 2.5in;
+	mso-level-number-position: left;
+	text-indent: -.25in;
+}
+@
+list l6:level6 {
+	mso-level-tab-stop: 3.0in;
+	mso-level-number-position: left;
+	text-indent: -.25in;
+}
+@
+list l6:level7 {
+	mso-level-tab-stop: 3.5in;
+	mso-level-number-position: left;
+	text-indent: -.25in;
+}
+@
+list l6:level8 {
+	mso-level-tab-stop: 4.0in;
+	mso-level-number-position: left;
+	text-indent: -.25in;
+}
+@
+list l6:level9 {
+	mso-level-tab-stop: 4.5in;
+	mso-level-number-position: left;
+	text-indent: -.25in;
+}
+@
+list l7 {
+	mso-list-id: 1609507989;
+	mso-list-template-ids: 965477084;
+}
+@
+list l7:level1 {
+	mso-level-tab-stop: .5in;
+	mso-level-number-position: left;
+	text-indent: -.25in;
+}
+@
+list l7:level2 {
+	mso-level-tab-stop: 1.0in;
+	mso-level-number-position: left;
+	text-indent: -.25in;
+}
+@
+list l7:level3 {
+	mso-level-tab-stop: 1.5in;
+	mso-level-number-position: left;
+	text-indent: -.25in;
+}
+@
+list l7:level4 {
+	mso-level-tab-stop: 2.0in;
+	mso-level-number-position: left;
+	text-indent: -.25in;
+}
+@
+list l7:level5 {
+	mso-level-tab-stop: 2.5in;
+	mso-level-number-position: left;
+	text-indent: -.25in;
+}
+@
+list l7:level6 {
+	mso-level-tab-stop: 3.0in;
+	mso-level-number-position: left;
+	text-indent: -.25in;
+}
+@
+list l7:level7 {
+	mso-level-tab-stop: 3.5in;
+	mso-level-number-position: left;
+	text-indent: -.25in;
+}
+@
+list l7:level8 {
+	mso-level-tab-stop: 4.0in;
+	mso-level-number-position: left;
+	text-indent: -.25in;
+}
+@
+list l7:level9 {
+	mso-level-tab-stop: 4.5in;
+	mso-level-number-position: left;
+	text-indent: -.25in;
+}
+p.MSONORMAL
+	{mso-style-unhide: no;
+	mso-style-qformat: yes;}
+li.MSONORMAL
+	{mso-style-unhide: no;
+	mso-style-qformat: yes;}
+div.MSONORMAL
+	{mso-style-unhide: no;
+	mso-style-qformat: yes;}
+h1
+	{mso-style-unhide: no;
+	mso-style-qformat: yes;
+	mso-fareast-theme-font: minor-fareast;}
+h2
+	{mso-style-unhide: no;
+	mso-style-qformat: yes;
+	mso-fareast-theme-font: minor-fareast;}
+h3
+	{mso-style-unhide: no;
+	mso-style-qformat: yes;
+	mso-fareast-theme-font: minor-fareast;}
+p.MSOENDNOTETEXT
+	{mso-style-unhide: no;}
+li.MSOENDNOTETEXT
+	{mso-style-unhide: no;}
+div.MSOENDNOTETEXT
+	{mso-style-unhide: no;}
+a:link
+	{mso-style-unhide: no;}
+span.MSOHYPERLINK
+	{mso-style-unhide: no;}
+a:visited
+	{mso-style-unhide: no;}
+span.MSOHYPERLINKFOLLOWED
+	{mso-style-unhide: no;}
+p
+	{mso-style-unhide: no;
+	mso-fareast-theme-font: minor-fareast;}
+code
+	{mso-style-priority: 99;
+	mso-style-unhide: no;}
+pre
+	{mso-style-priority: 99;
+	mso-style-unhide: no;}
+p.MSOLISTPARAGRAPH
+	{mso-style-priority: 34;
+	mso-style-unhide: no;
+	mso-style-qformat: yes;}
+li.MSOLISTPARAGRAPH
+	{mso-style-priority: 34;
+	mso-style-unhide: no;
+	mso-style-qformat: yes;}
+div.MSOLISTPARAGRAPH
+	{mso-style-priority: 34;
+	mso-style-unhide: no;
+	mso-style-qformat: yes;}
+p.MSOLISTPARAGRAPHCXSPFIRST
+	{mso-style-priority: 34;
+	mso-style-unhide: no;
+	mso-style-qformat: yes;}
+li.MSOLISTPARAGRAPHCXSPFIRST
+	{mso-style-priority: 34;
+	mso-style-unhide: no;
+	mso-style-qformat: yes;}
+div.MSOLISTPARAGRAPHCXSPFIRST
+	{mso-style-priority: 34;
+	mso-style-unhide: no;
+	mso-style-qformat: yes;}
+p.MSOLISTPARAGRAPHCXSPMIDDLE
+	{mso-style-priority: 34;
+	mso-style-unhide: no;
+	mso-style-qformat: yes;}
+li.MSOLISTPARAGRAPHCXSPMIDDLE
+	{mso-style-priority: 34;
+	mso-style-unhide: no;
+	mso-style-qformat: yes;}
+div.MSOLISTPARAGRAPHCXSPMIDDLE
+	{mso-style-priority: 34;
+	mso-style-unhide: no;
+	mso-style-qformat: yes;}
+p.MSOLISTPARAGRAPHCXSPLAST
+	{mso-style-priority: 34;
+	mso-style-unhide: no;
+	mso-style-qformat: yes;}
+li.MSOLISTPARAGRAPHCXSPLAST
+	{mso-style-priority: 34;
+	mso-style-unhide: no;
+	mso-style-qformat: yes;}
+div.MSOLISTPARAGRAPHCXSPLAST
+	{mso-style-priority: 34;
+	mso-style-unhide: no;
+	mso-style-qformat: yes;}
+span.HEADING1CHAR
+	{mso-style-unhide: no;
+	mso-ascii-theme-font: major-latin;
+	mso-fareast-theme-font: major-fareast;
+	mso-hansi-theme-font: major-latin;
+	mso-bidi-theme-font: major-bidi;
+	mso-themecolor: accent1;
+	mso-themeshade: 191;}
+span.HEADING2CHAR
+	{mso-style-unhide: no;
+	mso-ascii-theme-font: major-latin;
+	mso-fareast-theme-font: major-fareast;
+	mso-hansi-theme-font: major-latin;
+	mso-bidi-theme-font: major-bidi;
+	mso-themecolor: accent1;}
+span.HEADING3CHAR
+	{mso-style-unhide: no;
+	mso-ascii-theme-font: major-latin;
+	mso-fareast-theme-font: major-fareast;
+	mso-hansi-theme-font: major-latin;
+	mso-bidi-theme-font: major-bidi;
+	mso-themecolor: accent1;}
+span.HTMLPREFORMATTEDCHAR
+	{mso-style-priority: 99;
+	mso-style-unhide: no;}
+span.ENDNOTETEXTCHAR
+	{mso-style-unhide: no;}
+span.STR
+	{mso-style-unhide: no;}
+.MSOCHPDEFAULT
+	{mso-default-props: yes;}
+table.MSONORMALTABLE
+	{mso-style-priority:99;
+	mso-style-qformat:yes;}
+
+ /* Font Definitions */
+ @font-face
+	{font-family:Wingdings;
+	panose-1:5 0 0 0 0 0 0 0 0 0;
+	mso-font-charset:2;
+	mso-generic-font-family:auto;
+	mso-font-pitch:variable;
+	mso-font-signature:0 268435456 0 0 -2147483648 0;}
+@font-face
+	{font-family:"Century Schoolbook";
+	panose-1:2 4 6 4 5 5 5 2 3 4;
+	mso-font-charset:0;
+	mso-generic-font-family:roman;
+	mso-font-pitch:variable;
+	mso-font-signature:647 0 0 0 159 0;}
+@font-face
+	{font-family:Consolas;
+	panose-1:2 11 6 9 2 2 4 3 2 4;
+	mso-font-charset:0;
+	mso-generic-font-family:modern;
+	mso-font-pitch:fixed;
+	mso-font-signature:-520092929 1073806591 9 0 415 0;}
+@font-face
+	{font-family:Cambria;
+	panose-1:2 4 5 3 5 4 6 3 2 4;
+	mso-font-charset:0;
+	mso-generic-font-family:roman;
+	mso-font-pitch:variable;
+	mso-font-signature:-1610611985 1073741899 0 0 159 0;}
+ /* Style Definitions */
+ p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{mso-style-parent:"";
+	margin:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Times New Roman";}
+h1
+	{mso-style-link:"Heading 1 Char";
+	mso-style-next:Normal;
+	margin-top:12.0pt;
+	margin-right:0in;
+	margin-bottom:3.0pt;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	page-break-after:avoid;
+	mso-outline-level:1;
+	font-size:16.0pt;
+	font-family:Arial;
+	mso-font-kerning:16.0pt;
+	font-weight:bold;}
+h2
+	{mso-style-link:"Heading 2 Char";
+	mso-style-next:Normal;
+	margin-top:12.0pt;
+	margin-right:0in;
+	margin-bottom:3.0pt;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	page-break-after:avoid;
+	mso-outline-level:2;
+	font-size:14.0pt;
+	font-family:Arial;
+	font-weight:bold;
+	font-style:italic;}
+h3
+	{mso-style-link:"Heading 3 Char";
+	mso-style-next:Normal;
+	margin-top:12.0pt;
+	margin-right:0in;
+	margin-bottom:3.0pt;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	page-break-after:avoid;
+	mso-outline-level:3;
+	font-size:13.0pt;
+	font-family:Arial;
+	font-weight:bold;}
+p.MsoEndnoteText, li.MsoEndnoteText, div.MsoEndnoteText
+	{mso-style-link:"Endnote Text Char";
+	margin:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:10.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Times New Roman";}
+a:link, span.MsoHyperlink
+	{color:blue;
+	text-decoration:underline;
+	text-underline:single;}
+a:visited, span.MsoHyperlinkFollowed
+	{color:purple;
+	text-decoration:underline;
+	text-underline:single;}
+p
+	{mso-margin-top-alt:auto;
+	margin-right:0in;
+	mso-margin-bottom-alt:auto;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Times New Roman";}
+code
+	{font-family:"Courier New";
+	mso-ascii-font-family:"Courier New";
+	mso-fareast-font-family:"Times New Roman";
+	mso-hansi-font-family:"Courier New";
+	mso-bidi-font-family:"Courier New";}
+pre
+	{mso-style-link:"HTML Preformatted Char";
+	margin:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt;
+	font-size:10.0pt;
+	font-family:"Courier New";
+	mso-fareast-font-family:"Times New Roman";}
+span.Heading1Char
+	{mso-style-name:"Heading 1 Char";
+	mso-style-locked:yes;
+	mso-style-link:"Heading 1";
+	mso-ansi-font-size:14.0pt;
+	mso-bidi-font-size:14.0pt;
+	font-family:Cambria;
+	mso-ascii-font-family:Cambria;
+	mso-fareast-font-family:"Times New Roman";
+	mso-hansi-font-family:Cambria;
+	mso-bidi-font-family:"Times New Roman";
+	color:#365F91;
+	font-weight:bold;}
+span.Heading2Char
+	{mso-style-name:"Heading 2 Char";
+	mso-style-locked:yes;
+	mso-style-link:"Heading 2";
+	mso-ansi-font-size:13.0pt;
+	mso-bidi-font-size:13.0pt;
+	font-family:Cambria;
+	mso-ascii-font-family:Cambria;
+	mso-fareast-font-family:"Times New Roman";
+	mso-hansi-font-family:Cambria;
+	mso-bidi-font-family:"Times New Roman";
+	color:#4F81BD;
+	font-weight:bold;}
+span.Heading3Char
+	{mso-style-name:"Heading 3 Char";
+	mso-style-locked:yes;
+	mso-style-link:"Heading 3";
+	mso-ansi-font-size:12.0pt;
+	mso-bidi-font-size:12.0pt;
+	font-family:Cambria;
+	mso-ascii-font-family:Cambria;
+	mso-fareast-font-family:"Times New Roman";
+	mso-hansi-font-family:Cambria;
+	mso-bidi-font-family:"Times New Roman";
+	color:#4F81BD;
+	font-weight:bold;}
+span.HTMLPreformattedChar
+	{mso-style-name:"HTML Preformatted Char";
+	mso-style-locked:yes;
+	mso-style-link:"HTML Preformatted";
+	font-family:"Courier New";
+	mso-ascii-font-family:"Courier New";
+	mso-hansi-font-family:"Courier New";
+	mso-bidi-font-family:"Courier New";}
+span.EndnoteTextChar
+	{mso-style-name:"Endnote Text Char";
+	mso-style-locked:yes;
+	mso-style-link:"Endnote Text";}
+p.msolistparagraph, li.msolistparagraph, div.msolistparagraph
+	{mso-style-name:msolistparagraph;
+	margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:.5in;
+	margin-bottom:.0001pt;
+	mso-add-space:auto;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Times New Roman";}
+p.msolistparagraphCxSpFirst, li.msolistparagraphCxSpFirst, div.msolistparagraphCxSpFirst
+	{mso-style-name:msolistparagraphCxSpFirst;
+	mso-style-type:export-only;
+	margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:.5in;
+	margin-bottom:.0001pt;
+	mso-add-space:auto;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Times New Roman";}
+p.msolistparagraphCxSpMiddle, li.msolistparagraphCxSpMiddle, div.msolistparagraphCxSpMiddle
+	{mso-style-name:msolistparagraphCxSpMiddle;
+	mso-style-type:export-only;
+	margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:.5in;
+	margin-bottom:.0001pt;
+	mso-add-space:auto;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Times New Roman";}
+p.msolistparagraphCxSpLast, li.msolistparagraphCxSpLast, div.msolistparagraphCxSpLast
+	{mso-style-name:msolistparagraphCxSpLast;
+	mso-style-type:export-only;
+	margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:.5in;
+	margin-bottom:.0001pt;
+	mso-add-space:auto;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Times New Roman";}
+span.str
+	{mso-style-name:str;}
+@page Section1
+	{size:8.5in 11.0in;
+	margin:1.0in 1.25in 1.0in 1.25in;
+	mso-header-margin:.5in;
+	mso-footer-margin:.5in;
+	mso-paper-source:0;}
+div.Section1
+	{page:Section1;}
+ /* List Definitions */
+ @list l0
+	{mso-list-id:326136333;
+	mso-list-template-ids:1330656786;}
+@list l0:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	mso-ansi-font-size:10.0pt;
+	font-family:Symbol;}
+@list l0:level2
+	{mso-level-number-format:bullet;
+	mso-level-text:o;
+	mso-level-tab-stop:1.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	mso-ansi-font-size:10.0pt;
+	font-family:"Courier New";
+	mso-bidi-font-family:"Times New Roman";}
+@list l1
+	{mso-list-id:565730017;
+	mso-list-template-ids:112197918;}
+@list l1:level1
+	{mso-level-tab-stop:.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l1:level2
+	{mso-level-tab-stop:1.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l1:level3
+	{mso-level-tab-stop:1.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l1:level4
+	{mso-level-tab-stop:2.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l1:level5
+	{mso-level-tab-stop:2.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l1:level6
+	{mso-level-tab-stop:3.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l1:level7
+	{mso-level-tab-stop:3.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l1:level8
+	{mso-level-tab-stop:4.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l1:level9
+	{mso-level-tab-stop:4.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l2
+	{mso-list-id:979189220;
+	mso-list-template-ids:880687214;}
+@list l2:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	mso-ansi-font-size:10.0pt;
+	font-family:Symbol;}
+@list l2:level2
+	{mso-level-number-format:bullet;
+	mso-level-text:o;
+	mso-level-tab-stop:1.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	mso-ansi-font-size:10.0pt;
+	font-family:"Courier New";
+	mso-bidi-font-family:"Times New Roman";}
+@list l3
+	{mso-list-id:1286349411;
+	mso-list-template-ids:112197918;}
+@list l3:level1
+	{mso-level-tab-stop:.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l3:level2
+	{mso-level-tab-stop:1.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l3:level3
+	{mso-level-tab-stop:1.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l3:level4
+	{mso-level-tab-stop:2.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l3:level5
+	{mso-level-tab-stop:2.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l3:level6
+	{mso-level-tab-stop:3.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l3:level7
+	{mso-level-tab-stop:3.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l3:level8
+	{mso-level-tab-stop:4.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l3:level9
+	{mso-level-tab-stop:4.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l4
+	{mso-list-id:1428186520;
+	mso-list-template-ids:112197918;}
+@list l4:level1
+	{mso-level-tab-stop:.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l4:level2
+	{mso-level-tab-stop:1.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l4:level3
+	{mso-level-tab-stop:1.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l4:level4
+	{mso-level-tab-stop:2.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l4:level5
+	{mso-level-tab-stop:2.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l4:level6
+	{mso-level-tab-stop:3.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l4:level7
+	{mso-level-tab-stop:3.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l4:level8
+	{mso-level-tab-stop:4.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l4:level9
+	{mso-level-tab-stop:4.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l5
+	{mso-list-id:1808861157;
+	mso-list-template-ids:112197918;}
+@list l5:level1
+	{mso-level-tab-stop:.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l5:level2
+	{mso-level-tab-stop:1.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l5:level3
+	{mso-level-tab-stop:1.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l5:level4
+	{mso-level-tab-stop:2.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l5:level5
+	{mso-level-tab-stop:2.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l5:level6
+	{mso-level-tab-stop:3.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l5:level7
+	{mso-level-tab-stop:3.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l5:level8
+	{mso-level-tab-stop:4.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l5:level9
+	{mso-level-tab-stop:4.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l6
+	{mso-list-id:1851407925;
+	mso-list-template-ids:1974111802;}
+@list l6:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	mso-ansi-font-size:10.0pt;
+	font-family:Symbol;}
+@list l6:level2
+	{mso-level-number-format:bullet;
+	mso-level-text:o;
+	mso-level-tab-stop:1.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	mso-ansi-font-size:10.0pt;
+	font-family:"Courier New";
+	mso-bidi-font-family:"Times New Roman";}
+@list l7
+	{mso-list-id:1872917549;
+	mso-list-template-ids:1118351246;}
+@list l7:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	mso-ansi-font-size:10.0pt;
+	font-family:Symbol;}
+@list l8
+	{mso-list-id:1893692323;
+	mso-list-template-ids:752021806;}
+@list l8:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	mso-ansi-font-size:10.0pt;
+	font-family:Symbol;}
+@list l9
+	{mso-list-id:1895389200;
+	mso-list-template-ids:1441583916;}
+@list l9:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	mso-ansi-font-size:10.0pt;
+	font-family:Symbol;}
+@list l9:level2
+	{mso-level-number-format:bullet;
+	mso-level-text:o;
+	mso-level-tab-stop:1.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	mso-ansi-font-size:10.0pt;
+	font-family:"Courier New";
+	mso-bidi-font-family:"Times New Roman";}
+ol
+	{margin-bottom:0in;}
+ul
+	{margin-bottom:0in;}
+-->
+</style><!--[if gte mso 10]>
+<style>
+ /* Style Definitions */
+ table.MsoNormalTable
+	{mso-style-name:"Table Normal";
+	mso-tstyle-rowband-size:0;
+	mso-tstyle-colband-size:0;
+	mso-style-noshow:yes;
+	mso-style-parent:"";
+	mso-padding-alt:0in 5.4pt 0in 5.4pt;
+	mso-para-margin:0in;
+	mso-para-margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:10.0pt;
+	font-family:"Times New Roman";
+	mso-ansi-language:#0400;
+	mso-fareast-language:#0400;
+	mso-bidi-language:#0400;}
+</style>
+<![endif]-->
+
+<link rel="themeData" href="index_files/themedata.thmx">
+<link rel="colorSchemeMapping" href="index_files/colorschememapping.xml"><!--[if gte mso 9]><xml>
+ <o:shapedefaults v:ext="edit" spidmax="13314"/>
+</xml><![endif]--><!--[if gte mso 9]><xml>
+ <o:shapelayout v:ext="edit">
+  <o:idmap v:ext="edit" data="1"/>
+ </o:shapelayout></xml><![endif]--></head>
+<body style="" lang="EN-US" link="blue" vlink="purple">
+
+<div class="Section1">
+
+<h1 style="margin: 0in 0in 0.25in; text-align: center;" align="center"><span style="font-size: 18pt;">ThoughtShare
+Web Application<br>
+(15 Points) <o:p></o:p></span></h1>
+
+<h2><span style="font-style: normal;">The Technical Project (10 points) <o:p></o:p></span></h2>
+
+<p class="MsoNormal" style="margin-top: 6pt;">Your task is to do some maintenance
+on ThoughtShare (a web application for thinkers to share their thoughts that is
+definitely <i style="">not</i> Twitter). ThoughtShare
+has the following entities: </p>
+
+<ul type="disc">
+ <li class="MsoNormal" style="">Thinkers – the users of the
+     system, who have names and URLs </li>
+ <li class="MsoNormal" style="">Thoughts – these are short,
+     interesting quotes shared by Thinkers</li>
+ <li class="MsoNormal" style="">Follows – a relationship from
+     one Thinker to another, so that Thinkers can only follow a small subset of
+     their friends and colleagues</li>
+ <li class="MsoNormal" style="">Thumb – a relationship from
+     Thinker to Thought where one can “approve” of any given thought</li>
+</ul>
+
+<p class="MsoNormal" style="margin-top: 6pt;">Much of the application has been
+constructed for you, so your job will be to find bugs and fix them
+appropriately. For the final level of submission, you will need to add new
+functionality to the product.</p>
+
+<p class="MsoNormal" style="margin-top: 6pt;">You must complete and test your
+application at the levels in succession, but only your last submission at the
+highest level you attempt will be considered in grading your project.</p>
+
+<p class="MsoNormal" style="margin-top: 6pt;">The levels are outlined below,
+preceded by the number of points out that the level contributes to the 10
+points available. Feel free to ask questions of your instructor if anything is
+unclear.</p>
+
+<h3>Level #0 Setup and Fix Misspelling <br>
+(1 point) </h3>
+
+<p class="MsoNormal" style="margin-top: 3pt;"><a href="thoughtshare.zip">Download</a>
+and unzip the source code for the app in a clean directory. </p>
+
+<p class="MsoNormal" style="margin-top: 3pt;"><b style=""><o:p>&nbsp;</o:p></b></p>
+
+<p class="MsoNormal" style="margin-top: 3pt;"><b style="">Important! </b>We <i style="">strongly</i>
+recommend that you do this project in the lab, as the correct environment has
+been set up for this project there. If you do choose to attempt this on your
+home computer, be prepared to do some tricky setup of the correct version of
+Rails, Rake, and correct versions of the other gems needed. </p>
+
+<p class="MsoNormal" style="margin-top: 3pt;">First we need to setup our
+database.</p>
+
+<p class="MsoNormal" style="margin-top: 3pt;"><o:p>&nbsp;</o:p></p>
+
+<p class="MsoNormal" style="margin-top: 3pt;"><span style="font-family: Consolas;">&gt;
+bundle exec rake db:setup <o:p></o:p></span></p>
+
+<p class="MsoNormal" style="margin-top: 3pt;"><o:p>&nbsp;</o:p></p>
+
+<p class="MsoNormal" style="margin-top: 3pt;"><b style="">NOTE:</b> The command for this version of Rails is slightly different
+than what we did in class. If you get a message about the wrong version of
+rake, then you didn’t do the “bundle exec” part. Also, do db:setup and not
+db:migrate. </p>
+
+<p class="MsoNormal" style="margin-top: 3pt;"><o:p>&nbsp;</o:p></p>
+
+<p class="MsoNormal" style="margin-top: 3pt;">Now seed the database with some
+initial data.</p>
+
+<p class="MsoNormal" style="margin-top: 3pt;"><span style="font-family: Consolas;"><o:p>&nbsp;</o:p></span></p>
+
+<p class="MsoNormal" style="margin-top: 3pt;"><span style="font-family: Consolas;">&gt;
+bundle exec rake db:seed <o:p></o:p></span></p>
+
+<p class="MsoNormal" style="margin-top: 3pt;"><o:p>&nbsp;</o:p></p>
+
+<p class="MsoNormal" style="margin-top: 3pt;">As demonstrated in class, run the
+WebBrick server in Windows: </p>
+
+<p class="MsoNormal" style="margin-top: 3pt;"><span style="font-family: Consolas;"><o:p>&nbsp;</o:p></span></p>
+
+<p class="MsoNormal" style="margin-top: 3pt;"><span style="font-family: Consolas;">&gt;
+rails server</span> <span style="font-family: Consolas;"><o:p></o:p></span></p>
+
+<p class="MsoNormal" style="margin-top: 3pt;"><o:p>&nbsp;</o:p></p>
+
+<p class="MsoNormal" style="margin-top: 3pt;">Go to <a href="http://localhost:3000">http://localhost:3000</a> to see the app in
+action. </p>
+
+<p class="MsoNormal" style="margin-top: 3pt;"><o:p>&nbsp;</o:p></p>
+
+<p class="MsoNormal" style="margin-top: 3pt;">To receive credit for this level,
+you must correct two spelling mistakes in the app. Both are apparent on the
+front page, but must be corrected in different places.</p>
+
+<p class="MsoNormal" style="margin-top: 3pt;"><o:p>&nbsp;</o:p></p>
+
+<h3>Level #1 Input Validation<br>
+(3 points) </h3>
+
+<p class="MsoNormal"><o:p>&nbsp;</o:p></p>
+
+<p class="MsoNormal">For this level, you need to provide input validation in the
+following ways:</p>
+
+<ul type="disc">
+ <li class="MsoNormal" style="">When sharing a new Thought: </li>
+ <ul type="circle">
+  <li class="MsoNormal" style="">The thought must have
+      a minimum length of 5</li>
+  <li class="MsoNormal" style="">The thought must have
+      a maximum length of 154 (10% better than Twitter!!)</li>
+  <li class="MsoNormal" style="">All thoughts must be
+      unique (no two thinkers can have the same thought)</li>
+ </ul>
+ <li class="MsoNormal" style="">When creating a new Thinker: </li>
+ <ul type="circle">
+  <li class="MsoNormal" style="">The name must be
+      between 1 and 35 characters</li>
+  <li class="MsoNormal" style="">The name must be
+      unique</li>
+  <li class="MsoNormal" style="">The
+name can only include upper-case letters, lower-case letters, numbers,
+spaces, hyphens, and apostraphes. The name must start with an
+upper-case or lower-case letter.</li>    
+  <li class="MsoNormal" style="">The URL must match the
+      following regex (use this snippet directly in your code):<br>
+      <code><span style="font-size: 10pt;">URI::regexp(%w(http https)) </span></code></li>
+  <li class="MsoNormal" style="">The URL must be unique</li>
+  <li class="MsoNormal" style="">The URL must have a
+      maximum of 120 characters</li>
+ </ul>
+</ul>
+
+<p class="MsoNormal" style="margin-top: 3pt;">Useful documentation for this
+level: <a href="http://guides.rubyonrails.org/active_record_validations_callbacks.html">Validation
+in Rails</a> </p>
+
+<p class="MsoNormal" style="margin-top: 3pt;"><o:p>&nbsp;</o:p></p>
+
+<h3>Level #2 Adding a Query<br>
+(2 points) </h3>
+
+<p class="MsoNormal"><o:p>&nbsp;</o:p></p>
+
+<p class="MsoNormal">For this level, you need to fix a bug for the “Mine” filter
+of thoughts. Currently, this page shows <i style="">all</i>
+thoughts in ThoughtShare, not the one for the user logged in (i.e. the “active
+thinker”). Fixing this requires only two lines of code, but you must find where
+that is and write those two lines. </p>
+
+<p class="MsoNormal" style="margin-top: 3pt;"><o:p>&nbsp;</o:p></p>
+
+<h3>Level #3 Show Thumbers<br>
+(3 points) </h3>
+
+<p class="MsoNormal" style="margin-top: 9pt;">On the main page, the green numbers
+next to the thumbs are actually a link to a page that doesn’t exist. Create
+this page to show all of the people who thumbed that thought. You will need to
+do a few things:</p>
+
+<ul type="disc">
+ <li class="MsoNormal" style="">The name of the action is <code><span style="font-size: 10pt;">thumbers</span></code> and is part of the <code><span style="font-size: 10pt;">thoughts</span></code> view and controller, so...
+     </li>
+ <ul type="circle">
+  <li class="MsoNormal" style="">You will need to add a
+      <code><span style="font-size: 10pt;">thumbers</span></code> method to the
+      <code><span style="font-size: 10pt;">thoughts</span></code> controller </li>
+  <li class="MsoNormal" style="">You will need to add a
+      file to the <code><span style="font-size: 10pt;">thoughts</span></code>
+      view </li>
+ </ul>
+ <li class="MsoNormal" style="">To determine how to get the
+     ID of the thought being passed to your new page, check the server console
+     right after you click on the link (look for the <code><span style="font-size: 10pt;">Parameters: { }</span></code> hash being
+     displayed) </li>
+ <li class="MsoNormal" style="">In your config/routes.rb, you
+     will need to add the following line <em>after</em> the resources line:<br>
+     <code><span style="font-size: 10pt;">match ':controller/:action/:id',
+     :controller =&gt; :thoughts, :action =&gt; :thumbers</span></code> </li>
+</ul>
+
+<p>The page must have the following:</p>
+
+<ul type="disc">
+ <li class="MsoNormal" style="">The page must have the same
+     look and feel of the previous pages, </li>
+ <ul type="circle">
+  <li class="MsoNormal" style="">Including the bar at
+      the top, <em>without duplicating code</em>. </li>
+  <li class="MsoNormal" style="">The "active
+      thinker" functionality should still work properly on this page (i.e.
+      Logged in as)</li>
+ </ul>
+ <li class="MsoNormal" style="">The thought itself on the top
+     of the page, inside of <code><span style="font-size: 10pt;">&lt;h1&gt;
+     &lt;/h1&gt; </span></code>tags </li>
+ <li class="MsoNormal" style="">The text "A thought by
+     X"" where X is name of the thinker of that thought, inside <code><span style="font-size: 10pt;">&lt;h3&gt; &lt;/h3&gt; </span></code>tags </li>
+ <li class="MsoNormal" style="">The text ""Thumbers
+     of this thought” inside <code><span style="font-size: 10pt;">&lt;h2&gt;
+     &lt;/h2&gt; </span></code>tags </li>
+ <li class="MsoNormal" style="">A list of the thinkers who
+     gave this thought at least one thumb. No repeated thinkers in this list.</li>
+</ul>
+
+<h3>Level #4 Add Attribute to a Model<br>
+(1 point) </h3>
+
+<p class="MsoNormal" style="margin-top: 9pt;">Add a new string attribute called <span style="font-family: Consolas;">email </span>to the Thinker model. You will must
+follow the Rails guidelines and conventions by doing the following: </p>
+
+<ul type="disc">
+ <li class="MsoNormal" style="">Create a database migration
+     using <code><span style="font-size: 10pt;">rails generate migration</span></code>,
+     using the conventional name for the migration: <code><span style="font-size: 10pt;">AddEmailToThinker</span></code> </li>
+ <ul type="circle">
+  <li class="MsoNormal" style="">When you fill in the
+      actual migration code – use the <code><span style="font-size: 10pt;">self.up</span></code>
+      and <code><span style="font-size: 10pt;">self.down</span></code> methods
+      – don’t add a <code><span style="font-size: 10pt;">change</span></code>
+      method as some documentation recommends (that only works in a future
+      version of Rails). </li>
+ </ul>
+ <li class="MsoNormal" style="">The email must be validated
+     using the following regex: <br>
+     <code><span style="font-size: 10pt;">/\A[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]+\z/</span></code>
+     </li>
+ <li class="MsoNormal" style="">Add the email field to the
+     New Thinker page</li>
+ <li class="MsoNormal" style="">Show the thinker's email on
+     their own profile page (when you click on a Thinker's name on the main
+     page)</li>
+</ul>
+
+<p class="MsoNormal" style="margin-top: 3pt;">Useful documentation for this
+level: <a href="http://guides.rubyonrails.org/migrations.html">Database
+Migrations in Rails</a> </p>
+
+<p class="MsoNormal" style="margin-top: 9pt;"><b><span style="font-family: Arial;">Level
+#5 Thumb Uniqueness<br>
+(1 point extra credit) <o:p></o:p></span></b></p>
+
+<p class="MsoNormal" style="margin-top: 3pt;">Currently, a given thinker can
+thumb a thought multiple times. This is problematic because someone can
+artificially inflate one’s popularity of a thought. Add a validation constraint
+such that:</p>
+
+<ul type="disc">
+ <li class="MsoNormal" style="">A thinker cannot thumb the
+     same thought twice</li>
+ <li class="MsoNormal" style="">If this is violated, the app
+     should show nothing – that is, don’t show an error message or notify the
+     user, but also don’t add the thumb.</li>
+</ul>
+
+<p class="MsoNormal" style="margin-top: 3pt;">Note: for the sake of this project,
+you don’t need to enforce this at the database level, only at the model level.
+But, in practice, you will also want to add a unique constraint in the Thumbs
+table since Rails model validations are not transaction-safe.</p>
+
+<h2><span style="font-style: normal;">The Process and Reflection (5 points) <o:p></o:p></span></h2>
+
+<p class="MsoNormal" style="margin-top: 6pt;">You are also to complete a <b><i><a href="ProcessReflection.txt">process and reflection document</a></i></b> which
+records your activities. <b>NOTE:</b> You <i>need not</i> finish all levels in
+order to receive full credit for this component of the project. We will be
+assessing the quality of the planning and reflection for however many levels
+you complete, along with the project <b>Summary</b>. </p>
+
+<p class="MsoNormal" style="margin-top: 6pt;">We <i>strongly</i> encourage you to
+complete the process and reflection for each level before going on to its
+successor. </p>
+
+<p class="MsoNormal" style="margin-top: 6pt;"><b><span style="font-size: 11pt; font-family: Arial;">For <i>each</i> of the levels you <i>start</i>, complete the
+start section for that level and include: <o:p></o:p></span></b></p>
+
+<ol style="margin-top: 0in;" start="1" type="1">
+ <li class="MsoNormal" style="margin-top: 6pt;">An estimate of the time it will take to design,
+     implement, and test the required Ruby and Rails code for that level.</li>
+ <li class="MsoNormal" style="margin-top: 6pt;">A brief (1-2 paragraphs max.) description of your
+     plan for meeting the level requirements (including setup &amp;
+     implementation).</li>
+</ol>
+
+<p class="MsoNormal" style="margin-top: 6pt; page-break-after: avoid;"><b><span style="font-size: 11pt; font-family: Arial;">For <i>each</i> of the levels you <i>complete</i>,
+add the following to the completion section for that level: <o:p></o:p></span></b></p>
+
+<ol style="margin-top: 0in;" start="1" type="1">
+ <li class="MsoNormal" style="margin-top: 6pt; page-break-after: avoid;">The <i>actual</i> time it took to
+     complete the design, implementation, and testing for that level. </li>
+ <li class="MsoNormal" style="margin-top: 6pt; page-break-after: avoid;">Your ratio for that level (actual /
+     estimated).</li>
+ <ol style="margin-top: 0in;" start="1" type="1">
+  <li class="MsoNormal" style="margin-top: 6pt; page-break-after: avoid;">If the ratio is greater
+      than 1.10, provide a <b><i>brief, informative</i></b> (1-3 sentences)
+      explanation of why the work proceeded more slowly than you estimated. </li>
+  <li class="MsoNormal" style="margin-top: 6pt;">If the velocity is less than 0.90, provide a <b><i>brief,
+      informative</i></b> (1-3 sentences) explanation of why the work proceeded
+      more quickly than you estimated. </li>
+ </ol>
+ <li class="MsoNormal" style="margin-top: 6pt;">A brief (1-2 short paragraphs) description of what
+     you learned from implementing the level, what problems you encountered,
+     and how you overcame any obstacles. Be sure to give credit to any TAs,
+     classmates, or faculty members who helped you over hurdles.</li>
+</ol>
+
+<p class="MsoNormal" style="margin-top: 6pt;"><b><span style="font-size: 11pt; font-family: Arial;">Provide an overall summary of the project with the following
+information: <o:p></o:p></span></b></p>
+
+<ol style="margin-top: 0in;" start="1" type="1">
+ <li class="MsoNormal" style="margin-top: 6pt;">The overall actual / estimated ratio..</li>
+ <li class="MsoNormal" style="margin-top: 6pt;">A one paragraph critical assessment this
+     rationchanged over time. Did it converge towards 1? Were you consistently
+     optimistic or pessimistic? How can you use what you learned in later
+     course project?</li>
+ <li class="MsoNormal" style="margin-top: 6pt;">A brief (1-3 paragraphs) assessment of the project as
+     a whole. Did you learn much from it? Did you become more proficient in
+     Ruby, and do you think this is of value? What parts of the project were
+     particularly difficult or easy? How would you suggest we structure such
+     projects in future offerings of this course?</li>
+</ol>
+
+<h3>Submission <span style="font-size: 12pt;">Procedures</span> <span style="font-size: 12pt;"><o:p></o:p></span></h3>
+
+<p class="MsoNormal" style="margin-top: 6pt; text-align: center;" align="center"><b><span style="font-family: Arial; color: red;">NO LATE SUBMISSIONS WILL BE ACCEPTED</span></b>
+</p>
+
+<p class="MsoNormal" style="margin-top: 6pt; text-align: center;" align="center"><b><span style="font-family: Arial; color: red;">ANY DEVIATION FROM THE SUBMISSION PROCESS
+WILL RESULT IN A 10% GRADE PENALTY</span></b> <b><span style="font-family: Arial;"><o:p></o:p></span></b></p>
+
+<p>Submit this via Git to the <code>ThoughtShare</code> directory. Be sure to include your Process Reflection document.</p>
+
+		<p>
+			<b>Important!</b> Commit each level in at least one commit, logging
+			which level you are working on or finishing with that commit. These
+			are separate features in the system that you are providing, so they
+			should not be committed all at once.
+		</p>
+		<p>The only submission we will grade is the most recent version prior to the deadline</p>  
+
+</div>
+
+</body></html>
