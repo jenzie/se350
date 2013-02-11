@@ -1,0 +1,78 @@
+4010-350 Process & Reflection
+Rails – Thought Share
+
+Name: Jenny Zhen
+
+================================================================
+Level 1 – Start
+Estimated Time	35 minutes
+Plan for this level:
+Read the rails documentation on how to do validation. Specifically, look for ways to check the minimum/maximum length for strings, uniqueness of strings, and regex to format strings.
+
+Level 1 – Complete
+Actual Time	40 minutes
+Ratio           1.14
+
+Explanation for ratio:
+I couldn't get the regex to work the first couple of times.
+
+Lessons learned, problems encountered, obstacles overcome, etc.
+I couldn’t understand how to use regex to validate the name for the thinker. It took a little longer to test the regex used to make sure that “the name can only include uppercase letters, lowercase letters, numbers, spaces, hyphens, and apostrophes. The name must start with an uppercase or lowercase letter.” I did a bunch of tests before the final regex was correct. I had no problem with any of the other validations needed.
+================================================================
+Level 2 – Start
+Estimated Time	10 minutes
+Plan for this level:
+I need to locate where the problem is for the “Mine” filter of thoughts. Basically, I need to find where the code is for the  thinker and show only the active thinker.
+
+Level 2  – Complete
+Actual Time	HH MM
+Ratio           
+
+Explanation for ratio:
+
+Lessons learned, problems encountered, obstacles overcome, etc.
+
+================================================================
+Level 3 – Start
+Estimated Time	HH MM
+Plan for this level:
+
+Level 3 – Complete
+Actual Time	HH MM
+Ratio           
+
+Explanation for ratio:
+
+Lessons learned, problems encountered, obstacles overcome, etc.
+
+================================================================
+Level 4 – Start
+Estimated Time	HH MM
+Plan for this level:
+
+Level 4 – Complete
+Actual Time	HH MM
+Ratio           
+
+Explanation for ratio:
+
+Lessons learned, problems encountered, obstacles overcome, etc.
+
+================================================================
+Level 5 – Start
+Estimated Time	HH MM
+Plan for this level:
+
+Level 5 – Complete
+Actual Time	HH MM
+Ratio           
+
+Explanation for ratio:
+
+Lessons learned, problems encountered, obstacles overcome, etc.
+
+================================================================
+Overall Summary
+Estimated Total Time	HH MM
+Actual Total Time	HH MM
+Project reflection:
