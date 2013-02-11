@@ -39,8 +39,12 @@ elsif session[:show] == 'mine'
   @thoughts = Thought.where(:thinker_id => @active_thinker.id)
 ================================================================
 Level 3 – Start
-Estimated Time	HH MM
+Estimated Time	1 hour
 Plan for this level:
+Create a page for the thumbers who have thumbed a thought.
+  Add a thumbers method to the thoughts controller.
+  Add a file to the thoughts view.
+Must make the new page have the same look and feel as the previous pages, without duplicating code.
 
 Level 3 – Complete
 Actual Time	HH MM
