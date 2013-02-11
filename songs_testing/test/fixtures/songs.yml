@@ -1,0 +1,13 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+Song1:
+  id: 1
+  title: The Long and Winding Road
+  year: 1968
+  author_id: 1
+
+Song2:
+  id: 2
+  title: Get Back
+  year: 1968
+  author_id: 1
