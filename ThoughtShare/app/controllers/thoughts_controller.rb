@@ -134,5 +134,15 @@ class ThoughtsController < ApplicationController
       format.json { render json: @thoughts }
     end
   end
+  
+  def thumbers
+	@thumbers = Thumb.where(:thought_id => params[:id]).group(:thinker_id)
+	#@thumbers = Thumb.select("DISTINCT thinkers.name FROM thinkers, thumbs WHERE thinkers.id = thumbs.thinker_id and thumbs.thinker_id = #{params[:id]}")
+	
+	respond_to do |format|
+      format.html #{ redirect_to :action => 'thumbers.html.erb' }
+      format.json { render json: @thumbers }
+    end
+  end
 
 end

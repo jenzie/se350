@@ -7,7 +7,9 @@ Name: Jenny Zhen
 Level 1 – Start
 Estimated Time	35 minutes
 Plan for this level:
-Read the rails documentation on how to do validation. Specifically, look for ways to check the minimum/maximum length for strings, uniqueness of strings, and regex to format strings.
+Read the rails documentation on how to do validation. Specifically, look for ways to 
+check the minimum/maximum length for strings, uniqueness of strings, and regex to 
+format strings.
 
 Level 1 – Complete
 Actual Time	40 minutes
@@ -17,12 +19,17 @@ Explanation for ratio:
 I couldn't get the regex to work the first couple of times.
 
 Lessons learned, problems encountered, obstacles overcome, etc.
-I couldn’t understand how to use regex to validate the name for the thinker. It took a little longer to test the regex used to make sure that “the name can only include uppercase letters, lowercase letters, numbers, spaces, hyphens, and apostrophes. The name must start with an uppercase or lowercase letter.” I did a bunch of tests before the final regex was correct. I had no problem with any of the other validations needed.
+I couldn’t understand how to use regex to validate the name for the thinker. It took a little 
+longer to test the regex used to make sure that “the name can only include uppercase 
+letters, lowercase letters, numbers, spaces, hyphens, and apostrophes. The name must 
+start with an uppercase or lowercase letter.” I did a bunch of tests before the final regex 
+was correct. I had no problem with any of the other validations needed.
 ================================================================
 Level 2 – Start
 Estimated Time	10 minutes
 Plan for this level:
-I need to locate where the problem is for the “Mine” filter of thoughts. Basically, I need to find where the code is for the  thinker and show only the active thinker.
+I need to locate where the problem is for the “Mine” filter of thoughts. Basically, I need to 
+find where the code is for the  thinker and show only the active thinker.
 
 Level 2  – Complete
 Actual Time	10 minutes
@@ -30,7 +37,9 @@ Ratio    1.00
 
 Lessons learned, problems encountered, obstacles overcome, etc.
 
-I didn't realize that I wasn't refreshing the page properly to show the thoughts under the "mine" filter. I had to click on the users in the dropdown menu to refresh the active user and reload the "mine" filter.
+I didn't realize that I wasn't refreshing the page properly to show the thoughts under the 
+"mine" filter. I had to click on the users in the dropdown menu to refresh the active user 
+and reload the "mine" filter.
 
 The solution is located in "ThoughtShare/app/controllers/thoughts_controller.rb".
 The two lines of code are:
@@ -44,16 +53,22 @@ Plan for this level:
 Create a page for the thumbers who have thumbed a thought.
   Add a thumbers method to the thoughts controller.
   Add a file to the thoughts view.
-Must make the new page have the same look and feel as the previous pages, without duplicating code.
+Must make the new page have the same look and feel as the previous pages, without 
+duplicating code.
 
 Level 3 – Complete
-Actual Time	HH MM
-Ratio           
+Actual Time	1 hour 20 minutes
+Ratio           1.33
 
 Explanation for ratio:
+Couldn't get the json routing to work properly to redirect the thumbers to the view because 
+I had no previous experience with json. It kept on redirecting in an endless loop.
 
 Lessons learned, problems encountered, obstacles overcome, etc.
-
+I couldn't figure out how to do json while trying to figure out how to write html code again. 
+Also, I didn't figure out how to get the id of the thought that was being passed in until after 
+searching on Google for how to get the parameters inside the supposed hash. The SQL 
+command to find the names of thumbers for a thought was still moderately difficult.
 ================================================================
 Level 4 – Start
 Estimated Time	HH MM
