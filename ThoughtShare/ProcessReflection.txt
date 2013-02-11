@@ -25,13 +25,18 @@ Plan for this level:
 I need to locate where the problem is for the “Mine” filter of thoughts. Basically, I need to find where the code is for the  thinker and show only the active thinker.
 
 Level 2  – Complete
-Actual Time	HH MM
-Ratio           
-
-Explanation for ratio:
+Actual Time	10 minutes
+Ratio    1.00       
 
 Lessons learned, problems encountered, obstacles overcome, etc.
 
+I didn't realize that I wasn't refreshing the page properly to show the thoughts under the "mine" filter. I had to click on the users in the dropdown menu to refresh the active user and reload the "mine" filter.
+
+The solution is located in "ThoughtShare/app/controllers/thoughts_controller.rb".
+The two lines of code are:
+elsif session[:show] == 'mine'
+  #Show only thoughts for the active user
+  @thoughts = Thought.where(:thinker_id => @active_thinker.id)
 ================================================================
 Level 3 – Start
 Estimated Time	HH MM

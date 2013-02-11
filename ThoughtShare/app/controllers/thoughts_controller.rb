@@ -10,12 +10,18 @@ class ThoughtsController < ApplicationController
 	if session[:show] == 'following'
 	then
 		@thoughts = Thought.joins(:thinker => :followed).where(:follows => {:follower_id => @active_thinker.id})
+     
+     elsif session[:show] == 'mine'
+          #Show only thoughts for the active user
+          @thoughts = Thought.where(:thinker_id => @active_thinker.id)
+
 	elsif session[:show] == 'popular'
 	     #Show all thoughts with at least one thumb, sorted by number of thumbs descendingly
           @thoughts = Thought.joins(:thumbs).group(:thought).order("count(*) DESC")
-    else
+
+     else
 		@thoughts = Thought.all
-	end
+     end
 	
     respond_to do |format|
       format.html # index.html.erb
