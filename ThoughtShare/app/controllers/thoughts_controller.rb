@@ -127,7 +127,10 @@ class ThoughtsController < ApplicationController
 
   def thumbup
   	load_active_thinker
-  	Thumb.create({thought_id: params[:thought][:id], thinker: @active_thinker})	
+
+	if !Thumb.exists?(["thinker_id = #{@active_thinker.id} AND thought_id = #{params[:thought][:id]}"])
+	  Thumb.create({thought_id: params[:thought][:id], thinker: @active_thinker})
+	end
 
   	respond_to do |format|
       format.html { redirect_to :action => 'index' }
@@ -137,10 +140,9 @@ class ThoughtsController < ApplicationController
   
   def thumbers
 	@thumbers = Thumb.where(:thought_id => params[:id]).group(:thinker_id)
-	#@thumbers = Thumb.select("DISTINCT thinkers.name FROM thinkers, thumbs WHERE thinkers.id = thumbs.thinker_id and thumbs.thinker_id = #{params[:id]}")
 	
 	respond_to do |format|
-      format.html #{ redirect_to :action => 'thumbers.html.erb' }
+      format.html # redirect_to :action => 'thumbers' 
       format.json { render json: @thumbers }
     end
   end

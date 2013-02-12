@@ -100,13 +100,16 @@ cannot thumb the same thought more than once. If the user tries to thumb a thoug
 have already thumbed, the thumb attempt is ignored.
 
 Level 5 – Complete
-Actual Time	HH MM
-Ratio           
+Actual Time	19 minutes
+Ratio           1.26
 
 Explanation for ratio:
+Was not getting the id of the active user for the Thumb.exists? check.
 
 Lessons learned, problems encountered, obstacles overcome, etc.
-
+Still need a bit of learning to get more familiar with Rails sql commands. Didn't have to 
+add much code to check for the uniqueness of the thumb. Just had to check if the thumb 
+entry existed in the database for the given thought and user.
 ================================================================
 Overall Summary
 Estimated Total Time	HH MM
