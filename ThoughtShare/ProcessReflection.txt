@@ -93,8 +93,11 @@ Modifying the view to include the email in the new Thinker, edit Thinker, and Th
 profile was fairly straightforward.
 ================================================================
 Level 5 – Start
-Estimated Time	HH MM
+Estimated Time	15 minutes
 Plan for this level:
+Add validation with incrementing the number of thumbs for a given thought. The same user 
+cannot thumb the same thought more than once. If the user tries to thumb a thought they 
+have already thumbed, the thumb attempt is ignored.
 
 Level 5 – Complete
 Actual Time	HH MM
