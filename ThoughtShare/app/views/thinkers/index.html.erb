@@ -4,6 +4,7 @@
   <tr>
     <th>Name</th>
     <th>URL</th>
+	<th>Email</th>
     <th></th>
   </tr>
 
@@ -11,6 +12,7 @@
   <tr>
   	<td><%= link_to thinker.name, thinker %></td>
   	<td><%= link_to thinker.url, thinker.url%></td>
+	<td><%= mail_to thinker.email, thinker.email%></td>
     <td><%= link_to 'Edit', edit_thinker_path(thinker) %></td>
     <td></td>
   </tr>

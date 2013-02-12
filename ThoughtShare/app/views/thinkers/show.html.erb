@@ -21,7 +21,9 @@ if following.empty? then %>
 		<div><%=@thinker.name%> is not following anybody.</div>
 <% else %> 
 	<% following.each do |thinker| %>
-		<div><%= link_to thinker.name,thinker %></div>
+		<% if thinker %>
+			<div><%= link_to thinker.name,thinker %></div>
+		<% end %>
 	<% end %>
 <% end %>
 </div>
@@ -33,7 +35,9 @@ if followed.empty? %>
 	<div><%=@thinker.name%> is not followed by anybody.</div>
 <% else %>
 	<% followed.each do |thinker| %>
-		<div><%= link_to thinker.name,thinker %></div>
+		<% if thinker %>
+			<div><%= link_to thinker.name,thinker %></div>
+		<% end %>
 	<% end %>
 <% end %>
 </div>

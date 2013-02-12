@@ -23,7 +23,9 @@
 					<%= "There are no thumbers for this thought." %>
 				<% else %>
 					<% @thumbers.each do |thumber| %>
-						<%= link_to thumber.thinker.name, thumber.thinker %><br />
+						<% if thumber.thinker %>
+							<%= link_to thumber.thinker.name, thumber.thinker %><br />
+						<% end %>
 					<% end %>
 				<% end %>
 			</div>

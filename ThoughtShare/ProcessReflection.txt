@@ -112,6 +112,30 @@ add much code to check for the uniqueness of the thumb. Just had to check if the
 entry existed in the database for the given thought and user.
 ================================================================
 Overall Summary
-Estimated Total Time	HH MM
-Actual Total Time	HH MM
+Estimated Total Time	2 hours 20 minutes
+Actual Total Time	2 hours 47 minutes
+Ratio           1.19
+
+Assessment of ratio:
+Throughout the project, the time for a lot of the levels were underestimated. I did not 
+complete most of the levels within the estimated time. The only two levels with a ratio 
+of 1.00 and below were level 2 and 4, with ratios of 1.00 and 0.90 respectively. I learned 
+from the ratios that I should plan more time for each task that needs to be completed, 
+especially if I am working on a project in which I am still learning the language.
+
 Project reflection:
+Overall, I feel that I learned quite a bit. I haven't touched relational databases again until 
+recently. My memory was still foggy on how the commands work. Working with little to 
+none recovered knowledge of relational databases, I also had to work with it in a Rails, 
+Ruby, and HTML environment. This made it exceptionally difficult because my previous 
+knowledge of web applications, in general, was from too long ago to be recalled easily. 
+I feel that this project gave a decent introduction to how Rails works. I learned more 
+about Ruby in the previous Ruby Diet Manager project because that one actually focused 
+on the Ruby language. Whereas, this project was a blend of Rails, Ruby, and HTML. 
+The parts of the project that were particularly difficult was the Rails sql commands and 
+regex for the input validation. Not much of the Rails language and Rails' way to work with 
+relational databases was explained in class. So, a lot of the project required Googling 
+and reading through code that was given. I feel that a better introduction to Rails in the 
+classroom would've been better for this project. Additionally, more time should've been 
+planned for this project because it felt like a last minute project with less than a week 
+to complete.
