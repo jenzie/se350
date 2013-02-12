@@ -71,7 +71,7 @@ searching on Google for how to get the parameters inside the supposed hash. The 
 command to find the names of thumbers for a thought was still moderately difficult.
 ================================================================
 Level 4 – Start
-Estimated Time	30 minutes
+Estimated Time	20 minutes
 Plan for this level:
 Add the email attribute to the Thinker model.
 	Create a database migration.
@@ -80,13 +80,17 @@ Add the email field to the new Thinker page.
 Show the email on the thinker's profile page.
 
 Level 4 – Complete
-Actual Time	HH MM
-Ratio           
-
-Explanation for ratio:
+Actual Time	18 minutes
+Ratio           0.90
 
 Lessons learned, problems encountered, obstacles overcome, etc.
-
+Had to use the command 
+	"rails generate migration AddEmailToThinker email:string"
+to add the email column to the Thinker table.
+For that change to be applied, I had to use the command "rake db:migrate"
+which I didn't remember the first time.
+Modifying the view to include the email in the new Thinker, edit Thinker, and Thinker 
+profile was fairly straightforward.
 ================================================================
 Level 5 – Start
 Estimated Time	HH MM

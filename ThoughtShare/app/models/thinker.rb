@@ -10,4 +10,5 @@ class Thinker < ActiveRecord::Base
   validates :url, :length => { :maximum => 120 }, :uniqueness => true
   validates_format_of :url, :with => URI::regexp(%w(http https))
   
+  validates_format_of :email, :with => /\A[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]+\z/
 end

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120203160810) do
+ActiveRecord::Schema.define(:version => 20130211204727) do
 
   create_table "follows", :force => true do |t|
     t.integer  "follower_id"
@@ -25,6 +25,7 @@ ActiveRecord::Schema.define(:version => 20120203160810) do
     t.string   "url"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "email"
   end
 
   create_table "thoughts", :force => true do |t|

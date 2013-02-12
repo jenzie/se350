@@ -3,6 +3,15 @@
 <h1><%=@thinker.name%></h1>
 <h2><%=@thinker.url%></h2>
 
+<div class=email>
+<h3>Email</h3>
+<% if @thinker.email != nil %>
+	<%=@thinker.email%>
+<% else %>
+	<%= @thinker.name + "has no email." %>
+<% end %>
+</div>
+
 <div class=following>
 <h3>Following</h3>
 
