@@ -1,10 +1,8 @@
 SE350 Coursework
 ================
 
-Course: 4010-350 Personal Software Engineering
-
-Quarter: Winter 2012-2013
-
+Course: 4010-350 Personal Software Engineering  
+Quarter: Winter 2012-2013  
 Professor: Thomas Reichlmayr
 
 Description
