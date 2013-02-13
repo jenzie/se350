@@ -1,0 +1,62 @@
+author: Jenny Zhen
+date: 02.13.13
+language: English
+file: Final Reflection.txt
+assignment: Final Reflection
+
+#########################################
+	Individual Metrics
+#########################################
+Projects I-IV
+	Total Estimated Time:
+		235+215+660+140 = 1250/60 = 20.83 hours
+	Total Actual Time:
+		271+257+930+167 = 1625/60 = 27.08 hours
+
+Project I (Sudoku)
+	Estimated Time: 235 minutes
+	Actual Time: 271 minutes
+	
+	Lines of Code ("wc -l *.c"):
+		Total: 536
+		Product: 536
+		Tests: 0
+	Lines of Code/Hour:
+		536/(271/60) = 118.67 lines/hour
+
+Project II (Huffman)
+	Estimated Time: 215 minutes
+	Actual Time: 257 minutes
+	
+	Lines of Code:
+		Total: 420
+		Product: 420
+		Tests: 0
+	Lines of Code/Hour:
+		420/(257/60) = 98.05 lines/hour
+
+Project III (Diet Manager)
+	Estimated Time: 660 minutes
+	Actual Time: 930 minutes
+	
+	Lines of Code:
+		Total: 1411
+		Product: 941
+		Tests: 470
+	Lines of Code/Hour:
+		1411/(930/60) = 91.03 lines/hour
+
+Project IV (ThoughtShare)
+	Estimated Time: 140 minutes
+	Actual Time: 167 minutes
+	
+	Lines of Code:
+		Total: 203
+		Project: 197
+		Tests: 6
+	Lines of Code/Hour:
+		203/(167/60) = 72.93 lines/hour
+
+#########################################
+	Class Metrics
+#########################################
