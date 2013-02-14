@@ -60,23 +60,23 @@ Project IV (ThoughtShare)
 #########################################
 	Class Metrics
 #########################################
-Project I
+Project I (Sudoku)
 	Lines of Code - Total: 417.4 lines
 	Actual Time: 211.31 minutes
 	Lines of Code/Hour: 118.52 lines/hour
 
-Project II
+Project II (Huffman)
 	Lines of Code - Total: 324.25 lines
 	Actual Time: 255.75 minutes
 	Lines of Code/Hour: 76.07 lines/hour
 
-Project III
+Project III (Diet Manager)
 	Lines of Code - Product: 449.69 lines
 	Lines of Code - Tests: 193.75 lines
 	Actual Time: 419.00 minutes
 	Lines of Code/Hour: 92.14 lines/hour
 
-Product IV
+Product IV (ThoughtShare)
 	Lines of Code - Total: 198.7 lines
 	Actual Time: 180.2 minutes
 	Lines of Code/Hour: 66.12 lines/hour
