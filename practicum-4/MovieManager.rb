@@ -5,9 +5,9 @@
 # Name:
 #
 # Change Log - Identify the modifications made to the orginal code
-# (1) - line 30 - decremented the number of movies when deleting
-# (2) - lines 29-32 - added check to see if movie exists before deleting
-# (3) - line 40 - changed line to sort by key and return list of movie names
+# (1) - line 34 - decremented the number of movies when deleting
+# (2) - lines 32-35 - added check to see if movie exists before deleting
+# (3) - line 43 - changed line to sort by key and return list of movie names
 # (4) - line 47 - changed line to reverse the sorted list to descending order
 # (n) -
 
@@ -53,10 +53,11 @@ class MovieList
 #                     rating (1-10) and text review.
 #
 # Change Log - Identify the modifications made to the orginal code
-# (1) - line 56 - added attr_reader to access the name of the movie
-# (2) - line 61 - changed to default the rating to 5, if none provided
-# (3) - lines 70-71 - added default value to rating if input out of bounds
-# (4) - line 68 - changed logic error when checking bounds to be use 'AND'
+# (1) - line 64 - added attr_reader to access the name of the movie
+# (2) - line 69 - changed to default the rating to 5, if none provided
+# (3) - lines 78-79 - added default value to rating if input out of bounds
+# (4) - line 76 - changed logic error when checking bounds to be use 'AND'
+# (5) - line 72 - changed the review to convert to a string
 # (n) -  
 
 class Movie
