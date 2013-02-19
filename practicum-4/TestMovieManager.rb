@@ -110,4 +110,36 @@ class MovieManagerTest < Test::Unit::TestCase
 	manager.delete( "unknown" )
 	assert_equal 1, manager.size
   end
+  
+  def test_sort_name
+	# movie/movielist instances
+	movie01 = Movie.new( "a" )
+	movie02 = Movie.new( "b" )
+	movie03 = Movie.new( "c" )
+	movie04 = Movie.new( "d" )
+	manager = MovieList.new
+	
+	# adding the movies to the list
+	manager.add( movie04 )
+	manager.add( movie03 )
+	manager.add( movie02 )
+	manager.add( movie01 )
+	
+	# check if list is sorted by name in ascending alphabetical order
+	assert_not_equal ["D", "C", "B", "A"], manager.sortByName
+	assert_equal ["A", "B", "C", "D"], manager.sortByName
+	
+	
+	# movie/movielist instances
+	movie05 = Movie.new( "Alpha2" )
+	movie06 = Movie.new( "Alpha1" )
+	manager = MovieList.new
+	
+	# adding the movies to the list
+	manager.add( movie05 )
+	manager.add( movie06 )
+	
+	# check if list is sorted by name in ascending alphabetical order
+	assert_equal ["ALPHA1", "ALPHA2"], manager.sortByName
+  end
 end

@@ -7,7 +7,7 @@
 # Change Log - Identify the modifications made to the orginal code
 # (1) - line 30 - decremented the number of movies when deleting
 # (2) - lines 29-32 - added check to see if movie exists before deleting
-#  .
+# (3) - line 40 - changed line to sort by key and return list of movie names
 # (n) -
 
 class MovieList
@@ -37,7 +37,7 @@ class MovieList
   end
   
   def sortByName	
-     @movies.sort   
+    list = @movies.keys.sort
   end
   
   def sortByRating
