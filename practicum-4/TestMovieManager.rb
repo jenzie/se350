@@ -90,4 +90,24 @@ class MovieManagerTest < Test::Unit::TestCase
 	# get a movie not on the list
 	assert_nil manager.getMovie( "unknown" )
   end
+  
+  def test_delete_movie
+	# movie/movielist instances
+	movie01 = Movie.new( "movie01" )
+	movie02 = Movie.new( "movie02", 1, 1 )
+	manager = MovieList.new
+	
+	# adding the movies to the list
+	manager.add( movie01 )
+	manager.add( movie02 )
+	assert_equal 2, manager.size
+	
+	# deleting a movie on the list
+	manager.delete( "movie01" )
+	assert_equal 1, manager.size
+	
+	# deleting a movie not on the list
+	manager.delete( "unknown" )
+	assert_equal 1, manager.size
+  end
 end

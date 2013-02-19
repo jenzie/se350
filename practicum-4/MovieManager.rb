@@ -5,8 +5,8 @@
 # Name:
 #
 # Change Log - Identify the modifications made to the orginal code
-# (1) -
-# (2) -
+# (1) - line 30 - decremented the number of movies when deleting
+# (2) - lines 29-32 - added check to see if movie exists before deleting
 #  .
 # (n) -
 
@@ -25,8 +25,11 @@ class MovieList
     @numberOfMovies += 1  
   end
   
-  def delete(movieToDelete)    
-    @movies.delete(movieToDelete.upcase)
+  def delete(movieToDelete)
+	if getMovie(movieToDelete)
+		@movies.delete(movieToDelete.upcase)
+		@numberOfMovies -= 1
+	end
   end
   
   def getMovie(movieToFind)    
