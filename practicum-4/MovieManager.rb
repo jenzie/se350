@@ -68,7 +68,7 @@ class Movie
     def initialize( aName, aRating=5, aReview="No Review Entered" )
         @name=aName.upcase
 		self.rating=aRating
-		@review=aReview
+		@review=aReview.to_s
     end
 
     def rating=(value)

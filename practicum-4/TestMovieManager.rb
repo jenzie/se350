@@ -47,7 +47,7 @@ class MovieManagerTest < Test::Unit::TestCase
 	
 	# test for a review provided as integer value
 	movie02 = Movie.new( "movie02", 1, 1 )
-	assert_equal 1, movie02.review
+	assert_equal "1", movie02.review
 	
 	# test for a review provided as string value
 	movie03 = Movie.new( "movie03", 1, "This is a review." )
