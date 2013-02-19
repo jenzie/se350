@@ -55,6 +55,39 @@ class MovieManagerTest < Test::Unit::TestCase
   end
   
   def test_add_movie
+	# movie instances to add to list
+	movie01 = Movie.new( "movie01" )
+	movie02 = Movie.new( "movie02", 1, 1 )
+	movie03 = Movie.new( "movie03", 1, "This is a review." )
+	
+	# create the movie list
 	manager = MovieList.new
+	assert_equal 0, manager.size
+	
+	# adding the movies to the list
+	manager.add( movie01 )
+	manager.add( movie02 )
+	manager.add( movie03 )
+	
+	# test the size
+	assert_equal 3, manager.size
+  end
+  
+  def test_get_movie
+	# movie/movielist instances
+	movie01 = Movie.new( "movie01" )
+	movie02 = Movie.new( "movie02", 1, 1 )
+	manager = MovieList.new
+	
+	# adding the movies to the list
+	manager.add( movie01 )
+	manager.add( movie02 )
+	
+	# get the movies added to the list
+	assert_equal "MOVIE01", manager.getMovie( "movie01" ).name
+	assert_equal "MOVIE02", manager.getMovie( "movie02" ).name
+	
+	# get a movie not on the list
+	assert_nil manager.getMovie( "unknown" )
   end
 end
