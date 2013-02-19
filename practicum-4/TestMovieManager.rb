@@ -133,8 +133,8 @@ class MovieManagerTest < Test::Unit::TestCase
 	manager.add( movie01 )
 	
 	# check if list is sorted by name in ascending alphabetical order
-	assert_not_equal ["D", "C", "B", "A"], manager.sortByName
-	assert_equal ["A", "B", "C", "D"], manager.sortByName
+	assert_not_equal [ "D", "C", "B", "A" ], manager.sortByName
+	assert_equal [ "A", "B", "C", "D" ], manager.sortByName
 	
 	
 	# movie/movielist instances
@@ -147,7 +147,7 @@ class MovieManagerTest < Test::Unit::TestCase
 	manager.add( movie06 )
 	
 	# check if list is sorted by name in ascending alphabetical order
-	assert_equal ["ALPHA1", "ALPHA2"], manager.sortByName
+	assert_equal [ "ALPHA1", "ALPHA2" ], manager.sortByName
   end
   
   def test_sort_rating
@@ -158,9 +158,11 @@ class MovieManagerTest < Test::Unit::TestCase
 	manager = MovieList.new
 	
 	# adding the movies to the list
-	manager.add( movie03 )
-	manager.add( movie02 )
 	manager.add( movie01 )
+	manager.add( movie02 )
+	manager.add( movie03 )
 	
+	# check if list is sorted by rating in descending numerical order
+	assert_equal [ movie03, movie02, movie01 ], manager.sortByRating
   end
 end

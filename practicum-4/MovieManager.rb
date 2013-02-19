@@ -8,6 +8,7 @@
 # (1) - line 30 - decremented the number of movies when deleting
 # (2) - lines 29-32 - added check to see if movie exists before deleting
 # (3) - line 40 - changed line to sort by key and return list of movie names
+# (4) - line 47 - changed line to reverse the sorted list to descending order
 # (n) -
 
 class MovieList
@@ -43,7 +44,7 @@ class MovieList
   end
   
   def sortByRating
-    list = @movies.values.sort_by { |x| x.rating }
+    list = @movies.values.sort_by { |x| x.rating }.reverse!
   end    
     
  end
