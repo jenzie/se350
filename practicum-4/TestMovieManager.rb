@@ -39,4 +39,22 @@ class MovieManagerTest < Test::Unit::TestCase
 	assert_equal 5, movie04.rating
 	assert_equal 5, movie05.rating
   end
+  
+  def test_movie_review
+	# test for no review provided
+	movie01 = Movie.new( "movie01" )
+	assert_equal "No Review Entered", movie01.review
+	
+	# test for a review provided as integer value
+	movie02 = Movie.new( "movie02", 1, 1 )
+	assert_equal 1, movie02.review
+	
+	# test for a review provided as string value
+	movie03 = Movie.new( "movie03", 1, "This is a review." )
+	assert_equal "This is a review.", movie03.review
+  end
+  
+  def test_add_movie
+	manager = MovieList.new
+  end
 end
