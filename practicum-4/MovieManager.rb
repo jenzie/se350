@@ -21,8 +21,10 @@ class MovieList
    end
   
   def add(movieToAdd)
-    @movies.store(movieToAdd.name, movieToAdd)
-    @numberOfMovies += 1  
+	if !getMovie(movieToAdd.name)
+		@movies.store(movieToAdd.name, movieToAdd)
+		@numberOfMovies += 1  
+	end
   end
   
   def delete(movieToDelete)

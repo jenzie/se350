@@ -59,6 +59,7 @@ class MovieManagerTest < Test::Unit::TestCase
 	movie01 = Movie.new( "movie01" )
 	movie02 = Movie.new( "movie02", 1, 1 )
 	movie03 = Movie.new( "movie03", 1, "This is a review." )
+	movie04 = Movie.new( "movIE01" )
 	
 	# create the movie list
 	manager = MovieList.new
@@ -68,6 +69,12 @@ class MovieManagerTest < Test::Unit::TestCase
 	manager.add( movie01 )
 	manager.add( movie02 )
 	manager.add( movie03 )
+	
+	# test the size
+	assert_equal 3, manager.size
+	
+	# adding an existing movie to the list
+	manager.add( movie04 )
 	
 	# test the size
 	assert_equal 3, manager.size
@@ -141,5 +148,19 @@ class MovieManagerTest < Test::Unit::TestCase
 	
 	# check if list is sorted by name in ascending alphabetical order
 	assert_equal ["ALPHA1", "ALPHA2"], manager.sortByName
+  end
+  
+  def test_sort_rating
+	# movie/movielist instances
+	movie01 = Movie.new( "movie01", 1 )
+	movie02 = Movie.new( "MOVIE02", 2 )
+	movie03 = Movie.new( "mOvIe03", 3 )
+	manager = MovieList.new
+	
+	# adding the movies to the list
+	manager.add( movie03 )
+	manager.add( movie02 )
+	manager.add( movie01 )
+	
   end
 end
