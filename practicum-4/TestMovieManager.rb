@@ -1,3 +1,12 @@
+##
+# author: Jenny Zhen
+# date: 02.19.13
+# language: Ruby
+# file: TestMovieManager.rb
+# assignment: Movie Manager (Practicum 04)
+#   http://www.se.rit.edu/~se350/Practicum-4-nsheyybsbw/FinalPracticum.htm
+##
+
 require './MovieManager.rb'
 require 'test/unit'
 

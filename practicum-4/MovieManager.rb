@@ -1,8 +1,14 @@
+##
+# author: Jenny Zhen
+# date: 02.19.13
+# language: Ruby
+# file: MovieManager.rb
+# assignment: Movie Manager (Practicum 04)
+#   http://www.se.rit.edu/~se350/Practicum-4-nsheyybsbw/FinalPracticum.htm
+##
+
 # Movie Manager 
-# 
 # Manages a collection of movie objects. 
-# 
-# Name:
 #
 # Change Log - Identify the modifications made to the orginal code
 # (1) - line 34 - decremented the number of movies when deleting
