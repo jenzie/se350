@@ -1,0 +1,384 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:w="urn:schemas-microsoft-com:office:word" xmlns="http://www.w3.org/TR/REC-html40"><head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<meta name="ProgId" content="Word.Document">
+<meta name="Generator" content="Microsoft Word 11">
+<meta name="Originator" content="Microsoft Word 11">
+<link rel="File-List" href="index_files/filelist.xml">
+
+
+<title>Ruby Introduction</title><!--[if gte mso 9]><xml>
+ <o:DocumentProperties>
+  <o:Author>Tom Reichlmayr</o:Author>
+  <o:Template>Normal</o:Template>
+  <o:LastAuthor>Tom Reichlmayr</o:LastAuthor>
+  <o:Revision>4</o:Revision>
+  <o:TotalTime>12</o:TotalTime>
+  <o:Created>2012-01-24T20:38:00Z</o:Created>
+  <o:LastSaved>2012-01-25T22:26:00Z</o:LastSaved>
+  <o:Pages>1</o:Pages>
+  <o:Words>768</o:Words>
+  <o:Characters>4381</o:Characters>
+  <o:Company>RIT</o:Company>
+  <o:Lines>36</o:Lines>
+  <o:Paragraphs>10</o:Paragraphs>
+  <o:CharactersWithSpaces>5139</o:CharactersWithSpaces>
+  <o:Version>11.9999</o:Version>
+ </o:DocumentProperties>
+</xml><![endif]--><!--[if gte mso 9]><xml>
+ <w:WordDocument>
+  <w:Zoom>120</w:Zoom>
+  <w:ValidateAgainstSchemas/>
+  <w:SaveIfXMLInvalid>false</w:SaveIfXMLInvalid>
+  <w:IgnoreMixedContent>false</w:IgnoreMixedContent>
+  <w:AlwaysShowPlaceholderText>false</w:AlwaysShowPlaceholderText>
+  <w:BrowserLevel>MicrosoftInternetExplorer4</w:BrowserLevel>
+ </w:WordDocument>
+</xml><![endif]--><!--[if gte mso 9]><xml>
+ <w:LatentStyles DefLockedState="false" LatentStyleCount="156">
+ </w:LatentStyles>
+</xml><![endif]--><style>
+<!--
+ /* Font Definitions */
+ @font-face
+	{font-family:Helvetica;
+	panose-1:2 11 6 4 2 2 2 2 2 4;
+	mso-font-charset:0;
+	mso-generic-font-family:swiss;
+	mso-font-pitch:variable;
+	mso-font-signature:536885895 0 0 0 511 0;}
+ /* Style Definitions */
+ p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{mso-style-parent:"";
+	margin:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Times New Roman";}
+h1
+	{mso-margin-top-alt:auto;
+	margin-right:0in;
+	mso-margin-bottom-alt:auto;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	mso-outline-level:1;
+	font-size:24.0pt;
+	font-family:"Times New Roman";
+	font-weight:bold;}
+h3
+	{mso-margin-top-alt:auto;
+	margin-right:0in;
+	mso-margin-bottom-alt:auto;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	mso-outline-level:3;
+	font-size:13.5pt;
+	font-family:"Times New Roman";
+	font-weight:bold;}
+a:link, span.MsoHyperlink
+	{color:blue;
+	text-decoration:underline;
+	text-underline:single;}
+a:visited, span.MsoHyperlinkFollowed
+	{color:blue;
+	text-decoration:underline;
+	text-underline:single;}
+p
+	{mso-margin-top-alt:auto;
+	margin-right:0in;
+	mso-margin-bottom-alt:auto;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Times New Roman";}
+@page Section1
+	{size:8.5in 11.0in;
+	margin:1.0in 1.25in 1.0in 1.25in;
+	mso-header-margin:.5in;
+	mso-footer-margin:.5in;
+	mso-paper-source:0;}
+div.Section1
+	{page:Section1;}
+ /* List Definitions */
+ @list l0
+	{mso-list-id:342442224;
+	mso-list-template-ids:112197918;}
+@list l0:level2
+	{mso-level-number-format:alpha-lower;
+	mso-level-tab-stop:1.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l1
+	{mso-list-id:760175664;
+	mso-list-template-ids:-1159446972;}
+@list l1:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	mso-ansi-font-size:10.0pt;
+	font-family:Symbol;}
+@list l2
+	{mso-list-id:1879734577;
+	mso-list-template-ids:579885090;}
+@list l2:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	mso-ansi-font-size:10.0pt;
+	font-family:Symbol;}
+@list l2:level2
+	{mso-level-tab-stop:1.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l2:level3
+	{mso-level-tab-stop:1.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l2:level4
+	{mso-level-tab-stop:2.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l2:level5
+	{mso-level-tab-stop:2.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l2:level6
+	{mso-level-tab-stop:3.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l2:level7
+	{mso-level-tab-stop:3.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l2:level8
+	{mso-level-tab-stop:4.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l2:level9
+	{mso-level-tab-stop:4.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l3
+	{mso-list-id:1893534949;
+	mso-list-template-ids:112197918;}
+@list l3:level1
+	{mso-level-tab-stop:.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l3:level2
+	{mso-level-number-format:alpha-lower;
+	mso-level-tab-stop:1.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l3:level3
+	{mso-level-tab-stop:1.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l3:level4
+	{mso-level-tab-stop:2.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l3:level5
+	{mso-level-tab-stop:2.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l3:level6
+	{mso-level-tab-stop:3.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l3:level7
+	{mso-level-tab-stop:3.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l3:level8
+	{mso-level-tab-stop:4.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l3:level9
+	{mso-level-tab-stop:4.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+ol
+	{margin-bottom:0in;}
+ul
+	{margin-bottom:0in;}
+-->
+</style><!--[if gte mso 10]>
+<style>
+ /* Style Definitions */
+ table.MsoNormalTable
+	{mso-style-name:"Table Normal";
+	mso-tstyle-rowband-size:0;
+	mso-tstyle-colband-size:0;
+	mso-style-noshow:yes;
+	mso-style-parent:"";
+	mso-padding-alt:0in 5.4pt 0in 5.4pt;
+	mso-para-margin:0in;
+	mso-para-margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:10.0pt;
+	font-family:"Times New Roman";
+	mso-ansi-language:#0400;
+	mso-fareast-language:#0400;
+	mso-bidi-language:#0400;}
+</style>
+<![endif]--></head>
+<body style="" link="blue" vlink="blue">
+
+<div class="Section1">
+
+<h1 style="text-align: center;" align="center"><span style="font-family: Helvetica;">Introduction
+to Ruby &#8211; histogram.rb<o:p></o:p></span></h1>
+
+<h3><span style="font-family: Helvetica;">Setup<o:p></o:p></span></h3>
+
+<p><big>For this activity you will write a Ruby script <b><i><span style="color: rgb(51, 51, 255);">histogram.rb</span></i></b> that (eventually) produces a histogram
+showing the frequency of occurrence of <b><i><span style="color: rgb(153, 0, 0);">words</span></i></b>
+in a text file. Your script will read text from standard input (using a <b><span style="font-size: 10pt; font-family: Helvetica; color: rgb(51, 51, 255);">while</span></b>
+loop with <b><span style="font-size: 10pt; font-family: Helvetica; color: rgb(51, 51, 255);">gets</span></b>)
+and print its results to standard output. Thus it will act as a <i>filter</i> -
+it doesn't care what the source of the words is, not does it care what happens
+with the results it produces.</big></p>
+
+<p><big>Two text files are provided for your use: <a href="totc.txt"><b><span style="color: rgb(51, 51, 255);">totc.txt</span></b></a> (the first paragraph fromCharles
+Dicken's <i>A Tale of Two Cities</i>) and <a href="jabberwocky.txt"><b><span style="color: rgb(51, 51, 255);">jabberwocky.txt</span></b></a> (from Lewis Carroll's <i>Through
+the Looking-Glass and What Alice Found There</i>).</big></p>
+
+<p><big>Place this in a directory called <code>RubyHistogram</code> and submit via Git.</big></p>
+
+<h3><span style="font-family: Helvetica;">Activity Steps<o:p></o:p></span></h3>
+
+<ol start="1" type="1"><big>
+ </big><li class="MsoNormal" style=""><big>Read the text file, line by
+     line, from the standard input with <b><span style="font-size: 10pt; font-family: Helvetica; color: rgb(51, 51, 255);">gets</span></b>. Apply the <b><span style="font-size: 10pt; font-family: Helvetica; color: rgb(51, 51, 255);">chomp!</span></b>
+     method to each line to remove the end-of-line characters, and print out
+     each line with upper case letters converted to lower case. See the <b><span style="font-size: 10pt; font-family: Helvetica; color: rgb(51, 51, 255);">downcase</span></b>
+     (and <b><span style="font-size: 10pt; font-family: Helvetica; color: rgb(51, 51, 255);">downcase!</span></b>)
+     method of the <b><span style="font-size: 10pt; font-family: Helvetica; color: rgb(51, 51, 255);">String</span></b> class.<br></big></li><big>
+ </big><li class="MsoNormal" style=""><big>Enhance step #1 by removing
+     any characters other than letters and spaces. See the <b><span style="font-size: 10pt; font-family: Helvetica; color: rgb(51, 51, 255);">gsub</span></b>
+     (and <b><span style="font-size: 10pt; font-family: Helvetica; color: rgb(51, 51, 255);">gsub!</span></b>)
+     methods of the <b><span style="font-size: 10pt; font-family: Helvetica; color: rgb(51, 51, 255);">String</span></b> class, along with the format of regular
+     expressions in the <b><span style="font-size: 10pt; font-family: Helvetica; color: rgb(51, 51, 255);">RegExp</span></b> class.</big></li><big>
+ </big><li class="MsoNormal" style=""><big>Enhance step #2 by using&nbsp;<b><span style="font-size: 10pt; font-family: Helvetica; color: rgb(51, 51, 255);">sub</span></b>
+     (or&nbsp;<b><span style="font-size: 10pt; font-family: Helvetica; color: rgb(51, 51, 255);">sub!</span></b>) from <b><span style="font-size: 10pt; font-family: Helvetica; color: rgb(51, 51, 255);">String</span></b><span style="color: rgb(51, 51, 255);"> </span>to strip any leading spaces.&nbsp;</big></li><big>
+ </big><li class="MsoNormal" style=""><big>Now change from processing
+     lines to processing the words in each line:</big></li><big>
+ </big><ol start="1" type="a"><big>
+  </big><li class="MsoNormal" style=""><big>Split each line into
+      an array of words on&nbsp;arbitrarily long whitespace boundary. See the <b><span style="font-size: 10pt; font-family: Helvetica; color: rgb(51, 51, 255);">split</span></b><span style="color: rgb(51, 51, 255);"> </span>method in <b><span style="font-size: 10pt; font-family: Helvetica; color: rgb(51, 51, 255);">String</span></b><b><span style="font-family: Helvetica;">,</span></b><span style="font-family: Helvetica;">
+      </span>and use <b><span style="font-size: 10pt; font-family: Helvetica; color: rgb(51, 51, 255);">split(/ +/)</span></b>. Note that there is a space
+      character before the '<b><span style="font-family: Helvetica;">+</span></b>'.</big></li><big>
+  </big><li class="MsoNormal" style=""><big>Using the <b><span style="font-size: 10pt; font-family: Helvetica; color: rgb(51, 51, 255);">each</span></b>
+      method from <b><span style="font-size: 10pt; font-family: Helvetica; color: rgb(51, 51, 255);">Array</span></b> and an appropriate block, print each word
+      on a separate line.</big></li><big>
+ </big></ol><big>
+ </big><li class="MsoNormal" style=""><big>Use a <b><span style="font-size: 10pt; font-family: Helvetica; color: rgb(51, 51, 255);">Hash</span></b>
+     named <b><span style="font-size: 10pt; font-family: Helvetica; color: rgb(51, 51, 255);">bag</span></b>&nbsp;to
+     simulate a bag of strings by mapping each unique string to the count of
+     its occurrences.</big></li><big>
+ </big><ol start="1" type="a"><big>
+  </big><li class="MsoNormal" style=""><big>Create the <b><span style="font-size: 10pt; font-family: Helvetica; color: rgb(51, 51, 255);">bag</span></b>
+      with&nbsp;<b><span style="font-size: 10pt; font-family: Helvetica; color: rgb(51, 51, 255);">Hash.new(0)</span></b> so that the default value for a
+      string is 0.</big></li><big>
+  </big><li class="MsoNormal" style=""><big>Change the body of the
+      <b><span style="font-size: 10pt; font-family: Helvetica; color: rgb(51, 51, 255);">each</span></b>
+      block from 4(b) to simply increment the count&nbsp;in&nbsp;<b><span style="font-size: 10pt; font-family: Helvetica; color: rgb(51, 51, 255);">bag</span></b>
+      for each word, using the word&nbsp;as the hash key.</big></li><big>
+  </big><li class="MsoNormal" style=""><big>After all words on all
+      lines are accounted for, use the <b><span style="font-size: 10pt; font-family: Helvetica; color: rgb(51, 51, 255);">each</span></b> method from&nbsp;<b><span style="font-size: 10pt; font-family: Helvetica; color: rgb(51, 51, 255);">Hash</span></b>
+      to print a list of words and their counts, one word &amp; count per line.<br>
+      <b><span style="font-family: Helvetica;">Note</span>:</b>&nbsp;the&nbsp;<b><span style="font-size: 10pt; font-family: Helvetica; color: rgb(51, 51, 255);">each</span></b>
+      method of&nbsp;<b><span style="font-size: 10pt; font-family: Helvetica; color: rgb(51, 51, 255);">Hash</span></b> provides two arguments to the associated
+      block: a key and its value. The keys, of course, are words, and the
+      values are the counts. The order of the key/value pairs are generated is
+      essentially random.</big></li><big>
+ </big></ol><big>
+ </big><li class="MsoNormal" style=""><big>Use <b><span style="font-size: 10pt; font-family: Helvetica; color: rgb(51, 51, 255);">select</span></b>
+     from <b><span style="font-size: 10pt; font-family: Helvetica; color: rgb(51, 51, 255);">Hash
+     </span></b>to get an <b><span style="font-size: 10pt; font-family: Helvetica; color: rgb(51, 51, 255);">Array</span></b> of key value pairs, but only for words
+     having <i>at least two occurrences</i>.<br>
+     Print the resulting words and counts&nbsp;using&nbsp;<b><span style="font-size: 10pt; font-family: Helvetica; color: rgb(51, 51, 255);">each</span></b>
+     on the array. Note that the values passed to each are themselves arrays -
+     two element arrays where the&nbsp;element at 0 is the key and&nbsp;1st
+     element at 1 is the value.</big></li><big>
+ </big><li class="MsoNormal" style=""><big>Sort the array of pairs using
+     the <b><span style="font-size: 10pt; font-family: Helvetica; color: rgb(51, 51, 255);">sort
+     </span></b>method and a block to do the comparison.</big></li><big>
+ </big><ol start="1" type="a"><big>
+  </big><li class="MsoNormal" style=""><big>Using the counts (the
+      second element in each pair), arrange things so that the words &amp;
+      values are printed from highest to lowest number of occurrences.</big></li><big>
+  </big><li class="MsoNormal" style=""><big>Within a given number
+      of occurrences, sort on the words themselves in alphabetic order.</big></li><big>
+  </big><li class="MsoNormal" style=""><big>You'll have to learn
+      about Ruby's <b><span style="font-size: 10pt; font-family: Helvetica; color: rgb(51, 51, 255);">&lt;=&gt;</span></b> operator to do the sort
+      comparisons.</big></li><big>
+ </big></ol><big>
+ </big><li class="MsoNormal" style=""><big>Instead of printing the
+     count, generate a histogram. Assume each word fits in 15 characters, so
+     use <b><span style="font-size: 10pt; font-family: Helvetica; color: rgb(51, 51, 255);">printf
+     "%-15.15s "</span></b> to print the word, followed by <b><span style="font-size: 10pt; font-family: Helvetica;">N</span></b> asterisks
+     (where&nbsp;<b><span style="font-size: 10pt; font-family: Helvetica;">N</span></b>
+     is the number of occurrences).<br>
+     Refer to the <b><span style="font-family: &quot;Courier New&quot;; color: rgb(51, 51, 255);">*</span></b>
+     operator on <b><span style="font-size: 10pt; font-family: Helvetica; color: rgb(51, 51, 255);">String</span></b>s to see what happens when a string is
+     "multiplied" by an integer.</big></li><big>
+ </big><li class="MsoNormal" style=""><big>Change the printf to <b><span style="font-size: 10pt; font-family: Helvetica; color: rgb(51, 51, 255);">printf
+     "%-*.*s "</span></b>, where the longest word determines the
+     width. To determine the longest word, use the <b><span style="font-size: 10pt; font-family: Helvetica; color: rgb(51, 51, 255);">inject(0)</span></b> method on
+     the array - the block returns the larger of the current maximum and the
+     length of the curren word.</big></li><big>
+ </big><li class="MsoNormal" style=""><big>Change <b><span style="font-size: 10pt; font-family: Helvetica; color: rgb(51, 51, 255);">while gets</span></b>
+     loop that reads each line to use <b><span style="font-size: 10pt; font-family: Helvetica; color: rgb(51, 51, 255);">$stdin.each</span></b> with a block.</big></li><big>
+ </big><li class="MsoNormal" style=""><big>Make the cutoff for the
+     minimum count an optional command line argument.
+ </big><ol start="1" type="a"><big>
+  </big><li class="MsoNormal" style=""><big>If <b><span style="font-size: 10pt; font-family: Helvetica; color: rgb(51, 51, 255);">ARGV[0]</span></b>
+      exists (is not <b><span style="font-size: 10pt; font-family: Helvetica; color: rgb(51, 51, 255);">nil</span></b>), convert it to an integer using the <b><span style="font-size: 10pt; font-family: Helvetica; color: rgb(51, 51, 255);">to_i</span></b>
+      method and use this as the minimum count for the words printed in the
+      histogram.</big></li><big>
+  </big><li class="MsoNormal" style=""><big>Otherwise, use the
+      minimum of 2 as we've done so far.</big></li><big>
+      
+ </big></ol><big>
+</big></li></ol>
+
+<h3><span style="font-family: Helvetica;">Submission<o:p></o:p></span></h3>
+
+<p class="MsoNormal"><big>Place this in a directory called <code>RubyHistogram</code> and submit via Git.</big></p>
+
+<h3><span style="font-family: Helvetica;">Resources<o:p></o:p></span></h3>
+
+<p><big>A short but useful introduction to Ruby is in <a href="LittleBookOfRuby.pdf">The
+Little Book of Ruby</a>.</big></p>
+
+<p class="MsoNormal"><big>The <a href="http://www.ruby-doc.org/">www.ruby-doc.org</a>
+site is a treasure trove of material on Ruby (<b><i>verison 1.9.2 for us</i></b>),
+including:</big></p>
+
+<ul type="disc"><big>
+ </big><li class="MsoNormal" style=""><big><a href="http://www.ruby-doc.org/core/">The Ruby core class documentation
+     on-line (similar to Javadoc format).</a></big></li><big>
+ </big><li class="MsoNormal" style=""><big><a href="http://www.ruby-doc.org/docs/ProgrammingRuby/">The first edition of
+     the <i>Programming Ruby</i> from the Pragmatic Programmers</a>. Some of
+     the advanced material is out-of-date, but this should be sufficient for
+     this class.</big></li><big>
+ </big><li class="MsoNormal" style=""><big>Jim Weyrich's <a href="10things/index.html"><i>10 Things Every Java Programmer Should Know
+     About Ruby</i></a> (locally hosted at RIT &amp; not for the faint of heart
+     <b>:-)</b>.</big></li><big>
+</big></ul>
+
+<p class="MsoNormal"><big>Check <a href="https://ezproxy.rit.edu/login?qurl=http%3a%2f%2flibrary.books24x7.com%2flibrary.asp%3f%5EB">Books
+24x7</a> - students in the past have told me that some of the Ruby books there
+have been helpful.</big></p>
+
+</div>
+
+</body></html>

@@ -1,0 +1,451 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:w="urn:schemas-microsoft-com:office:word" xmlns="http://www.w3.org/TR/REC-html40"><head>
+<meta http-equiv="Content-Type" content="text/html; charset=us-ascii">
+<meta name="ProgId" content="Word.Document">
+<meta name="Generator" content="Microsoft Word 11">
+<meta name="Originator" content="Microsoft Word 11">
+<link rel="File-List" href="CDebugging_files/filelist.xml"><title>C Debugging</title><!--[if gte mso 9]><xml> <o:DocumentProperties> <o:Author>Tom Reichlmayr</o:Author> <o:Template>Normal</o:Template> <o:LastAuthor>Tom Reichlmayr</o:LastAuthor> <o:Revision>4</o:Revision> <o:TotalTime>531</o:TotalTime> <o:Created>2012-01-10T20:44:00Z</o:Created> <o:LastSaved>2012-01-10T21:06:00Z</o:LastSaved> <o:Pages>1</o:Pages> <o:Words>744</o:Words> <o:Characters>4244</o:Characters> <o:Company>RIT</o:Company> <o:Lines>35</o:Lines> <o:Paragraphs>9</o:Paragraphs> <o:CharactersWithSpaces>4979</o:CharactersWithSpaces> <o:Version>11.9999</o:Version> </o:DocumentProperties> </xml><![endif]--><!--[if gte mso 9]><xml> <w:WordDocument> <w:Zoom>BestFit</w:Zoom> <w:SpellingState>Clean</w:SpellingState> <w:GrammarState>Clean</w:GrammarState> <w:ValidateAgainstSchemas/> <w:SaveIfXMLInvalid>false</w:SaveIfXMLInvalid> <w:IgnoreMixedContent>false</w:IgnoreMixedContent> <w:AlwaysShowPlaceholderText>false</w:AlwaysShowPlaceholderText> <w:Compatibility> <w:BreakWrappedTables/> <w:SnapToGridInCell/> <w:WrapTextWithPunct/> <w:UseAsianBreakRules/> <w:UseWord2002TableStyleRules/> </w:Compatibility> <w:BrowserLevel>MicrosoftInternetExplorer4</w:BrowserLevel> </w:WordDocument> </xml><![endif]--><!--[if gte mso 9]><xml> <w:LatentStyles DefLockedState="false" LatentStyleCount="156"> </w:LatentStyles> </xml><![endif]-->
+
+
+<style>
+<!--
+/* Style Definitions */
+p.MsoNormal, li.MsoNormal, div.MsoNormal
+{mso-style-parent:"";
+margin:0in;
+margin-bottom:.0001pt;
+mso-pagination:widow-orphan;
+font-size:12.0pt;
+font-family:"Times New Roman";
+mso-fareast-font-family:"Times New Roman";}
+h1
+{mso-margin-top-alt:auto;
+margin-right:0in;
+mso-margin-bottom-alt:auto;
+margin-left:0in;
+mso-pagination:widow-orphan;
+mso-outline-level:1;
+font-size:24.0pt;
+font-family:"Times New Roman";
+font-weight:bold;}
+a:link, span.MsoHyperlink
+{color:blue;
+text-decoration:underline;
+text-underline:single;}
+a:visited, span.MsoHyperlinkFollowed
+{color:purple;
+text-decoration:underline;
+text-underline:single;}
+p
+{mso-margin-top-alt:auto;
+margin-right:0in;
+mso-margin-bottom-alt:auto;
+margin-left:0in;
+mso-pagination:widow-orphan;
+font-size:12.0pt;
+font-family:"Times New Roman";
+mso-fareast-font-family:"Times New Roman";}
+code
+{font-family:"Courier New";
+mso-ascii-font-family:"Courier New";
+mso-fareast-font-family:"Times New Roman";
+mso-hansi-font-family:"Courier New";
+mso-bidi-font-family:"Courier New";}
+span.SpellE
+{mso-style-name:"";
+mso-spl-e:yes;}
+span.GramE
+{mso-style-name:"";
+mso-gram-e:yes;}
+@page Section1
+{size:8.5in 11.0in;
+margin:1.0in 1.25in 1.0in 1.25in;
+mso-header-margin:.5in;
+mso-footer-margin:.5in;
+mso-paper-source:0;}
+div.Section1
+{page:Section1;}
+/* List Definitions */
+@list l0
+{mso-list-id:544148737;
+mso-list-template-ids:-1566546500;}
+@list l0:level1
+{mso-level-tab-stop:.5in;
+mso-level-number-position:left;
+text-indent:-.25in;
+mso-ansi-font-size:10.0pt;}
+@list l0:level2
+{mso-level-tab-stop:.75in;
+mso-level-number-position:left;
+margin-left:.75in;
+text-indent:-.25in;}
+@list l0:level3
+{mso-level-tab-stop:1.25in;
+mso-level-number-position:left;
+margin-left:1.25in;
+text-indent:-.25in;}
+@list l0:level4
+{mso-level-tab-stop:1.75in;
+mso-level-number-position:left;
+margin-left:1.75in;
+text-indent:-.25in;}
+@list l0:level5
+{mso-level-tab-stop:2.25in;
+mso-level-number-position:left;
+margin-left:2.25in;
+text-indent:-.25in;}
+@list l0:level6
+{mso-level-tab-stop:2.75in;
+mso-level-number-position:left;
+margin-left:2.75in;
+text-indent:-.25in;}
+@list l0:level7
+{mso-level-tab-stop:3.25in;
+mso-level-number-position:left;
+margin-left:3.25in;
+text-indent:-.25in;}
+@list l0:level8
+{mso-level-tab-stop:3.75in;
+mso-level-number-position:left;
+margin-left:3.75in;
+text-indent:-.25in;}
+@list l0:level9
+{mso-level-tab-stop:4.25in;
+mso-level-number-position:left;
+margin-left:4.25in;
+text-indent:-.25in;}
+@list l1
+{mso-list-id:1199856432;
+mso-list-template-ids:297572278;}
+@list l1:level1
+{mso-level-number-format:bullet;
+mso-level-text:\F0B7;
+mso-level-tab-stop:.5in;
+mso-level-number-position:left;
+text-indent:-.25in;
+mso-ansi-font-size:10.0pt;
+font-family:Symbol;}
+@list l1:level2
+{mso-level-tab-stop:.75in;
+mso-level-number-position:left;
+margin-left:.75in;
+text-indent:-.25in;}
+@list l1:level3
+{mso-level-tab-stop:1.25in;
+mso-level-number-position:left;
+margin-left:1.25in;
+text-indent:-.25in;}
+@list l1:level4
+{mso-level-tab-stop:1.75in;
+mso-level-number-position:left;
+margin-left:1.75in;
+text-indent:-.25in;}
+@list l1:level5
+{mso-level-tab-stop:2.25in;
+mso-level-number-position:left;
+margin-left:2.25in;
+text-indent:-.25in;}
+@list l1:level6
+{mso-level-tab-stop:2.75in;
+mso-level-number-position:left;
+margin-left:2.75in;
+text-indent:-.25in;}
+@list l1:level7
+{mso-level-tab-stop:3.25in;
+mso-level-number-position:left;
+margin-left:3.25in;
+text-indent:-.25in;}
+@list l1:level8
+{mso-level-tab-stop:3.75in;
+mso-level-number-position:left;
+margin-left:3.75in;
+text-indent:-.25in;}
+@list l1:level9
+{mso-level-tab-stop:4.25in;
+mso-level-number-position:left;
+margin-left:4.25in;
+text-indent:-.25in;}
+ol
+{margin-bottom:0in;}
+ul
+{margin-bottom:0in;}
+-->
+</style><!--[if gte mso 10]> <style> /* Style Definitions */ table.MsoNormalTable {mso-style-name:"Table Normal"; mso-tstyle-rowband-size:0; mso-tstyle-colband-size:0; mso-style-noshow:yes; mso-style-parent:""; mso-padding-alt:0in 5.4pt 0in 5.4pt; mso-para-margin:0in; mso-para-margin-bottom:.0001pt; mso-pagination:widow-orphan; font-size:10.0pt; font-family:"Times New Roman"; mso-ansi-language:#0400; mso-fareast-language:#0400; mso-bidi-language:#0400;} </style> <![endif]--><!--[if gte mso 9]><xml> <o:shapedefaults v:ext="edit" spidmax="5122"/> </xml><![endif]--><!--[if gte mso 9]><xml> <o:shapelayout v:ext="edit"> <o:idmap v:ext="edit" data="1"/> </o:shapelayout></xml><![endif]--></head>
+<body style="" lang="EN-US" link="blue" vlink="purple">
+<div class="Section1"><div style="text-align: center;">
+
+</div><h1 style="text-align: center;"><b><span style="font-family: Helvetica,Arial,sans-serif;">C Debugging</span><br style="font-family: Helvetica,Arial,sans-serif;"><span style="font-family: Helvetica,Arial,sans-serif;">Personal Software
+Engineering &#8211; SE350</span><o:p></o:p></b></h1>
+<p class="MsoNormal"><o:p>&nbsp;</o:p></p>
+<h3><b><span style="font-family: Helvetica,Arial,sans-serif;">Summary</span><o:p></o:p></b></h3>
+<p class="MsoNormal" style="margin-left: 0.25in;"><big>This
+activity will provide
+experience using the debugging tool <span class="SpellE"><b><span style="font-family: &quot;Courier New&quot;;">gdb</span></b></span><b>.</b>
+Perform all of the
+in-class exercises with your partner. </big></p>
+<p style="margin-left: 0.25in;"><big>The basic steps in
+debugging are:</big></p>
+<ul type="disc"><big>
+</big><li class="MsoNormal" style=""><big>Recognize that a
+bug exists</big></li><big>
+</big><li class="MsoNormal" style=""><big>Isolate the source
+of the bug</big></li><big>
+</big><li class="MsoNormal" style=""><big>Identify the cause
+of the bug</big></li><big>
+</big><li class="MsoNormal" style=""><big>Write a test case
+to reproduce the bug</big></li><big>
+</big><li class="MsoNormal" style=""><big>Determine a fix
+for the bug</big></li><big>
+</big><li class="MsoNormal" style=""><big>Apply the fix and
+test it</big></li><big>
+</big></ul>
+<p class="MsoNormal" style="margin-left: 0.25in;"><big></big></p>
+<p class="MsoNormal" style="margin-left: 0.25in;"><big>Debugging
+software is challenging,
+but keep in mind that all bugs are caused by computers doing exactly
+what they
+are told; absolutely no mystery in that, and hence all problems are
+solvable.
+There are many ways people go about debugging, from printing out
+messages to
+the screen, using a debugger, or just thinking about what the program
+is doing
+and making an educated guess as to what the problem is. Without a
+process to
+follow, resolving problems can seem impossible. Most inexperienced
+programmers
+find themselves in precisely that situation when confronted with a bug.<span style="">&nbsp; </span>The most troubling thing
+is that many
+students -- and even commercial coders -- seem to freeze when
+unexpected
+problems arise. Some literally try making random changes or, worse, try
+to run
+the program a few more times in hopes that it will start to work again.
+The key
+to successful debugging is to develop a methodical approach to locating
+a
+defect, understanding what the cause of the defect is &#8211; then applying a
+fix. Before applying a fix, a new unit test should be added to the test
+suite
+that recreates the defect.<o:p>&nbsp;</o:p></big></p>
+<h1><span style="font-size: 12pt; font-weight: normal;"><big>Sources:
+</big><i style=""><big><a href="http://www.cs.usyd.edu.au/%7Esholden/TEACHING/PP/2000sem2/TUTES/week7/gdb.html">Debugging
+Under <span class="GramE">Unix</span>: <span class="SpellE">gdb</span> Tutorial</a><br><span style="">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span><a href="http://www-128.ibm.com/developerworks/web/library/wa-debug.html?ca=dgr-lnxw03Dbug">Learn
+the essentials of debugging</a><br><span style="">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span><span style="">&nbsp;</span><a href="http://wwwcsif.cs.ucdavis.edu/%7Edavis/40/gdb_Tutorial.htm#Intro"><span class="SpellE">gdb</span> Tutorial use in this activity</a></big>
+
+
+<o:p></o:p></i></span></h1>
+
+<h3><b><span style="font-family: Helvetica,Arial,sans-serif;">Exercises</span><o:p></o:p></b><b><o:p></o:p></b><br></h3>
+
+<p class="MsoNormal" style="margin-left: 0.5in;"><big>With
+your partner, walk through the following script. The
+numbered lines explain what is happening. The unnumbered lines are <b style=""><i style="">what
+you should type</i></b>.</big></p>
+<p class="MsoNormal" style="margin-left: 0.5in;"><big><o:p>&nbsp;</o:p></big></p>
+
+<p class="MsoNormal" style="margin-left: 0.5in;"><big><span style="">Download the C source file <a href="./prime.c">prime.c</a>
+and the <a href="./Makefile">makefile</a>.
+Review the comments in prime.c and examine the makefile. Note the <b><i style="">&#8211;g</i></b> compiler option. You must
+compile your code with this option in order to run in debug mode with <span class="SpellE">gdb</span>.<o:p></o:p></span></big></p><p class="MsoNormal" style=""><big><o:p>&nbsp;</o:p></big></p>
+<p class="MsoNormal" style="margin-left: 1.5in; text-indent: -9pt;"><big><b style=""><i style=""><o:p></o:p></i></b></big></p>
+
+<ol style="margin-top: 0in;" start="1" type="1"><big>
+</big><li class="MsoNormal" style=""><big>Run the makefile
+and note any complier errors or warnings</big></li><big>
+</big></ol>
+<p class="MsoNormal" style="margin-left: 1.5in;"><big><span class="GramE"><b style=""><i style="">make</i></b></span><b style=""><i style=""><o:p></o:p></i></b></big></p>
+<p class="MsoNormal" style="margin-left: 1.5in;"><big><o:p>&nbsp;</o:p></big></p>
+<ol style="margin-top: 0in;" start="2" type="1"><big>
+</big><li class="MsoNormal" style=""><big>Run prime in debug
+mode by invoking <span class="SpellE">gdb</span>:</big></li><big>
+</big></ol>
+<p class="MsoNormal" style="margin-left: 99pt;"><big><span class="SpellE"><span class="GramE"><b style=""><i style="">gdb</i></b></span></span><b style=""><i style="">
+prime<o:p></o:p></i></b></big></p>
+<p class="MsoNormal" style="margin-left: 0.5in;"><big><o:p>&nbsp;</o:p></big></p>
+<ol style="margin-top: 0in;" start="3" type="1"><big>
+</big><li class="MsoNormal" style=""><big>Check out the help
+system:</big></li><big>
+</big></ol>
+<p class="MsoNormal" style="margin-left: 99pt;"><big><span class="GramE"><b style=""><i style="">h</i></b></span><b style=""><i style=""><o:p></o:p></i></b></big></p>
+<p class="MsoNormal" style="margin-left: 0.5in;"><big><o:p>&nbsp;</o:p></big></p>
+<ol style="margin-top: 0in;" start="4" type="1"><big>
+</big><li class="MsoNormal" style=""><big>Run the program,
+providing an upper bound when asked:</big></li><big>
+</big></ol>
+<p class="MsoNormal" style="margin-left: 99pt;"><big><span class="GramE"><b style=""><i style="">r</i></b></span><b style=""><i style=""><o:p></o:p></i></b></big></p>
+<p class="MsoNormal" style="margin-left: 99pt;"><big><b style=""><i style="">20<o:p></o:p></i></b></big></p>
+<p class="MsoNormal" style="margin-left: 0.5in;"><big><o:p>&nbsp;</o:p></big></p>
+<ol style="margin-top: 0in;" start="5" type="1"><big>
+</big><li class="MsoNormal" style=""><big>The program halted
+with an invalid memory access. Use <span class="SpellE">Backtrace</span>
+to find the point of error: </big></li><big>
+</big></ol>
+<p class="MsoNormal" style="margin-left: 99pt;"><big><span class="SpellE"><span class="GramE"><b style=""><i style="">bt</i></b></span></span><b style=""><i style=""><o:p></o:p></i></b></big></p>
+<p class="MsoNormal" style="text-indent: 0.5in;"><big><o:p>&nbsp;</o:p></big></p>
+<p class="MsoNormal" style="margin-left: 0.5in;"><big><span class="SpellE">Backtrace</span> will typically
+identify the source line where the error occurred. In the event <span class="SpellE">backtrace</span> does not identify the
+error, look for other clues
+- starting with suspicious compiler warnings, as is the case in prime.c
+at line
+44.</big></p>
+<p class="MsoNormal" style=""><big><o:p>&nbsp;</o:p></big></p>
+<ol style="margin-top: 0in;" start="6" type="1"><big>
+</big><li class="MsoNormal" style=""><big>In the call to <span class="SpellE">scanf</span> the second argument should
+be an address of an integer, not an integer value. Quit to fix this
+bug, missing "&amp;" before "<span class="SpellE">UpperBound</span>":
+</big></li><big>
+</big></ol>
+<p class="MsoNormal" style="margin-left: 99pt;"><big><span class="GramE"><b style=""><i style="">q</i></b></span><b style=""><i style=""><o:p></o:p></i></b></big></p>
+<p class="MsoNormal" style="margin-left: 99pt;"><big><span class="GramE"><b style=""><i style="">y</i></b></span><b style=""><i style=""><o:p></o:p></i></b></big></p>
+<p class="MsoNormal" style="margin-left: 0.5in;"><big><o:p>&nbsp;</o:p></big></p>
+<ol style="margin-top: 0in;" start="1" type="1"><big>
+</big><li class="MsoNormal" style=""><big>Fix the first bug
+and recompile:</big></li><big>
+</big></ol>
+<p class="MsoNormal" style="margin-left: 99pt;"><big><b style=""><i style="">&lt;<span class="GramE">edit</span> your code&gt;<o:p></o:p></i></b></big></p>
+<p class="MsoNormal" style="margin-left: 99pt;"><big><span class="GramE"><b style=""><i style="">make</i></b></span><b style=""><i style=""><o:p></o:p></i></b></big></p>
+<p class="MsoNormal" style="margin-left: 0.5in;"><big><o:p>&nbsp;</o:p></big></p>
+<ol style="margin-top: 0in;" start="2" type="1"><big>
+</big><li class="MsoNormal" style=""><big>Now invoke <span class="SpellE">gdb</span> again:</big></li><big>
+</big></ol>
+<p class="MsoNormal" style="margin-left: 99pt;"><big><span class="SpellE"><span class="GramE"><b style=""><i style="">gdb</i></b></span></span><b style=""><i style="">
+prime<o:p></o:p></i></b></big></p>
+<p class="MsoNormal" style="margin-left: 0.5in;"><big><o:p>&nbsp;</o:p></big></p>
+<ol style="margin-top: 0in;" start="3" type="1"><big>
+</big><li class="MsoNormal" style=""><big>Run again:</big></li><big>
+</big></ol>
+<p class="MsoNormal" style="margin-left: 99pt;"><big><span class="GramE"><b style=""><i style="">r</i></b></span><b style=""><i style=""><o:p></o:p></i></b></big></p>
+<p class="MsoNormal" style="margin-left: 99pt;"><big><b style=""><i style="">20<o:p></o:p></i></b></big></p>
+<p class="MsoNormal" style="margin-left: 0.5in;"><big><o:p>&nbsp;</o:p></big></p>
+<ol style="margin-top: 0in;" start="4" type="1"><big>
+</big><li class="MsoNormal" style=""><big>This time no prime
+numbers were found. Maybe there is something wrong with the <span class="SpellE">CheckPrime</span> function. We can set
+a breakpoint there to see what is going on:</big></li><big>
+</big></ol>
+<p class="MsoNormal" style="margin-left: 99pt;"><big><span class="GramE"><b style=""><i style="">b</i></b></span><b style=""><i style=""> <span class="SpellE">CheckPrime</span><o:p></o:p></i></b></big></p>
+<p class="MsoNormal" style="margin-left: 0.5in;"><big><o:p>&nbsp;</o:p></big></p>
+<ol style="margin-top: 0in;" start="5" type="1"><big>
+</big><li class="MsoNormal" style=""><big>Now we can run the
+program again, and it should stop at the beginning of <span class="SpellE">CheckPrime</span>:</big></li><big>
+</big></ol>
+<p class="MsoNormal" style="margin-left: 99pt;"><big><span class="GramE"><b style=""><i style="">r</i></b></span><b style=""><i style=""><o:p></o:p></i></b></big></p>
+<p class="MsoNormal" style="margin-left: 99pt;"><big><b style=""><i style="">20<o:p></o:p></i></b></big></p>
+<p class="MsoNormal" style="margin-left: 0.5in;"><big><o:p>&nbsp;</o:p></big></p>
+<ol style="margin-top: 0in;" start="6" type="1"><big>
+</big><li class="MsoNormal" style=""><big>We can see from
+the Breakpoint line that we are testing 3 for <span class="SpellE">primeness</span>.
+By stepping through the function we might see what is wrong. We will
+use the Next command 3 times:</big></li><big>
+</big></ol>
+<p class="MsoNormal" style="margin-left: 99pt;"><big><span class="GramE"><b style=""><i style="">n</i></b></span><b style=""><i style=""><o:p></o:p></i></b></big></p>
+<p class="MsoNormal" style="margin-left: 99pt;"><big><span class="GramE"><b style=""><i style="">n</i></b></span><b style=""><i style=""><o:p></o:p></i></b></big></p>
+<p class="MsoNormal" style="margin-left: 99pt;"><big><span class="GramE"><b style=""><i style="">n</i></b></span><b style=""><i style=""><o:p></o:p></i></b></big></p>
+<p class="MsoNormal" style="margin-left: 0.5in;"><big><o:p>&nbsp;</o:p></big></p>
+<ol style="margin-top: 0in;" start="7" type="1"><big>
+</big><li class="MsoNormal" style=""><big>Wait a minute! We
+are about to set <span class="GramE">Prime[</span>3]
+to 0, indicating that it is not prime. Why did the second if test pass?
+Print the test:</big></li><big>
+</big></ol>
+<p class="MsoNormal" style="margin-left: 99pt;"><big><span class="GramE"><b style=""><i style="">p</i></b></span><b style=""><i style=""> (K % J == 0)<o:p></o:p></i></b></big></p>
+<p class="MsoNormal" style="margin-left: 0.5in;"><big><o:p>&nbsp;</o:p></big></p>
+<ol style="margin-top: 0in;" start="8" type="1"><big>
+</big><li class="MsoNormal" style=""><big>The answer is 1,
+which means "true". Well, K is 3, what is J:</big></li><big>
+</big></ol>
+<p class="MsoNormal" style="margin-left: 99pt;"><big><span class="GramE"><b style=""><i style="">p</i></b></span><b style=""><i style=""> J<o:p></o:p></i></b></big></p>
+<p class="MsoNormal" style="margin-left: 99pt;"><big><b style=""><i style=""><o:p>&nbsp;</o:p></i></b></big></p>
+<p class="MsoNormal" style="margin-left: 0.5in;"><big>Aha!
+We are starting our tests of divisibility with 1.
+Every integer is divisible by 1, so none will be considered prime. We
+need to
+change the initialization of J to 2 in line 24. Quit the debugger:</big></p>
+<p class="MsoNormal" style="margin-left: 99pt;"><big><span class="GramE"><b style=""><i style="">q</i></b></span><b style=""><i style=""><o:p></o:p></i></b></big></p>
+<p class="MsoNormal" style="margin-left: 99pt;"><big><span class="GramE"><b style=""><i style="">y</i></b></span><b style=""><i style=""><o:p></o:p></i></b></big></p>
+<p class="MsoNormal" style="margin-left: 0.5in;"><big><o:p>&nbsp;</o:p></big></p>
+<ol style="margin-top: 0in;" start="9" type="1"><big>
+</big><li class="MsoNormal" style=""><big>Now change the
+code and recompile it:</big></li><big>
+</big></ol>
+<p class="MsoNormal" style="margin-left: 99pt;"><big><b style=""><i style="">&lt;<span class="GramE">edit</span> your code&gt;<o:p></o:p></i></b></big></p>
+<p class="MsoNormal" style="margin-left: 99pt;"><big><span class="GramE"><b style=""><i style="">make</i></b></span><b style=""><i style=""><o:p></o:p></i></b></big></p>
+<p class="MsoNormal" style="margin-left: 0.5in;"><big><o:p>&nbsp;</o:p></big></p>
+<ol style="margin-top: 0in;" start="10" type="1"><big>
+</big><li class="MsoNormal" style=""><big>Now start up the
+debugger again:</big></li><big>
+</big></ol>
+<p class="MsoNormal" style="margin-left: 99pt;"><big><span class="SpellE"><span class="GramE"><b style=""><i style="">gdb</i></b></span></span><b style=""><i style="">
+prime<o:p></o:p></i></b></big></p>
+<p class="MsoNormal" style="margin-left: 0.5in;"><big><o:p>&nbsp;</o:p></big></p>
+<ol style="margin-top: 0in;" start="11" type="1"><big>
+</big><li class="MsoNormal" style=""><big>Run it again:</big></li><big>
+</big></ol>
+<p class="MsoNormal" style="margin-left: 99pt;"><big><span class="GramE"><b style=""><i style="">r</i></b></span><b style=""><i style=""><o:p></o:p></i></b></big></p>
+<p class="MsoNormal" style="margin-left: 99pt;"><big><b style=""><i style="">20<o:p></o:p></i></b></big></p>
+<p class="MsoNormal" style="margin-left: 0.5in;"><big><o:p>&nbsp;</o:p></big></p>
+<ol style="margin-top: 0in;" start="12" type="1"><big>
+</big><li class="MsoNormal" style=""><big>Another invalid
+memory access, but now at line 26. List the code to see what is going
+on:</big></li><big>
+</big></ol>
+<p class="MsoNormal" style="margin-left: 99pt;"><big><span class="GramE"><b style=""><i style="">l</i></b></span><b style=""><i style=""> 26<o:p></o:p></i></b></big></p>
+<p class="MsoNormal" style="margin-left: 0.5in;"><big><o:p>&nbsp;</o:p></big></p>
+<ol style="margin-top: 0in;" start="13" type="1"><big>
+</big><li class="MsoNormal" style=""><big>J must be out of
+bounds for array Prime. Print the value of J:</big></li><big>
+</big></ol>
+<p class="MsoNormal" style="margin-left: 99pt;"><big><span class="GramE"><b style=""><i style="">p</i></b></span><b style=""><i style=""> J<o:p></o:p></i></b></big></p>
+<p class="MsoNormal" style="margin-left: 0.5in;"><big><o:p>&nbsp;</o:p></big></p>
+<ol style="margin-top: 0in;" start="14" type="1"><big>
+</big><li class="MsoNormal" style=""><big>J is clearly too
+big. We need to see all of the <span class="SpellE">CheckPrime</span>
+function to figure out what is going on, so use the List function and
+hit ENTER twice to continue listing:</big></li><big>
+</big></ol>
+<p class="MsoNormal" style="margin-left: 99pt;"><big><span class="GramE"><b style=""><i style="">l</i></b></span><b style=""><i style=""> <span class="SpellE">CheckPrime</span><o:p></o:p></i></b></big></p>
+<p class="MsoNormal" style="margin-left: 99pt;"><big><b style=""><i style="">&lt;ENTER&gt;<o:p></o:p></i></b></big></p>
+<p class="MsoNormal" style="margin-left: 99pt;"><big><b style=""><i style="">&lt;ENTER&gt;<o:p></o:p></i></b></big></p>
+<p class="MsoNormal" style="margin-left: 0.5in;"><big><o:p>&nbsp;</o:p></big></p>
+<ol style="margin-top: 0in;" start="15" type="1"><big>
+</big><li class="MsoNormal" style=""><big>The comment says
+that we should only test values of J that are less than or equal to the
+square root of K. But, the loop never tests for this, it just keeps
+going indefinitely. We need to change the while condition to (J * J
+&lt;= K). Quit the debugger:</big></li><big>
+</big></ol>
+<p class="MsoNormal" style="margin-left: 99pt;"><big><span class="GramE"><b style=""><i style="">q</i></b></span><b style=""><i style=""><o:p></o:p></i></b></big></p>
+<p class="MsoNormal" style="margin-left: 99pt;"><big><span class="GramE"><b style=""><i style="">y</i></b></span><b style=""><i style=""><o:p></o:p></i></b></big></p>
+<p class="MsoNormal" style="margin-left: 0.5in;"><big><o:p>&nbsp;</o:p></big></p>
+<ol style="margin-top: 0in;" start="16" type="1"><big>
+</big><li class="MsoNormal" style=""><big>Change the code
+and recompile it:</big></li><big>
+</big></ol>
+<p class="MsoNormal" style="margin-left: 99pt;"><big><b style=""><i style="">&lt;<span class="GramE">edit</span> our
+code&gt;<o:p></o:p></i></b></big></p>
+<p class="MsoNormal" style="margin-left: 99pt;"><big><span class="GramE"><b style=""><i style="">make</i></b></span><b style=""><i style=""><o:p></o:p></i></b></big></p>
+<p class="MsoNormal" style="margin-left: 0.5in;"><big><o:p>&nbsp;</o:p></big></p>
+<ol style="margin-top: 0in;" start="17" type="1"><big>
+</big><li class="MsoNormal" style=""><big>Now start up the
+debugger again:</big></li><big>
+</big></ol>
+<p class="MsoNormal" style="margin-left: 99pt;"><big><span class="SpellE"><span class="GramE"><b style=""><i style="">gdb</i></b></span></span><b style=""><i style="">
+prime<o:p></o:p></i></b></big></p>
+<p class="MsoNormal" style="margin-left: 0.5in;"><big><o:p>&nbsp;</o:p></big></p>
+<ol style="margin-top: 0in;" start="18" type="1"><big>
+</big><li class="MsoNormal" style=""><big>Run it again:</big></li><big>
+</big></ol>
+<p class="MsoNormal" style="margin-left: 99pt;"><big><span class="GramE"><b style=""><i style="">r</i></b></span><b style=""><i style=""><o:p></o:p></i></b></big></p>
+<p class="MsoNormal" style="margin-left: 99pt;"><big><b style=""><i style="">20<o:p></o:p></i></b></big></p>
+<p class="MsoNormal" style="margin-left: 0.5in;"><big><o:p>&nbsp;</o:p></big></p>
+<ol style="margin-top: 0in;" start="19" type="1"><big>
+</big><li class="MsoNormal" style=""><big>Success!</big></li></ol><br><big style="font-style: italic; font-weight: bold;">This
+activity has no submittable information. Instead, as your team finishes
+the experiment, call over your instructor and show him your work; this
+is the basis for assigning credit.</big><ol style="margin-top: 0in;" start="19" type="1"><big>
+</big></ol>
+<p class="MsoNormal" style="margin-left: 0.5in;"><o:p>&nbsp;</o:p></p>
+</div>
+</body></html>

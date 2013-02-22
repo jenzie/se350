@@ -1,0 +1,343 @@
+<html xmlns:o="urn:schemas-microsoft-com:office:office"
+xmlns:w="urn:schemas-microsoft-com:office:word"
+xmlns:st1="urn:schemas-microsoft-com:office:smarttags"
+xmlns="http://www.w3.org/TR/REC-html40">
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=us-ascii">
+<meta name=ProgId content=Word.Document>
+<meta name=Generator content="Microsoft Word 11">
+<meta name=Originator content="Microsoft Word 11">
+<link rel=File-List href="analyzingSVNLog_files/filelist.xml">
+<title>Analyzing an SVN Log for Code Churn</title>
+<o:SmartTagType namespaceuri="urn:schemas-microsoft-com:office:smarttags"
+ name="place"/>
+<!--[if gte mso 9]><xml>
+ <o:DocumentProperties>
+  <o:Author>Tom Reichlmayr</o:Author>
+  <o:Template>Normal</o:Template>
+  <o:LastAuthor>Tom Reichlmayr</o:LastAuthor>
+  <o:Revision>3</o:Revision>
+  <o:TotalTime>752</o:TotalTime>
+  <o:Created>2012-01-30T03:21:00Z</o:Created>
+  <o:LastSaved>2012-01-30T03:34:00Z</o:LastSaved>
+  <o:Pages>1</o:Pages>
+  <o:Words>849</o:Words>
+  <o:Characters>4840</o:Characters>
+  <o:Company>RIT Software Engineering</o:Company>
+  <o:Lines>40</o:Lines>
+  <o:Paragraphs>11</o:Paragraphs>
+  <o:CharactersWithSpaces>5678</o:CharactersWithSpaces>
+  <o:Version>11.9999</o:Version>
+ </o:DocumentProperties>
+</xml><![endif]--><!--[if gte mso 9]><xml>
+ <w:WordDocument>
+  <w:SpellingState>Clean</w:SpellingState>
+  <w:GrammarState>Clean</w:GrammarState>
+  <w:ValidateAgainstSchemas/>
+  <w:SaveIfXMLInvalid>false</w:SaveIfXMLInvalid>
+  <w:IgnoreMixedContent>false</w:IgnoreMixedContent>
+  <w:AlwaysShowPlaceholderText>false</w:AlwaysShowPlaceholderText>
+  <w:BrowserLevel>MicrosoftInternetExplorer4</w:BrowserLevel>
+ </w:WordDocument>
+</xml><![endif]--><!--[if gte mso 9]><xml>
+ <w:LatentStyles DefLockedState="false" LatentStyleCount="156">
+ </w:LatentStyles>
+</xml><![endif]--><!--[if !mso]><object
+ classid="clsid:38481807-CA0E-42D2-BF39-B33AF135CC4D" id=ieooui></object>
+<style>
+st1\:*{behavior:url(#ieooui) }
+</style>
+<![endif]-->
+<style>
+<!--
+ /* Font Definitions */
+ @font-face
+	{font-family:Helvetica;
+	panose-1:2 11 6 4 2 2 2 2 2 4;
+	mso-font-charset:0;
+	mso-generic-font-family:swiss;
+	mso-font-pitch:variable;
+	mso-font-signature:536902279 -2147483648 8 0 511 0;}
+@font-face
+	{font-family:"Lucida Console";
+	panose-1:2 11 6 9 4 5 4 2 2 4;
+	mso-font-charset:0;
+	mso-generic-font-family:modern;
+	mso-font-pitch:fixed;
+	mso-font-signature:-2147482993 6144 0 0 31 0;}
+ /* Style Definitions */
+ p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{mso-style-parent:"";
+	margin:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Times New Roman";}
+h2
+	{mso-margin-top-alt:auto;
+	margin-right:0in;
+	mso-margin-bottom-alt:auto;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	mso-outline-level:2;
+	font-size:18.0pt;
+	font-family:"Times New Roman";
+	font-weight:bold;}
+a:link, span.MsoHyperlink
+	{color:blue;
+	text-decoration:underline;
+	text-underline:single;}
+a:visited, span.MsoHyperlinkFollowed
+	{color:blue;
+	text-decoration:underline;
+	text-underline:single;}
+p
+	{mso-margin-top-alt:auto;
+	margin-right:0in;
+	mso-margin-bottom-alt:auto;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Times New Roman";}
+span.SpellE
+	{mso-style-name:"";
+	mso-spl-e:yes;}
+span.GramE
+	{mso-style-name:"";
+	mso-gram-e:yes;}
+@page Section1
+	{size:8.5in 11.0in;
+	margin:1.0in 1.25in 1.0in 1.25in;
+	mso-header-margin:.5in;
+	mso-footer-margin:.5in;
+	mso-paper-source:0;}
+div.Section1
+	{page:Section1;}
+-->
+</style>
+<!--[if gte mso 10]>
+<style>
+ /* Style Definitions */
+ table.MsoNormalTable
+	{mso-style-name:"Table Normal";
+	mso-tstyle-rowband-size:0;
+	mso-tstyle-colband-size:0;
+	mso-style-noshow:yes;
+	mso-style-parent:"";
+	mso-padding-alt:0in 5.4pt 0in 5.4pt;
+	mso-para-margin:0in;
+	mso-para-margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:10.0pt;
+	font-family:"Times New Roman";
+	mso-ansi-language:#0400;
+	mso-fareast-language:#0400;
+	mso-bidi-language:#0400;}
+</style>
+<![endif]-->
+</head>
+
+<body lang=EN-US link=blue vlink=blue style='tab-interval:.5in'>
+
+<div class=Section1>
+
+<h2 align=center style='text-align:center'><span style='font-family:Helvetica'>Analyzing
+an SVN Log for Code Churn<o:p></o:p></span></h2>
+
+<p>For this activity we will write a Ruby script <span class=SpellE><b><i>churn.rb</i></b></span>
+to examine a <span class=SpellE>svn</span> repository log and identify those
+parts of a project that have experienced the most activity or &#8220;code
+churn&#8221; over a given period of time.</p>
+
+<p>When testing a product just prior to release, testing resources need to be
+allocated to best use the finite amount of time before the release. One
+approach is to focus testing efforts on those parts of the project that have
+changed the most frequently since the last release. We can gather this
+information by examining the <span class=SpellE>svn</span> history of each
+project directory and count the number of file updates, or <b style='mso-bidi-font-weight:
+normal'><i style='mso-bidi-font-style:normal'>churn</i></b>, generated each
+time a file was committed. There may be good reasons why a file was committed a
+number of times, but based on Murphy&#8217;s Law it is not unreasonable to draw
+the conclusion that every time you touch a file you have good chance of
+screwing something up! It is also useful in identifying opportunities for
+refactoring.</p>
+
+<p class=MsoNormal>You can view get the <span class=SpellE>svn</span> directory
+listing of a repository using <b style='mso-bidi-font-weight:normal'>&#8216;<span
+class=SpellE>svn</span> list&#8217;</b>. Here is an example using an open
+source Small Device C Compiler called <span class=SpellE>sdcc</span>- <a
+href="https://sdcc.svn.sourceforge.net/svnroot/sdcc/trunk/sdcc/src/">https://sdcc.svn.sourceforge.net/svnroot/sdcc/trunk/sdcc/src/</a>
+</p>
+
+<p>(Note: I have excluded some of the actual output for brevity)</p>
+
+<p><b style='mso-bidi-font-weight:normal'><span style='font-size:10.0pt;
+font-family:"Lucida Console"'>&gt;<span class=SpellE>svn</span> list https://sdcc.svn.sourceforge.net/svnroot/sdcc/trunk/sdcc/src/<br>
+</span></b><span style='font-size:10.0pt;font-family:"Lucida Console"'>avr/<br>
+ds390/<br>
+ds400/<br>
+c08/<br>
+izt/<br>
+mcs51/<br>
+pic14/<br>
+pic16/<br>
+port-clean.mk<br>
+port.h<br>
+port.mk<br>
+regression/<br>
+reswords.gperf<br>
+src.vcxproj<br>
+src.vcxproj.filters<br>
+version.awk<br>
+xa51/<br>
+yacc.vcxproj<br>
+z80/<br style='mso-special-character:line-break'>
+<![if !supportLineBreakNewLine]><br style='mso-special-character:line-break'>
+<![endif]><o:p></o:p></span></p>
+
+<p>You can view the history of any part of the project using the &#8216;<span
+class=SpellE>svn</span> log&#8217; command. (See: <a
+href="http://svnbook.red-bean.com/en/1.0/ch03s06.html">http://svnbook.red-bean.com/en/1.0/ch03s06.html</a>)
+Here is an example using the above z80/ directory (again excluding some of the
+actual output):</p>
+
+<p><span class=SpellE><span class=GramE><b style='mso-bidi-font-weight:normal'><span
+style='font-size:10.0pt;font-family:"Courier New"'>svn</span></b></span></span><b
+style='mso-bidi-font-weight:normal'><span style='font-size:10.0pt;font-family:
+"Courier New"'> log --revision 'HEAD:{2010-07-30}' https://sdcc.svn.sourceforge.net/svnroot/sdcc/trunk/sdcc/src/z80<br>
+</span></b><span style='font-size:10.0pt;font-family:"Courier New"'>------------------------------------------------------------------------<o:p></o:p></span></p>
+
+<p><span style='font-size:10.0pt;font-family:"Courier New"'>r5948 | <span
+class=SpellE>spth</span> | 2010-08-26 13:23:32 -0400 (Thu, 26 Aug 2010) | 1
+line<br>
+Fixed #3052514<o:p></o:p></span></p>
+
+<p><span style='font-size:10.0pt;font-family:"Courier New"'>------------------------------------------------------------------------<o:p></o:p></span></p>
+
+<p><span style='font-size:10.0pt;font-family:"Courier New"'>r5920 | <span
+class=SpellE>MaartenBrock</span> | 2010-08-08 16:41:35 -0400 (Sun, 08 Aug 2010)
+| 1 line<br>
+* src/z80/gen.c (<span class=SpellE>genCmp</span>): no <st1:place w:st="on">PO</st1:place>
+flag on GBZ80<o:p></o:p></span></p>
+
+<p><span style='font-size:10.0pt;font-family:"Courier New"'>------------------------------------------------------------------------<o:p></o:p></span></p>
+
+<p><span style='font-size:10.0pt;font-family:"Courier New"'>r5919 | <span
+class=SpellE>MaartenBrock</span> | 2010-08-08 14:55:12 -0400 (Sun, 08 Aug 2010)
+| 3 lines<br>
+* <span class=SpellE>src/SDCCval.c</span> (<span class=SpellE>valMinus</span>):
+applied patch from bug 3037889 though not fixed, thanks <span class=SpellE>Patrik</span>
+<span class=SpellE>Persson</span><br>
+* src/z80/gen.c (<span class=SpellE>genCmp</span>): fixed bug 3041519<o:p></o:p></span></p>
+
+<p><span style='font-size:10.0pt;font-family:"Courier New"'>------------------------------------------------------------------------<o:p></o:p></span></p>
+
+<p><span style='font-size:10.0pt;font-family:"Courier New"'>r5918 | <span
+class=SpellE>MaartenBrock</span> | 2010-08-08 08:53:43 -0400 (Sun, 08 Aug 2010)
+| 14 lines<br>
+* sim/ucsim/z80.src/inst.cc (<span class=SpellE>inst_add</span>): moved <span
+class=SpellE>add_HL_Word</span> to z80mac.h,<br>
+(<span class=SpellE>inst_daa</span>, <span class=SpellE>inst_scf</span>, <span
+class=SpellE>inst_ccf</span>, <span class=SpellE>inst_sub</span>): fixed flags<br>
+(<span class=SpellE>inst_jp</span>): fixed JP PO/PE<br>
+* sim/ucsim/z80.src/inst_ed.cc (<span class=SpellE>inst_ed</span>): fixed flags<br>
+* sim/ucsim/z80.src/inst_xd.cc (<span class=SpellE>inst_Xd_add</span>): moved <span
+class=SpellE>add_IX_Word</span> to z80mac.h<br>
+* sim/ucsim/z80.src/instcl.h: cosmetics<br>
+* sim/ucsim/z80.src/z80.cc (<span class=SpellE>print_regs</span>): print N flag<br>
+* sim/ucsim/z80.src/z80mac.h: fixed flags<br>
+* src/z80/gen.c (<span class=SpellE>genIfxJump</span>): simplified(<span
+class=SpellE>genCmp</span>): fixed bug 1757671<br>
+* device/include/<span class=SpellE>stdbool.h</span>: __SDCC_WEIRD_BOOL==2 for
+hc08/pic14/pic16<br>
+* support/regression/tests/<span class=SpellE>bool.c</span>: run test only <span
+class=SpellE>once,run</span> half the cases for __bit<br>
+* support/regression/tests/bug1757671.c: new, added<br style='mso-special-character:
+line-break'>
+<![if !supportLineBreakNewLine]><br style='mso-special-character:line-break'>
+<![endif]><o:p></o:p></span></p>
+
+<p><span style='font-size:10.0pt;font-family:"Courier New"'><br>
+</span>To start with, the script we are writing will be specific (hard coded) to
+one project and a selected level of directories. At a later time it could be
+extended to be more generic and find the subdirectories automatically. We could
+extend it even further to dive down to the file level and produce reports for
+the most active files in addition to directories, but we&#8217;ll save those
+features for a later version.<span style='font-size:10.0pt;font-family:"Courier New"'><o:p></o:p></span></p>
+
+<p>As a hint to start, do a manual <span class=SpellE>svn</span> list of the
+project you are analyzing and create an array of the lowest level directory
+names you will be looking in for code churn. <span class=SpellE>SourceForge</span>
+and <span class=SpellE>RubyForge</span> also provide repository browsers for
+navigating through the project. In the above example you would create an array
+similar to this:</p>
+
+<p><span class=GramE><b style='mso-bidi-font-weight:normal'><span
+style='font-size:10.0pt;font-family:"Courier New"'>subsystems</span></b></span><b
+style='mso-bidi-font-weight:normal'><span style='font-size:10.0pt;font-family:
+"Courier New"'> = [&#8216;<span class=SpellE>avr</span>&#8217;, &#8216;ds390&#8217;,
+&#8216;xa51&#8217;, &#8216;z80&#8217;]<o:p></o:p></span></b></p>
+
+<p>You would then iterate through the <span class=SpellE>svn</span> repository
+by appending the directory to the path name. Note that you can execute any OS
+command in Ruby using <b style='mso-bidi-font-weight:normal'><i
+style='mso-bidi-font-style:normal'>back tick marks</i></b> (same key as tilde ~)
+as shown here and optionally capture the output of the command as a string or
+process it directly:<br>
+<br>
+<b style='mso-bidi-font-weight:normal'><span style='font-size:10.0pt;
+font-family:"Courier New"'>result = `<span class=SpellE>svn</span> log
+--revision 'HEAD:{2010-07-30}' https://sdcc.svn.sourceforge.net/svnroot/sdcc/trunk/sdcc/src/z80`</span><br>
+</b><br>
+The script should accept one parameter (command line argument) which is the
+starting timestamp from which to count repository modifications:</p>
+
+<p><b style='mso-bidi-font-weight:normal'><span style='font-size:10.0pt;
+font-family:"Courier New"'>&gt; <span class=GramE>ruby</span> <span
+class=SpellE>churn.rb</span> 2010-01-02<o:p></o:p></span></b></p>
+
+<p>Validate the timestamp for format and a time that is not greater than the
+current date/time. Display an error message and exit the script if the
+timestamp is invalid. Great opportunity for unit tests!</p>
+
+<p>Output is in histogram format with &#8220;***&#8221; showing relative
+ranking in descending order, along with actual count &#8220;(<span
+class=SpellE>nn</span>}&#8221; as shown in the example below for the <span
+class=SpellE>sdcc</span> project. Note these are not the actual counts for each
+directory; this is just a representation of the output.</p>
+
+<p><b style='mso-bidi-font-weight:normal'><span style='font-size:10.0pt;
+font-family:"Courier New"'>$ <span class=GramE>ruby</span> <span class=SpellE>churn.rb</span>
+2010-12-01<br>
+Changes since 2010-12-01:<br>
+<span class=SpellE>avr</span> ********** (45)<br>
+ds390 *** (19)<br>
+xa51 *** (17)<br>
+z80 * (2)<o:p></o:p></span></b></p>
+
+<p>Submit your solution to the <code>RubyChurn</code> directory via Git.</p>
+
+<p>Additional mining to try if after you complete the above assignment:</p>
+
+<p>What specific module names are modified the most?<br>
+What developer (<span class=SpellE>svn</span> author) has made the most changes?<br>
+Try this script on your SE361 project.</p>
+
+<p><o:p>&nbsp;</o:p></p>
+
+<p><o:p>&nbsp;</o:p></p>
+
+<p><o:p>&nbsp;</o:p></p>
+
+<p><o:p>&nbsp;</o:p></p>
+
+<p><o:p>&nbsp;</o:p></p>
+
+</div>
+
+</body>
+
+</html>

@@ -1,0 +1,90 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html><head>
+<meta content="text/html; charset=ISO-8859-1" http-equiv="content-type"><title>C Pointer Activity</title></head>
+<body>
+<span class="Apple-style-span" style="border-collapse: separate; color: rgb(0, 0, 0); font-family: 'Times New Roman'; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; line-height: normal; orphans: 2; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; font-size: medium;">
+<center>
+<h2 style="font-family: Helvetica,Arial,sans-serif; font-weight: bold;">C
+Pointer Activity</h2>
+</center>
+<h3><span style="font-family: Helvetica,Arial,sans-serif;">Overview</span></h3>
+<span style="font-family: Helvetica,Arial,sans-serif;">For
+this activity you will write a main function, an interface header file,
+and a function implementing the header file interface, that</span></span><br>
+<ol>
+<li><span style="font-family: Helvetica,Arial,sans-serif;">Reads
+one line of data with three '$' terminated fields on it.</span></li>
+<li><span style="font-family: Helvetica,Arial,sans-serif;">Converts,
+as necessary, the fields to an internal numeric format.</span></li>
+<li><span style="font-family: Helvetica,Arial,sans-serif;">Returns
+these values via reference parameters (e.g., pointers).</span></li>
+<li><span style="font-family: Helvetica,Arial,sans-serif;">Prints
+the results.</span><br>
+</li>
+</ol>
+<h3 style="font-family: Helvetica,Arial,sans-serif;">Input Format</h3>
+<span style="font-family: Helvetica,Arial,sans-serif;">Your program will read exactly one line from standard input. The line will be formatted as follows (<span style="font-style: italic; text-decoration: underline;">you need not worry about any errors</span>):<br><br style="font-weight: bold; font-family: Courier New,Courier,monospace; color: rgb(153, 0, 0);"><span style="font-weight: bold; font-family: Courier New,Courier,monospace; color: rgb(153, 0, 0);">C$I$D$</span><br><br><span style="font-family: Helvetica,Arial,sans-serif;">where</span><br style="font-family: Helvetica,Arial,sans-serif;"></span><ul style="font-family: Helvetica,Arial,sans-serif;"><li><span style="font-weight: bold; font-family: Century Schoolbook; color: rgb(153, 0, 0);">C</span> is a single character.</li><li><span style="font-weight: bold; font-family: Century Schoolbook; color: rgb(153, 0, 0);">I</span> is a string of characters representing a legal decimal integer.</li><li><span style="font-weight: bold; font-family: Century Schoolbook; color: rgb(153, 0, 0);">D</span> is a string of characters reprsenting a double precision number.</li><li><span style="font-family: Century Schoolbook; font-weight: bold; color: rgb(153, 0, 0);">$</span> is the literal dollar sign character.</li></ul><span style="font-family: Helvetica,Arial,sans-serif;"><span style="font-weight: bold;">
+Example</span><br><br><span style="font-weight: bold; font-family: Courier New,Courier,monospace; color: rgb(153, 0, 0);">W$1349$1.414$</span><span style="font-family: Helvetica,Arial,sans-serif;"></span><br></span><h3><span style="font-family: Helvetica,Arial,sans-serif;">The Activity</span><span style="font-weight: bold;"></span><span style="font-weight: normal; font-family: Helvetica,Arial,sans-serif;"></span></h3><ol><li><span style="font-family: Helvetica,Arial,sans-serif;">Download the <a href="./c_pointers.zip">activity zip file c_pointers.zip.</a></span></li><li><span style="font-family: Helvetica,Arial,sans-serif;">Unpack the zip file in an empty working directory. You should see the following skeleton files:</span></li><ol style="list-style-type: lower-alpha;"><li style="font-weight: bold;"><span style="font-family: Helvetica,Arial,sans-serif;">read_data.h<br style="font-weight: normal;"><span style="font-weight: normal;">The
+interface to the function that reads the three values on the line,
+converts the two numeric strings to integer and double precision,
+respectively, and returns the three values via argument pointers of the
+appropriate type. The header file has a recapitulation of the interface information in this activity description.</span></span></li><li style="font-weight: bold;"><span style="font-family: Helvetica,Arial,sans-serif;">read_data.c<br><span style="font-weight: normal;">The implementation of the read_data.h interface.</span></span></li><li style="font-weight: bold;"><span style="font-family: Helvetica,Arial,sans-serif;">main.c<br><span style="font-weight: normal;">The
+driver program which declares the variables filled in by the read_data
+function, calls the function with appropriate pointer arguments, and,
+on return, prints the results. The format string to use is given in the
+header comment of main.c</span></span></li></ol><li><span style="font-family: Helvetica,Arial,sans-serif;">You <span style="font-weight: bold; color: rgb(204, 0, 0);">must</span> complete this activity by filling in the three skeleton files above. The point is <span style="font-style: italic; font-weight: bold; color: rgb(204, 0, 0);">NOT</span>
+to print a character, integer and double precision number, rather, it
+is to give you experience using pointers to pass data into and out of a
+function.</span><span style="font-family: Helvetica,Arial,sans-serif;"></span></li><li><span style="font-family: Helvetica,Arial,sans-serif;">You are also to create a <span style="font-weight: bold;">Makefile</span> whose primary target is an executable program named <span style="font-weight: bold;">test_pointers</span>.
+This executable depends on the two object files, which in turn depend
+on the approriate source files. Your instructor should be able to type
+the command:<br><br>&nbsp; &nbsp; &nbsp; &nbsp; <span style="font-weight: bold;">make test_pointers</span><br><br>on Linus and get an executable file named <span style="font-weight: bold;">test_pointers</span> which meets the activities specification.</span><br>
+</li></ol><span style="font-family: Helvetica,Arial,sans-serif;"></span>
+<h3><span style="font-family: Helvetica,Arial,sans-serif;">Submission</span><br>
+</h3>
+	<ol>
+		<li><span style="font-family: Helvetica, Arial, sans-serif;">The directory in your repository for this activity is <code>PointerActivity</code></span>.
+		</span></li>
+		<li><span style="font-family: Helvetica, Arial, sans-serif;">Your
+				submission <span style="font-weight: bold; color: rgb(204, 0, 0);">must</span>
+				contain <span
+				style="font-weight: bold; font-style: italic; color: rgb(204, 0, 0);">exactly</span>
+				four files.
+		</span></li>
+		<li><span style="font-family: Helvetica, Arial, sans-serif;">The
+				four files&nbsp;</span><span
+			style="font-family: Helvetica, Arial, sans-serif;"><span
+				style="font-weight: bold; color: rgb(204, 0, 0);">must</span></span><span
+			style="font-family: Helvetica, Arial, sans-serif;"> be
+				named&nbsp;</span><span style="font-family: Helvetica, Arial, sans-serif;"><span
+				style="font-weight: bold; font-style: italic; color: rgb(204, 0, 0);">exactly</span></span><span
+			style="font-family: Helvetica, Arial, sans-serif;"> the
+				following: <span style="font-weight: bold;">Makefile</span>, <span
+				style="font-weight: bold;">main.c</span>, <span
+				style="font-weight: bold;">read_data.h</span>, <span
+				style="font-weight: bold;">read_data.c</span>.
+		</span></li>
+	</ol>
+<h3><span style="font-family: Helvetica,Arial,sans-serif;">Grading
+(10 points)</span><br>
+</h3>
+<span style="font-family: Helvetica,Arial,sans-serif;">2&nbsp;
+<span style="font-weight: bold;">Submission</span>:
+Correct files submitted according to specification.<br>1 &nbsp;<span style="font-weight: bold;">Make</span>:
+<span style="font-weight: bold; color: rgb(204, 0, 0);">make</span><span style="color: rgb(204, 0, 0);"><span style="font-weight: bold;"> test_pointers</span><span style="color: black;"> compiles and links the executable without</span></span> errors.<br>1 &nbsp;<span style="font-weight: bold;">Make</span>: <span style="font-weight: bold; color: rgb(204, 0, 0);">Makefile</span><span style="color: rgb(204, 0, 0);"> </span>is correct with respect to dependencies among the various source, object and executable files.<br>
+</span><span style="font-family: Helvetica,Arial,sans-serif;">1 &nbsp;<span style="font-weight: bold;">Program</span>: <span style="font-weight: bold; color: rgb(204, 0, 0); font-family: Helvetica,Arial,sans-serif;">test</span><span style="font-weight: bold; color: rgb(204, 0, 0);">_pointers</span> reads and prints data according to the specification.</span><br>
+<span style="font-family: Helvetica,Arial,sans-serif;">1
+&nbsp;<span style="font-weight: bold;">Source</span>:
+<span style="color: black;">Correct interface defined in </span><span style="font-weight: bold; color: rgb(204, 0, 0);">read_data.h</span></span><span style="font-family: Helvetica,Arial,sans-serif;">.</span><br><span style="font-family: Helvetica,Arial,sans-serif;">
+1 &nbsp;</span><span style="font-family: Helvetica,Arial,sans-serif;"><span style="font-weight: bold;">Source</span>:
+<span style="color: black;">Correct implementation in </span><span style="font-weight: bold; color: rgb(204, 0, 0);">read_data.c</span></span><span style="font-family: Helvetica,Arial,sans-serif;">.</span><br><span style="font-family: Helvetica,Arial,sans-serif;">
+1 &nbsp;</span><span style="font-family: Helvetica,Arial,sans-serif;"><span style="font-weight: bold;">Source</span><span style="color: black;">:
+Correct use of <span style="font-weight: bold; color: rgb(204, 0, 0);">read_data</span> function in </span><span style="font-weight: bold; color: rgb(204, 0, 0);">main.c</span></span><span style="font-family: Helvetica,Arial,sans-serif;">.</span><br><span style="font-family: Helvetica,Arial,sans-serif;">
+2 &nbsp;<span style="font-weight: bold;">Quality</span>:&nbsp;<span style="font-weight: bold; color: rgb(204, 0, 0);"></span>Source files conform&nbsp;to standards of quality in structure,style, naming and
+documentation.<br>
+<br>
+<br>
+<br>
+<br>
+</span><span class="Apple-style-span" style="border-collapse: separate; color: rgb(0, 0, 0); font-family: 'Times New Roman'; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; line-height: normal; orphans: 2; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; font-size: medium;"><span style="font-family: Helvetica,Arial,sans-serif;"></span><span style="font-family: Helvetica,Arial,sans-serif;"></span></span>
+</body></html>

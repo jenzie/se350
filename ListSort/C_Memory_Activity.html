@@ -1,0 +1,90 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html><head>
+<meta content="text/html; charset=ISO-8859-1" http-equiv="content-type"><title>C Linked List Activity</title>
+
+</head>
+<body>
+<span class="Apple-style-span" style="border-collapse: separate; color: rgb(0, 0, 0); font-family: 'Times New Roman'; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; line-height: normal; orphans: 2; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; font-size: medium;">
+<center>
+<h2 style="font-family: Helvetica,Arial,sans-serif; font-weight: bold;">C
+Linked List Activity</h2>
+</center>
+<h3><span style="font-family: Helvetica,Arial,sans-serif;">Overview</span></h3>
+<span style="font-family: Helvetica,Arial,sans-serif;">For
+this activity you will write a several functions to sort a singly
+linked list of integers. Several lists are set up by the driver <span style="font-weight: bold;">main()</span>.</span></span>
+<span style="font-family: Helvetica,Arial,sans-serif;">The
+functions you have to write, in order, are:</span>
+<ol>
+<li><span style="font-family: Helvetica,Arial,sans-serif;"><span style="font-weight: bold;">struct node *mk_node( <span style="font-family: Century Schoolbook; font-style: italic;">v</span>
+)</span><br>
+To create a new node with label <span style="font-style: italic; font-family: Century Schoolbook; font-weight: bold;">v</span>
+and a <span style="font-weight: bold;">NULL</span>
+next link and return a pointer to the resulting node.</span></li>
+<li><span style="font-family: Helvetica,Arial,sans-serif;"><span style="font-weight: bold;">void print_list(</span> <span style="font-style: italic; font-weight: bold; font-family: Century Schoolbook;">head</span>
+<span style="font-weight: bold;">)</span><br>
+Prints the list of values in the list headed by <span style="font-style: italic; font-family: Century Schoolbook; font-weight: bold;">head</span>,
+<span style="font-style: italic; color: rgb(204, 0, 0);">one
+value per line</span>.</span></li>
+<li><span style="font-family: Helvetica,Arial,sans-serif;"><span style="font-weight: bold;">struct node *sort( <span style="font-family: Century Schoolbook; font-style: italic;">head</span>
+)</span><br>
+To sort the list headed by&nbsp;</span><span style="font-family: Helvetica,Arial,sans-serif;"><span style="font-weight: bold;"><span style="font-family: Century Schoolbook; font-style: italic;">head</span></span></span><span style="font-family: Helvetica,Arial,sans-serif;"> in
+ascending order, and return a pointer to the node that ends up at the
+head of the list. <br>
+<span style="font-weight: bold; color: rgb(204, 0, 0);">NOTE:</span><span style="color: rgb(204, 0, 0);"> You must sort the list by
+rearranging the nodes themselves, <span style="font-style: italic; font-weight: bold;">not </span>by
+exchanging the values in the nodes.</span></span></li>
+<li><span style="font-family: Helvetica,Arial,sans-serif;"><span style="font-weight: bold;">void free_list(</span> <span style="font-style: italic; font-weight: bold; font-family: Century Schoolbook;">head</span>
+<span style="font-weight: bold;">)</span><br>
+Free all the storage associated with&nbsp;the list of values headed
+by <span style="font-style: italic; font-family: Century Schoolbook; font-weight: bold;">head</span>.</span></li>
+</ol>
+<span style="font-family: Helvetica,Arial,sans-serif;">Note
+that
+in real practice on rarely sorts a list in place; this exercise is
+primarily to give you an opportunity to work with issues surrounding
+list manipulation.</span><span style="font-family: Helvetica,Arial,sans-serif;"><br>
+</span>
+<h3><span style="font-family: Helvetica,Arial,sans-serif;">The
+Activity</span><span style="font-weight: bold;"></span><span style="font-weight: normal; font-family: Helvetica,Arial,sans-serif;"></span></h3>
+<ol>
+<li><span style="font-family: Helvetica,Arial,sans-serif;">Download
+the source file <a href="./listsort.c"><span style="font-weight: bold;">listsort.c</span></a>.</span></li>
+<li><span style="font-family: Helvetica,Arial,sans-serif;">Edit
+the file and complete the four functions listed above. Note that the
+functions returning pointers have dummy placeholder return statements -
+these, of course, must be replaced in the real implementation.</span></li>
+<li><span style="font-family: Helvetica,Arial,sans-serif;">Note
+that if you write the functions in the order given, you can do at least
+minimal testing after each function is complete.<br>
+</span></li>
+</ol>
+<span style="font-family: Helvetica,Arial,sans-serif;"></span>
+<h3><span style="font-family: Helvetica,Arial,sans-serif;">Submission</span><br>
+</h3>
+<ol>
+<li><span style="font-family: Helvetica,Arial,sans-serif;">Your
+submission <span style="font-weight: bold; color: rgb(204, 0, 0);">must</span>
+be a single source file named <span style="font-weight: bold; font-style: italic; color: black;">exactly</span><span style="color: red;"> </span><span style="font-weight: bold; color: red;">listsort.c</span>.</span></li>
+</ol>
+<span style="font-family: Helvetica,Arial,sans-serif;">Submit
+the&nbsp;file to the <span style="font-style: italic; font-weight: bold;">ListSort</span>
+directory in your repository<br>
+</span>
+<h3><span style="font-family: Helvetica,Arial,sans-serif;">Grading
+(10 points)</span><br>
+</h3>
+<span style="font-family: Helvetica,Arial,sans-serif;">1&nbsp;
+<span style="font-weight: bold;">Submission</span><br>
+1&nbsp;&nbsp; <span style="font-weight: bold;">mk_node</span></span><br style="font-family: Helvetica,Arial,sans-serif;">
+<span style="font-family: Helvetica,Arial,sans-serif;">1&nbsp;&nbsp;
+<span style="font-weight: bold;">print_list</span></span><br style="font-family: Helvetica,Arial,sans-serif;">
+<span style="font-family: Helvetica,Arial,sans-serif;">4&nbsp;&nbsp;
+<span style="font-weight: bold;">sort_list</span></span><br style="font-family: Helvetica,Arial,sans-serif;">
+<span style="font-family: Helvetica,Arial,sans-serif;">1&nbsp;&nbsp;
+<span style="font-weight: bold;">free_list</span></span><br style="font-family: Helvetica,Arial,sans-serif;">
+<span style="font-family: Helvetica,Arial,sans-serif;"><span style="font-family: Helvetica,Arial,sans-serif;">2 &nbsp;</span><span style="font-weight: bold; font-family: Helvetica,Arial,sans-serif;">Quality</span><span style="font-family: Helvetica,Arial,sans-serif;">:&nbsp;</span><span style="font-weight: bold; color: rgb(204, 0, 0); font-family: Helvetica,Arial,sans-serif;"></span><span style="font-family: Helvetica,Arial,sans-serif;">Source
+files conform&nbsp;to standards of quality implementation &amp;
+documentation.<br><br><br><br>
+</span></span>
+</body></html>
